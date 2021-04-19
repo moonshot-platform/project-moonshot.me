@@ -1,0 +1,9 @@
+<section class="header">
+    <nav class="fx-space-between">
+        <img class="logo-small" src="assets/media/images/logo.png" alt="moonshot logo">
+        <ul class="fx">
+            <li *ngFor="let item of navItems"><a [routerLink]="[item.path]">{{item.name}}</a></li>
+            <!-- <a [routerLink]="['']">Jim</a> -->
+        </ul>
+    </nav>
+</section>

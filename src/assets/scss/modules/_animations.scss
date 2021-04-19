@@ -1,0 +1,17 @@
+@keyframes pulse {
+    0%, 100% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+}
+
+@keyframes expand {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}

@@ -1,0 +1,42 @@
+*:focus {
+    outline   : none;
+}
+  
+html, body {
+    margin    : 0;
+    padding   : 0;
+    width     : $full;
+    height    : $full;
+}
+  
+body {
+    background-color : $body-bg-color;
+    font-family      : $font-family-base;
+    font-weight      : $font-weight-base;
+    letter-spacing   : $letter-spacing-base;
+    color            : $font-color-base;
+}
+
+.logo-small {
+    height  : 40px;
+}
+
+.logo-medium {
+    height  : 120px;
+}
+
+.logo-large {
+    height  : 220px;
+}
+
+.fx {
+    display: flex;
+}
+
+.fx-center {
+    @extend %flex-center;
+}
+
+.fx-space-between {
+    @extend %flex-space-between;
+}

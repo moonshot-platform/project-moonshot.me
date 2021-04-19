@@ -1,0 +1,35 @@
+@import 'includes';
+
+section.intro {
+    background: url('/assets/media/images/space-bg.jpg');
+    background-size: cover;
+    min-height: 100vh;
+    width: 100vw;
+
+    > .inner-layer {
+        @extend %flex-center-col;
+
+
+        background: url('/assets/media/images/solarsystem-design.png') no-repeat center center;
+        min-height: 100vh;
+        width: 100vw;
+
+        p {
+            color: white;
+            font-family: PressStart2P;
+            text-align: center;
+
+            &.big {
+                font-size: 35px;
+            }
+        }
+    }
+
+    .inner {
+
+    }
+
+    > .bottom-layer {
+
+    }
+}

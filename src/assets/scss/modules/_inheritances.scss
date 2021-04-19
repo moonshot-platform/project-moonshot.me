@@ -1,0 +1,31 @@
+%full-size {
+    height     : $full;
+    width      : $full;
+}
+
+%max-width-center {
+    width      : $full;
+    max-width  : $max-width;
+    margin     : 0 auto;
+}
+  
+%flex-center {
+    display         : flex;
+    align-items     : center;
+    justify-content : center;
+}
+
+%flex-center-col {
+    @extend %flex-center;
+    flex-direction  : column;
+}
+  
+%flex-center-row {
+    @extend %flex-center;
+    flex-direction  : row;
+}
+  
+%flex-space-between {
+    @extend %flex-center;
+    justify-content : space-between;
+}
