@@ -1,0 +1,30 @@
+@import 'includes';
+
+section.header {
+    background  : #1f1e1e;
+    box-shadow  : 0 4px 12px 0 #00000026;
+    padding     : 15px;
+    box-sizing  : border-box;
+    position    : fixed;
+    width       : 100%;
+    left        : 0;
+    right       : 0;
+}
+
+
+nav {
+    @extend %max-width-center;
+
+    ul {
+        list-style-type: none;
+        li {
+            margin: 0 toEm(8px);
+            a {
+                color: white;
+                text-transform: uppercase;
+                text-decoration: none;
+                font-weight: $light;
+            }
+        }       
+    }
+}

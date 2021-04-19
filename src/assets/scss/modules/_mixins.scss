@@ -1,0 +1,29 @@
+@mixin paddingInside( $val ) {
+    padding     : toRem( $val );
+    box-sizing  : border-box;
+}
+  
+@mixin paddingsInside( $py, $px ) {
+    padding     : toRem( $py ) toRem( $px );
+    box-sizing  : border-box;
+}
+  
+@mixin maxWidthTill( $maxWidth, $borderRadius:null ) {
+    width       : $full;
+    max-width   : toRem( $maxWidth );
+  
+    @if $borderRadius != null {
+      border-radius: $borderRadius;
+    }
+}
+  
+@mixin maxSizeTill( $maxWidth, $maxHeight, $borderRadius:null ) {
+    width       : $full;
+    height      : $full;
+    max-width   : toRem( $maxWidth );
+    max-height  : toRem( $maxHeight );
+  
+    @if $borderRadius != null {
+      border-radius: $borderRadius;
+    }
+}
