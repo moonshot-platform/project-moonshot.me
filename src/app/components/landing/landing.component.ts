@@ -9,11 +9,7 @@ export class LandingComponent implements OnInit {
 
   static readonly routeName: string = '';
 
-  seconds: number = 0;
-
-  constructor() {
-    this.seconds = 10000;
-  }
+  constructor() { }
 
   ngOnInit(): void {
   }
