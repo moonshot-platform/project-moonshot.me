@@ -7,6 +7,11 @@ import { FooterModule } from './components/base/footer/footer.module';
 import { HeaderModule } from './components/base/header/header.module';
 import { LandingModule } from './components/landing/landing.module';
 import { SignModule } from './components/sign/sign.module';
+import { CountdownConfig, CountdownGlobalConfig, CountdownModule } from 'ngx-countdown';
+
+export function countdownConfigFactory(): CountdownConfig {
+  return {};
+}
 
 @NgModule({
   declarations: [
@@ -18,9 +23,10 @@ import { SignModule } from './components/sign/sign.module';
     SignModule,
     LandingModule,
     HeaderModule,
-    FooterModule
+    FooterModule,
+    CountdownModule
   ],
-  providers: [],
+  providers: [{ provide: CountdownGlobalConfig, useFactory: countdownConfigFactory }],
   bootstrap: [AppComponent],
   exports: [
     HeaderModule,

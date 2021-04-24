@@ -1,9 +1,24 @@
 <section class="header">
     <nav class="fx-space-between">
         <img class="logo-small" src="assets/media/images/logo.png" alt="moonshot logo">
+
+        <div class="mob-menu" [class.open]="open" (click)="open = !open">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
         <ul class="fx">
-            <li *ngFor="let item of navItems"><a [routerLink]="[item.path]">{{item.name}}</a></li>
+            <li *ngFor="let item of navItems"><a [class.pri-btn]="item?.class == 'pri'"
+                    [routerLink]="[item.path]">{{item.name}}</a></li>
             <!-- <a [routerLink]="['']">Jim</a> -->
         </ul>
     </nav>
 </section>
+<div class="header-placeholder"></div>
