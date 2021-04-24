@@ -1,0 +1,19 @@
+@import 'includes';
+
+section.tokenomics {
+    padding: 100px 20px;
+    box-sizing: border-box;
+    .inner {
+        @extend %max-width-center;
+    }
+}
+
+.left {
+    width: 100%;
+    max-width: 520px;
+}
+
+.pru {
+    color: $primary;
+    text-transform: uppercase;
+}

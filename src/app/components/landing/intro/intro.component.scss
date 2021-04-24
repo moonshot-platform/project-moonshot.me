@@ -90,7 +90,6 @@ section.intro {
             @extend %flex-center-col;
             ul {
                 @extend %flex-center-row;
-                list-style-type: none;
                 margin-bottom: 40px;
             }
             li {
