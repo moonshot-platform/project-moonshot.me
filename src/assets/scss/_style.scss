@@ -44,3 +44,50 @@ ul {
 .fx-space-between {
     @extend %flex-space-between;
 }
+
+.w20px {
+    font-size: 20px;
+    color: white;    
+}
+
+.wf {
+    color: white;
+}
+
+.w20pu {
+    font-size: 20px;
+    color: white;
+    text-transform: uppercase;
+}
+
+.round-btn {
+    display: block;
+    background-color: $primary;
+    height: fit-content;
+    width: fit-content;
+    padding: 12px 10px;
+    border-radius: 25px;
+    color: black;
+    font-weight: $semi-bold;
+    cursor: pointer;
+
+    &:hover {
+        color: white;
+    }
+}
+
+.outline-btn {
+    display: block;
+    padding: 12px 10px;
+    height: fit-content;
+    width: fit-content;
+    border-radius: 25px;
+    border: 1px solid $primary;
+    color: $primary;
+    font-weight: $semi-bold;
+    cursor: pointer;
+
+    &:hover {
+        color: white;
+    }
+}
