@@ -1,12 +1,39 @@
 <app-header></app-header>
 
 <section class="intro">
+    <div class="counter">
+        <p>Mission elapsed time:&nbsp;</p>
+        <countdown [config]="{ leftTime: seconds, format: 'HH:mm:ss:SS' }"></countdown>
+    </div>
     <div class="inner-layer fx-center">
         <img class="logo-large" src="assets/media/images/logo.png" alt="moonshot logo">
         <p class="big">Take the moonshot</p>
         <p>Press to play</p>
     </div>
-    <div class="inner">
-
+    <div class="bottom-layer fx">
+        <div class="inner fx-space-between">
+            <div class="left">
+                <p>
+                    Deflationary, frictionless yield and liquidity generation protocol.
+                    Simply hold Moonshot in your wallet and gain rewards when others transfer.
+                </p>
+                <div>
+                    <a class="round-btn">Join on Telegram</a>
+                    <a class="round-btn">Join on Twitter</a>
+                </div>
+            </div>
+            <div class="right">
+                <ul class="social-icons">
+                    <li><a href="#" class="min-round-btn"></a></li>
+                    <li><a href="#" class="min-round-btn"></a></li>
+                    <li><a href="#" class="min-round-btn"></a></li>
+                    <li><a href="#" class="min-round-btn"></a></li>
+                    <li><a href="#" class="min-round-btn"></a></li>
+                </ul>
+                <a class="outline-btn">click here for moonpaper</a>
+            </div>
+        </div>
     </div>
 </section>
+
+<app-footer></app-footer>

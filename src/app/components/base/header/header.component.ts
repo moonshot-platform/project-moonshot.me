@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  public open = false;
+
   public navItems: any[] = [
     {
       'name': 'Home',
@@ -39,6 +41,11 @@ export class HeaderComponent implements OnInit {
     {
       'name': 'MoonTV',
       'path': '#moontv'
+    },
+    {
+      'name': 'launch',
+      'path': '#launch',
+      'class': 'pri'
     }
   ];
 
