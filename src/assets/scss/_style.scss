@@ -43,6 +43,10 @@ ul {
     @extend %flex-center;
 }
 
+.fx-center-col {
+    @extend %flex-center-col;
+}
+
 .fx-space-between {
     @extend %flex-space-between;
 }

@@ -1,0 +1,15 @@
+@import 'includes';
+
+section.fuel {
+    background: url('/assets/media/images/space-bg.jpg');
+    background-size: cover;
+    padding: 50px 20px;
+    box-sizing: border-box;
+    .inner {
+        @extend %max-width-center;
+    }
+}
+
+.txtc {
+    text-align: center;
+}
