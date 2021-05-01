@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+declare let particlesJS: any;
 
 @Component({
   selector: 'app-intro',
@@ -7,10 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IntroComponent implements OnInit {
 
-  seconds: number = 0;
-
   constructor() {
-    this.seconds = 10000;
+    particlesJS.load('particles', 'assets/json/particlesjs-config.json', function () { });
   }
 
   ngOnInit(): void {
