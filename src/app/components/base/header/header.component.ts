@@ -11,10 +11,6 @@ export class HeaderComponent implements OnInit {
 
   public navItems: any[] = [
     {
-      'name': 'Home',
-      'path': '#home'
-    },
-    {
       'name': 'About',
       'path': '#about'
     },
@@ -27,7 +23,7 @@ export class HeaderComponent implements OnInit {
       'path': '#fueltherocket'
     },
     {
-      'name': 'ticket',
+      'name': 'Ticket',
       'path': '#ticket'
     },
     {
@@ -41,6 +37,10 @@ export class HeaderComponent implements OnInit {
     {
       'name': 'MoonTV',
       'path': '#moontv'
+    },
+    {
+      'name': 'Gallery',
+      'path': '#gallery'
     },
     {
       'name': 'launch',

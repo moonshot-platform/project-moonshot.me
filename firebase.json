@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/moonshot-web",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
