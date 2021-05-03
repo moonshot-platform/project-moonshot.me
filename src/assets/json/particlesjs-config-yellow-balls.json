@@ -1,0 +1,43 @@
+{
+  "particles": {
+    "fpsLimit": 120,
+    "number": {
+      "value": 6,
+      "density": {
+        "enable": true,
+        "value_area": 800
+      }
+    },
+    "shape": {
+      "type": "image",
+      "image": [
+        {
+          "src": "assets/media/images/yellow-star.svg"
+        }
+      ]
+    },
+    "opacity": {
+      "value": 1
+    },
+    "size": {
+      "value": 80,
+      "random": true,
+      "anim": {
+        "enable": false,
+        "speed": 0.1,
+        "size_min": 60,
+        "sync": false
+      }
+    },
+    "move": {
+      "enable": true,
+      "speed": 0.25,
+      "direction": "none",
+      "random": false,
+      "straight": false,
+      "out_mode": "out",
+      "bounce": false
+    }
+  },
+  "retina_detect": true
+}
