@@ -39,6 +39,11 @@ ul {
     display: flex;
 }
 
+.fx-col {
+    display: flex;
+    flex-direction: column;
+}
+
 .fx-center {
     @extend %flex-center;
 }
@@ -60,10 +65,48 @@ ul {
     color: white;
 }
 
-.w20pu {
-    font-size: 20px;
-    color: white;
+.uppercase {
     text-transform: uppercase;
+}
+
+.p12 {
+    font-size: 12px;
+}
+
+.p16 {
+    font-size: 16px;
+}
+
+.p20 {
+    font-size: 20px;
+}
+
+.p22 {
+    font-size: 22px;
+}
+
+.p40 {
+    font-size: 40px;
+}
+
+.w300 {
+    font-weight: 300;
+}
+
+.w700 {
+    font-weight: 700;
+}
+
+.w800 {
+    font-weight: 800;
+}
+
+.white {
+    color: white;
+}
+
+.text-center {
+    text-align: center;
 }
 
 .round-btn {
@@ -71,20 +114,22 @@ ul {
     background-color: $primary;
     height: fit-content;
     width: fit-content;
-    padding: 12px 10px;
+    padding: 15px 15px;
     border-radius: 25px;
-    color: black;
+    color: white;
     font-weight: $semi-bold;
     cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
 
     &:hover {
-        color: white;
+        color: $secondary;
     }
 }
 
 .outline-btn {
     display: block;
-    padding: 12px 10px;
+    padding: 15px 15px;
     height: fit-content;
     width: fit-content;
     border-radius: 25px;

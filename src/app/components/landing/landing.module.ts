@@ -10,6 +10,7 @@ import { TokenomicsComponent } from './tokenomics/tokenomics.component';
 import { FuelComponent } from './fuel/fuel.component';
 import { HowtoComponent } from './howto/howto.component';
 import { RoadmapComponent } from './roadmap/roadmap.component';
+import { NgParticlesModule } from 'ng-particles';
 
 
 
@@ -27,7 +28,8 @@ import { RoadmapComponent } from './roadmap/roadmap.component';
     CommonModule,
     HeaderModule,
     FooterModule,
-    CountdownModule
+    CountdownModule,
+    NgParticlesModule
   ]
 })
 export class LandingModule { }

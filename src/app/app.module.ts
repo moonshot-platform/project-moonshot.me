@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgParticlesModule } from "ng-particles";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,7 +25,8 @@ export function countdownConfigFactory(): CountdownConfig {
     LandingModule,
     HeaderModule,
     FooterModule,
-    CountdownModule
+    CountdownModule,
+    NgParticlesModule
   ],
   providers: [{ provide: CountdownGlobalConfig, useFactory: countdownConfigFactory }],
   bootstrap: [AppComponent],

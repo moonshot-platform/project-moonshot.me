@@ -3,12 +3,50 @@
 section.about {
     padding: 100px 20px;
     box-sizing: border-box;
+    background: url('/assets/media/images/moon-bg-bottom.png') center top no-repeat;
+    background-size: cover;
+
     .inner {
         @extend %max-width-center;
     }
 }
 
-.left {
-    width: 100%;
-    max-width: 520px;
+.inner {
+    > div:nth-child(1) {
+        .left {
+            width: 100%;
+            margin-right: 50px;
+        }
+        
+        .right {
+            background: hsla(41, 64%, 55%, 0.9);
+            border: 1px solid #FFC821;
+            box-shadow: 0px 4px 24px -1px rgba(0, 0, 0, 0.2);
+            border-radius: 25px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+    }
+
+    > div:nth-child(2) {
+        margin: 40px 0;
+    }
+
+    > div:nth-child(3) {
+        background: hsla(41, 64%, 55%, 0.9);
+        border: 1px solid #FFC821;
+        box-shadow: 0px 4px 24px -1px rgba(0, 0, 0, 0.2);
+        border-radius: 25px;
+        padding: 20px;
+        box-sizing: border-box;
+        margin: 0 100px;
+    }
+}
+
+.icons-container > .block {
+    height: 300px;
+    width: 20%;
+    max-width: 250px;
+    border-radius: 20px;
+    background: #1F1E1E;
 }
