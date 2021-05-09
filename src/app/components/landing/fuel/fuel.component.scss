@@ -1,15 +1,28 @@
-@import 'includes';
+@import "includes";
 
 section.fuel {
-    background: url('/assets/media/images/space-bg.jpg');
-    background-size: cover;
-    padding: 50px 20px;
+  background-size: cover;
+  padding: 50px 20px;
+  box-sizing: border-box;
+  .inner {
+    @extend %max-width-center;
+
+    border-radius: 160px;
+    padding: 60px 100px;
     box-sizing: border-box;
-    .inner {
-        @extend %max-width-center;
-    }
+    position: relative;
+  }
 }
 
-.txtc {
-    text-align: center;
+.round-btn {
+  min-width: 200px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.rocket {
+  background: url("/assets/media/images/rocket.svg");
+  position: absolute;
+  right: -240px;
+  bottom: -160px;
 }

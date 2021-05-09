@@ -1,20 +1,29 @@
 <section class="tokenomics">
-    <div class="inner fx-space-between">
-        <div class="left">
-            <img src="assets/media/images/engine.png" alt="Engine">
-        </div>
-        <div class="right">
-            <a class="outline-btn">TOKENOMICS</a>
-            <p class="wf">
-                6% of each transaction is automatically locked to the liquidity pool. this contributes to lower
-                volatility and a continuously increasing price floor.
-            </p>
-            <ul>
-                <li *ngFor="let item of list">
-                    <p class="w20pu">{{item.key}}</p>
-                    <p class="pru">{{item.val}}</p>
-                </li>
-            </ul>
+    <div class="inner balloon">
+        <p class="p38 w900 white text-center">TOKENOMICS</p>
+        <div class="deeper fx-space-between">
+            <div class="left">
+                <div class="block">
+                    <p class="text-center p17 uppercase">Staking: For every transaction, 4% is distributed to holders</p>
+                </div>
+                <ul>
+                    <li *ngFor="let item of list[0]">
+                        <p class="w900 white p20">{{item.key}}</p>
+                        <p class="w700 white p20">{{item.val}}</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="right">
+                <div class="block">
+                    <p class="text-center p17 uppercase">Liquidity: For every transaction, 6% is auto-locked to liquidity pool</p>
+                </div>
+                <ul>
+                    <li *ngFor="let item of list[1]">
+                        <p class="w900 white p20">{{item.key}}</p>
+                        <p class="w700 white p20">{{item.val}}</p>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </section>

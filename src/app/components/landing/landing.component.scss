@@ -1,0 +1,33 @@
+@import "includes";
+
+#particles {
+  background-color: #030018;
+}
+
+#particles,
+#particles2 {
+  height: $full;
+  width: $full;
+
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+
+  &:before {
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+
+section.landing {
+  background: url("/assets/media/images/moon-illustration2.svg") no-repeat
+    center 300px;
+  background-size: inherit;
+  z-index: 2;
+  position: relative;
+}

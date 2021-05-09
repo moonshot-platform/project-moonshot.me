@@ -1,144 +1,175 @@
 *:focus {
-    outline   : none;
+  outline: none;
 }
-  
-html, body {
-    margin    : 0;
-    padding   : 0;
-    width     : $full;
-    height    : $full;
-}
-  
+
+html,
 body {
-    background-color : $body-bg-color;
-    font-family      : $font-family-base;
-    font-weight      : $font-weight-base;
-    letter-spacing   : $letter-spacing-base;
-    color            : $font-color-base;
+  margin: 0;
+  padding: 0;
+  width: $full;
+  height: $full;
+}
+
+body {
+  background-color: $body-bg-color;
+  font-family: $font-family-base;
+  font-weight: $font-weight-base;
+  letter-spacing: $letter-spacing-base;
+  color: $font-color-base;
 }
 
 ul {
-    padding-left: 0;
-    list-style-type: none;
-    margin: 0;
+  padding-left: 0;
+  list-style-type: none;
+  margin: 0;
 }
 
 .logo-small {
-    height  : 50px;
+  height: 50px;
 }
 
 .logo-medium {
-    height  : 120px;
+  height: 120px;
 }
 
 .logo-large {
-    height  : 220px;
+  height: 220px;
 }
 
 .fx {
-    display: flex;
+  display: flex;
 }
 
-.fx-col {
-    display: flex;
-    flex-direction: column;
+.col {
+  flex-direction: column;
+}
+
+.fx-col-space-between {
+  @extend %flex-space-between;
+
+  flex-direction: column;
 }
 
 .fx-center {
-    @extend %flex-center;
+  @extend %flex-center;
 }
 
 .fx-center-col {
-    @extend %flex-center-col;
+  @extend %flex-center-col;
 }
 
 .fx-space-between {
-    @extend %flex-space-between;
-}
-
-.w20px {
-    font-size: 20px;
-    color: white;    
-}
-
-.wf {
-    color: white;
+  @extend %flex-space-between;
 }
 
 .uppercase {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 .p12 {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 .p16 {
-    font-size: 16px;
+  font-size: 16px;
+}
+
+.p17 {
+  font-size: 17px;
 }
 
 .p20 {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .p22 {
-    font-size: 22px;
+  font-size: 22px;
 }
 
 .p40 {
-    font-size: 40px;
+  font-size: 40px;
+}
+
+.p38 {
+  font-size: 38px;
 }
 
 .w300 {
-    font-weight: 300;
+  font-weight: 300;
 }
 
 .w700 {
-    font-weight: 700;
+  font-weight: 700;
 }
 
 .w800 {
-    font-weight: 800;
+  font-weight: 800;
+}
+
+.w900 {
+  font-weight: 900;
 }
 
 .white {
-    color: white;
+  color: white;
 }
 
 .text-center {
-    text-align: center;
+  text-align: center;
+}
+
+.balloon {
+  //   background: hsla(41, 64%, 55%, 0.9);
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid #ffc821;
+  box-shadow: 0px 4px 24px -1px rgba(0, 0, 0, 0.2);
+  border-radius: 25px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.block {
+  width: 100%;
+  border-radius: 20px;
+  background: #1f1e1e;
+  padding: 20px;
+  box-sizing: border-box;
+
+  > p {
+    color: #d6a644;
+  }
 }
 
 .round-btn {
-    display: block;
-    background-color: $primary;
-    height: fit-content;
-    width: fit-content;
-    padding: 15px 15px;
-    border-radius: 25px;
-    color: white;
-    font-weight: $semi-bold;
-    cursor: pointer;
-    text-decoration: none;
-    text-transform: uppercase;
+  display: block;
+  background-color: $primary;
+  height: fit-content;
+  width: fit-content;
+  padding: 15px 15px;
+  border-radius: 25px;
+  color: white;
+  font-weight: $semi-bold;
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
 
-    &:hover {
-        color: $secondary;
-    }
+  &:hover {
+    color: $secondary;
+  }
 }
 
 .outline-btn {
-    display: block;
-    padding: 15px 15px;
-    height: fit-content;
-    width: fit-content;
-    border-radius: 25px;
-    border: 1px solid $primary;
-    color: $primary;
-    font-weight: $semi-bold;
-    cursor: pointer;
+  display: block;
+  padding: 15px 15px;
+  height: fit-content;
+  width: fit-content;
+  border-radius: 25px;
+  border: 1px solid $primary;
+  color: $primary;
+  font-weight: $semi-bold;
+  cursor: pointer;
 
-    &:hover {
-        color: white;
-    }
+  &:hover {
+    color: white;
+  }
 }
