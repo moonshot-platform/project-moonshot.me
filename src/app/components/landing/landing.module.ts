@@ -11,6 +11,7 @@ import { FuelComponent } from './fuel/fuel.component';
 import { HowtoComponent } from './howto/howto.component';
 import { RoadmapComponent } from './roadmap/roadmap.component';
 import { NgParticlesModule } from 'ng-particles';
+import { PartnersComponent } from './partners/partners.component';
 
 
 
@@ -22,7 +23,8 @@ import { NgParticlesModule } from 'ng-particles';
     TokenomicsComponent,
     FuelComponent,
     HowtoComponent,
-    RoadmapComponent
+    RoadmapComponent,
+    PartnersComponent
   ],
   imports: [
     CommonModule,
