@@ -1,19 +1,27 @@
-@import 'includes';
+@import "includes";
 
 section.tokenomics {
-    padding: 0 20px 100px;
-    box-sizing: border-box;
-    .inner {
-        @extend %max-width-center;
-    }
+  padding: 0 20px 100px;
+  box-sizing: border-box;
+  .inner {
+    @extend %max-width-center;
+
+    border-radius: 160px;
+  }
 }
 
-.left {
-    width: 100%;
+.deeper {
+  padding: 60px 100px;
+  box-sizing: border-box;
+  align-items: flex-start;
+
+  .left {
+    margin-right: 20px;
+  }
+
+  .left,
+  .right {
+    flex: 1;
     max-width: 520px;
-}
-
-.pru {
-    color: $primary;
-    text-transform: uppercase;
+  }
 }

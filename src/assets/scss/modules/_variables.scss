@@ -1,61 +1,61 @@
-@import './_fonts';
+@import "./_fonts";
 
 // size
-$full                   : 100%;
-$half                   : 50%;
-$quarter                : 50%;
+$full: 100%;
+$half: 50%;
+$quarter: 50%;
 
-$max-width              : toRem( 1200px );
-$margin-auto            : 0 auto;
+$max-width: toRem(1200px);
+$margin-auto: 0 auto;
 
-$md                     : toRem( 1200px );
-$sm                     : toRem( 720px );
-$xs                     : toRem( 400px );
+$md: toRem(1200px);
+$sm: toRem(720px);
+$xs: toRem(400px);
 
 // Header
-$md-header              : toRem( 1150px );
+$md-header: toRem(1150px);
 
 // Colors
-$primary-font-color     : #0f0f0f;
-$primary                : #a38b42;
-$secondary              : #1f1e1e;
+$primary-font-color: #0f0f0f;
+$primary: #a38b42;
+$secondary: #1f1e1e;
 
-$body-bg-color          : #1f1e1e;
-$white                  : #ffffff;
+$body-bg-color: #1f1e1e;
+$white: #ffffff;
 
-$success                : #2eca8b;
-$warning                : #f17425;
-$info                   : #17a2b8;
-$danger                 : #e43f52;
-$dark                   : #3c4858;
-$black                  : #161c2d;
-$muted                  : #8492a6;
-$light                  : #f8f9fc;
+$success: #2eca8b;
+$warning: #f17425;
+$info: #17a2b8;
+$danger: #e43f52;
+$dark: #3c4858;
+$black: #161c2d;
+$muted: #8492a6;
+$light: #f8f9fc;
 
 // fonts
-$primary_font           : 'TTSuperMolotNeue';
-$secondary_font         : 'PressStart2P';
+$primary_font: "TTSuperMolotNeue";
+$secondary_font: "PressStart2P";
 
-$thin                   : 100;
-$extra-light            : 200;
-$light                  : 300;
-$regular                : 400;
-$medium                 : 500;
-$semi-bold              : 600;
-$bold                   : 700;
-$extra-bold             : 800;
-$black                  : 900;
+$thin: 100;
+$extra-light: 200;
+$light: 300;
+$regular: 400;
+$medium: 500;
+$semi-bold: 600;
+$bold: 700;
+$extra-bold: 800;
+$black: 900;
 
-$font-xs                : 12px;
-$font-sm                : 14px;
-$primary-fs             : 16px;
-$font-md                : 18px;
-$font-lg                : 20px;
+$font-xs: 12px;
+$font-sm: 14px;
+$primary-fs: 16px;
+$font-md: 18px;
+$font-lg: 20px;
 
-$font-size-base         : toRem( $primary-fs );
-$font-weight-base       : $regular;
-$font-color-base        : $primary-font-color;
-$font-family-base       : $primary_font, 'Sans';
-$font-family-secondary  : $secondary_font, 'Arial';
+$font-size-base: toRem($primary-fs);
+$font-weight-base: $regular;
+$font-color-base: $primary-font-color;
+$font-family-base: $primary_font, "Sans";
+$font-family-secondary: $secondary_font, "Arial";
 
-$letter-spacing-base    : toRem( 1px );
+$letter-spacing-base: toRem(1px);
