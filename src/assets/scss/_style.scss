@@ -234,13 +234,12 @@ ul {
 }
 
 .balloon {
+  @include paddingInside(20px);
   //   background: hsla(41, 64%, 55%, 0.9);
   background: rgba(255, 255, 255, 0.2);
   border: 2px solid #ffc821;
   box-shadow: 0px 4px 24px -1px rgba(0, 0, 0, 0.2);
   border-radius: 25px;
-  padding: 20px;
-  box-sizing: border-box;
 
   &.dark {
     background-color: black;
@@ -248,11 +247,11 @@ ul {
 }
 
 .block {
+  @include paddingInside(20px);
+
   width: 100%;
   border-radius: 20px;
   background: #1f1e1e;
-  padding: 20px;
-  box-sizing: border-box;
 
   > p {
     color: #d6a644;
@@ -260,11 +259,12 @@ ul {
 }
 
 .round-btn {
+  @include paddingsInside(15px, 20px);
+
   display: block;
   background-color: $primary;
   height: fit-content;
   width: fit-content;
-  padding: 15px 15px;
   border-radius: 25px;
   color: white;
   font-weight: $semi-bold;
@@ -278,8 +278,9 @@ ul {
 }
 
 .outline-btn {
+  @include paddingsInside(15px, 20px);
+
   display: block;
-  padding: 15px 15px;
   height: fit-content;
   width: fit-content;
   border-radius: 25px;

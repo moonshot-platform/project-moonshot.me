@@ -1,7 +1,7 @@
 @import "includes";
 
 section.about {
-  padding: 100px 20px;
+  @include paddingsInside(100px, 20px);
   box-sizing: border-box;
 
   .inner {
@@ -22,12 +22,12 @@ section.about {
   }
 
   > div:nth-child(3) {
+    @include paddingInside(20px);
+
     background: hsla(41, 64%, 55%, 0.9);
     border: 1px solid #ffc821;
     box-shadow: 0px 4px 24px -1px rgba(0, 0, 0, 0.2);
     border-radius: 25px;
-    padding: 20px;
-    box-sizing: border-box;
     margin: 0 100px;
   }
 }
