@@ -1,8 +1,8 @@
 @import "includes";
 
 section.howto {
-  padding: 100px;
-  box-sizing: border-box;
+  @include paddingInside(100px);
+
   background: #ec9a18;
   z-index: 2;
   position: relative;

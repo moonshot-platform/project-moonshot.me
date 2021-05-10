@@ -11,8 +11,7 @@ section.tokenomics {
 }
 
 .deeper {
-  padding: 60px 100px;
-  box-sizing: border-box;
+  @include paddingsInside(60px, 100px);
   align-items: flex-start;
 
   .left {

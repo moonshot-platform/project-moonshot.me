@@ -1,154 +1,161 @@
-@import 'includes';
+@import "includes";
 
 section.header {
-    background  : rgba($color: #000000, $alpha: .5);
-    box-shadow  : 0 4px 12px 0 #00000000;
-    padding     : 15px;
-    box-sizing  : border-box;
-    position    : fixed;
-    width       : 100%;
-    height      : 100px;
-    left        : 0;
-    right       : 0;
-    z-index     : 1000;
-    display: flex;
-    justify-content: center;
+  @include paddingInside(15px);
+
+  background: rgba($color: #000000, $alpha: 0.5);
+  box-shadow: 0 4px 12px 0 #00000000;
+  box-sizing: border-box;
+  position: fixed;
+  width: 100%;
+  height: 100px;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
 }
 
 nav {
-    @extend %max-width-center;
+  @extend %max-width-center;
 
-    ul {
-        li {
-            margin: 0 toEm(12.5px);
-            a {
-                color: white;
-                text-transform: uppercase;
-                text-decoration: none;
-                font-size: 15px;
+  ul {
+    li {
+      margin: 0 toEm(12.5px);
 
-                &:hover {
-                    color: $primary;
-                }
+      &:last-child {
+        margin: 0;
+      }
 
-                &.pri-btn {
-                    background-color: $primary;
-                    padding: 15px 15px;
-                    border-radius: 25px;
-                    font-weight: $semi-bold;
-                
-                    &:hover {
-                        color: $secondary;
-                    }
-                }
-            }
-        }       
+      a {
+        color: white;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-size: 15px;
+
+        &:hover {
+          color: $primary;
+        }
+
+        &.pri-btn {
+          @include paddingsInside(15px, 20px);
+
+          background-color: $primary;
+          border-radius: 25px;
+          font-weight: $semi-bold;
+
+          &:hover {
+            color: $secondary;
+          }
+        }
+      }
+    }
+  }
+
+  .mob-menu {
+    display: none;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    transition: 0.1s;
+    cursor: pointer;
+
+    &.open {
+      transform: rotate(180deg);
+      cursor: pointer;
+      transition: 0.2s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+
+      > span {
+        border-radius: 50%;
+        transition-delay: 200ms;
+        transition: 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+
+        &:nth-child(2) {
+          left: 6px;
+          top: 6px;
+        }
+
+        &:nth-child(4) {
+          left: 6px;
+          top: 18px;
+        }
+
+        &:nth-child(6) {
+          right: 6px;
+          top: 6px;
+        }
+
+        &:nth-child(8) {
+          left: 18px;
+          bottom: 6px;
+        }
+      }
     }
 
-    .mob-menu{
-        display: none;
-        width: 30px;
-        height: 30px;
-        position: relative;
-        transition: .1s;
-        cursor: pointer;
-    
-        &.open{
-            transform: rotate(180deg);
-            cursor: pointer;
-            transition: .2s cubic-bezier(.8, .5, .2, 1.4);
-    
-            > span{
-                border-radius: 50%;
-                transition-delay: 200ms;
-                transition: .5s cubic-bezier(.8, .5, .2, 1.4);
-    
-                &:nth-child(2) {
-                    left: 6px;
-                    top: 6px;
-                }
-    
-                &:nth-child(4) {
-                    left: 6px;
-                    top: 18px;
-                }
-    
-                &:nth-child(6) {
-                    right: 6px;
-                    top: 6px;
-                }
-    
-                &:nth-child(8) {
-                    left: 18px;
-                    bottom: 6px;
-                }
-            }
-        }
-    
-        > span{
-            width: 5px;
-            height: 5px;
-            background-color: #fff;
-            display: block;
-            border-radius: 50%;
-            position: absolute;
-    
-            &:nth-child(1){
-                left: 0;
-                top: 0;
-            }
-    
-            &:nth-child(2){
-                left: 12px;
-                top: 0;
-            }
-    
-            &:nth-child(3){
-                right: 0;
-                top: 0;
-            }
-    
-            &:nth-child(4){
-                left: 0;
-                top: 12px;
-            }
-    
-            &:nth-child(5){
-                position: absolute;
-                left: 12px;
-                top: 12px;
-            }
-    
-            &:nth-child(6){
-                right: 0px;
-                top: 12px;
-            }
-    
-            &:nth-child(7){
-                left: 0px;
-                bottom: 0px;
-            }
-    
-            &:nth-child(8){
-                position: absolute;
-                left: 12px;
-                bottom: 0px;
-            }
-    
-            &:nth-child(9){
-                right: 0px;
-                bottom: 0px;
-            }
-        }
+    > span {
+      width: 5px;
+      height: 5px;
+      background-color: #fff;
+      display: block;
+      border-radius: 50%;
+      position: absolute;
+
+      &:nth-child(1) {
+        left: 0;
+        top: 0;
+      }
+
+      &:nth-child(2) {
+        left: 12px;
+        top: 0;
+      }
+
+      &:nth-child(3) {
+        right: 0;
+        top: 0;
+      }
+
+      &:nth-child(4) {
+        left: 0;
+        top: 12px;
+      }
+
+      &:nth-child(5) {
+        position: absolute;
+        left: 12px;
+        top: 12px;
+      }
+
+      &:nth-child(6) {
+        right: 0px;
+        top: 12px;
+      }
+
+      &:nth-child(7) {
+        left: 0px;
+        bottom: 0px;
+      }
+
+      &:nth-child(8) {
+        position: absolute;
+        left: 12px;
+        bottom: 0px;
+      }
+
+      &:nth-child(9) {
+        right: 0px;
+        bottom: 0px;
+      }
     }
+  }
 }
 
 @media only screen and (max-width: $md-header) {
-    ul {
-      display: none;
-    }
+  ul {
+    display: none;
+  }
 
-    nav > div.mob-menu{
-        display: block;
-    }
+  nav > div.mob-menu {
+    display: block;
+  }
 }
