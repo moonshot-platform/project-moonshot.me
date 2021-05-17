@@ -144,6 +144,12 @@ ul {
   align-items: flex-end;
 }
 
+.flex-col-align-end {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
 .flex1 {
   flex: 1;
 }
@@ -201,12 +207,24 @@ ul {
   font-size: 22px;
 }
 
+.p38 {
+  font-size: 38px;
+}
+
 .p40 {
   font-size: 40px;
 }
 
-.p38 {
-  font-size: 38px;
+.wp25 {
+  width: 25%;
+}
+
+.wp50 {
+  width: 50%;
+}
+
+.wp100 {
+  width: 100%;
 }
 
 .w300 {
@@ -227,6 +245,10 @@ ul {
 
 .white {
   color: white;
+}
+
+.primary {
+  color: $primary;
 }
 
 .text-center {

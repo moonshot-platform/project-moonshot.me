@@ -1,0 +1,14 @@
+@import "includes";
+
+section.community {
+  @include paddingsInside(50px, 20px);
+
+  background-size: cover;
+  .inner {
+    @extend %max-width-center;
+    @include paddingsInside(60px, 100px);
+
+    border-radius: 160px;
+    position: relative;
+  }
+}
