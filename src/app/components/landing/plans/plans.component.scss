@@ -1,0 +1,9 @@
+@import "includes";
+
+section.plans {
+  @include paddingsInside(50px, 20px);
+  .inner {
+    @extend %max-width-center;
+    @include paddingsInside(60px, 100px);
+  }
+}
