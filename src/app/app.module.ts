@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgParticlesModule } from "ng-particles";
 
+import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterModule } from './components/base/footer/footer.module';
@@ -9,6 +10,7 @@ import { HeaderModule } from './components/base/header/header.module';
 import { LandingModule } from './components/landing/landing.module';
 import { SignModule } from './components/sign/sign.module';
 import { CountdownConfig, CountdownGlobalConfig, CountdownModule } from 'ngx-countdown';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export function countdownConfigFactory(): CountdownConfig {
   return {};
@@ -21,12 +23,14 @@ export function countdownConfigFactory(): CountdownConfig {
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MatIconModule,
     SignModule,
     LandingModule,
     HeaderModule,
     FooterModule,
     CountdownModule,
-    NgParticlesModule
+    NgParticlesModule,
+    BrowserAnimationsModule
   ],
   providers: [{ provide: CountdownGlobalConfig, useFactory: countdownConfigFactory }],
   bootstrap: [AppComponent],

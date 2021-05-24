@@ -11,41 +11,20 @@ export class HeaderComponent implements OnInit {
 
   public navItems: any[] = [
     {
-      'name': 'About',
-      'path': '#about'
-    },
-    {
-      'name': 'Tokenomics',
-      'path': '#tokenomics'
-    },
-    {
-      'name': 'Fuel the rocket',
-      'path': '#fueltherocket'
-    },
-    {
-      'name': 'Ticket',
-      'path': '#ticket'
-    },
-    {
       'name': 'How to buy',
       'path': '#howtobuy'
     },
     {
-      'name': 'Roadmap',
-      'path': '#roadmap'
+      'name': 'Moonpaper',
+      'path': '#moonpaper'
     },
     {
-      'name': 'MoonTV',
-      'path': '#moontv'
+      'name': 'Community',
+      'path': '#community'
     },
     {
-      'name': 'Gallery',
-      'path': '#gallery'
-    },
-    {
-      'name': 'launch',
-      'path': '#launch',
-      'class': 'pri'
+      'name': 'About us',
+      'path': '#about'
     }
   ];
 

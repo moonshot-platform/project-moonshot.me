@@ -7,11 +7,17 @@ import { CountdownModule } from 'ngx-countdown';
 import { IntroComponent } from './intro/intro.component';
 import { AboutComponent } from './about/about.component';
 import { TokenomicsComponent } from './tokenomics/tokenomics.component';
-import { FuelComponent } from './fuel/fuel.component';
 import { HowtoComponent } from './howto/howto.component';
 import { NgParticlesModule } from 'ng-particles';
 import { PartnersComponent } from './partners/partners.component';
 import { PlansComponent } from './plans/plans.component';
+import { NewsComponent } from './news/news.component';
+import { ExchangesComponent } from './exchanges/exchanges.component';
+import { EconomyComponent } from './economy/economy.component';
+import { InvestmentComponent } from './investment/investment.component';
+import { TutorialComponent } from './tutorial/tutorial.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
@@ -21,12 +27,18 @@ import { PlansComponent } from './plans/plans.component';
     IntroComponent,
     AboutComponent,
     TokenomicsComponent,
-    FuelComponent,
     HowtoComponent,
     PartnersComponent,
     PlansComponent,
+    NewsComponent,
+    ExchangesComponent,
+    EconomyComponent,
+    InvestmentComponent,
+    TutorialComponent,
+    SidebarComponent,
   ],
   imports: [
+    MatIconModule,
     CommonModule,
     HeaderModule,
     FooterModule,

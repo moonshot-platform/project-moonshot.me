@@ -3,38 +3,51 @@
 section.header {
   @include paddingInside(15px);
 
-  background: rgba($color: #000000, $alpha: 0.5);
+  // background: rgba($color: #000000, $alpha: 0.5);
   box-shadow: 0 4px 12px 0 #00000000;
   box-sizing: border-box;
   position: fixed;
-  width: 100%;
-  height: 100px;
+  width: calc(100% - $sidebar-width);
   left: 0;
-  right: 0;
+  right: $sidebar-width;
   z-index: 1000;
   display: flex;
   justify-content: center;
 }
 
+.logo-container {
+  width: 270px;
+  border-top: 6px solid $primary;
+  padding-top: toRem(14px);
+
+  .logo {
+    height: toRem(80px);
+  }
+}
+
 nav {
   @extend %max-width-center;
+  align-items: initial;
 
   ul {
-    li {
-      margin: 0 toEm(12.5px);
+    width: inherit;
+    justify-content: flex-end;
+    margin-left: 100px;
 
-      &:last-child {
-        margin: 0;
-      }
+    li {
+      border-top: 1px solid $primary;
+      padding-top: 14px;
+      margin: 0 toEm(12.5px);
+      width: 25%;
 
       a {
-        color: white;
+        color: $primary;
         text-transform: uppercase;
         text-decoration: none;
         font-size: 15px;
 
         &:hover {
-          color: $primary;
+          color: $white;
         }
 
         &.pri-btn {

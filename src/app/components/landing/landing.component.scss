@@ -1,13 +1,9 @@
 @import "includes";
 
 #particles {
-  background-color: #030018;
-}
-
-#particles,
-#particles2 {
   height: $full;
   width: $full;
+  background-color: #030018;
 
   position: fixed;
   left: 0;
@@ -25,9 +21,10 @@
 }
 
 section.landing {
-  background: url("/assets/media/images/moon-illustration2.svg") no-repeat
-    center 300px;
-  background-size: inherit;
   z-index: 2;
   position: relative;
+
+  > .inner {
+    width: calc(100% - 64px);
+  }
 }
