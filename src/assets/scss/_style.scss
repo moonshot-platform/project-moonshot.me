@@ -268,18 +268,6 @@ ul {
   }
 }
 
-.block {
-  @include paddingInside(20px);
-
-  width: 100%;
-  border-radius: 20px;
-  background: #1f1e1e;
-
-  > p {
-    color: #d6a644;
-  }
-}
-
 .round-btn {
   @include paddingsInside(15px, 20px);
 
