@@ -1,31 +1,37 @@
 %full-size {
-    height     : $full;
-    width      : $full;
+  height: $full;
+  width: $full;
 }
 
 %max-width-center {
-    width      : $full;
-    max-width  : $max-width;
-    margin     : 0 auto;
+  width: $full;
+  max-width: $max-width;
+  margin: 0 auto;
 }
-  
+
 %flex-center {
-    display         : flex;
-    align-items     : center;
-    justify-content : center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+%flex-end {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
 
 %flex-center-col {
-    @extend %flex-center;
-    flex-direction  : column;
+  @extend %flex-center;
+  flex-direction: column;
 }
-  
+
 %flex-center-row {
-    @extend %flex-center;
-    flex-direction  : row;
+  @extend %flex-center;
+  flex-direction: row;
 }
-  
+
 %flex-space-between {
-    @extend %flex-center;
-    justify-content : space-between;
+  @extend %flex-center;
+  justify-content: space-between;
 }
