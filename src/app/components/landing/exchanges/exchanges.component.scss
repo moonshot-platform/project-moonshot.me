@@ -1,0 +1,11 @@
+@import "includes";
+
+section.exchanges {
+  > .inner {
+    @extend %max-width-center;
+
+    > img {
+      width: calc(100% / 3 - 20px);
+    }
+  }
+}
