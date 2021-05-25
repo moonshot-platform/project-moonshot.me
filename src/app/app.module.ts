@@ -6,11 +6,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterModule } from './components/base/footer/footer.module';
-import { HeaderModule } from './components/base/header/header.module';
 import { LandingModule } from './components/landing/landing.module';
 import { SignModule } from './components/sign/sign.module';
 import { CountdownConfig, CountdownGlobalConfig, CountdownModule } from 'ngx-countdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HeaderModule } from './components/base/header/header.module';
 
 export function countdownConfigFactory(): CountdownConfig {
   return {};
@@ -26,7 +26,6 @@ export function countdownConfigFactory(): CountdownConfig {
     MatIconModule,
     SignModule,
     LandingModule,
-    HeaderModule,
     FooterModule,
     CountdownModule,
     NgParticlesModule,
@@ -35,8 +34,8 @@ export function countdownConfigFactory(): CountdownConfig {
   providers: [{ provide: CountdownGlobalConfig, useFactory: countdownConfigFactory }],
   bootstrap: [AppComponent],
   exports: [
-    HeaderModule,
     FooterModule,
+    HeaderModule,
     AppRoutingModule
   ]
 })
