@@ -472,14 +472,14 @@ ul {
   height: fit-content;
   min-width: 200px;
   border-radius: 25px;
-  color: white;
+  color: black;
   font-weight: $semi-bold;
   cursor: pointer;
   text-decoration: none;
   text-transform: uppercase;
 
   &:hover {
-    color: $secondary;
+    color: white;
   }
 }
 
@@ -491,7 +491,7 @@ ul {
   height: fit-content;
   min-width: 200px;
   border-radius: 25px;
-  color: white;
+  color: $secondary;
   font-weight: $semi-bold;
   cursor: pointer;
   text-decoration: none;
@@ -499,14 +499,14 @@ ul {
   text-align: center;
 
   &:hover {
-    color: $secondary;
+    color: white;
   }
 }
 
 .round-mini-button {
   box-sizing: border-box;
   display: flex;
-  border: 1px solid #d7b13e;
+  border: 1px solid $primary;
   border-radius: 25px;
   color: white;
   font-weight: 600;
@@ -516,4 +516,9 @@ ul {
   width: 50px;
   justify-content: center;
   align-items: center;
+
+  &:hover {
+    color: white;
+    border: 1px solid white;
+  }
 }

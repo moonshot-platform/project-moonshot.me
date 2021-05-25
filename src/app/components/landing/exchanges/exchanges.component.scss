@@ -4,8 +4,32 @@ section.exchanges {
   > .inner {
     @extend %max-width-center;
 
-    > img {
+    > div:first-child > img {
       width: calc(100% / 3 - 20px);
     }
   }
+}
+
+.stats {
+  min-width: 300px;
+  margin-right: 150px;
+
+  div > p {
+    font-size: 20px;
+
+    &:first-child {
+      color: $primary;
+      margin-bottom: 50px;
+      font-size: 12px;
+    }
+  }
+}
+
+.buy-info .futuristic-container {
+  border-top: 1px solid $primary;
+}
+
+.explanation {
+  line-height: 30px;
+  font-weight: 200;
 }
