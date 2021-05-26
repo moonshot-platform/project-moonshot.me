@@ -1,3 +1,19 @@
+@mixin margin($val) {
+  margin: toRem($val);
+}
+
+@mixin margins($py, $px) {
+  margin: toRem($py) toRem($px);
+}
+
+@mixin padding($val) {
+  padding: toRem($val);
+}
+
+@mixin paddings($py, $px) {
+  padding: toRem($py) toRem($px);
+}
+
 @mixin paddingInside($val) {
   padding: toRem($val);
   box-sizing: border-box;
