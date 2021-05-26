@@ -1,1 +1,49 @@
-<p>tutorial works!</p>
+<section class="tutorial mt200">
+    <div class="inner">
+        <div class="header text-center mb50">
+            <div class="title color-primary mb20">7 EASY STEPS</div>
+            <div class="sub-title color-white p40">How to buy Moonshot!</div>
+        </div>
+        <div class="buttons-container flex align-center mb100">
+            <p class="color-primary mr30">Buy on:</p>
+            <a class="outlined-button mr30">Pancakeswap</a>
+            <a class="outlined-button mr30">BitMart</a>
+            <a class="outlined-button mr30">P2PB2B</a>
+            <a class="outlined-button mr30">HotBit</a>
+        </div>
+        <ul class="how-to-buy-flow">
+            <li *ngFor="let step of steps; let i = index">
+                <ng-container *ngIf="i == 0 || i == steps.length - 1; then link else chain"></ng-container>
+                
+                <!-- link = start & end -->
+                <ng-template #link>
+                    <p>{{step.indicator}}</p>
+                </ng-template>
+
+                <!-- chain -->
+                <ng-template #chain id="chain">
+                    <div class="left">
+                        <div class="step">
+                            <p>{{ i }}</p>
+                        </div>
+                        <div class="title">
+                            <p>{{ step.title }}</p>
+                        </div>
+                    </div>
+                    <div class="indicator">
+                        <div class="line"></div>
+                        <div class="point">
+                            <div class="line"></div>
+                            <div class="dot"></div>
+                            <div class="line"></div>
+                        </div>
+                        <div class="line"></div>
+                    </div>
+                    <div class="right">
+                        <p class="description">{{ step.description }}</p>
+                    </div>
+                </ng-template>
+            </li>
+        </ul>
+    </div>
+</section>
