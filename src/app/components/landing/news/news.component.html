@@ -1,1 +1,29 @@
-<p>news works!</p>
+<section class="news flex-end">
+    <div class="overlay"></div>
+    <div class="inner flex-space-between align-start">
+       <div class="stats flex1">
+       </div>
+       <div class="info flex3">
+            <div class="btn-group futuristic-container bottom-only">
+                <div class="inner flex-space-between pb50">
+                    <div *ngFor="let item of imgSrcList" class="round-large-button">
+                        <img [src]="item.src || item.srcOut" alt="{{item.thumb}}" (mouseover)="item.src = item.srcOn" (mouseout)="item.src = item.srcOut" />
+                    </div>
+                </div>
+            </div>
+            <div class="bottom flex pv20">
+                <div class="flex2 top futuristic-container no-padding-top bottom-only mr50">
+                    <span class="p34">Keep up with</span><br><span class="p-white-span-primary p34">the latest news!</span>
+                </div>
+                <div class="flex1 text-right mr20">
+                    <span class="p30">Join on:</span>
+                </div>
+                <div class="buttons-container flex1 justify-end">
+                    <a class="outlined-button mb10">Telegram</a>
+                    <a class="button">Buy Moonshot</a>
+                </div>
+                
+            </div>
+       </div>
+    </div>
+</section>
