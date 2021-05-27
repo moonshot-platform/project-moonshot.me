@@ -1,11 +1,8 @@
 @import "includes";
 
 section.partners {
-  @include paddingsInside(40px, 20px);
-
-  background: #383737;
-  width: 100%;
   > .inner {
     @extend %max-width-center;
+    @include paddingsInside(70px, 20px);
   }
 }

@@ -1,0 +1,58 @@
+@import "includes";
+
+section.investment {
+  @include margins(100px, 0px);
+  background-color: $secondary;
+
+  > .inner {
+    @extend %max-width-center;
+    @include paddingsInside(100px, 0px);
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+
+  .inner {
+    max-width: 780px;
+    text-align: center;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .sub-title {
+    font-size: 36px;
+    margin: 20px 0;
+    font-weight: $bold;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+}
+
+.options {
+  display: flex;
+  margin-top: 100px;
+  .option {
+    flex: 1;
+    padding: 50px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    &:nth-child(2) {
+      margin: 0 30px;
+    }
+
+    .icon {
+      height: 120px;
+      margin-bottom: 30px;
+    }
+  }
+}
