@@ -18,6 +18,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { NavigationModule } from './navigation/navigation.module';
+import { RoadmapComponent } from './roadmap/roadmap.component';
 
 
 
@@ -35,6 +36,7 @@ import { NavigationModule } from './navigation/navigation.module';
     InvestmentComponent,
     TutorialComponent,
     SidebarComponent,
+    RoadmapComponent,
   ],
   imports: [
     MatIconModule,
