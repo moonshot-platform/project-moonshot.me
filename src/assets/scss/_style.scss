@@ -390,6 +390,10 @@ ul {
   font-size: 22px;
 }
 
+.p30 {
+  font-size: 30px;
+}
+
 .p34 {
   font-size: 34px;
 }
@@ -442,6 +446,10 @@ ul {
   text-align: center;
 }
 
+.text-right {
+  text-align: right;
+}
+
 .futuristic-container {
   @include paddingsInside(20px, 0px);
   border-top: 3px solid $primary;
@@ -457,6 +465,10 @@ ul {
 
   &.top-only {
     border-bottom: 0;
+  }
+
+  &.no-padding-top {
+    padding-top: 0;
   }
 }
 
@@ -524,4 +536,19 @@ ul {
     color: white;
     border: 1px solid white;
   }
+}
+
+.round-large-button {
+  box-sizing: border-box;
+  display: flex;
+  border: 1px solid #d7b13e;
+  border-radius: 65px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  height: 130px;
+  width: 130px;
+  justify-content: center;
+  align-items: center;
 }
