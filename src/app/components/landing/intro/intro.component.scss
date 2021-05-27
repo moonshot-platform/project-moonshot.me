@@ -2,37 +2,43 @@
 
 section.intro {
   min-height: 100vh;
-  width: 100vw;
   position: relative;
-
-  .overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: 1;
-    height: 100%;
-    width: 100%;
-  }
+  background: url("/assets/media/images/moon-shadow.png") top right no-repeat;
 
   .inner {
     @extend %max-width-center;
+    margin-bottom: 200px;
+  }
+}
 
-    z-index: 2;
-    position: relative;
+.stats {
+  min-width: 300px;
+  margin-right: 150px;
 
-    .left {
-      width: 100%;
-      max-width: 600px;
+  div {
+    &:first-child {
+      margin-bottom: 40px;
+    }
 
-      .telegram-btn {
-        margin-right: 20px;
+    p {
+      color: $secondary;
+      font-size: 20px;
+
+      &:first-child {
+        color: $primary;
+        margin-bottom: 50px;
+        font-size: 12px;
       }
     }
+  }
+}
 
-    .right {
-      padding-left: 20px;
-      box-sizing: border-box;
-    }
+.info {
+  color: $primary;
+
+  .bottom > div:first-child > p {
+    line-height: 30px;
+    font-weight: 200;
   }
 }
 

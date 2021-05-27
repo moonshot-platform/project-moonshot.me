@@ -21,7 +21,7 @@ $sidebar-width: toRem(64px);
 // Colors
 $primary-font-color: #0f0f0f;
 $primary: #d7b13e;
-$secondary: #1f1e1e;
+$secondary: #ca9800;
 
 $body-bg-color: #1f1e1e;
 
@@ -38,8 +38,8 @@ $muted: #8492a6;
 $light: #f8f9fc;
 
 // fonts
-$primary_font: "TTSuperMolotNeue";
-$secondary_font: "PressStart2P";
+$primary-font: "Montserrat";
+$secondary-font: "PressStart2P";
 
 $thin: 100;
 $extra-light: 200;
@@ -60,7 +60,7 @@ $font-lg: 20px;
 $font-size-base: toRem($primary-fs);
 $font-weight-base: $regular;
 $font-color-base: $primary-font-color;
-$font-family-base: $primary_font, "Sans";
-$font-family-secondary: $secondary_font, "Arial";
+$font-family-base: $primary-font, "Sans";
+$font-family-secondary: $secondary-font, "Arial";
 
 $letter-spacing-base: toRem(1px);

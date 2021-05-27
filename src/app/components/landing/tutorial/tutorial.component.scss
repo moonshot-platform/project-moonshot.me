@@ -1,0 +1,129 @@
+@import "includes";
+
+section.tutorial {
+  > .inner {
+    @extend %max-width-center;
+    @include paddingsInside(70px, 20px);
+  }
+}
+
+.how-to-buy-flow {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  li {
+    cursor: cell;
+    display: flex;
+    flex-direction: row;
+
+    p {
+      color: $primary !important;
+    }
+
+    &:hover {
+      .indicator > .point {
+        .line:first-child {
+          height: 3px;
+        }
+
+        .dot {
+          border-width: 3px;
+        }
+      }
+
+      p {
+        color: white !important;
+      }
+    }
+
+    &:first-child,
+    &:last-child {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 1px solid $primary;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+
+      > p {
+        font-size: 14px;
+      }
+    }
+
+    .left {
+      display: flex;
+      flex: 2;
+      align-items: center;
+      justify-content: flex-start;
+      min-width: 465px;
+
+      .title {
+        font-size: 24px;
+      }
+
+      > .step {
+        width: 70px;
+        min-width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        border: 1px solid $primary;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-right: 30px;
+
+        > p {
+          font-size: 32px;
+        }
+      }
+    }
+
+    .indicator {
+      width: 230px;
+      height: 170px;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+      > .line {
+        width: 2px;
+        height: 70px;
+        background-color: $primary;
+      }
+
+      > .point {
+        display: flex;
+        align-items: center;
+
+        > .line {
+          width: 70px;
+          height: 1px;
+          background-color: $primary;
+        }
+
+        .dot {
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          border: 1px solid $primary;
+        }
+      }
+    }
+
+    .right {
+      flex: 2;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      min-width: 465px;
+
+      > .description {
+        line-height: 30px;
+        font-weight: 200;
+      }
+    }
+  }
+}

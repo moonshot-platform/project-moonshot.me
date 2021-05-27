@@ -1,11 +1,14 @@
-*:focus {
-  outline: none;
+* {
+  margin: 0;
+  padding: 0;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 html,
 body {
-  margin: 0;
-  padding: 0;
   width: $full;
   height: $full;
 }
@@ -57,6 +60,9 @@ ul {
 }
 .mt100 {
   margin-top: 100px;
+}
+.mt200 {
+  margin-top: 200px;
 }
 .mr10 {
   margin-right: 10px;
@@ -113,6 +119,160 @@ ul {
   margin-left: 100px;
 }
 
+.pa10 {
+  @include paddingInside(10px);
+}
+.pa20 {
+  @include paddingInside(20px);
+}
+.pa30 {
+  @include paddingInside(30px);
+}
+.pa40 {
+  @include paddingInside(40px);
+}
+.pa50 {
+  @include paddingInside(50px);
+}
+.pa100 {
+  @include paddingInside(100px);
+}
+
+.ph10 {
+  @include paddingsInside(0px, 10px);
+}
+.ph20 {
+  @include paddingsInside(0px, 20px);
+}
+.ph30 {
+  @include paddingsInside(0px, 30px);
+}
+.ph40 {
+  @include paddingsInside(0px, 40px);
+}
+.ph50 {
+  @include paddingsInside(0px, 50px);
+}
+.ph100 {
+  @include paddingsInside(0px, 100px);
+}
+
+.pv10 {
+  @include paddingsInside(10px, 0px);
+}
+.pv20 {
+  @include paddingsInside(20px, 0px);
+}
+.pv30 {
+  @include paddingsInside(30px, 0px);
+}
+.pv40 {
+  @include paddingsInside(40px, 0px);
+}
+.pv50 {
+  @include paddingsInside(50px, 0px);
+}
+.pv100 {
+  @include paddingsInside(100px, 0px);
+}
+
+.pt10 {
+  padding-top: 10px;
+  box-sizing: border-box;
+}
+.pt20 {
+  padding-top: 20px;
+  box-sizing: border-box;
+}
+.pt30 {
+  padding-top: 30px;
+  box-sizing: border-box;
+}
+.pt40 {
+  padding-top: 40px;
+  box-sizing: border-box;
+}
+.pt50 {
+  padding-top: 50px;
+  box-sizing: border-box;
+}
+.pt100 {
+  padding-top: 100px;
+  box-sizing: border-box;
+}
+.pr10 {
+  padding-right: 10px;
+  box-sizing: border-box;
+}
+.pr20 {
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+.pr30 {
+  padding-right: 30px;
+  box-sizing: border-box;
+}
+.pr40 {
+  padding-right: 40px;
+  box-sizing: border-box;
+}
+.pr50 {
+  padding-right: 50px;
+  box-sizing: border-box;
+}
+.pr100 {
+  padding-right: 100px;
+  box-sizing: border-box;
+}
+.pb10 {
+  padding-bottom: 10px;
+  box-sizing: border-box;
+}
+.pb20 {
+  padding-bottom: 20px;
+  box-sizing: border-box;
+}
+.pb30 {
+  padding-bottom: 30px;
+  box-sizing: border-box;
+}
+.pb40 {
+  padding-bottom: 40px;
+  box-sizing: border-box;
+}
+.pb50 {
+  padding-bottom: 50px;
+  box-sizing: border-box;
+}
+.pb100 {
+  padding-bottom: 100px;
+  box-sizing: border-box;
+}
+.pl10 {
+  padding-left: 10px;
+  box-sizing: border-box;
+}
+.pl20 {
+  padding-left: 20px;
+  box-sizing: border-box;
+}
+.pl30 {
+  padding-left: 30px;
+  box-sizing: border-box;
+}
+.pl40 {
+  padding-left: 40px;
+  box-sizing: border-box;
+}
+.pl50 {
+  padding-left: 50px;
+  box-sizing: border-box;
+}
+.pl100 {
+  padding-left: 100px;
+  box-sizing: border-box;
+}
+
 .flex {
   display: flex;
 }
@@ -120,28 +280,40 @@ ul {
 .align-start {
   align-items: flex-start;
 }
+
 .align-center {
   align-items: center;
 }
+
 .align-end {
   align-items: flex-end;
+}
+
+.justify-start {
+  justify-content: flex-start;
 }
 
 .justify-center {
   justify-content: center;
 }
 
+.justify-end {
+  justify-content: flex-end;
+}
+
 .flex-align-start {
   display: flex;
   align-items: flex-start;
 }
+
 .flex-align-center {
   display: flex;
   align-items: center;
 }
+
 .flex-align-end {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
 }
 
 .flex-col-align-end {
@@ -152,6 +324,13 @@ ul {
 
 .flex1 {
   flex: 1;
+}
+
+.flex2 {
+  flex: 2;
+}
+.flex3 {
+  flex: 3;
 }
 
 .col {
@@ -170,6 +349,10 @@ ul {
 
 .flex-center {
   @extend %flex-center;
+}
+
+.flex-end {
+  @extend %flex-end;
 }
 
 .flex-center-col {
@@ -205,6 +388,14 @@ ul {
 
 .p22 {
   font-size: 22px;
+}
+
+.p30 {
+  font-size: 30px;
+}
+
+.p34 {
+  font-size: 34px;
 }
 
 .p38 {
@@ -243,11 +434,11 @@ ul {
   font-weight: 900;
 }
 
-.white {
+.color-white {
   color: white;
 }
 
-.primary {
+.color-primary {
   color: $primary;
 }
 
@@ -255,51 +446,109 @@ ul {
   text-align: center;
 }
 
-.balloon {
-  @include paddingInside(20px);
-  //   background: hsla(41, 64%, 55%, 0.9);
-  background: rgba(255, 255, 255, 0.2);
-  border: 2px solid #ffc821;
-  box-shadow: 0px 4px 24px -1px rgba(0, 0, 0, 0.2);
-  border-radius: 25px;
+.text-right {
+  text-align: right;
+}
 
-  &.dark {
-    background-color: black;
+.futuristic-container {
+  @include paddingsInside(20px, 0px);
+  border-top: 3px solid $primary;
+  border-bottom: 1px solid $primary;
+
+  &.no-padding {
+    padding: 0;
+  }
+
+  &.bottom-only {
+    border-top: 0;
+  }
+
+  &.top-only {
+    border-bottom: 0;
+  }
+
+  &.no-padding-top {
+    padding-top: 0;
   }
 }
 
-.round-btn {
+.p-white-span-primary {
+  color: white;
+  > span {
+    color: $primary;
+  }
+}
+
+.button {
   @include paddingsInside(15px, 20px);
 
   display: block;
   background-color: $primary;
   height: fit-content;
-  width: fit-content;
+  min-width: 200px;
   border-radius: 25px;
-  color: white;
+  color: black;
   font-weight: $semi-bold;
   cursor: pointer;
   text-decoration: none;
   text-transform: uppercase;
 
   &:hover {
-    color: $secondary;
+    color: white;
   }
 }
 
-.outline-btn {
+.outlined-button {
   @include paddingsInside(15px, 20px);
 
   display: block;
-  height: fit-content;
-  width: fit-content;
-  border-radius: 25px;
   border: 1px solid $primary;
-  color: $primary;
+  height: fit-content;
+  min-width: 200px;
+  border-radius: 25px;
+  color: $secondary;
   font-weight: $semi-bold;
   cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
 
   &:hover {
     color: white;
   }
+}
+
+.round-mini-button {
+  box-sizing: border-box;
+  display: flex;
+  border: 1px solid $primary;
+  border-radius: 25px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  height: 50px;
+  width: 50px;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    color: white;
+    border: 1px solid white;
+  }
+}
+
+.round-large-button {
+  box-sizing: border-box;
+  display: flex;
+  border: 1px solid #d7b13e;
+  border-radius: 65px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  height: 130px;
+  width: 130px;
+  justify-content: center;
+  align-items: center;
 }

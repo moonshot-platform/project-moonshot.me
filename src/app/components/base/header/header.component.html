@@ -1,25 +1,3 @@
-<section class="header">
-    <nav class="flex-space-between">
-        <div class="logo-container">
-            <img class="logo" src="assets/media/images/logo.png" alt="moonshot logo">
-        </div>
-
-        <div class="mob-menu" [class.open]="open" (click)="open = !open">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-
-        <ul class="flex">
-            <li *ngFor="let item of navItems"><a [class.pri-btn]="item?.class == 'pri'"
-                    [routerLink]="[item.path]">{{item.name}}</a></li>
-            <!-- <a [routerLink]="['']">Jim</a> -->
-        </ul>
-    </nav>
-</section>
+<header>
+    <div class="inner"></div>
+</header>

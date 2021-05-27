@@ -25,6 +25,12 @@ section.landing {
   position: relative;
 
   > .inner {
+    position: relative;
     width: calc(100% - 64px);
   }
+}
+
+app-header {
+  display: block;
+  width: calc(100% - 64px);
 }
