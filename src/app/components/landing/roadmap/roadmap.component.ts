@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-roadmap',
@@ -6,6 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./roadmap.component.scss']
 })
 export class RoadmapComponent implements OnInit {
+
+  // @ViewChild('myCarousel', {static: false}) myCarousel;
+
+  // next() {
+  //     this.myCarousel.next();
+  // }
 
   constructor() { }
 
