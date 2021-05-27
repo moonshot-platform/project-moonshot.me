@@ -8,7 +8,6 @@ import { AboutComponent } from './about/about.component';
 import { TokenomicsComponent } from './tokenomics/tokenomics.component';
 import { NgParticlesModule } from 'ng-particles';
 import { PartnersComponent } from './partners/partners.component';
-import { PlansComponent } from './plans/plans.component';
 import { NewsComponent } from './news/news.component';
 import { ExchangesComponent } from './exchanges/exchanges.component';
 import { EconomyComponent } from './economy/economy.component';
@@ -19,6 +18,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { NavigationModule } from './navigation/navigation.module';
 import { RoadmapComponent } from './roadmap/roadmap.component';
+// import { IvyCarouselModule } from 'angular-responsive-carousel';
+import { IvyCarouselModule } from '../../ivyсarousel_pro/carousel.module';
 
 
 
@@ -29,7 +30,6 @@ import { RoadmapComponent } from './roadmap/roadmap.component';
     AboutComponent,
     TokenomicsComponent,
     PartnersComponent,
-    PlansComponent,
     NewsComponent,
     ExchangesComponent,
     EconomyComponent,
@@ -45,7 +45,8 @@ import { RoadmapComponent } from './roadmap/roadmap.component';
     FooterModule,
     CountdownModule,
     NgParticlesModule,
-    AppRoutingModule
+    AppRoutingModule,
+    IvyCarouselModule
   ]
 })
 export class LandingModule { }

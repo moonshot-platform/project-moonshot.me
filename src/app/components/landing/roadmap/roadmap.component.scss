@@ -1,0 +1,70 @@
+@import "includes";
+
+section.roadmap {
+  > .inner {
+    @extend %max-width-center;
+    @include paddingsInside(70px, 20px);
+  }
+}
+
+.next-event-container {
+  min-width: 300px;
+  margin-right: 150px;
+
+  div > p {
+    font-size: 30px;
+    color: white;
+
+    &:first-child {
+      color: $primary;
+      margin-bottom: 50px;
+      font-size: 12px;
+    }
+  }
+}
+
+.info-container {
+  border-top-width: 1px;
+
+  ul li {
+    @extend %flex-justify-start;
+    margin-bottom: 10px;
+
+    .round-mini-button {
+      @extend %flex-center;
+
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+      font-size: 10px;
+      background-color: $primary;
+
+      > .mat-icon {
+        font-size: 20px;
+        height: auto;
+        color: black;
+      }
+    }
+
+    p {
+      font-weight: $extra-light;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+
+      .round-mini-button {
+        background-color: transparent;
+
+        > .mat-icon {
+          color: $primary;
+        }
+      }
+    }
+  }
+}
+
+.carousel-cell {
+  min-height: 200px;
+  background-color: blue;
+}
