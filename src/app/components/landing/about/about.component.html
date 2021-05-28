@@ -1,5 +1,33 @@
-<section class="about">
-    <div class="inner flex">
-        
+<section class="about flex-end">
+    <div class="overlay"></div>
+    <div class="inner flex-space-between align-start">
+        <div class="stats flex1">
+            <div class="futuristic-container top-only">
+                <p>4 KEY REASONS</p>
+                <span class="p-white-span-primary p30">Why<br>Moonshoot?</span>
+            </div>
+            <div class="futuristic-container">
+                <p class="p30">There are some key reasons to hold and invest in our tokenomics. Do your own research and ask us for any help in socials.</p>
+            </div>
+        </div>
+        <div class="circles flex3">
+            <div class="btn-group">
+                <div class="flex-space-between">
+                    <div class="round-xlarge-button" *ngFor="let item of imgSrcList" (mouseover)="item.src = item.srcOn" (mouseout)="item.src = item.srcOut">
+                        <div>
+                            <img [src]="item.src || item.srcOut" alt="{{item.thumb}}" />
+                            <p>{{item.text}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="stats-btn flex1">
+            <div class="futuristic-container top-only">
+                <div class="round-mini-button">
+                    <mat-icon fontSet="material-icons" class="color-primary">arrow_downward</mat-icon>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
