@@ -18,8 +18,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { NavigationModule } from './navigation/navigation.module';
 import { RoadmapComponent } from './roadmap/roadmap.component';
-// import { IvyCarouselModule } from 'angular-responsive-carousel';
-import { IvyCarouselModule } from '../../ivyсarousel_pro/carousel.module';
 
 
 
@@ -45,8 +43,7 @@ import { IvyCarouselModule } from '../../ivyсarousel_pro/carousel.module';
     FooterModule,
     CountdownModule,
     NgParticlesModule,
-    AppRoutingModule,
-    IvyCarouselModule
+    AppRoutingModule
   ]
 })
 export class LandingModule { }
