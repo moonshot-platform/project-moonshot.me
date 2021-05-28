@@ -5,6 +5,7 @@ import { FooterModule } from '../base/footer/footer.module';
 import { CountdownModule } from 'ngx-countdown';
 import { IntroComponent } from './intro/intro.component';
 import { AboutComponent } from './about/about.component';
+import { VideoComponent } from './video/video.component';
 import { TokenomicsComponent } from './tokenomics/tokenomics.component';
 import { NgParticlesModule } from 'ng-particles';
 import { PartnersComponent } from './partners/partners.component';
@@ -29,6 +30,7 @@ import { NavigationModule } from './navigation/navigation.module';
     TokenomicsComponent,
     PartnersComponent,
     PlansComponent,
+    VideoComponent,
     NewsComponent,
     ExchangesComponent,
     EconomyComponent,
