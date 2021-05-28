@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgParticlesModule } from "ng-particles";
-import { IvyCarouselModule } from './ivyсarousel_pro/carousel.module';
 
 import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from './app-routing.module';
@@ -30,8 +29,7 @@ export function countdownConfigFactory(): CountdownConfig {
     FooterModule,
     CountdownModule,
     NgParticlesModule,
-    BrowserAnimationsModule,
-    IvyCarouselModule
+    BrowserAnimationsModule
   ],
   providers: [{ provide: CountdownGlobalConfig, useFactory: countdownConfigFactory }],
   bootstrap: [AppComponent],

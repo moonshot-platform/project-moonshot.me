@@ -64,7 +64,17 @@ section.roadmap {
   }
 }
 
+ng2-carouselamos {
+  width: 100%;
+}
+
 .carousel-cell {
-  min-height: 200px;
+  min-width: 200px;
   background-color: blue;
+}
+
+.nextButton {
+  width: 100px;
+  height: 100px;
+  background-color: red;
 }
