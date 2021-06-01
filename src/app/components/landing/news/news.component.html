@@ -6,8 +6,9 @@
        <div class="info flex3">
             <div class="btn-group futuristic-container bottom-only">
                 <div class="inner flex-space-between pb50">
-                    <div *ngFor="let item of imgSrcList" class="round-large-button">
-                        <img [src]="item.src || item.srcOut" alt="{{item.thumb}}" (mouseover)="item.src = item.srcOn" (mouseout)="item.src = item.srcOut" />
+                    <div *ngFor="let item of imgSrcList" class="round-large-button" (mouseover)="item.hover = true" (mouseout)="item.hover = false" 
+                    [style.border-color]="item.hover == true ? item.focusColor : '#D5A642'">
+                        <img [src]="item.src" alt="{{item.alt}}" />
                     </div>
                 </div>
             </div>
