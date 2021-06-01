@@ -20,12 +20,16 @@ section.navigation {
   border-top: 6px solid $primary;
   padding-top: toRem(14px);
 
-  > .logo {
+  a {
+    text-decoration: none;
+  }
+
+  .logo {
     height: toRem(80px);
     margin-right: 10px;
   }
 
-  > p {
+  p {
     font-size: 20px;
     font-weight: $semi-bold;
     color: white;
