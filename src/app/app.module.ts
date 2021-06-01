@@ -18,7 +18,7 @@ export function countdownConfigFactory(): CountdownConfig {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
