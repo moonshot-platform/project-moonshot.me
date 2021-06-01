@@ -1,8 +1,10 @@
 <section class="navigation">
     <nav class="flex-space-between">
-        <div class="logo-container flex-center">
-            <img class="logo" src="assets/media/images/logo.png" alt="moonshot logo">
-            <p>MOON<span>SHOT</span></p>
+        <div class="logo-container flex">
+            <a class="flex-center" [routerLink]="['']">
+                <img class="logo" src="assets/media/images/logo.png" alt="moonshot logo">
+                <p>MOON<span>SHOT</span></p>
+            </a>
         </div>
 
         <div class="mob-menu" [class.open]="open" (click)="open = !open">

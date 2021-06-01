@@ -1,0 +1,36 @@
+@import "includes";
+
+section.security {
+  > .inner {
+    @extend %max-width-center;
+    margin-bottom: 250px;
+  }
+}
+
+.stats {
+  min-width: 300px;
+  margin-right: 150px;
+
+  div > p {
+    font-size: 30px;
+
+    &:first-child {
+      color: $primary;
+      margin-bottom: 50px;
+      font-size: 12px;
+    }
+  }
+}
+
+.buy-info .futuristic-container {
+  border-top: 1px solid $primary;
+
+  p {
+    width: 80%;
+  }
+}
+
+.explanation {
+  line-height: 30px;
+  font-weight: 200;
+}
