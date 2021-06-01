@@ -12,19 +12,19 @@ export class NavigationComponent implements OnInit {
   public navItems: any[] = [
     {
       'name': 'How to buy',
-      'path': '#howtobuy'
+      'path': '/howtobuy'
     },
     {
       'name': 'Moonpaper',
-      'path': '#moonpaper'
+      'path': '/moonpaper'
     },
     {
       'name': 'Community',
-      'path': '#community'
+      'path': '/community'
     },
     {
       'name': 'About us',
-      'path': '#about'
+      'path': '/about'
     }
   ];
 

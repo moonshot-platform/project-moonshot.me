@@ -1,0 +1,46 @@
+@import "includes";
+
+section.intro {
+  min-height: 100vh;
+  position: relative;
+  background: url("/assets/media/images/moon-about.png") top no-repeat;
+
+  .inner {
+    @extend %max-width-center;
+    margin-bottom: 200px;
+  }
+}
+
+.stats {
+  min-width: 300px;
+  margin-right: 150px;
+
+  div {
+    &:first-child {
+      margin-bottom: 40px;
+    }
+
+    p {
+      color: $secondary;
+      font-size: 20px;
+
+      &:first-child {
+        color: $primary;
+        margin-bottom: 50px;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.info {
+  color: $primary;
+
+  .bottom > div:first-child > p {
+    line-height: 30px;
+    font-weight: 200;
+  }
+}
+
+@media only screen and (max-width: $sm) {
+}
