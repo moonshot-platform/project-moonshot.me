@@ -9,6 +9,18 @@
   margin: 0 auto;
 }
 
+%flex-justify-start {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+%flex-align-start {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
 %flex-center {
   display: flex;
   align-items: center;

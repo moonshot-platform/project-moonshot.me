@@ -1,41 +1,87 @@
 @import "includes";
 
 section.about {
-  @include paddingsInside(100px, 20px);
-  box-sizing: border-box;
-
+  position: relative;
   .inner {
     @extend %max-width-center;
+    margin-bottom: 200px;
+    align-items: flex-end;
   }
 }
 
-.inner {
-  > div:nth-child(1) {
-    .left {
-      width: 100%;
-      margin-right: 50px;
+.stats {
+  min-width: 300px;
+  margin-right: 100px;
+
+  div {
+    p {
+      color: $secondary;
+      font-size: 20px;
+
+      &:first-child {
+        color: $primary;
+        line-height: 25px;
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+.stats-btn {
+  min-width: 30px;
+  padding-left: 30px;
+
+  .futuristic-container > div {
+    float: right;
+  }
+}
+
+.circles {
+  color: $primary;
+
+  .bottom > div:first-child > p {
+    line-height: 30px;
+    font-weight: 200;
+  }
+}
+
+.btn-group {
+  width: 100%;
+
+  div {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  div > div {
+    margin: 10px;
+    align-items: center;
+    img {
+      width: 120px;
+    }
+    p {
+      color: #d7b13e;
+      font-size: 18px;
     }
   }
 
-  > div:nth-child(2) {
-    margin: 40px 0;
-  }
-
-  > div:nth-child(3) {
-    @include paddingInside(20px);
-
-    background: hsla(41, 64%, 55%, 0.9);
-    border: 1px solid #ffc821;
-    box-shadow: 0px 4px 24px -1px rgba(0, 0, 0, 0.2);
-    border-radius: 25px;
-    margin: 0 100px;
+  .round-xlarge-button {
+    box-sizing: border-box;
+    display: inline-block;
+    border: 1px solid #d7b13e;
+    border-radius: 130px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    width: 260px;
+    height: 260px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
   }
 }
 
-.icons-container > .block {
-  height: 300px;
-  width: 20%;
-  max-width: 250px;
-  border-radius: 20px;
-  background: #1f1e1e;
+@media only screen and (max-width: $sm) {
 }
