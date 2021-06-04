@@ -1,0 +1,50 @@
+@import "includes";
+
+section.gallery {
+  > .inner {
+    @extend %max-width-center;
+    margin-bottom: 250px;
+
+    div.ga3 > img {
+      width: calc(100% / 3 - 20px);
+    }
+
+    div.ga2 {
+      width: 100%;
+      padding-top: 80px;
+      padding-bottom: 50px;
+      > img {
+        &:first-child {
+          width: 60%;
+        }
+        width: 30%;
+      }
+    }
+  }
+}
+
+.stats {
+  min-width: 300px;
+  margin-right: 150px;
+
+  div > p {
+    font-size: 30px;
+
+    &:first-child {
+      color: $primary;
+      margin-bottom: 50px;
+      font-size: 12px;
+    }
+  }
+}
+
+.gallery-group .futuristic-container {
+  p {
+    color: $primary;
+  }
+}
+
+.explanation {
+  line-height: 30px;
+  font-weight: 200;
+}

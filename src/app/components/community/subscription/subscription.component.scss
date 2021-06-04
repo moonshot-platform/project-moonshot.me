@@ -1,0 +1,71 @@
+@import "includes";
+
+section.subscription {
+  position: relative;
+  background-size: 60%;
+  z-index: 2;
+
+  .inner {
+    @extend %max-width-center;
+    margin-bottom: 250px;
+  }
+}
+
+.info {
+  color: $primary;
+  width: 100%;
+  border-top: 1px solid $primary;
+  border-bottom: 1px solid $primary;
+  text-align: center;
+
+  .bottom > div > p.title {
+    font-size: 25px;
+    font-weight: bold!important;
+    margin-bottom: 50px;
+  }
+
+  .bottom > div > span {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  .bottom > div.group {
+    min-width: 500px;
+    width: 50%;
+    display: grid;
+    .group-img {
+      align-items: center;
+    }
+    img {
+      height: 250px;
+    }
+  }
+
+  .bottom > div > a {
+    margin: auto;
+    
+  }
+
+  .bottom > div:first-child > p {
+    line-height: 30px;
+    font-weight: 200;
+  }
+
+  .btn-group > .inner {
+    @extend %max-width-center;
+
+    > .round-large-button > img {
+      width: 80px;
+    }
+  }
+}
+
+@media only screen and (max-width: $sm) {
+  section.subscription {
+    background-size: 80%;
+    .inner {
+      @extend %max-width-center;
+      margin-bottom: 250px;
+    }
+  }
+}
