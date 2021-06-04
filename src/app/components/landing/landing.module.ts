@@ -19,6 +19,7 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { NavigationModule } from './navigation/navigation.module';
 import { RoadmapComponent } from './roadmap/roadmap.component';
 import { SidebarModule } from './sidebar/sidebar.module';
+import { SubscriptionComponent } from './subscription/subscription.component';
 
 import { CarouselModule } from 'ng-carousel-cdk';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -28,6 +29,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { RoadmapModule } from './roadmap/roadmap.module';
 
 
 
@@ -44,7 +46,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     EconomyComponent,
     InvestmentComponent,
     TutorialComponent,
-    RoadmapComponent,
+    SubscriptionComponent,
   ],
   imports: [
     MatIconModule,
@@ -55,6 +57,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     NgParticlesModule,
     AppRoutingModule,
     SidebarModule,
+    RoadmapModule,
     MatToolbarModule,
     MatButtonModule,
     MatCardModule,

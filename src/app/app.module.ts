@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { FooterModule } from './components/base/footer/footer.module';
 import { LandingModule } from './components/landing/landing.module';
 import { AboutModule } from './components/about/about.module';
+import { CommunityModule } from './components/community/community.module';
 import { SignModule } from './components/sign/sign.module';
 import { CountdownConfig, CountdownGlobalConfig, CountdownModule } from 'ngx-countdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -28,6 +29,7 @@ export function countdownConfigFactory(): CountdownConfig {
     SignModule,
     LandingModule,
     AboutModule,
+    CommunityModule,
     FooterModule,
     CountdownModule,
     NgParticlesModule,
