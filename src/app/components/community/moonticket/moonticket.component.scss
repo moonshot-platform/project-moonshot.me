@@ -1,0 +1,53 @@
+@import "includes";
+
+section.moonticket {
+  > .inner {
+    @extend %max-width-center;
+    margin-top: 100px;
+    padding-bottom: 200px;
+  }
+  div > img {
+    width: 100%;
+    padding-top: 80px;
+  }
+}
+
+.stats {
+  min-width: 300px;
+  margin-right: 150px;
+
+  div > p {
+    font-size: 30px;
+
+    &:first-child {
+      color: $primary;
+      margin-bottom: 50px;
+      font-size: 12px;
+    }
+  }
+}
+
+.buy-info .futuristic-container {
+  border-top: 1px solid $primary;
+  padding-top: 100px;
+  
+  div {
+    border: 0;
+    p {
+      color: $primary;
+    }
+    input {
+      width: 80%;
+      font-size: 20px;
+      background: transparent;
+      color: $primary;
+      border: 0;
+      border-bottom: 1px solid $primary;
+    }
+  }
+}
+
+.explanation {
+  line-height: 30px;
+  font-weight: 200;
+}
