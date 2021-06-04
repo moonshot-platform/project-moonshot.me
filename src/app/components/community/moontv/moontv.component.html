@@ -1,0 +1,29 @@
+<section class="moontv">
+    <div class="inner">
+        <div class="flex-space-between align-start mt100">
+            <div class="stats flex1">
+                <div class="timer futuristic-container">
+                    <p>MOONTV</p>
+                    <p class="color-white">See what’s on MoonTV</p>
+                </div>
+                <div class="desc futuristic-container">
+                    <p>See what the crypto influencials say about Moonshot.</p>
+                </div>
+                <div class="more buttons-container">
+                    <a class="button">More MoonTV</a>
+                </div>
+            </div>
+            <div class="buy-info flex3">
+                 <div class="futuristic-container flex">
+                    <div class="video" *ngFor="let item of videoSrcList">
+                        <!-- <a class="playbtn outlined-button mb10">PLAY</a> -->
+                        <video width="100%" height="auto" controls #videoPlayer>
+                            <source src="{{item.src}}" type="video/mp4" />
+                            Browser not supported
+                        </video>
+                    </div>
+                 </div>
+            </div>
+         </div>
+    </div>
+</section>
