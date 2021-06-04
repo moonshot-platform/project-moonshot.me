@@ -10,10 +10,10 @@ import { SecurityComponent } from './security/security.component';
 import { MissionComponent } from './mission/mission.component';
 import { MechanicsComponent } from './mechanics/mechanics.component';
 import { TutorialComponent } from './tutorial/tutorial.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
 import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { NavigationModule } from '../landing/navigation/navigation.module';
+import { SidebarModule } from '../landing/sidebar/sidebar.module';
 
 
 
@@ -26,7 +26,6 @@ import { NavigationModule } from '../landing/navigation/navigation.module';
     MissionComponent,
     MechanicsComponent,
     TutorialComponent,
-    SidebarComponent,
   ],
   imports: [
     MatIconModule,
@@ -35,7 +34,8 @@ import { NavigationModule } from '../landing/navigation/navigation.module';
     FooterModule,
     CountdownModule,
     NgParticlesModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SidebarModule
   ]
 })
 export class AboutModule { }

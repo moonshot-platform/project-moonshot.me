@@ -1,6 +1,6 @@
 <section class="roadmap">
     <div class="inner">
-        <div class="flex-space-between align-start mt100">
+        <div class="flex-space-between align-start mb100">
             <div class="next-event-container flex1">
                 <div class="timer futuristic-container top-only">
                  <p>WHAT’S NEXT?</p>
@@ -32,34 +32,38 @@
                 </div>
 
                 <div class="route-container flex">
-                    <div class="round-mini-button mr10">
+                    <div class="round-mini-button mr10" (click)="carouselRef.prev()">
                         <mat-icon fontSet="material-icons" class="color-primary">west</mat-icon>
                     </div>
-                    <div class="round-mini-button">
+                    <div class="round-mini-button" (click)="carouselRef.next()">
                         <mat-icon fontSet="material-icons" class="color-primary">east</mat-icon>
                     </div>
                 </div>
             </div>
          </div>
-         <div #carousel>
-            <div class="carousel-cell">
-                <img src="assets/media/images/exchanges/pancakeswap.svg" alt="pancakeswap" />
-            </div>
-            <div class="carousel-cell">
-                <img src="assets/media/images/exchanges/pancakeswap.svg" alt="pancakeswap" />
-            </div>
-            <div class="carousel-cell">
-                <img src="assets/media/images/exchanges/pancakeswap.svg" alt="pancakeswap" />
-            </div>
-            <div class="carousel-cell">
-                <img src="assets/media/images/exchanges/pancakeswap.svg" alt="pancakeswap" />
-            </div>
-            <div class="carousel-cell">
-                <img src="assets/media/images/exchanges/pancakeswap.svg" alt="pancakeswap" />
-            </div>
-            <div class="carousel-cell">
-                <img src="assets/media/images/exchanges/pancakeswap.svg" alt="pancakeswap" />
-            </div>
-        </div>
+         
+        <ng-carousel
+            #carouselRef="ngCarousel"
+            [config]="config"
+            (itemIndexChange)="setItemIndex($event)"
+            class="carousel-block">
+            <ng-template
+                [ngCarouselSlide]="carouselRef"
+                let-item
+                let-active="isActive"
+                let-activeOnTheRight="activeOnTheRight"
+                let-activeOnTheLeft="activeOnTheLeft">
+                <div
+                    [class.active]="active"
+                    class="carousel-slide">
+                    <h2 class="mb20">
+                        {{item.title}}
+                    </h2>
+                    <p>
+                        {{item.description}}
+                    </p>
+                </div>
+            </ng-template>
+        </ng-carousel>
     </div>
 </section>
