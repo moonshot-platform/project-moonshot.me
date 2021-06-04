@@ -1,9 +1,10 @@
 @import "includes";
 
 section.roadmap {
+  border-bottom: 1px solid $primary;
+
   > .inner {
     @extend %max-width-center;
-    @include paddingsInside(70px, 20px);
   }
 }
 
@@ -64,17 +65,19 @@ section.roadmap {
   }
 }
 
-ng2-carouselamos {
-  width: 100%;
-}
+::ng-deep .ng-carousel-slide {
+  @include paddingInside(10px);
 
-.carousel-cell {
-  min-width: 200px;
-  background-color: blue;
-}
+  color: $primary;
+  height: 150px;
+  border-left: 1px solid $primary;
 
-.nextButton {
-  width: 100px;
-  height: 100px;
-  background-color: red;
+  &:hover {
+    color: white;
+    border-left: 1px solid white;
+  }
+
+  .active {
+    color: white;
+  }
 }

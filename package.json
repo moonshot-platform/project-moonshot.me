@@ -21,12 +21,14 @@
     "@angular/platform-browser": "~11.2.4",
     "@angular/platform-browser-dynamic": "~11.2.4",
     "@angular/router": "~11.2.4",
+    "ng-carousel-cdk": "^1.7.0",
     "ng-particles": "^2.9.3",
     "ngx-countdown": "^11.0.3",
     "particles.js": "^2.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "tsparticles": "^1.26.3",
+    "ungrid": "^1.0.1",
     "zone.js": "~0.11.3"
   },
   "devDependencies": {
