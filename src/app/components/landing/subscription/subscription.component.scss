@@ -17,36 +17,29 @@ section.subscription {
   border-bottom: 1px solid $primary;
   text-align: center;
 
-  .bottom > div > p.title {
-    font-size: 25px;
-    font-weight: bold !important;
-    margin-bottom: 50px;
-  }
-
-  .bottom > div > span {
-    padding-left: 50px;
-    padding-right: 50px;
-  }
-
-  .bottom > div.group {
-    min-width: 500px;
-    width: 50%;
-    display: grid;
+  .bottom {
     .group-img {
       align-items: center;
     }
     img {
       height: 250px;
     }
+
+    div {
+      > a {
+        margin: auto;
+        width: fit-content;
+      }
+
+      > p.description {
+        line-height: 30px;
+        font-weight: 200;
+      }
+    }
   }
 
-  .bottom > div > a {
-    margin: auto;
-  }
-
-  .bottom > div:first-child > p {
-    line-height: 30px;
-    font-weight: 200;
+  .inner-container {
+    min-height: 500px;
   }
 
   .btn-group > .inner {

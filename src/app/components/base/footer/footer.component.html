@@ -1,3 +1,45 @@
 <footer class="mt200">
-    <div class="inner"></div>
+    <div class="inner pv100 flex">
+        <div class="flex left flex1">
+            <div class="main-box flex1">
+                <p>Main</p>
+                <ul class="mt30">
+                    <li class="mb20"><a href="#">How to buy</a></li>
+                    <li class="mb20"><a href="#">Moonpaper</a></li>
+                    <li class="mb20"><a href="#">Tokenomics</a></li>
+                    <li class="mb20"><a href="#">About Moonshot</a></li>
+                </ul>
+            </div>
+            <div class="community-box flex1">
+                <p>Community</p>
+                <ul class="mt30">
+                    <li class="mb20"><a href="#">MoonTV</a></li>
+                    <li class="mb20"><a href="#">MoonTicket</a></li>
+                    <li class="mb20"><a href="#">Merchandise</a></li>
+                    <li class="mb20"><a href="#">MoonGallery</a></li>
+                    <li class="mb20"><a href="#">Fuel the rocket</a></li>
+                </ul>
+            </div>
+            <div class="moonbase-box flex1">
+                <p>MoonBase</p>
+                <ul class="mt30">
+                    <li class="mb20"><a href="#">MoonBoxes</a></li>
+                    <li class="mb20"><a href="#">MoonLottery</a></li>
+                    <li class="mb20"><a href="#">MoonArcade</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="right flex1 flex-col-align-end">
+            <div class="social-icon-links">
+                <p>Links</p>
+                <ul class="mt30">
+                    <li *ngFor="let item of icons">
+                        <a class="icon" href="{{item.link}}">
+                            <img src="assets/media/icons/social/{{item.icon}}" alt="{{item.alt}}">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </footer>

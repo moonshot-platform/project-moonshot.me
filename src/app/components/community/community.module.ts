@@ -7,13 +7,13 @@ import { IntroComponent } from './intro/intro.component';
 import { NgParticlesModule } from 'ng-particles';
 import { GalleryComponent } from './gallery/gallery.component';
 import { MoontvComponent } from './moontv/moontv.component';
-import { SubscriptionComponent } from './subscription/subscription.component';
 import { MoonticketComponent } from './moonticket/moonticket.component';
 import { SidebarModule } from '../landing/sidebar/sidebar.module';
 import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { NavigationModule } from '../landing/navigation/navigation.module';
 import { RoadmapModule } from '../landing/roadmap/roadmap.module';
+import { SubscriptionModule } from '../landing/subscription/subscription.module';
 
 
 
@@ -23,7 +23,6 @@ import { RoadmapModule } from '../landing/roadmap/roadmap.module';
     IntroComponent,
     GalleryComponent,
     MoontvComponent,
-    SubscriptionComponent,
     MoonticketComponent,
   ],
   imports: [
@@ -35,7 +34,8 @@ import { RoadmapModule } from '../landing/roadmap/roadmap.module';
     NgParticlesModule,
     AppRoutingModule,
     SidebarModule,
-    RoadmapModule
+    RoadmapModule,
+    SubscriptionModule
   ]
 })
 export class CommunityModule { }

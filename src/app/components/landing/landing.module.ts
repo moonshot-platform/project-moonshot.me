@@ -17,9 +17,7 @@ import { TutorialComponent } from './tutorial/tutorial.component';
 import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { NavigationModule } from './navigation/navigation.module';
-import { RoadmapComponent } from './roadmap/roadmap.component';
 import { SidebarModule } from './sidebar/sidebar.module';
-import { SubscriptionComponent } from './subscription/subscription.component';
 
 import { CarouselModule } from 'ng-carousel-cdk';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -30,6 +28,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RoadmapModule } from './roadmap/roadmap.module';
+import { SubscriptionModule } from './subscription/subscription.module';
 
 
 
@@ -46,7 +45,6 @@ import { RoadmapModule } from './roadmap/roadmap.module';
     EconomyComponent,
     InvestmentComponent,
     TutorialComponent,
-    SubscriptionComponent,
   ],
   imports: [
     MatIconModule,
@@ -67,6 +65,7 @@ import { RoadmapModule } from './roadmap/roadmap.module';
     FormsModule,
     ReactiveFormsModule,
     CarouselModule,
+    SubscriptionModule
   ]
 })
 export class LandingModule { }
