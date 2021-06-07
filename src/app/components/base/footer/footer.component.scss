@@ -1,5 +1,40 @@
+@import "includes";
+
 footer {
-  height: 500px;
+  min-height: 500px;
   width: 100%;
-  background-color: #000;
+  background-color: #000118;
+
+  > .inner {
+    position: relative;
+    @extend %max-width-center;
+  }
+
+  p,
+  a {
+    color: $primary;
+  }
+}
+
+.left p,
+.right p {
+  font-weight: bold;
+}
+
+.social-icon-links ul {
+  width: 270px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  > li {
+    margin-bottom: 30px;
+  }
+}
+
+.icon {
+  > img {
+    width: 70px;
+    height: 70px;
+  }
 }

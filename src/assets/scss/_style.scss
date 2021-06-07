@@ -21,6 +21,11 @@ body {
   color: $font-color-base;
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
+
 ul {
   padding-left: 0;
   list-style-type: none;
@@ -63,6 +68,12 @@ ul {
 }
 .mt200 {
   margin-top: 200px;
+}
+.mt300 {
+  margin-top: 300px;
+}
+.mt400 {
+  margin-top: 400px;
 }
 .mr10 {
   margin-right: 10px;
