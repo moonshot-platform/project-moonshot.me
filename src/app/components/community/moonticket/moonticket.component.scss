@@ -1,9 +1,11 @@
 @import "includes";
 
 section.moonticket {
+  padding-top: 300px;
+  background: url("/assets/media/images/galaxy03_homepage.png") no-repeat right;
+
   > .inner {
     @extend %max-width-center;
-    margin-top: 100px;
     padding-bottom: 200px;
   }
   div > img {
@@ -30,7 +32,7 @@ section.moonticket {
 .buy-info .futuristic-container {
   border-top: 1px solid $primary;
   padding-top: 100px;
-  
+
   div {
     border: 0;
     p {

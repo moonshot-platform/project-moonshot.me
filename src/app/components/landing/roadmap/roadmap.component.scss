@@ -1,7 +1,8 @@
 @import "includes";
 
 section.roadmap {
-  border-bottom: 1px solid $primary;
+  background: url("/assets/media/images/galaxy04_homepage.png") center no-repeat;
+  background-size: 80%;
 
   > .inner {
     @extend %max-width-center;
@@ -80,4 +81,17 @@ section.roadmap {
   .active {
     color: white;
   }
+}
+
+.carousel-container {
+  position: relative;
+}
+
+.bottom-line {
+  height: 1px;
+  background-color: $primary;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }

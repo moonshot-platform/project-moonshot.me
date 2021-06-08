@@ -21,6 +21,10 @@ body {
   color: $font-color-base;
 }
 
+.orbitron {
+  font-family: $secondary-font;
+}
+
 a {
   text-decoration: none;
   color: white;
@@ -186,6 +190,9 @@ ul {
 .pv100 {
   @include paddingsInside(100px, 0px);
 }
+.pv200 {
+  @include paddingsInside(200px, 0px);
+}
 
 .pt10 {
   padding-top: 10px;
@@ -257,6 +264,10 @@ ul {
 }
 .pb100 {
   padding-bottom: 100px;
+  box-sizing: border-box;
+}
+.pb200 {
+  padding-bottom: 200px;
   box-sizing: border-box;
 }
 .pl10 {

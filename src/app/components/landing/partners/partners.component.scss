@@ -1,6 +1,10 @@
 @import "includes";
 
 section.partners {
+  background: url("/assets/media/images/galaxy03_homepage.png") right center
+    no-repeat;
+  background-size: 80%;
+
   > .inner {
     @extend %max-width-center;
     @include paddingsInside(70px, 20px);

@@ -18,6 +18,15 @@ export function countdownConfigFactory(): CountdownConfig {
   return {};
 }
 
+import * as Hammer from 'hammerjs';
+import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+
+export class HammerConfig extends HammerGestureConfig {
+  overrides = <any>{
+    'swipe': { direction: Hammer.DIRECTION_ALL }
+  };
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +44,11 @@ export function countdownConfigFactory(): CountdownConfig {
     NgParticlesModule,
     BrowserAnimationsModule
   ],
-  providers: [{ provide: CountdownGlobalConfig, useFactory: countdownConfigFactory }],
+  providers: [{ provide: CountdownGlobalConfig, useFactory: countdownConfigFactory },
+    {
+      provide: HAMMER_GESTURE_CONFIG,
+      useClass: HammerConfig
+    }],
   bootstrap: [AppComponent],
   exports: [
     FooterModule,

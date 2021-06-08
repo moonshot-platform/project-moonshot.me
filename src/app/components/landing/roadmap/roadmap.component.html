@@ -1,10 +1,10 @@
-<section class="roadmap">
+<section class="roadmap pv200">
     <div class="inner">
         <div class="flex-space-between align-start mb100">
             <div class="next-event-container flex1">
                 <div class="timer futuristic-container top-only">
                  <p>WHAT’S NEXT?</p>
-                 <p class="color-white">Roadmap to the future</p>
+                 <p class="color-white orbitron">Roadmap to the future</p>
                 </div>
             </div>
             <div class="info-container futuristic-container top-only flex-space-between align-start flex3">
@@ -41,29 +41,32 @@
                 </div>
             </div>
          </div>
-         
-        <ng-carousel
-            #carouselRef="ngCarousel"
-            [config]="config"
-            (itemIndexChange)="setItemIndex($event)"
-            class="carousel-block">
-            <ng-template
-                [ngCarouselSlide]="carouselRef"
-                let-item
-                let-active="isActive"
-                let-activeOnTheRight="activeOnTheRight"
-                let-activeOnTheLeft="activeOnTheLeft">
-                <div
-                    [class.active]="active"
-                    class="carousel-slide">
-                    <h2 class="mb20">
-                        {{item.title}}
-                    </h2>
-                    <p>
-                        {{item.description}}
-                    </p>
-                </div>
-            </ng-template>
-        </ng-carousel>
+        
+        <div class="carousel-container">
+            <ng-carousel
+                #carouselRef="ngCarousel"
+                [config]="config"
+                (itemIndexChange)="setItemIndex($event)"
+                class="carousel-block">
+                <ng-template
+                    [ngCarouselSlide]="carouselRef"
+                    let-item
+                    let-active="isActive"
+                    let-activeOnTheRight="activeOnTheRight"
+                    let-activeOnTheLeft="activeOnTheLeft">
+                    <div
+                        [class.active]="active"
+                        class="carousel-slide">
+                        <h2 class="mb20">
+                            {{item.title}}
+                        </h2>
+                        <p>
+                            {{item.description}}
+                        </p>
+                    </div>
+                </ng-template>
+            </ng-carousel>
+            <div class="bottom-line"></div>
+        </div>
     </div>
 </section>
