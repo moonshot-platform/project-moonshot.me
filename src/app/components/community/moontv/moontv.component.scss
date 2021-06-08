@@ -1,9 +1,8 @@
 @import "includes";
 
 section.moontv {
-
   // height: 100vh;
-  background: url("/assets/media/images/galaxy03_homepage.png") no-repeat right;
+  background: url("/assets/media/images/galaxy02_homepage.png") no-repeat left;
   > .inner {
     @extend %max-width-center;
     margin-bottom: 250px;
@@ -44,11 +43,11 @@ section.moontv {
     flex-wrap: wrap;
     justify-content: center;
     border: 0;
-  
+
     p {
       width: 80%;
     }
-  
+
     .video {
       width: 45%;
       padding: 10px;

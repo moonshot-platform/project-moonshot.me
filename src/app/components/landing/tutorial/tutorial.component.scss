@@ -1,6 +1,10 @@
 @import "includes";
 
 section.tutorial {
+  background: url("/assets/media/images/galaxy02_homepage.png") center top
+    no-repeat;
+  background-size: 80%;
+
   > .inner {
     @extend %max-width-center;
     @include paddingsInside(70px, 20px);

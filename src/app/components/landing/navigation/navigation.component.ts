@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-navigation',
@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
+  public atTop = true;
   public open = false;
 
   public navItems: any[] = [
@@ -27,6 +28,10 @@ export class NavigationComponent implements OnInit {
       'path': '/about'
     }
   ];
+
+  @HostListener('window:scroll', ['$event']) onScrollEvent($event){
+    this.atTop = (window.pageYOffset == 0) ? true : false;
+  } 
 
   constructor() { }
 

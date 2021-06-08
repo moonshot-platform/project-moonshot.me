@@ -13,10 +13,22 @@ section.navigation {
   z-index: 1000;
   display: flex;
   justify-content: center;
+  transition: background-color 200ms linear;
+
+  &.withBG {
+    background-color: rgba($color: #000118, $alpha: 0.9);
+
+    .logo {
+      height: toRem(20px);
+    }
+
+    .logo-container {
+      border-top: 1px solid $primary;
+    }
+  }
 }
 
 .logo-container {
-  width: 270px;
   border-top: 6px solid $primary;
   padding-top: toRem(14px);
 
@@ -27,16 +39,18 @@ section.navigation {
   .logo {
     height: toRem(80px);
     margin-right: 10px;
+    transition: all 200ms linear;
   }
 
   p {
     font-size: 20px;
     font-weight: $semi-bold;
+    font-family: $secondary-font;
     color: white;
 
     > span {
       color: $primary;
-      font-weight: $medium;
+      font-weight: $regular;
     }
   }
 }
@@ -62,8 +76,8 @@ nav {
 
       a {
         color: $primary;
-        text-transform: uppercase;
         text-decoration: none;
+        font-weight: bold;
         font-size: 15px;
 
         &:hover {
