@@ -31,6 +31,7 @@ section.navigation {
 .logo-container {
   border-top: 6px solid $primary;
   padding-top: toRem(14px);
+  transition: all 200ms linear;
 
   a {
     text-decoration: none;
