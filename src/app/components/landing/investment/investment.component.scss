@@ -56,3 +56,18 @@ section.investment {
     }
   }
 }
+
+@media only screen and (max-width: $md) {
+  .options {
+    flex-direction: column;
+    padding: 20px;
+
+    > div.option {
+      margin: 20px 0;
+
+      &:nth-child(2) {
+        margin: 20px 0;
+      }
+    }
+  }
+}

@@ -132,3 +132,29 @@ section.tutorial {
     }
   }
 }
+
+@media only screen and (max-width: $md) {
+  .buttons-container {
+    display: none;
+  }
+
+  .how-to-buy-flow {
+    li {
+      flex-direction: column;
+
+      &:first-child,
+      &:last-child {
+        display: none;
+      }
+
+      .left,
+      .right {
+        min-width: auto;
+      }
+
+      .indicator {
+        display: none;
+      }
+    }
+  }
+}

@@ -7,6 +7,7 @@ section.intro {
 
   .inner {
     @extend %max-width-center;
+    padding: 0 20px;
     margin-bottom: 200px;
   }
 }
@@ -39,6 +40,29 @@ section.intro {
   .bottom > div:first-child > p {
     line-height: 30px;
     font-weight: 200;
+  }
+}
+
+@media only screen and (max-width: $md) {
+  section.intro > .inner {
+    flex-direction: column;
+
+    .stats {
+      display: none;
+    }
+
+    .info > .bottom {
+      flex-direction: column;
+
+      .futuristic-container {
+        border-bottom: 0;
+      }
+
+      .buttons-container {
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+    }
   }
 }
 

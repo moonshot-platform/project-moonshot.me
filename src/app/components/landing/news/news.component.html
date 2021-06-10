@@ -1,9 +1,7 @@
 <section class="news flex-end pv100">
     <div class="overlay"></div>
-    <div class="inner flex-space-between align-start">
-       <div class="stats flex1">
-       </div>
-       <div class="info flex3">
+    <div class="inner flex justify-end align-start ">
+       <div class="info">
             <div class="btn-group futuristic-container bottom-only">
                 <div class="inner flex-space-between pb50">
                     <div *ngFor="let item of imgSrcList" class="round-large-button" (mouseover)="item.hover = true" (mouseout)="item.hover = false" 
@@ -23,7 +21,6 @@
                     <a class="outlined-button mb10">Telegram</a>
                     <a class="button">Buy Moonshot</a>
                 </div>
-                
             </div>
        </div>
     </div>

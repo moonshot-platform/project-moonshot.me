@@ -3,7 +3,6 @@
 section.navigation {
   @include paddingInside(15px);
 
-  // background: rgba($color: #000000, $alpha: 0.5);
   box-shadow: 0 4px 12px 0 #00000000;
   box-sizing: border-box;
   position: fixed;
@@ -188,7 +187,10 @@ nav {
   }
 }
 
-@media only screen and (max-width: $md-header) {
+@media only screen and (max-width: $md) {
+  section.navigation {
+    width: 100%;
+  }
   ul {
     display: none;
   }
