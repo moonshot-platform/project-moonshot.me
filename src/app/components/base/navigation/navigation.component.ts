@@ -12,12 +12,8 @@ export class NavigationComponent implements OnInit {
 
   public navItems: any[] = [
     {
-      'name': 'How to buy',
-      'path': '/howtobuy'
-    },
-    {
       'name': 'Moonpaper',
-      'path': '/moonpaper'
+      'externalPath': '/assets/files/moonpaper.pdf'
     },
     {
       'name': 'Community',
@@ -32,6 +28,11 @@ export class NavigationComponent implements OnInit {
   @HostListener('window:scroll', ['$event']) onScrollEvent($event){
     this.atTop = (window.pageYOffset == 0) ? true : false;
   } 
+
+  scrollToElement(): void {
+    const element = document.querySelector("#howToTutorial")
+if (element) element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
 
   constructor() { }
 

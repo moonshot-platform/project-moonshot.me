@@ -12,7 +12,7 @@ import { MechanicsComponent } from './mechanics/mechanics.component';
 import { TutorialComponent } from './tutorial/tutorial.component';
 import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from 'src/app/app-routing.module';
-import { NavigationModule } from '../landing/navigation/navigation.module';
+import { NavigationModule } from '../base/navigation/navigation.module';
 import { SidebarModule } from '../landing/sidebar/sidebar.module';
 import { RoadmapModule } from '../landing/roadmap/roadmap.module';
 

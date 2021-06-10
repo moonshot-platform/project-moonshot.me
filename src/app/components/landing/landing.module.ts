@@ -16,7 +16,7 @@ import { InvestmentComponent } from './investment/investment.component';
 import { TutorialComponent } from './tutorial/tutorial.component';
 import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from 'src/app/app-routing.module';
-import { NavigationModule } from './navigation/navigation.module';
+import { NavigationModule } from '../base/navigation/navigation.module';
 import { SidebarModule } from './sidebar/sidebar.module';
 
 import { CarouselModule } from 'ng-carousel-cdk';
