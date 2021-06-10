@@ -33,3 +33,12 @@ section.exchanges {
   line-height: 30px;
   font-weight: 200;
 }
+
+@media only screen and (max-width: $md) {
+  .inner > div:nth-child(2) {
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: $sm) {
+}

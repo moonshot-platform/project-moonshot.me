@@ -87,5 +87,47 @@ section.about {
   }
 }
 
+@media only screen and (max-width: $md) {
+  section.about {
+    background: none;
+    > .inner {
+      flex-direction: column;
+      margin-bottom: 0;
+
+      > .stats {
+        margin-right: 0;
+
+        > div:nth-child(2) {
+          border-bottom: 0;
+        }
+      }
+
+      > .circles {
+        margin-top: 50px;
+      }
+
+      .round-xlarge-button {
+        width: calc(50% - 25px);
+        margin: 0;
+        margin-left: 20px;
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        &:before {
+          content: "";
+          display: block;
+          padding-top: 100%; /* initial ratio of 1:1*/
+        }
+      }
+
+      .stats-btn {
+        margin-top: 50px;
+      }
+    }
+  }
+}
+
 @media only screen and (max-width: $sm) {
 }

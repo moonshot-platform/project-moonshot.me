@@ -38,3 +38,13 @@ footer {
     height: 70px;
   }
 }
+
+@media only screen and (max-width: $md) {
+  .inner {
+    flex-direction: column;
+  }
+
+  .right {
+    align-items: center;
+  }
+}

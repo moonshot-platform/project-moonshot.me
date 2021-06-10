@@ -65,5 +65,25 @@ video::-webkit-media-controls-panel {
   }
 }
 
+@media only screen and (max-width: $md) {
+  section.video > .inner {
+    flex-direction: column;
+    margin-bottom: 0;
+  }
+
+  .video-player {
+    .video {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  .stats-btn {
+    div {
+      padding-bottom: 0;
+    }
+  }
+}
+
 @media only screen and (max-width: $sm) {
 }
