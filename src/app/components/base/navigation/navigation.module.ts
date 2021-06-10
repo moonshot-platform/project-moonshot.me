@@ -17,4 +17,4 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
     NavigationComponent
   ]
 })
-export class NavigationModule { }
+export class NavigationModule {}

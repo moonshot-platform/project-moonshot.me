@@ -16,7 +16,7 @@ section.navigation {
   transition: background-color 200ms linear;
 
   &.withBG {
-    background-color: rgba($color: #000118, $alpha: 0.9);
+    background-color: rgba($color: #0c0c0c, $alpha: 0.9);
 
     .logo {
       height: toRem(20px);
@@ -75,11 +75,13 @@ nav {
         margin-right: 0;
       }
 
-      a {
+      a,
+      p {
         color: $primary;
         text-decoration: none;
         font-weight: bold;
         font-size: 15px;
+        cursor: pointer;
 
         &:hover {
           color: $white;
