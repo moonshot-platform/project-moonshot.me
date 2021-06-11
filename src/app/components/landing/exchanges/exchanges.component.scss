@@ -1,8 +1,15 @@
 @import "includes";
 
 section.exchanges {
-  > .inner {
+  position: relative;
+  background: url("/assets/media/images/illustration_2.png") no-repeat right;
+  background-position: 100% 300px;
+  background-size: 50%;
+  z-index: 2;
+
+  .inner {
     @extend %max-width-center;
+    padding-bottom: 300px;
 
     > div:first-child > img {
       width: calc(100% / 3 - 20px);
