@@ -36,3 +36,9 @@ section.mission {
   line-height: 30px;
   font-weight: 200;
 }
+
+@media only screen and (max-width: $md) {
+  section.mission > .inner > div {
+    flex-direction: column;
+  }
+}

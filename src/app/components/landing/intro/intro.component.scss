@@ -44,23 +44,32 @@ section.intro {
 }
 
 @media only screen and (max-width: $md) {
-  section.intro > .inner {
-    flex-direction: column;
-
-    .stats {
-      display: none;
-    }
-
-    .info > .bottom {
+  section.intro {
+    align-items: center;
+    .inner {
       flex-direction: column;
+      margin-bottom: 0;
+      padding-top: 100px;
 
-      .futuristic-container {
-        border-bottom: 0;
+      .stats {
+        display: none;
       }
 
-      .buttons-container {
-        margin-top: 20px;
-        margin-bottom: 20px;
+      .info > .bottom {
+        flex-direction: column;
+
+        .futuristic-container {
+          border-bottom: 0;
+        }
+
+        .buttons-container {
+          margin-top: 20px;
+          margin-bottom: 20px;
+        }
+
+        .round-mini-button {
+          display: none;
+        }
       }
     }
   }
