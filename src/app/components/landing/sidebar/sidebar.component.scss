@@ -8,6 +8,37 @@ section.sidebar {
   position: fixed;
 }
 
+.close {
+  color: #7e6328;
+  cursor: pointer;
+  margin-left: auto;
+}
+.d-flex {
+  display: flex;
+}
+section.tokenomics {
+  padding: 22px 60px 0px;
+  box-sizing: border-box;
+  .inner {
+    @extend %max-width-center;
+
+    border-radius: 160px;
+  }
+}
+
+section.tokenomics {
+      background: #d7b13e;
+      position: fixed;
+      right: 0;
+      top: 0;
+      width: 50vw;
+      z-index: 12000;
+      margin-right: 65px;
+      height: 100vh;
+      max-height: 100vh;
+      overflow: auto;
+  }
+
 .block {
   background: $secondary;
   width: $sidebar-width;
