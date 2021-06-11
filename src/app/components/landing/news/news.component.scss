@@ -5,6 +5,7 @@ section.news {
   background: url("/assets/media/images/illustration_1.png") left no-repeat;
   background-size: 50%;
   z-index: 2;
+  padding: 0 20px;
 
   .inner {
     @extend %max-width-center;
@@ -38,12 +39,6 @@ section.news {
         margin-left: 0;
       }
 
-      &:before {
-        content: "";
-        display: block;
-        padding-top: 100%; /* initial ratio of 1:1*/
-      }
-
       > img {
         width: 50%;
       }
@@ -54,10 +49,25 @@ section.news {
 @media only screen and (max-width: $md) {
   section.news {
     background: 0;
+    padding-top: 0;
     .inner {
       @extend %max-width-center;
       margin-bottom: 250px;
       justify-content: center;
+    }
+  }
+
+  .info .btn-group > .inner {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    .round-large-button {
+      width: 30%;
+      margin-bottom: 20px;
+
+      &:nth-child(4n) {
+        margin-left: 0;
+      }
     }
   }
 

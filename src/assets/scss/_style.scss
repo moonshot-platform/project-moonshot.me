@@ -511,6 +511,7 @@ ul {
   border-radius: 25px;
   color: black;
   font-weight: $semi-bold;
+  text-align: center;
   cursor: pointer;
   text-decoration: none;
   text-transform: uppercase;
@@ -569,10 +570,17 @@ ul {
   font-weight: 600;
   cursor: pointer;
   text-align: center;
-  height: 130px;
+  height: auto;
+  border-radius: 50%;
   width: 130px;
   justify-content: center;
   align-items: center;
+
+  &:before {
+    content: "";
+    display: block;
+    padding-top: 100%; /* initial ratio of 1:1*/
+  }
 }
 
 #particles {

@@ -38,6 +38,10 @@ section.exchanges {
   .inner > div:nth-child(2) {
     flex-direction: column;
   }
+
+  .buy-info .futuristic-container {
+    flex-direction: column;
+  }
 }
 
 @media only screen and (max-width: $sm) {
