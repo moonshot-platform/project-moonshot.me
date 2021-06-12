@@ -1,7 +1,9 @@
 @import "includes";
 
 section.video {
+  @include paddingsInside(0px, 20px);
   position: relative;
+
   .inner {
     @extend %max-width-center;
     margin-bottom: 200px;

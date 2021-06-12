@@ -142,6 +142,7 @@ section.tutorial {
   .how-to-buy-flow {
     li {
       flex-direction: column;
+      margin-bottom: 20px;
 
       &:first-child,
       &:last-child {
@@ -151,6 +152,22 @@ section.tutorial {
       .left,
       .right {
         min-width: auto;
+      }
+
+      .left {
+        > .title {
+          font-size: 22px;
+        }
+
+        .step {
+          height: 50px;
+          width: 50px;
+          min-width: 50px;
+        }
+      }
+
+      .right > .description {
+        margin-top: 10px;
       }
 
       .indicator {

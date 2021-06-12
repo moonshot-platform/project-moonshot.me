@@ -1,6 +1,7 @@
 @import "includes";
 
 footer {
+  @include paddingsInside(0px, 20px);
   min-height: 500px;
   width: 100%;
   background-color: #0c0c0c;
@@ -42,9 +43,37 @@ footer {
 @media only screen and (max-width: $md) {
   .inner {
     flex-direction: column;
+    padding: 50px 0;
   }
 
   .right {
     align-items: center;
+    margin-top: 50px;
+  }
+
+  .left {
+    display: flex;
+    flex-wrap: wrap;
+
+    > div {
+      width: 50%;
+    }
+  }
+
+  .social-icon-links ul {
+    width: auto;
+
+    > li {
+      width: 26%;
+    }
+  }
+
+  .icon {
+    display: block;
+    > img {
+      width: 100%;
+      height: auto;
+      max-width: 85px;
+    }
   }
 }

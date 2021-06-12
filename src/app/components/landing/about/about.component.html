@@ -10,18 +10,14 @@
                 <p class="p30">There are some key reasons to hold and invest in our tokenomics. Do your own research and ask us for any help in socials.</p>
             </div>
         </div>
-        <div class="circles flex3">
-            <div class="btn-group">
-                <div class="flex-space-between">
-                    <div class="round-xlarge-button" *ngFor="let item of imgSrcList" (mouseover)="item.src = item.srcOn" (mouseout)="item.src = item.srcOut">
-                        <div>
-                            <img [src]="item.src || item.srcOut" alt="{{item.thumb}}" />
-                            <p>{{item.text}}</p>
-                        </div>
-                    </div>
+        <ul class="circles flex3">
+            <li *ngFor="let item of imgSrcList">
+                <div class="round-large-button" (mouseover)="item.src = item.srcOn" (mouseout)="item.src = item.srcOut">
+                    <img [src]="item.src || item.srcOut" alt="{{item.thumb}}" />
                 </div>
-            </div>
-        </div>
+                <p>{{item.text}}</p>
+            </li>
+        </ul>
         <div class="stats-btn flex1">
             <div class="futuristic-container top-only">
                 <div class="round-mini-button">

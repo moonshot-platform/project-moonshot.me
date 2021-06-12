@@ -1,6 +1,7 @@
 @import "includes";
 
 section.subscription {
+  @include paddingsInside(0px, 20px);
   position: relative;
   background-size: 60%;
   z-index: 2;
@@ -25,9 +26,15 @@ section.subscription {
     }
     .group-img {
       align-items: center;
+
+      &:nth-child(2) {
+        justify-content: space-between;
+      }
     }
     img {
-      height: 250px;
+      width: 50%;
+      margin: 30px;
+      max-height: 250px;
     }
 
     div {

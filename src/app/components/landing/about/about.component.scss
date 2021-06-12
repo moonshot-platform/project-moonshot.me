@@ -5,6 +5,7 @@ section.about {
   background: url("/assets/media/images/galaxy_homeage.png") right bottom
     no-repeat;
   background-size: 80%;
+  padding: 20px;
 
   .inner {
     @extend %max-width-center;
@@ -40,50 +41,33 @@ section.about {
   }
 }
 
-.circles {
+ul.circles {
   color: $primary;
+  display: flex;
+  flex-wrap: wrap;
 
-  .bottom > div:first-child > p {
-    line-height: 30px;
-    font-weight: 200;
-  }
-}
-
-.btn-group {
-  width: 100%;
-
-  div {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  div > div {
-    margin: 10px;
+  > li {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    img {
-      width: 120px;
-    }
-    p {
-      color: #d7b13e;
-      font-size: 18px;
-    }
-  }
-
-  .round-xlarge-button {
+    width: 50%;
+    margin-bottom: 20px;
+    padding: 10px;
     box-sizing: border-box;
-    display: inline-block;
-    border: 1px solid #d7b13e;
-    border-radius: 130px;
-    color: white;
-    font-weight: 600;
-    cursor: pointer;
-    text-align: center;
-    width: 260px;
-    height: 260px;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+
+    > div {
+      padding: 20%;
+      width: 100%;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    > p {
+      text-align: center;
+      margin-top: 10px;
+    }
   }
 }
 
@@ -99,26 +83,6 @@ section.about {
 
         > div:nth-child(2) {
           border-bottom: 0;
-        }
-      }
-
-      > .circles {
-        margin-top: 50px;
-      }
-
-      .round-xlarge-button {
-        width: calc(50% - 25px);
-        margin: 0;
-        margin-left: 20px;
-
-        &:first-child {
-          margin-left: 0;
-        }
-
-        &:before {
-          content: "";
-          display: block;
-          padding-top: 100%; /* initial ratio of 1:1*/
         }
       }
 
