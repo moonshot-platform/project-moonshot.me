@@ -27,17 +27,17 @@ section.tokenomics {
 }
 
 section.tokenomics {
-      background: #d7b13e;
-      position: fixed;
-      right: 0;
-      top: 0;
-      width: 50vw;
-      z-index: 12000;
-      margin-right: 65px;
-      height: 100vh;
-      max-height: 100vh;
-      overflow: auto;
-  }
+  background: #d7b13e;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 50vw;
+  z-index: 12000;
+  margin-right: 65px;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: auto;
+}
 
 .block {
   background: $secondary;
@@ -56,18 +56,19 @@ ul {
   li {
     text-align: center;
     border-bottom: 2px solid black;
-    width: 40px;
 
     &:last-child {
       border: 0;
     }
 
-    a {
+    a,
+    p {
       padding: 20px 0;
       color: black;
       text-decoration: none;
       font-weight: $semi-bold;
       writing-mode: tb-rl;
+      cursor: pointer;
       -webkit-transform: rotate(180deg);
       -moz-transform: rotate(180deg);
       -o-transform: rotate(180deg);
