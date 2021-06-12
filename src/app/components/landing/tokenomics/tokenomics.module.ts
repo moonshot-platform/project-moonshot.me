@@ -1,23 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SidebarComponent } from './sidebar.component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 
 import { MatIconModule } from '@angular/material/icon';
-import { TokenomicsModule } from '../tokenomics/tokenomics.module';
+import { TokenomicsComponent } from './tokenomics.component';
 
 @NgModule({
   declarations: [
-    SidebarComponent
+    TokenomicsComponent
   ],
   imports: [
     CommonModule,
     AppRoutingModule,
     MatIconModule,
-    TokenomicsModule
   ],
   exports: [
-    SidebarComponent
+    TokenomicsComponent
   ]
 })
-export class SidebarModule { }
+export class TokenomicsModule { }

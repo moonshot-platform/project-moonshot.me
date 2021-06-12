@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
+  active = false;
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  tokenomics() {
+    this.active = !this.active;
+  }
+  inactive() {
+    this.active = false;
+  }
 }

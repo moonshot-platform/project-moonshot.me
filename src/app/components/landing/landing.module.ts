@@ -6,7 +6,6 @@ import { CountdownModule } from 'ngx-countdown';
 import { IntroComponent } from './intro/intro.component';
 import { AboutComponent } from './about/about.component';
 import { VideoComponent } from './video/video.component';
-import { TokenomicsComponent } from './tokenomics/tokenomics.component';
 import { NgParticlesModule } from 'ng-particles';
 import { PartnersComponent } from './partners/partners.component';
 import { NewsComponent } from './news/news.component';
@@ -29,6 +28,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RoadmapModule } from './roadmap/roadmap.module';
 import { SubscriptionModule } from './subscription/subscription.module';
+import { TokenomicsModule } from './tokenomics/tokenomics.module';
 
 
 
@@ -37,14 +37,13 @@ import { SubscriptionModule } from './subscription/subscription.module';
     LandingComponent,
     IntroComponent,
     AboutComponent,
-    TokenomicsComponent,
     PartnersComponent,
     VideoComponent,
     NewsComponent,
     ExchangesComponent,
     EconomyComponent,
     InvestmentComponent,
-    TutorialComponent,
+    TutorialComponent
   ],
   imports: [
     MatIconModule,
@@ -65,7 +64,8 @@ import { SubscriptionModule } from './subscription/subscription.module';
     FormsModule,
     ReactiveFormsModule,
     CarouselModule,
-    SubscriptionModule
+    SubscriptionModule,
+    TokenomicsModule
   ]
 })
 export class LandingModule { }

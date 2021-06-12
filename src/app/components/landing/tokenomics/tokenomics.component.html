@@ -1,26 +1,34 @@
-<section class="tokenomics">
+<section>
     <div class="inner balloon">
-        <p class="p38 w900 white text-center">TOKENOMICS</p>
+        <p class="p30 w900 white my-3">Tokenomics</p>
+        <div class="block">
+            <p class="p17">Read the numbers. Staking: for Every transaction 4% is distributed to
+                holders. Liquidity: for Every transaction 6% is auto-locked to liquidity pool.</p>
+        </div>
         <div class="deeper flex-space-between">
             <div class="left">
-                <div class="block">
-                    <p class="text-center p17 uppercase">Staking: For every transaction, 4% is distributed to holders</p>
-                </div>
                 <ul>
                     <li *ngFor="let item of list[0]">
-                        <p class="w900 white p20">{{item.key}}</p>
-                        <p class="w700 white p20">{{item.val}}</p>
+                        <div>
+                            <p class="white p12 uppercase mb-3">{{item.key}}</p>
+                            <p class="w700 white p18 text-right">{{item.val}}
+                            </p>
+                            <p class="w300 p12 text-right invisible-md">{{item.shortVal}}</p>
+                        </div>
+                        <hr class="hr_line">
                     </li>
                 </ul>
             </div>
             <div class="right">
-                <div class="block">
-                    <p class="text-center p17 uppercase">Liquidity: For every transaction, 6% is auto-locked to liquidity pool</p>
-                </div>
                 <ul>
                     <li *ngFor="let item of list[1]">
-                        <p class="w900 white p20">{{item.key}}</p>
-                        <p class="w700 white p20">{{item.val}}</p>
+                        <div>
+                            <p class="white p12 uppercase">{{item.key}}</p>
+                            <p class="w700 white p18 text-right">{{item.val}}
+                            </p>
+                            <p class="w300 p12 text-right invisible-md">{{item.shortVal}}</p>
+                        </div>
+                        <hr class="hr_line">
                     </li>
                 </ul>
             </div>
