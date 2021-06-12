@@ -2,11 +2,12 @@
 
 section.investment {
   @include margins(100px, 0px);
+  @include paddingsInside(100px, 20px);
+
   background-color: $secondary;
 
   > .inner {
     @extend %max-width-center;
-    @include paddingsInside(100px, 0px);
   }
 }
 

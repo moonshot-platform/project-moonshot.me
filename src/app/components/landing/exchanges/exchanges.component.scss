@@ -6,6 +6,7 @@ section.exchanges {
   background-position: 100% 300px;
   background-size: 50%;
   z-index: 2;
+  padding: 0 20px;
 
   .inner {
     @extend %max-width-center;
@@ -42,8 +43,16 @@ section.exchanges {
 }
 
 @media only screen and (max-width: $md) {
-  .inner > div:nth-child(2) {
+  .inner > div {
     flex-direction: column;
+  }
+
+  section.exchanges .inner > div:first-child > img {
+    width: 80%;
+
+    &:first-child {
+      margin-bottom: 30px;
+    }
   }
 
   .buy-info .futuristic-container {

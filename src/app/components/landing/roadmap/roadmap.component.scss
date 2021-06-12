@@ -1,6 +1,7 @@
 @import "includes";
 
 section.roadmap {
+  @include paddingsInside(200px, 20px);
   background: url("/assets/media/images/galaxy04_homepage.png") center no-repeat;
   background-size: 80%;
 
