@@ -33,10 +33,11 @@ section.tokenomics {
   top: 0;
   width: 50vw;
   z-index: 12000;
-  margin-right: 65px;
+  margin-right: 64px;
   height: 100vh;
   max-height: 100vh;
   overflow: auto;
+  border-right: 1px solid black;
 }
 
 .block {
@@ -63,7 +64,7 @@ ul {
 
     a,
     p {
-      padding: 20px 0;
+      padding: 20px 23px;
       color: black;
       text-decoration: none;
       font-weight: $semi-bold;
