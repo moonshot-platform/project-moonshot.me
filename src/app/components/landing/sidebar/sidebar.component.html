@@ -3,7 +3,14 @@
         <img src="assets/media/icons/wallet.svg" alt="wallet">
     </div>
     <ul>
-        <!-- <li><a href="#">MoonBase</a></li> -->
-        <li><a href="#">Tokenomics</a></li>
+        <!-- <li><a href="#" [routerLink]="['/moonbase']">MoonBase</a></li> -->
+        <li><a href="#" (click)="tokenomics()">Tokenomics</a></li>
     </ul>
+</section>
+
+<section class="tokenomics" *ngIf="active">
+    <div class="d-flex">
+        <div class="p30 close text-right pull-right" (click)="inactive()">X</div>
+    </div>
+    <app-tokenomics></app-tokenomics>
 </section>

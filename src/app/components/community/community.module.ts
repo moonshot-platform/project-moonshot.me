@@ -11,9 +11,9 @@ import { MoonticketComponent } from './moonticket/moonticket.component';
 import { SidebarModule } from '../landing/sidebar/sidebar.module';
 import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from 'src/app/app-routing.module';
-import { NavigationModule } from '../base/navigation/navigation.module';
 import { RoadmapModule } from '../landing/roadmap/roadmap.module';
 import { SubscriptionModule } from '../landing/subscription/subscription.module';
+import { NavigationModule } from '../base/navigation/navigation.module';
 
 
 
@@ -28,14 +28,14 @@ import { SubscriptionModule } from '../landing/subscription/subscription.module'
   imports: [
     MatIconModule,
     CommonModule,
-    NavigationModule,
     FooterModule,
     CountdownModule,
     NgParticlesModule,
     AppRoutingModule,
     SidebarModule,
     RoadmapModule,
-    SubscriptionModule
+    SubscriptionModule,
+    NavigationModule
   ]
 })
 export class CommunityModule { }
