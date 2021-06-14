@@ -31,11 +31,11 @@ export class NavigationComponent implements OnInit {
   } 
 
   scrollToElement(): void {
-    const element = document.querySelector("#howToTutorial")
+    const element = document.querySelector("#how-to-buy")
     if (element) 
       element.scrollIntoView({ behavior: 'smooth', block: 'start' })
     else
-      this._router.navigate( ['/' ], {fragment: 'howToTutorial'});
+      this._router.navigate( ['/'], {fragment: 'how-to-buy'});
   }
 
   constructor(private _router: Router) { }

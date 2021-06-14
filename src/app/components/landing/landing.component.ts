@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 import { tsParticles } from 'ng-particles';
-declare let particlesJS: any;
 
 @Component({
   selector: 'app-landing',
@@ -14,13 +14,15 @@ export class LandingComponent implements OnInit {
 
   private fragment: string;
 
-  constructor(private route: ActivatedRoute) {
-    particlesJS.load('particles', 'assets/json/particlesjs-config.json', function () { });
+  constructor(private route: ActivatedRoute, private location: Location) {
+    tsParticles.loadJSON('particles', 'assets/json/particlesjs-config.json');
   }
 
   ngOnInit(): void {
-    this.route.fragment.subscribe(fragment => { this.fragment = fragment; });
-    tsParticles.loadJSON('particles2', 'assets/json/particlesjs-config-yellow-balls.json');
+    this.route.fragment.subscribe(fragment => { 
+      this.fragment = fragment; 
+      this.location.replaceState('/'); 
+    });
   }
 
   ngAfterViewInit(): void {
