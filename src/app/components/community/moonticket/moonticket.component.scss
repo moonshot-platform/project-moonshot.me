@@ -120,3 +120,8 @@ section.moonticket {
     flex-direction: column;
   }
 }
+
+
+.ticket-canvas {
+  @extend %max-width-center;
+}
