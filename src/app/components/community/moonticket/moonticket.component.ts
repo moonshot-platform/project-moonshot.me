@@ -93,7 +93,7 @@ export class MoonticketComponent implements OnInit {
     this.context.font = `bold ${pointSize} ${FontFamily}`;
     this.context.fillStyle = "#4b4b4b";
         
-    this.context.fillText(yourName, 1041, 292);
+    this.context.fillText(yourName, 1041, 312);
     this.context.textAlign = 'left';
   }
 
