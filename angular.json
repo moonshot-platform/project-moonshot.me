@@ -42,6 +42,7 @@
               ]
             },
             "scripts": [
+              "node_modules/particles.js/particles.js"
             ],
             "vendorChunk": true,
             "extractLicenses": false,

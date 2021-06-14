@@ -7,42 +7,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MerchandiseComponent implements OnInit {
 
-  public imgSrcList: any = [
-    {
-      src: "",
-      srcOut: "assets/media/images/news/github_icon_yellow.svg",
-      srcOn: "assets/media/images/news/github_icon.svg",
-      alt: "github"
-    },
-    {
-      src: "",
-      srcOut: "assets/media/images/news/twitter_icon_yellow.svg",
-      srcOn: "assets/media/images/news/twitter_icon.svg",
-      alt: "twitter"
-    },
-    {
-      src: "",
-      srcOut: "assets/media/images/news/telegram_icon_yellow.svg",
-      srcOn: "assets/media/images/news/telegram_icon.svg",
-      alt: "telegram"
-    },
-    {
-      src: "",
-      srcOut: "assets/media/images/news/discord_icon_yellow.svg",
-      srcOn: "assets/media/images/news/discord_icon.svg",
-      alt: "discord"
-    },
-    {
-      src: "",
-      srcOut: "assets/media/images/news/reddit_icon_yellow.svg",
-      srcOn: "assets/media/images/news/reddit_icon.svg",
-      alt: "reddit"
-    },
+  current = 0;
+
+  public shirts: any = [
+    'assets/media/images/community/shop-bear.png',
+    'assets/media/images/community/shop-bull.png',
+    'assets/media/images/community/shop-moonbirb.png'
   ]
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  next() {
+      this.current = this.current < this.shirts.length - 1 ? this.current + 1 : 0;
+  }
+
+  prev() {
+      this.current = this.current > 0 ? this.current - 1 : this.shirts.length - 1;
   }
 
 }
