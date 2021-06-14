@@ -13,7 +13,7 @@ export class NavigationComponent implements OnInit {
 
   public navItems: any[] = [
     {
-      'name': 'Moonpaper',
+      'name': 'MoonPaper',
       'externalPath': '/assets/files/moonpaper.pdf'
     },
     {
@@ -32,9 +32,10 @@ export class NavigationComponent implements OnInit {
 
   scrollToElement(): void {
     const element = document.querySelector("#how-to-buy")
-    if (element) 
+    if (element)  {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    else
+      this.open = false;
+    } else
       this._router.navigate( ['/'], {fragment: 'how-to-buy'});
   }
 

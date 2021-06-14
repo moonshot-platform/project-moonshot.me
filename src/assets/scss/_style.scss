@@ -139,6 +139,14 @@ ul {
   margin-left: 100px;
 }
 
+.mv100 {
+  margin: 100px 0;
+}
+
+.mv200 {
+  margin: 200px 0;
+}
+
 .pa10 {
   @include paddingInside(10px);
 }
@@ -312,6 +320,10 @@ ul {
   align-items: center;
 }
 
+.align-stretch {
+  align-items: stretch;
+}
+
 .align-end {
   align-items: flex-end;
 }
@@ -352,6 +364,10 @@ ul {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+}
+
+.grow1 {
+  flex-grow: 1;
 }
 
 .flex1 {
@@ -426,6 +442,14 @@ ul {
 
 .p22 {
   font-size: 22px;
+}
+
+.p24 {
+  font-size: 24px;
+}
+
+.p25 {
+  font-size: 25px;
 }
 
 .p30 {
@@ -533,7 +557,7 @@ ul {
   text-transform: capitalize;
 
   &:hover {
-    color: white;
+    background-color: white;
   }
 }
 
@@ -555,6 +579,7 @@ ul {
 
   &:hover {
     color: white;
+    border-color: white;
   }
 }
 
@@ -575,6 +600,10 @@ ul {
   &:hover {
     color: white;
     border: 1px solid white;
+
+    > mat-icon {
+      color: white;
+    }
   }
 }
 
