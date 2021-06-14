@@ -9,6 +9,10 @@ section.partners {
     @extend %max-width-center;
     @include paddingsInside(70px, 20px);
   }
+
+  img {
+    max-height: 50px;
+  }
 }
 
 @media only screen and (max-width: $md) {

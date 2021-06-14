@@ -6,7 +6,6 @@ section.video {
 
   .inner {
     @extend %max-width-center;
-    margin-bottom: 200px;
     align-items: flex-end;
   }
 }
@@ -18,10 +17,10 @@ section.video {
     p {
       color: $secondary;
       font-size: 20px;
-      line-height: 30px;
 
       &:first-child {
         color: $primary;
+        margin-bottom: 20px;
         font-size: 16px;
       }
     }

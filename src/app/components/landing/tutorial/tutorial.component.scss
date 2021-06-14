@@ -21,6 +21,8 @@ section.tutorial {
     cursor: cell;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
 
     p {
       color: $primary !important;
@@ -62,7 +64,6 @@ section.tutorial {
       flex: 2;
       align-items: center;
       justify-content: flex-start;
-      min-width: 465px;
 
       .title {
         font-size: 24px;
@@ -123,7 +124,6 @@ section.tutorial {
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      min-width: 465px;
 
       > .description {
         line-height: 30px;

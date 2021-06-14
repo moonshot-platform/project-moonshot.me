@@ -139,6 +139,14 @@ ul {
   margin-left: 100px;
 }
 
+.mv100 {
+  margin: 100px 0;
+}
+
+.mv200 {
+  margin: 200px 0;
+}
+
 .pa10 {
   @include paddingInside(10px);
 }
@@ -420,6 +428,14 @@ ul {
 
 .p22 {
   font-size: 22px;
+}
+
+.p24 {
+  font-size: 24px;
+}
+
+.p25 {
+  font-size: 25px;
 }
 
 .p30 {
