@@ -556,7 +556,10 @@ ul {
   min-width: 200px;
   border-radius: 25px;
   color: $secondary;
+  font-family: $primary;
   font-weight: $semi-bold;
+  background-color: transparent;
+  font-size: 16px;
   cursor: pointer;
   text-decoration: none;
   text-transform: capitalize;

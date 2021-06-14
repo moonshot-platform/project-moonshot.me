@@ -14,6 +14,7 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { RoadmapModule } from '../landing/roadmap/roadmap.module';
 import { MerchandiseModule } from '../landing/merchandise/merchandise.module';
 import { NavigationModule } from '../base/navigation/navigation.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -35,7 +36,9 @@ import { NavigationModule } from '../base/navigation/navigation.module';
     SidebarModule,
     RoadmapModule,
     MerchandiseModule,
-    NavigationModule
+    NavigationModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class CommunityModule { }
