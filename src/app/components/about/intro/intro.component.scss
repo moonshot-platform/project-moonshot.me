@@ -2,12 +2,13 @@
 
 section.intro {
   min-height: 100vh;
+  min-width: 100vw;
   position: relative;
   background: url("/assets/media/images/moons.png") -600px -200px no-repeat;
 
   .inner {
     @extend %max-width-center;
-    margin-bottom: 200px;
+    padding: 0 20px;
   }
 }
 
