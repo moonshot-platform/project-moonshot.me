@@ -21,6 +21,8 @@ section.tutorial {
     cursor: cell;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
 
     p {
       color: $primary !important;
@@ -62,7 +64,6 @@ section.tutorial {
       flex: 2;
       align-items: center;
       justify-content: flex-start;
-      min-width: 465px;
 
       .title {
         font-size: 24px;
@@ -88,14 +89,14 @@ section.tutorial {
 
     .indicator {
       width: 230px;
-      height: 170px;
+      min-height: 180px;
       display: flex;
       align-items: center;
       flex-direction: column;
 
       > .line {
         width: 2px;
-        height: 70px;
+        height: 100%;
         background-color: $primary;
       }
 
@@ -123,11 +124,13 @@ section.tutorial {
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      min-width: 465px;
 
       > .description {
         line-height: 30px;
-        line-break: anywhere;
+
+        > span {
+          line-break: anywhere;
+        }
       }
     }
   }

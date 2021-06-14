@@ -1,5 +1,5 @@
 <section class="navigation" [class.withBG]="atTop == false">
-    <nav class="flex-space-between">
+    <div class="inner flex-space-between">
         <div class="logo-container flex">
             <a class="flex-center" [routerLink]="['']">
                 <img class="logo" src="assets/media/images/logo.png" alt="moonshot logo">
@@ -19,23 +19,36 @@
             <span></span>
         </div>
 
-        <ul class="flex">
-            <li>
-                <a (click)="scrollToElement()">How to buy</a>
-            </li>
-            <li *ngFor="let item of navItems">
-                <ng-container *ngIf="item.externalPath != undefined; then external else internal"></ng-container>
-                
-                <!-- link = start & end -->
-                <ng-template #external>
-                    <a href={{item.externalPath}}>{{item.name}}</a>
-                </ng-template>
-
-                <ng-template #internal>
-                    <a [routerLink]="[item.path]">{{item.name}}</a>
-                </ng-template>
-                
-            </li>
-        </ul>
-    </nav>
+        <nav [class.show]="open" class="flex">
+            <div class="mob-menu" [class.open]="open" (click)="open = !open">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul>
+                <li>
+                    <a (click)="scrollToElement()">How to buy</a>
+                </li>
+                <li *ngFor="let item of navItems">
+                    <ng-container *ngIf="item.externalPath != undefined; then external else internal"></ng-container>
+                    
+                    <!-- link = start & end -->
+                    <ng-template #external>
+                        <a href={{item.externalPath}}>{{item.name}}</a>
+                    </ng-template>
+    
+                    <ng-template #internal>
+                        <a [routerLink]="[item.path]">{{item.name}}</a>
+                    </ng-template>
+                    
+                </li>
+            </ul>
+        </nav>
+    </div>
 </section>
