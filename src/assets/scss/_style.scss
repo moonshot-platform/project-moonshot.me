@@ -372,6 +372,12 @@ ul {
 .flex3 {
   flex: 3;
 }
+.flex4 {
+  flex: 4;
+}
+.flex5 {
+  flex: 5;
+}
 
 .col {
   flex-direction: column;
@@ -561,6 +567,7 @@ ul {
   text-decoration: none;
   text-transform: capitalize;
   text-align: center;
+  background-color: transparent;
 
   &:hover {
     color: white;

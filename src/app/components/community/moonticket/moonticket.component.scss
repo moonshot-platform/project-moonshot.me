@@ -31,6 +31,11 @@ section.moonticket {
   }
 }
 
+.ticket-section {
+  border: 1px solid #464950;
+  background: #e9e9e9;
+}
+
 .buy-info .futuristic-container {
   border-top: 1px solid $primary;
   padding-top: 100px;
@@ -61,4 +66,9 @@ section.moonticket {
     display: flex;
     flex-direction: column;
   }
+}
+
+
+.ticket-canvas {
+  @extend %max-width-center;
 }
