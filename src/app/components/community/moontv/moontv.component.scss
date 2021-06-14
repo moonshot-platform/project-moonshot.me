@@ -12,6 +12,7 @@ section.moontv {
 .stats {
   min-width: 300px;
   margin-right: 150px;
+  padding-bottom: 36px;
 
   div > p {
     font-size: 30px;
@@ -29,6 +30,7 @@ section.moontv {
     font-weight: normal;
   }
   .more {
+    border-top: 1px solid #d5a642;
     width: 80%;
     text-align: center;
     padding-top: 20px;
