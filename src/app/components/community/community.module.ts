@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommunityComponent } from './community.component';
 import { FooterModule } from '../base/footer/footer.module';
 import { CountdownModule } from 'ngx-countdown';
@@ -35,7 +36,9 @@ import { NavigationModule } from '../base/navigation/navigation.module';
     SidebarModule,
     RoadmapModule,
     MerchandiseModule,
-    NavigationModule
+    NavigationModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class CommunityModule { }
