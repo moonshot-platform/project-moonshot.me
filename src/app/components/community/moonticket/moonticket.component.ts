@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-const FontFamily = 'pt "FuturaHv"';
+const FontFamily = 'Lato';
 
 const MONTHS = {
     0: 'JANUARY',
@@ -70,7 +70,7 @@ export class MoonticketComponent implements OnInit {
     let itFits = false;
   
     while( !itFits ) {
-      this.context.font = size + FontFamily;
+      this.context.font = `bold ${size}px ${FontFamily}`;
       let box_width = (1471 - 1120);
       let metrics = this.context.measureText( text );
       if( metrics.width >= box_width ) {
@@ -90,15 +90,15 @@ export class MoonticketComponent implements OnInit {
     let pointSize = this.calcPointSize( 30, yourName );
     this.context.textAlign = 'center';
 
-    this.context.font = `bold ${pointSize} ${FontFamily}`;
-    this.context.fillStyle = "#4b4b4b";
+    this.context.font = `bold ${pointSize}px ${FontFamily}`;
+    this.context.fillStyle = "#000000";
         
     this.context.fillText(yourName, 1041, 312);
     this.context.textAlign = 'left';
   }
 
   drawDate(text, pointSize, color, x1, y1) {
-    this.context.font = pointSize + FontFamily;
+    this.context.font = `bold ${pointSize}px ${FontFamily}`;
     this.context.fillStyle = color;
     this.context.fillText(text, x1, y1);
     this.context.imageSmoothingEnabled = true;
@@ -120,19 +120,17 @@ export class MoonticketComponent implements OnInit {
 
       let hour = this.pad( (d.getHours() + 1 ) % 23, 2 );
 
-      this.drawDate(today, 20, "#ffffff", 93, 237);
-      this.drawDate(this.formatAMPM(hour), 20, "#ffffff", 93, 263 );
+      this.drawDate(today, 18, "#ffffff", 93, 237);
+      this.drawDate(this.formatAMPM(hour), 18, "#ffffff", 93, 263 );
       
-      this.drawDate("ARRIVAL SOON",20, "#ffffff", 419, 237 );
+      this.drawDate("ARRIVAL SOON",18, "#ffffff", 419, 237 );
 
-      this.drawDate(today, 12, "#4b4b4b", 1020, 126);
-      this.drawDate(this.formatAMPM(hour), 12, "#4b4b4b", 1020, 152);
+      this.drawDate(today, 12, "#4b4b4b", 1020, 116);
+      this.drawDate(this.formatAMPM(hour), 12, "#4b4b4b", 1020, 132);
 
-      this.drawDate("ARRIVAL SOON", 12, "#4b4b4b", 1020, 239 );
+      this.drawDate("ARRIVAL SOON", 12, "#4b4b4b", 1020, 234 );
 
       this.drawDate("www.project-moonshot.me", 12, "#4b4b4b", 904, 423);
-
-      console.log({shouldDownload})
 
       if(shouldDownload) {
         let link = document.createElement('a');
