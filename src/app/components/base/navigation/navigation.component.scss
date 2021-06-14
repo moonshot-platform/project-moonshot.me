@@ -12,13 +12,10 @@ section.navigation {
   z-index: 1000;
   display: flex;
   justify-content: center;
+  transition: background-color 200ms linear;
 
   &.withBG {
     background-color: rgba($color: #0c0c0c, $alpha: 0.9);
-
-    > .inner {
-      align-items: center;
-    }
 
     .logo {
       height: toRem(20px);
@@ -30,13 +27,10 @@ section.navigation {
   }
 }
 
-nav {
-  width: 100%;
-}
-
 .logo-container {
   border-top: 6px solid $primary;
   padding-top: toRem(14px);
+  transition: all 200ms linear;
 
   a {
     text-decoration: none;
@@ -45,6 +39,7 @@ nav {
   .logo {
     height: toRem(80px);
     margin-right: 10px;
+    transition: all 200ms linear;
   }
 
   p {
@@ -60,12 +55,11 @@ nav {
   }
 }
 
-.inner {
+nav {
   @extend %max-width-center;
   align-items: initial;
 
   ul {
-    display: flex;
     width: inherit;
     justify-content: flex-end;
     margin-left: 100px;
@@ -197,53 +191,11 @@ nav {
   section.navigation {
     width: 100%;
   }
-
-  nav {
+  ul {
     display: none;
-
-    &.show {
-      position: fixed;
-      left: 0;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      display: flex;
-
-      > .mob-menu {
-        display: block;
-        position: absolute;
-        right: 15px;
-        top: 15px;
-      }
-
-      > ul {
-        width: 100%;
-        margin-left: 0;
-        display: flex;
-        flex-direction: column;
-        background: rgba(12, 12, 12, 0.9);
-        padding: 20px;
-        box-sizing: border-box;
-
-        > li {
-          width: 100%;
-          margin: 0;
-          padding: 0;
-
-          &:first-child {
-            border-top: 0;
-          }
-
-          > a {
-            padding: 20px 0;
-            display: block;
-          }
-        }
-      }
-    }
   }
 
-  .inner > div.mob-menu {
+  nav > div.mob-menu {
     display: block;
   }
 }
