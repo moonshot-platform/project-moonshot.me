@@ -13,7 +13,6 @@ section.moontv {
   min-width: 300px;
   margin-right: 150px;
   padding-bottom: 36px;
-  padding-top: 96px;
 
   div > p {
     font-size: 30px;
@@ -21,7 +20,7 @@ section.moontv {
 
     &:first-child {
       color: $primary;
-      margin-bottom: 20px;
+      margin-bottom: 50px;
       font-size: 12px;
       font-weight: normal;
     }
