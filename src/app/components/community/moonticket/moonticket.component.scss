@@ -30,7 +30,7 @@ section.moonticket {
   }
 }
 
-.buy-info .futuristic-container {
+.ticket-input-container .futuristic-container {
   border-top: 1px solid $primary;
   padding-top: 100px;
 
@@ -62,6 +62,19 @@ section.moonticket {
 @media only screen and (max-width: $md) {
   .main {
     display: flex;
+    flex-direction: column;
+  }
+
+  .ticket-input-container {
+    width: 100%;
+
+    button {
+      width: 100%;
+      margin-top: 40px;
+    }
+  }
+
+  form {
     flex-direction: column;
   }
 }
