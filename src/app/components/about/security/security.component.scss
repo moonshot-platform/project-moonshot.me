@@ -1,8 +1,6 @@
 @import "includes";
 
 section.security {
-  @include paddingsInside(0px, 20px);
-
   > .inner {
     @extend %max-width-center;
     margin-bottom: 250px;
@@ -18,7 +16,7 @@ section.security {
 
     &:first-child {
       color: $primary;
-      margin-bottom: 20px;
+      margin-bottom: 50px;
       font-size: 12px;
     }
   }
@@ -39,18 +37,5 @@ section.security {
 @media only screen and (max-width: $md) {
   section.security > .inner > div {
     flex-direction: column;
-  }
-
-  .stats {
-    margin-right: 0;
-  }
-
-  .buy-info .futuristic-container {
-    border-top: 1px solid $primary;
-
-    p {
-      width: 100%;
-      margin-right: 0;
-    }
   }
 }

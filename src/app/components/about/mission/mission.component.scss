@@ -1,11 +1,8 @@
 @import "includes";
 
 section.mission {
-  @include paddingsInside(0px, 20px);
-
-  min-height: 100vh;
+  height: 100vh;
   background: url("/assets/media/images/galaxy05_homepage.png") no-repeat;
-
   > .inner {
     @extend %max-width-center;
     margin-bottom: 250px;
@@ -21,7 +18,7 @@ section.mission {
 
     &:first-child {
       color: $primary;
-      margin-bottom: 20px;
+      margin-bottom: 50px;
       font-size: 12px;
     }
   }
@@ -42,18 +39,5 @@ section.mission {
 @media only screen and (max-width: $md) {
   section.mission > .inner > div {
     flex-direction: column;
-  }
-
-  .stats {
-    margin-right: 0;
-  }
-
-  .buy-info .futuristic-container {
-    border-top: 1px solid $primary;
-
-    p {
-      width: 100%;
-      margin-right: 0;
-    }
   }
 }

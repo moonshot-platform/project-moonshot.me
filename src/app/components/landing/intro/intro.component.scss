@@ -21,11 +21,9 @@ section.intro {
       margin-bottom: 40px;
     }
 
-    p,
-    countdown {
+    p {
       color: $secondary;
-      font-size: 25px;
-      font-weight: $bold;
+      font-size: 20px;
 
       &:first-child {
         color: $primary;

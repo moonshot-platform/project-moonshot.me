@@ -1,8 +1,6 @@
 @import "includes";
 
 section.gallery {
-  @include paddingsInside(0px, 20px);
-
   > .inner {
     @extend %max-width-center;
     margin-bottom: 250px;
@@ -34,7 +32,7 @@ section.gallery {
 
     &:first-child {
       color: $primary;
-      margin-bottom: 20px;
+      margin-bottom: 50px;
       font-size: 12px;
     }
   }

@@ -1,12 +1,14 @@
 @import "includes";
 
-section.about-section {
+section.about {
   z-index: 2;
   position: relative;
 
   > .inner {
     position: relative;
     width: calc(100% - 64px);
+    background: url("/assets/media/images/on-the-moon.png") left bottom 200px
+      no-repeat;
   }
 }
 
@@ -16,7 +18,7 @@ app-header {
 }
 
 @media only screen and (max-width: $md) {
-  section.about-section > .inner {
+  section.about > .inner {
     width: 100%;
   }
 }
