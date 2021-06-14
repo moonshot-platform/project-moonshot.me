@@ -89,14 +89,14 @@ section.tutorial {
 
     .indicator {
       width: 230px;
-      height: 170px;
+      min-height: 180px;
       display: flex;
       align-items: center;
       flex-direction: column;
 
       > .line {
         width: 2px;
-        height: 70px;
+        height: 100%;
         background-color: $primary;
       }
 
