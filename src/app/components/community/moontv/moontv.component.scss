@@ -1,7 +1,8 @@
 @import "includes";
 
 section.moontv {
-  // height: 100vh;
+  @include paddingsInside(0px, 20px);
+
   background: url("/assets/media/images/galaxy02_homepage.png") no-repeat left;
   > .inner {
     @extend %max-width-center;
@@ -36,7 +37,6 @@ section.moontv {
 }
 
 .buy-info {
-  margin-top: -100px;
   .futuristic-container {
     border-top: 1px solid $primary;
     flex-direction: row;
@@ -64,5 +64,9 @@ section.moontv {
   .main {
     display: flex;
     flex-direction: column;
+  }
+
+  .stats {
+    margin-right: 0;
   }
 }
