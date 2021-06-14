@@ -125,6 +125,11 @@ export class MoonticketComponent implements OnInit {
       
       this.drawDate("ARRIVAL SOON",20, "#ffffff", 419, 237 );
 
+      this.drawDate(today, 12, "#4b4b4b", 1020, 126);
+      this.drawDate(this.formatAMPM(hour), 12, "#4b4b4b", 1020, 152);
+
+      this.drawDate("ARRIVAL SOON", 12, "#4b4b4b", 1020, 239 );
+
       this.drawDate("www.project-moonshot.me", 12, "#4b4b4b", 904, 423);
 
       console.log({shouldDownload})
