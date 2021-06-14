@@ -27,7 +27,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RoadmapModule } from './roadmap/roadmap.module';
-import { SubscriptionModule } from './subscription/subscription.module';
+import { MerchandiseModule } from './merchandise/merchandise.module';
 import { TokenomicsModule } from './tokenomics/tokenomics.module';
 
 
@@ -64,7 +64,7 @@ import { TokenomicsModule } from './tokenomics/tokenomics.module';
     FormsModule,
     ReactiveFormsModule,
     CarouselModule,
-    SubscriptionModule,
+    MerchandiseModule,
     TokenomicsModule
   ]
 })

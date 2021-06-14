@@ -22,21 +22,28 @@ footer {
   font-weight: bold;
 }
 
+.community-box {
+  margin: 0 30px;
+}
+
 .social-icon-links ul {
   width: 270px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
 
   > li {
+    width: calc(33.333% - 15px);
     margin-bottom: 30px;
+
+    &:nth-child(3n + 2) {
+      margin: 0 22px 30px;
+    }
   }
 }
 
 .icon {
   > img {
-    width: 70px;
-    height: 70px;
+    width: 100%;
   }
 }
 
@@ -60,11 +67,29 @@ footer {
     }
   }
 
+  .community-box {
+    margin: 0;
+  }
+
   .social-icon-links ul {
     width: auto;
 
     > li {
-      width: 26%;
+      width: calc(25% - 15px);
+      margin: 0 10px 10px;
+
+      &:nth-child(3n + 2) {
+        margin: 0 10px 30px;
+      }
+
+      &:nth-child(4n) {
+        margin-right: 0;
+      }
+
+      &:nth-child(4n + 1),
+      &:first-child {
+        margin-left: 0;
+      }
     }
   }
 
