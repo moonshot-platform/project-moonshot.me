@@ -8,7 +8,7 @@
                 </div>
             </div>
             <div class="buy-info flex3">
-                <div class="futuristic-container flex top-only">
+                <form class="futuristic-container flex top-only" [formGroup]="downloadFormGroup" (submit)="downloadTicket()">
                     <div class="flex1 no-padding mr20">
                         <p class="mb20">Your name</p>
                     </div>
@@ -16,13 +16,13 @@
                         <input class="username" id="name" type="text" formControlName="name">
                     </div>
                     <div class="flex1 flex justify-end">
-                        <a class="outlined-button mb10">Download it</a>
+                        <button class="outlined-button mb10" type="submit">Download it</button>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
-        <div class="imgDesc">
-            <img src="assets/media/images/community/moon-ticket.png" alt="moonticket" />
+        <div class="ticket-section flex-space-between mt100">
+            <canvas #ticketCanvas id="ticketCanvas" class="ticket-canvas" width="1200" height="436"></canvas>
         </div>
     </div>
 </section>

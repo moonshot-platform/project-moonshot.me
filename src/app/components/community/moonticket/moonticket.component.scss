@@ -55,6 +55,10 @@ section.moonticket {
   line-height: 30px;
 }
 
+.ticket-canvas {
+  @extend %max-width-center;
+}
+
 @media only screen and (max-width: $md) {
   .main {
     display: flex;
