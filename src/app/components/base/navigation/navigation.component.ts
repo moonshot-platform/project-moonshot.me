@@ -30,13 +30,13 @@ export class NavigationComponent implements OnInit {
     this.atTop = (window.pageYOffset == 0) ? true : false;
   } 
 
-  scrollToElement(): void {
-    const element = document.querySelector("#how-to-buy")
+  scrollToElement(page: string, fragment: string): void {
+    const element = document.querySelector(`#${fragment}`)
     if (element)  {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' })
       this.open = false;
     } else
-      this._router.navigate( ['/'], {fragment: 'how-to-buy'});
+      this._router.navigate( [page], {fragment: fragment});
   }
 
   constructor(private _router: Router) { }

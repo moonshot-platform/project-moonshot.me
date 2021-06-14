@@ -32,9 +32,7 @@
                 <span></span>
             </div>
             <ul>
-                <li>
-                    <a (click)="scrollToElement()">How to buy</a>
-                </li>
+                <li><a (click)="scrollToElement('', 'how-to-buy')">How to buy</a></li>
                 <li *ngFor="let item of navItems">
                     <ng-container *ngIf="item.externalPath != undefined; then external else internal"></ng-container>
                     
