@@ -23,6 +23,7 @@ body {
 
 .orbitron {
   font-family: $secondary-font;
+  font-weight: $black;
 }
 
 a {
@@ -34,6 +35,10 @@ ul {
   padding-left: 0;
   list-style-type: none;
   margin: 0;
+}
+
+.bold {
+  font-weight: $bold;
 }
 
 .logo-small {
@@ -514,7 +519,7 @@ ul {
   text-align: center;
   cursor: pointer;
   text-decoration: none;
-  text-transform: uppercase;
+  text-transform: capitalize;
 
   &:hover {
     color: white;
@@ -533,7 +538,7 @@ ul {
   font-weight: $semi-bold;
   cursor: pointer;
   text-decoration: none;
-  text-transform: uppercase;
+  text-transform: capitalize;
   text-align: center;
 
   &:hover {

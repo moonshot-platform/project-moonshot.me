@@ -20,7 +20,7 @@ $sidebar-width: toRem(64px);
 
 // Colors
 $primary-font-color: #0f0f0f;
-$primary: #d7b13e;
+$primary: #d5a642;
 $secondary: #ca9800;
 
 $body-bg-color: #1f1e1e;
@@ -58,7 +58,7 @@ $font-md: 18px;
 $font-lg: 20px;
 
 $font-size-base: toRem($primary-fs);
-$font-weight-base: $regular;
+$font-weight-base: $medium;
 $font-color-base: $primary-font-color;
 $font-family-base: $primary-font, "Sans";
 $font-family-secondary: $secondary-font, "Arial";

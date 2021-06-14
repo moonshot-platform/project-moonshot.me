@@ -46,5 +46,11 @@ section.gallery {
 
 .explanation {
   line-height: 30px;
-  font-weight: 200;
+}
+
+@media only screen and (max-width: $md) {
+  .main {
+    display: flex;
+    flex-direction: column;
+  }
 }

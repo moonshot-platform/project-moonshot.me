@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-subscription',
-  templateUrl: './subscription.component.html',
-  styleUrls: ['./subscription.component.scss']
+  selector: 'app-merchandise',
+  templateUrl: './merchandise.component.html',
+  styleUrls: ['./merchandise.component.scss']
 })
-export class SubscriptionComponent implements OnInit {
+export class MerchandiseComponent implements OnInit {
 
   public imgSrcList: any = [
     {

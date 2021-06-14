@@ -3,7 +3,7 @@
 section.intro {
   min-height: 100vh;
   position: relative;
-  background: url("/assets/media/images/moon-community.png") top  no-repeat;
+  background: url("/assets/media/images/moon-community.png") top no-repeat;
 
   .inner {
     @extend %max-width-center;
@@ -38,9 +38,25 @@ section.intro {
 .info {
   color: $primary;
 
-  .bottom > div:first-child > p {
-    line-height: 30px;
-    font-weight: 200;
+  .top {
+    max-width: 570px;
+    width: 100%;
+  }
+
+  .bottom {
+    border-top: 1px solid $primary;
+
+    div:first-child > p {
+      line-height: 30px;
+    }
+  }
+}
+
+@media only screen and (max-width: $md) {
+  section.intro > .inner {
+    display: flex;
+    flex-direction: column;
+    padding-top: 100px;
   }
 }
 

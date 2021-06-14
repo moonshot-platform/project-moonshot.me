@@ -1,4 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
@@ -31,10 +32,13 @@ export class NavigationComponent implements OnInit {
 
   scrollToElement(): void {
     const element = document.querySelector("#howToTutorial")
-if (element) element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    if (element) 
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    else
+      this._router.navigate( ['/' ], {fragment: 'howToTutorial'});
   }
 
-  constructor() { }
+  constructor(private _router: Router) { }
 
   ngOnInit(): void {
   }

@@ -9,7 +9,6 @@ import { NextComponent } from './next/next.component';
 import { SecurityComponent } from './security/security.component';
 import { MissionComponent } from './mission/mission.component';
 import { MechanicsComponent } from './mechanics/mechanics.component';
-import { TutorialComponent } from './tutorial/tutorial.component';
 import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { SidebarModule } from '../landing/sidebar/sidebar.module';
@@ -26,7 +25,6 @@ import { NavigationModule } from '../base/navigation/navigation.module';
     NextComponent,
     MissionComponent,
     MechanicsComponent,
-    TutorialComponent,
   ],
   imports: [
     MatIconModule,

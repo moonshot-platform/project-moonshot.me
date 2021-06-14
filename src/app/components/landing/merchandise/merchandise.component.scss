@@ -1,6 +1,6 @@
 @import "includes";
 
-section.subscription {
+section.merchandise {
   @include paddingsInside(0px, 20px);
   position: relative;
   background-size: 60%;
@@ -45,7 +45,6 @@ section.subscription {
 
       > p.description {
         line-height: 30px;
-        font-weight: 200;
       }
     }
   }
@@ -64,7 +63,7 @@ section.subscription {
 }
 
 @media only screen and (max-width: $md) {
-  section.subscription {
+  section.merchandise {
     .info > .bottom {
       flex-direction: column;
 
