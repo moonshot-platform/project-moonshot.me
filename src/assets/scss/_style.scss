@@ -543,7 +543,7 @@ ul {
   text-transform: capitalize;
 
   &:hover {
-    color: white;
+    background-color: white;
   }
 }
 
@@ -564,6 +564,7 @@ ul {
 
   &:hover {
     color: white;
+    border-color: white;
   }
 }
 
@@ -584,6 +585,10 @@ ul {
   &:hover {
     color: white;
     border: 1px solid white;
+
+    > mat-icon {
+      color: white;
+    }
   }
 }
 
