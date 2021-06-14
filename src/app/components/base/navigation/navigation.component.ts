@@ -13,7 +13,7 @@ export class NavigationComponent implements OnInit {
 
   public navItems: any[] = [
     {
-      'name': 'Moonpaper',
+      'name': 'MoonPaper',
       'externalPath': '/assets/files/moonpaper.pdf'
     },
     {
