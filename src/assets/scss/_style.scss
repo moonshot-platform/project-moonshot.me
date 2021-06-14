@@ -139,6 +139,14 @@ ul {
   margin-left: 100px;
 }
 
+.mv100 {
+  margin: 100px 0;
+}
+
+.mv200 {
+  margin: 200px 0;
+}
+
 .pa10 {
   @include paddingInside(10px);
 }
@@ -312,10 +320,6 @@ ul {
   align-items: center;
 }
 
-.align-stretch {
-  align-items: stretch;
-}
-
 .align-end {
   align-items: flex-end;
 }
@@ -358,10 +362,6 @@ ul {
   align-items: flex-end;
 }
 
-.grow1 {
-  flex-grow: 1;
-}
-
 .flex1 {
   flex: 1;
 }
@@ -371,12 +371,6 @@ ul {
 }
 .flex3 {
   flex: 3;
-}
-.flex4 {
-  flex: 4;
-}
-.flex5 {
-  flex: 5;
 }
 
 .col {
@@ -434,6 +428,14 @@ ul {
 
 .p22 {
   font-size: 22px;
+}
+
+.p24 {
+  font-size: 24px;
+}
+
+.p25 {
+  font-size: 25px;
 }
 
 .p30 {
@@ -541,7 +543,7 @@ ul {
   text-transform: capitalize;
 
   &:hover {
-    color: white;
+    background-color: white;
   }
 }
 
@@ -554,15 +556,18 @@ ul {
   min-width: 200px;
   border-radius: 25px;
   color: $secondary;
+  font-family: $primary;
   font-weight: $semi-bold;
+  background-color: transparent;
+  font-size: 16px;
   cursor: pointer;
   text-decoration: none;
   text-transform: capitalize;
   text-align: center;
-  background-color: transparent;
 
   &:hover {
     color: white;
+    border-color: white;
   }
 }
 
@@ -583,6 +588,10 @@ ul {
   &:hover {
     color: white;
     border: 1px solid white;
+
+    > mat-icon {
+      color: white;
+    }
   }
 }
 

@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-const FontFamily = 'Lato';
+const FontFamily = 'pt "Montserrat-SemiBold"';
 
 const MONTHS = {
     0: 'JANUARY',
@@ -42,7 +42,7 @@ export class MoonticketComponent implements OnInit {
 
   ngOnInit(): void {
     this.downloadFormGroup = this.formBuilder.group({
-      name: ['Moonshooter', [Validators.required]]
+      name: ['MOONRAKER', [Validators.required]]
     })
     this.onChanges();
   }
@@ -53,25 +53,24 @@ export class MoonticketComponent implements OnInit {
     });
   }
 
-  pad(n, width, z='0') {
+  pad(n: any, width: number, z='0') {
     n = n + '';
     return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
   }
 
-  formatAMPM(hours) {
+  formatAMPM(hours: any) {
     var ampm = hours >= 12 ? 'PM' : 'AM';
     hours = hours % 12;
     hours = hours ? hours : 12; 
     return hours + ':00 ' + ampm;
   }
 
-  calcPointSize( size, text ) {
-    let pointsize = 40;
+  calcPointSize( size: number, text: string ): number {
     let itFits = false;
   
     while( !itFits ) {
-      this.context.font = `bold ${size}px ${FontFamily}`;
-      let box_width = (1471 - 1120);
+      this.context.font = size + FontFamily;
+      let box_width = (1400 - 1120);
       let metrics = this.context.measureText( text );
       if( metrics.width >= box_width ) {
         size = size - 1;
@@ -79,37 +78,38 @@ export class MoonticketComponent implements OnInit {
       }
       else if( size <= 1 ) {
         return 0;
-      }
-      else {
+      } else
         return size;
-      }
     }
+
+    return size;
   }
 
-  drawName(yourName: string) {
-    let pointSize = this.calcPointSize( 30, yourName );
+  drawName(name: string) {
+    let pointSize = this.calcPointSize( 30, name );
     this.context.textAlign = 'center';
 
-    this.context.font = `bold ${pointSize}px ${FontFamily}`;
-    this.context.fillStyle = "#000000";
+    this.context.font = `bold ${pointSize} ${FontFamily}`;
+    this.context.fillStyle = "#4b4b4b";
         
-    this.context.fillText(yourName, 1041, 312);
+    this.context.fillText(name, 1041, 320);
     this.context.textAlign = 'left';
   }
 
-  drawDate(text, pointSize, color, x1, y1) {
-    this.context.font = `bold ${pointSize}px ${FontFamily}`;
+  drawDate(text: string, pointSize: number, color: string, x1: number, y1: number) {
+    this.context.font = pointSize + FontFamily;
     this.context.fillStyle = color;
     this.context.fillText(text, x1, y1);
     this.context.imageSmoothingEnabled = true;
   }
 
 
-  drawImage(yourName: string, shouldDownload: boolean = false) {
+  drawImage(name: string, shouldDownload: boolean = false) {
+    
     var img = new Image;
     img.onload = () => {
       this.context.drawImage(img, 0, 0, 1200, 436);
-      this.drawName(yourName);
+      this.drawName(name);
 
       let d = new Date();
       let year = d.getFullYear();
@@ -120,21 +120,24 @@ export class MoonticketComponent implements OnInit {
 
       let hour = this.pad( (d.getHours() + 1 ) % 23, 2 );
 
-      this.drawDate(today, 18, "#ffffff", 93, 237);
-      this.drawDate(this.formatAMPM(hour), 18, "#ffffff", 93, 263 );
+      // left
+      this.drawDate(today, 16, "#ffffff", 93, 247);
+      this.drawDate(this.formatAMPM(hour), 16, "#ffffff", 93, 273 );
       
-      this.drawDate("ARRIVAL SOON",18, "#ffffff", 419, 237 );
+      this.drawDate("ARRIVAL SOON",16, "#ffffff", 419, 247 );
+      // left end
 
-      this.drawDate(today, 12, "#4b4b4b", 1020, 116);
-      this.drawDate(this.formatAMPM(hour), 12, "#4b4b4b", 1020, 132);
+      
+      this.drawDate("ARRIVAL SOON", 12, "#4b4b4b", 1020, 130 );
 
-      this.drawDate("ARRIVAL SOON", 12, "#4b4b4b", 1020, 234 );
+      this.drawDate(today, 12, "#4b4b4b", 1020, 245);
+      this.drawDate(this.formatAMPM(hour), 12, "#4b4b4b", 1020, 265);
 
       this.drawDate("www.project-moonshot.me", 12, "#4b4b4b", 904, 423);
 
       if(shouldDownload) {
         let link = document.createElement('a');
-        link.download = 'tiket.png';
+        link.download = 'moonshot-ticket.png';
         link.href = this.ticketCanvas.nativeElement.toDataURL();
         link.click();
       }

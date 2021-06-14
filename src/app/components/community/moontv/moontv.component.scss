@@ -1,7 +1,8 @@
 @import "includes";
 
 section.moontv {
-  // height: 100vh;
+  @include paddingsInside(0px, 20px);
+
   background: url("/assets/media/images/galaxy02_homepage.png") no-repeat left;
   > .inner {
     @extend %max-width-center;
@@ -12,7 +13,6 @@ section.moontv {
 .stats {
   min-width: 300px;
   margin-right: 150px;
-  padding-bottom: 36px;
 
   div > p {
     font-size: 30px;
@@ -20,7 +20,7 @@ section.moontv {
 
     &:first-child {
       color: $primary;
-      margin-bottom: 50px;
+      margin-bottom: 20px;
       font-size: 12px;
       font-weight: normal;
     }
@@ -30,7 +30,6 @@ section.moontv {
     font-weight: normal;
   }
   .more {
-    border-top: 1px solid #d5a642;
     width: 80%;
     text-align: center;
     padding-top: 20px;
@@ -38,10 +37,6 @@ section.moontv {
 }
 
 .buy-info {
-  margin-top: -100px;
-  @include md-down {
-    margin-top: 0px;
-  }
   .futuristic-container {
     border-top: 1px solid $primary;
     flex-direction: row;
@@ -69,5 +64,9 @@ section.moontv {
   .main {
     display: flex;
     flex-direction: column;
+  }
+
+  .stats {
+    margin-right: 0;
   }
 }

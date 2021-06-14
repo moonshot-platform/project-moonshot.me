@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -50,9 +51,17 @@ export class FooterComponent implements OnInit {
     }
   ]
 
-  constructor() { }
+  constructor(private _router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  scrollToElement(page: string, fragment: string): void {
+    const element = document.querySelector(`#${fragment}`)
+    if (element)  {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    } else
+      this._router.navigate( [page], {fragment: fragment});
   }
 
 }

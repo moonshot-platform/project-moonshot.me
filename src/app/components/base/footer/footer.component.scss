@@ -14,16 +14,22 @@ footer {
   p,
   a {
     color: $primary;
+    font-weight: bold;
   }
-}
-
-.left p,
-.right p {
-  font-weight: bold;
 }
 
 .community-box {
   margin: 0 30px;
+}
+
+ul > li {
+  p,
+  a {
+    cursor: pointer;
+    &:hover {
+      color: white;
+    }
+  }
 }
 
 .social-icon-links ul {

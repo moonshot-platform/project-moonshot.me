@@ -1,7 +1,8 @@
 @import "includes";
 
 section.moonticket {
-  padding-top: 300px;
+  @include paddingsInside(0px, 20px);
+
   background: url("/assets/media/images/galaxy03_homepage.png") no-repeat right;
 
   > .inner {
@@ -23,15 +24,10 @@ section.moonticket {
 
     &:first-child {
       color: $primary;
-      margin-bottom: 50px;
+      margin-bottom: 20px;
       font-size: 12px;
     }
   }
-}
-
-.ticket-section {
-  border: 1px solid #464950;
-  background: #e9e9e9;
 }
 
 .buy-info .futuristic-container {
@@ -59,14 +55,13 @@ section.moonticket {
   line-height: 30px;
 }
 
+.ticket-canvas {
+  @extend %max-width-center;
+}
+
 @media only screen and (max-width: $md) {
   .main {
     display: flex;
     flex-direction: column;
   }
-}
-
-
-.ticket-canvas {
-  @extend %max-width-center;
 }

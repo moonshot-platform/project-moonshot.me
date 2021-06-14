@@ -6,19 +6,14 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
   styleUrls: ['./video.component.scss']
 })
 export class VideoComponent implements OnInit {
-  public videoSource: string = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
 
-  @ViewChild('videoPlayer') public videoPlayer: ElementRef<HTMLVideoElement>;
-  public paused = false
+  public videoSource: any = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
+  @ViewChild('videoPlayer') videoPlayer: ElementRef;
 
   constructor() { }
 
-  toggleVideo(): void {
-    if(this.videoPlayer.nativeElement.paused) {
-      this.videoPlayer.nativeElement.play(); 
-    } else {
-      this.videoPlayer.nativeElement.pause();
-    }
+  toggleVideo(event: any): void {
+    this.videoPlayer.nativeElement.play();
   }
 
   ngOnInit(): void {
