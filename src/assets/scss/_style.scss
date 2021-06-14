@@ -312,6 +312,10 @@ ul {
   align-items: center;
 }
 
+.align-stretch {
+  align-items: stretch;
+}
+
 .align-end {
   align-items: flex-end;
 }
@@ -352,6 +356,10 @@ ul {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+}
+
+.grow1 {
+  flex-grow: 1;
 }
 
 .flex1 {
