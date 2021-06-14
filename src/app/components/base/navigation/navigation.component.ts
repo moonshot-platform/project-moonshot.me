@@ -13,7 +13,7 @@ export class NavigationComponent implements OnInit {
 
   public navItems: any[] = [
     {
-      'name': 'Moonpaper',
+      'name': 'MoonPaper',
       'externalPath': '/assets/files/moonpaper.pdf'
     },
     {
@@ -30,12 +30,13 @@ export class NavigationComponent implements OnInit {
     this.atTop = (window.pageYOffset == 0) ? true : false;
   } 
 
-  scrollToElement(): void {
-    const element = document.querySelector("#how-to-buy")
-    if (element) 
+  scrollToElement(page: string, fragment: string): void {
+    const element = document.querySelector(`#${fragment}`)
+    if (element)  {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    else
-      this._router.navigate( ['/'], {fragment: 'how-to-buy'});
+      this.open = false;
+    } else
+      this._router.navigate( [page], {fragment: fragment});
   }
 
   constructor(private _router: Router) { }

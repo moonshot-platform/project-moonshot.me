@@ -1,5 +1,4 @@
-<section class="video flex-end">
-    <div class="overlay"></div>
+<section class="video flex-end mv200">
     <div class="inner flex-space-between align-start">
         <div class="stats flex1">
             <div class="futuristic-container top-only">
@@ -13,10 +12,8 @@
         </div>
         <div class="video-player flex3">
             <div class="video">
-                <a class="playbtn outlined-button mb10" (click)="toggleVideo()">
-                    {{ videoPlayer.paused? 'Play' : 'Pause'}}
-                </a>
-                <video width="100%" height="auto" #videoPlayer>
+                <a class="playbtn outlined-button mb10">PLAY</a>
+                <video (click)="toggleVideo" width="100%" height="auto" controls #videoPlayer>
                     <source src="{{videoSource}}" type="video/mp4" />
                     Browser not supported
                 </video>
