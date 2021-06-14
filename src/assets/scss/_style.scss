@@ -343,6 +343,11 @@ ul {
   align-items: center;
 }
 
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
 .flex-col-align-end {
   display: flex;
   flex-direction: column;

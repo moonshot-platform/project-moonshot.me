@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { tsParticles } from 'ng-particles';
 
 @Component({
   selector: 'app-about',
@@ -11,7 +10,7 @@ export class AboutComponent {
   static readonly routeName: string = 'about';
 
   constructor() {
-    tsParticles.loadJSON('particles', 'assets/json/particlesjs-config.json');
+    
   }
 
 }

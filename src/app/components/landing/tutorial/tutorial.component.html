@@ -4,13 +4,6 @@
             <div class="title color-primary mb20">7 EASY STEPS</div>
             <div class="sub-title color-white p30 orbitron">How to buy Moonshot!</div>
         </div>
-        <div class="buttons-container flex align-center mb100">
-            <p class="color-primary mr30">Buy on:</p>
-            <a href="https://pancakeswap.finance/" class="outlined-button mr30">Pancakeswap</a>
-            <a href="https://www.bitmart.com/" class="outlined-button mr30">BitMart</a>
-            <a href="https://p2pb2b.io/" class="outlined-button mr30">P2PB2B</a>
-            <a href="https://www.hotbit.io/" class="outlined-button mr30">HotBit</a>
-        </div>
         <ul class="how-to-buy-flow">
             <li *ngFor="let step of steps; let i = index">
                 <ng-container *ngIf="i == 0 || i == steps.length - 1; then link else chain"></ng-container>
@@ -45,5 +38,14 @@
                 </ng-template>
             </li>
         </ul>
+        <div class="buttons-container flex-col align-center mt100">
+            <p class="color-primary mb30">Quickest way to buy:</p>
+            <ul class="flex">
+                <li><a href="https://pancakeswap.finance/" class="outlined-button mr30">Pancakeswap</a></li>
+                <li><a href="https://www.bitmart.com/" class="outlined-button mr30">BitMart</a></li>
+                <li><a href="https://p2pb2b.io/" class="outlined-button mr30">P2PB2B</a></li>
+                <li><a href="https://www.hotbit.io/" class="outlined-button">HotBit</a></li>
+            </ul>
+        </div>
     </div>
 </section>

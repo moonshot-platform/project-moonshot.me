@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { tsParticles } from 'ng-particles';
 
 @Component({
   selector: 'app-landing',
@@ -15,7 +14,6 @@ export class LandingComponent implements OnInit {
   private fragment: string;
 
   constructor(private route: ActivatedRoute, private location: Location) {
-    tsParticles.loadJSON('particles', 'assets/json/particlesjs-config.json');
   }
 
   ngOnInit(): void {

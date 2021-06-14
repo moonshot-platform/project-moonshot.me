@@ -22,11 +22,11 @@
                     <div class="inner-container">
                         <div class="flex group-img justify-center">
                             <div class="round-mini-button">
-                                <mat-icon fontSet="material-icons" class="color-primary">arrow_back</mat-icon>
+                                <mat-icon (click)="prev()" fontSet="material-icons" class="color-primary">arrow_back</mat-icon>
                             </div>
-                            <img src="assets/media/images/community/fuel_illustration.png" alt="moonticket" />
+                            <img src={{shirts[current]}} alt="moonticket" />
                             <div class="round-mini-button">
-                                <mat-icon fontSet="material-icons" class="color-primary">arrow_forward</mat-icon>
+                                <mat-icon (click)="next()" fontSet="material-icons" class="color-primary">arrow_forward</mat-icon>
                             </div>
                         </div>
                         <p class="title mt50 mb30">Get your Moonshot apparel</p>
