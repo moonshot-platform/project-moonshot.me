@@ -1,14 +1,35 @@
 @import "includes";
 
 section.intro {
-  @include paddingsInside(0px, 20px);
-
   min-height: 100vh;
   position: relative;
   background: url("/assets/media/images/moons.png") -600px -200px no-repeat;
 
   .inner {
     @extend %max-width-center;
+    margin-bottom: 200px;
+  }
+}
+
+.stats {
+  min-width: 300px;
+  margin-right: 150px;
+
+  div {
+    &:first-child {
+      margin-bottom: 40px;
+    }
+
+    p {
+      color: $secondary;
+      font-size: 20px;
+
+      &:first-child {
+        color: $primary;
+        margin-bottom: 50px;
+        font-size: 12px;
+      }
+    }
   }
 }
 
