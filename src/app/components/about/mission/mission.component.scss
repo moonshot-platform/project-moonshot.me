@@ -1,10 +1,11 @@
 @import "includes";
 
 section.mission {
-  height: 100vh;
+  min-height: 100vh;
   background: url("/assets/media/images/galaxy05_homepage.png") no-repeat;
   > .inner {
     @extend %max-width-center;
+    padding: 0 20px;
     margin-bottom: 250px;
   }
 }
