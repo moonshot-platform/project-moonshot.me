@@ -1,6 +1,8 @@
 @import "includes";
 
 section.intro {
+  @include paddingsInside(0px, 20px);
+
   min-height: 100vh;
   position: relative;
   background: url("/assets/media/images/moon-community.png") top no-repeat;
@@ -56,7 +58,7 @@ section.intro {
   section.intro > .inner {
     display: flex;
     flex-direction: column;
-    padding-top: 100px;
+    padding-top: 200px;
   }
 }
 

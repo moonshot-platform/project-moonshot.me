@@ -1,14 +1,14 @@
 @import "includes";
 
 section.intro {
+  @include paddingsInside(0px, 20px);
+
   min-height: 100vh;
-  min-width: 100vw;
   position: relative;
   background: url("/assets/media/images/moons.png") -600px -200px no-repeat;
 
   .inner {
     @extend %max-width-center;
-    padding: 0 20px;
   }
 }
 
