@@ -127,7 +127,10 @@ section.tutorial {
 
       > .description {
         line-height: 30px;
-        line-break: anywhere;
+
+        > span {
+          line-break: anywhere;
+        }
       }
     }
   }
