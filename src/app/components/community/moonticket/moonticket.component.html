@@ -13,7 +13,7 @@
                         <p class="mb20">Your name</p>
                     </div>
                     <div class="flex2">
-                        <input class="username" id="name" type="text" formControlName="name">
+                        <input class="username" id="name" type="text" formControlName="name" oninput="this.value = this.value.toUpperCase()">
                     </div>
                     <div class="flex1 flex justify-end">
                         <button class="outlined-button mb10" type="submit">Download it</button>
