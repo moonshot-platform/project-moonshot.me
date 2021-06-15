@@ -13,13 +13,13 @@ import { ExchangesComponent } from './exchanges/exchanges.component';
 import { EconomyComponent } from './economy/economy.component';
 import { InvestmentComponent } from './investment/investment.component';
 import { TutorialComponent } from './tutorial/tutorial.component';
-import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { NavigationModule } from '../base/navigation/navigation.module';
 import { SidebarModule } from './sidebar/sidebar.module';
 
 import { CarouselModule } from 'ng-carousel-cdk';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
@@ -27,7 +27,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RoadmapModule } from './roadmap/roadmap.module';
-import { MerchandiseModule } from './merchandise/merchandise.module';
 import { TokenomicsModule } from './tokenomics/tokenomics.module';
 
 
@@ -64,7 +63,6 @@ import { TokenomicsModule } from './tokenomics/tokenomics.module';
     FormsModule,
     ReactiveFormsModule,
     CarouselModule,
-    MerchandiseModule,
     TokenomicsModule
   ]
 })

@@ -12,7 +12,7 @@ import { SidebarModule } from '../landing/sidebar/sidebar.module';
 import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { RoadmapModule } from '../landing/roadmap/roadmap.module';
-import { MerchandiseModule } from '../landing/merchandise/merchandise.module';
+import { MerchandiseModule } from './merchandise/merchandise.module';
 import { NavigationModule } from '../base/navigation/navigation.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -35,10 +35,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     SidebarModule,
     RoadmapModule,
-    MerchandiseModule,
     NavigationModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MerchandiseModule
   ]
 })
 export class CommunityModule { }
