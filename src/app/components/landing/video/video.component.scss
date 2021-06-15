@@ -57,11 +57,24 @@ video::-webkit-media-controls-panel {
     align-items: center;
 
     .playbtn {
+      display: none;
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       z-index: 99;
+    }
+
+    &:hover {
+      .playbtn {
+        display: block;
+      }
+    }
+
+    &.toFront {
+      z-index: 100;
+      box-shadow: 0 0 0 2px $primary;
+      border-radius: 30px;
     }
   }
 }

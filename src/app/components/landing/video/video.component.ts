@@ -10,14 +10,17 @@ export class VideoComponent implements OnInit {
 
   @ViewChild('videoPlayer') public videoPlayer: ElementRef<HTMLVideoElement>;
   public paused = false
+  public videoPlaying = false
 
   constructor() { }
 
   toggleVideo(): void {
     if(this.videoPlayer.nativeElement.paused) {
-      this.videoPlayer.nativeElement.play(); 
+      this.videoPlayer.nativeElement.play();
+      this.videoPlaying = true;
     } else {
       this.videoPlayer.nativeElement.pause();
+      this.videoPlaying = false;
     }
   }
 

@@ -13,8 +13,9 @@ section.intro {
 }
 
 .stats {
-  min-width: 300px;
-  margin-right: 150px;
+  width: 100%;
+  max-width: 270px;
+  margin-right: 20px;
 
   div {
     &:first-child {
@@ -37,7 +38,20 @@ section.intro {
 }
 
 .info {
+  width: 100%;
+  max-width: 770px;
   color: $primary;
+
+  .line-container {
+    .line {
+      height: 3px;
+      background-color: $primary;
+    }
+
+    .empty {
+      margin-left: -120px;
+    }
+  }
 
   .bottom > div:first-child > p {
     line-height: 30px;
