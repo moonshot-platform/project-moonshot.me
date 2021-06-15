@@ -1,7 +1,7 @@
 @import "includes";
 
 section.tutorial {
-  @include paddingsInside(150px, 20px);
+  @include paddingsInside(100px, 20px);
 
   background: url("/assets/media/images/galaxy02_homepage.png") center top
     no-repeat;

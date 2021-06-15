@@ -13,6 +13,7 @@ section.video {
 .stats {
   min-width: 300px;
   z-index: 90;
+
   div {
     p {
       color: $secondary;
@@ -80,9 +81,14 @@ video::-webkit-media-controls-panel {
 }
 
 @media only screen and (max-width: $md) {
-  section.video > .inner {
-    flex-direction: column;
-    margin-bottom: 0;
+  section.video {
+    margin-top: 100px;
+    margin-bottom: 100px;
+
+    .inner {
+      flex-direction: column;
+      margin-bottom: 0;
+    }
   }
 
   .video-player {
