@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-const FontFamily = 'pt "Montserrat-SemiBold"';
+const FontFamily = 'pt "Lato"';
 
 const MONTHS = {
     0: 'JANUARY',
@@ -69,7 +69,7 @@ export class MoonticketComponent implements OnInit {
     let itFits = false;
   
     while( !itFits ) {
-      this.context.font = size + FontFamily;
+      this.context.font = 'black ' + size + FontFamily;
       let box_width = (1400 - 1120);
       let metrics = this.context.measureText( text );
       if( metrics.width >= box_width ) {
@@ -89,8 +89,8 @@ export class MoonticketComponent implements OnInit {
     let pointSize = this.calcPointSize( 30, name );
     this.context.textAlign = 'center';
 
-    this.context.font = `bold ${pointSize} ${FontFamily}`;
-    this.context.fillStyle = "#4b4b4b";
+    this.context.font = pointSize + FontFamily;
+    this.context.fillStyle = "#000000";
         
     this.context.fillText(name, 1041, 320);
     this.context.textAlign = 'left';
@@ -132,8 +132,6 @@ export class MoonticketComponent implements OnInit {
 
       this.drawDate(today, 12, "#4b4b4b", 1020, 245);
       this.drawDate(this.formatAMPM(hour), 12, "#4b4b4b", 1020, 265);
-
-      this.drawDate("www.project-moonshot.me", 12, "#4b4b4b", 904, 423);
 
       if(shouldDownload) {
         let link = document.createElement('a');
