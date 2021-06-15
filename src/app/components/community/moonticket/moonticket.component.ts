@@ -46,7 +46,7 @@ export class MoonticketComponent implements OnInit {
 
   ngOnInit(): void {
     this.downloadFormGroup = this.formBuilder.group({
-      name: ['MOONRAKER', [Validators.required]]
+      name: ['MOONSHOOTER', [Validators.required]]
     })
     this.onChanges();
   }
