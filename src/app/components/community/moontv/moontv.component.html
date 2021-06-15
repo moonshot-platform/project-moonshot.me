@@ -17,10 +17,8 @@
                  <div class="futuristic-container flex">
                     <div class="video" *ngFor="let item of videoSrcList">
                         <!-- <a class="playbtn outlined-button mb10">PLAY</a> -->
-                        <video width="100%" height="auto" controls #videoPlayer>
-                            <source src="{{item.src}}" type="video/mp4" />
-                            Browser not supported
-                        </video>
+                        <iframe width="300" height="228" [src]="item.src">
+                        </iframe>
                     </div>
                  </div>
             </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-moontv',
@@ -7,44 +8,49 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MoontvComponent implements OnInit {
 
-  public videoSrcList: any = [
-    {
-      src: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-      thumb: ""
-    },
-    {
-      src: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-      thumb: ""
-    },
-    {
-      src: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-      thumb: ""
-    },
-    {
-      src: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-      thumb: ""
-    },
-    {
-      src: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-      thumb: ""
-    },
-    {
-      src: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-      thumb: ""
-    },
-    {
-      src: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-      thumb: ""
-    },
-    {
-      src: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-      thumb: ""
-    }
-  ]
+  public videoSrcList: any = [];
 
-  constructor() { }
+  constructor(private sanitizer: DomSanitizer) { }
+
+  transform(url) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
 
   ngOnInit(): void {
+    this.videoSrcList = [
+      {
+        src: this.transform("https://www.youtube.com/embed/kvSewdKNsuM"),
+        thumb: ""
+      },
+      {
+        src: this.transform("https://www.youtube.com/embed/7kBNo1CeQ7Y"),
+        thumb: ""
+      },
+      {
+        src: this.transform("https://www.youtube.com/embed/sD8ekD21fmI"),
+        thumb: ""
+      },
+      {
+        src: this.transform("https://www.youtube.com/embed/9gcutFdutvw"),
+        thumb: ""
+      },
+      {
+        src: this.transform("https://www.youtube.com/embed/kvSewdKNsuM"),
+        thumb: ""
+      },
+      {
+        src: this.transform("https://www.youtube.com/embed/7kBNo1CeQ7Y"),
+        thumb: ""
+      },
+      {
+        src: this.transform("https://www.youtube.com/embed/sD8ekD21fmI"),
+        thumb: ""
+      },
+      {
+        src: this.transform("https://www.youtube.com/embed/9gcutFdutvw"),
+        thumb: ""
+      },
+    ];
   }
 
 }
