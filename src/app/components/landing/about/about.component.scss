@@ -2,14 +2,11 @@
 
 section.about {
   position: relative;
-  background: url("/assets/media/images/galaxy_homeage.png") right bottom
-    no-repeat;
-  background-size: 80%;
   padding: 20px;
+  margin-bottom: 260px;
 
   .inner {
     @extend %max-width-center;
-    margin-bottom: 200px;
     align-items: flex-end;
   }
 }
