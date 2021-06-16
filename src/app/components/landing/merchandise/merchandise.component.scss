@@ -19,6 +19,13 @@ section.merchandise {
   text-align: center;
 
   .bottom {
+    > div:first-child {
+      border-right: 1px solid;
+    }
+
+    .flex-col {
+      align-self: flex-end;
+    }
     .title {
       font-size: larger;
       font-family: "Orbitron";
@@ -26,6 +33,7 @@ section.merchandise {
     }
     .group-img {
       align-items: center;
+      margin-top: -80px;
 
       &:nth-child(2) {
         justify-content: space-between;
@@ -38,12 +46,14 @@ section.merchandise {
 
     div {
       > a {
-        margin: auto;
+        margin: 20px auto 50px auto;
         width: fit-content;
       }
 
       > p.description {
         line-height: 30px;
+        padding: 0 30px;
+        margin: auto;
       }
     }
   }
@@ -65,9 +75,13 @@ section.merchandise {
   section.merchandise {
     .info > .bottom {
       flex-direction: column;
+      .flex-col {
+        align-self: auto;
+      }
 
       > div:first-child {
         margin-bottom: 50px;
+        border: none;
       }
     }
   }
