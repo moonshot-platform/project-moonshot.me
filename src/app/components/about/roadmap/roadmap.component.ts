@@ -14,52 +14,57 @@ export class RoadmapComponent implements OnInit {
 
   items: CarouselItem[] = [
     {
-        title: 'Q2 2021 — ongoing',
+        title: 'Q2 2021',
+        span: ' - ongoing',
         description: 'Marketing; Build social media presence'
     },
     {
-        title: 'Q2 2021 — ongoing',
+        title: 'Q2 2021',
+        span: ' - ongoing',
         description: 'Listing at HotBit.io'
     },
     {
-        title: 'Q3 2021 — ongoing',
+        title: 'Q3 2021',
+        span: ' - ongoing',
         description: 'Moonboxes'
     },
     {
-        title: 'Q3 2021 — ongoing',
+        title: 'Q3 2021',
+        span: ' - ongoing',
         description: 'Moonarcade'
     },
     {
         title: 'Q3 2021',
+        span: '',
         description: 'Lottery Pools'
     },
     {
         title: 'Q3 2021',
+        span: '',
         description: 'Blockchain Gamification, Highscore rankings and Price Pools '
     },
     {
         title: 'Q3 2021',
+        span: '',
         description: 'Security Audit by a well respected Audit firm'
     },
     {
-        title: 'Q4 2021 — ongoing',
+        title: 'Q4 2021',
+        span: ' — ongoing',
         description: 'Lotteries'
     },
     {
-        title: 'Q4 2021 — ongoing',
+        title: 'Q4 2021',
+        span: ' — ongoing',
         description: 'Further development'
     },
-    /* {
-      title: 'Q2 2021 — ongoing',
-      description: 'To the moon!'
-    } */
   ]
 
   @ViewChild(CarouselComponent, {static: true}) carouselRef?: CarouselComponent;
 
     config: CarouselConfig<CarouselItem> = {
         widthMode: CarouselWidthMode.PX,
-        slideWidth: 300,
+        slideWidth: 270,
         transitionDuration: 250,
         alignMode: CarouselAlignMode.LEFT,
         shouldLoop: false,
@@ -182,5 +187,6 @@ export class RoadmapComponent implements OnInit {
 
 export interface CarouselItem {
   title: string;
+  span: string;
   description: string;
 }
