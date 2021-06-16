@@ -1,38 +1,34 @@
 @import "includes";
-
 section.security {
-  @include paddingsInside(0px, 20px);
-
-  > .inner {
-    @extend %max-width-center;
-  }
+    @include paddingsInside(0px, 20px);
+    >.inner {
+        @extend %max-width-center;
+        margin-top: 15%;
+    }
 }
 
 .stats {
-  min-width: 300px;
-  margin-right: 150px;
-
-  div > p {
-    font-size: 30px;
-
-    &:first-child {
-      color: $primary;
-      margin-bottom: 20px;
-      font-size: 12px;
+    min-width: 300px;
+    margin-right: 150px;
+    div>p {
+        font-size: 30px;
+        &:first-child {
+            color: $primary;
+            margin-bottom: 20px;
+            font-size: 12px;
+        }
     }
-  }
 }
 
 .buy-info .futuristic-container {
-  border-top: 1px solid $primary;
-
-  p {
-    width: 80%;
-  }
+    border-top: 1px solid $primary;
+    p {
+        width: 80%;
+    }
 }
 
 .explanation {
-  line-height: 30px;
+    line-height: 30px;
 }
 
 a {
@@ -40,20 +36,17 @@ a {
 }
 
 @media only screen and (max-width: $md) {
-  section.security > .inner > div {
-    flex-direction: column;
-  }
-
-  .stats {
-    margin-right: 0;
-  }
-
-  .buy-info .futuristic-container {
-    border-top: 1px solid $primary;
-
-    p {
-      width: 100%;
-      margin-right: 0;
+    section.security>.inner>div {
+        flex-direction: column;
     }
-  }
+    .stats {
+        margin-right: 0;
+    }
+    .buy-info .futuristic-container {
+        border-top: 1px solid $primary;
+        p {
+            width: 100%;
+            margin-right: 0;
+        }
+    }
 }
