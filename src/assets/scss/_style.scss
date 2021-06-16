@@ -210,6 +210,9 @@ ul {
 .pv100 {
   @include paddingsInside(100px, 0px);
 }
+.pv180 {
+  @include paddingsInside(180px, 0px);
+}
 .pv200 {
   @include paddingsInside(200px, 0px);
 }
@@ -651,5 +654,15 @@ ul {
     position: absolute;
     top: 0;
     width: 100%;
+  }
+}
+
+.hidden-bg {
+  max-height: 0;
+  z-index: -1;
+  position: relative;
+
+  > img {
+    transform: translate(0, -50%);
   }
 }
