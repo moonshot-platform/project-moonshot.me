@@ -1,58 +1,50 @@
 @import "includes";
-
 section.mission {
-  @include paddingsInside(0px, 20px);
-
-  min-height: 100vh;
-  background: url("/assets/media/images/galaxy05_homepage.png") no-repeat;
-
-  > .inner {
-    @extend %max-width-center;
-    margin-bottom: 250px;
-  }
+    @include paddingsInside(0px, 20px);
+    min-height: 100vh;
+    background: url("/assets/media/images/galaxy05_homepage.png") no-repeat;
+    >.inner {
+        @extend %max-width-center;
+    }
+    // padding-bottom: -150px;
+    //margin-bottom: 10%;
 }
 
 .stats {
-  min-width: 300px;
-  margin-right: 150px;
-
-  div > p {
-    font-size: 30px;
-
-    &:first-child {
-      margin-bottom: 20px;
-      font-size: 12px;
+    min-width: 300px;
+    margin-right: 150px;
+    div>p {
+        font-size: 30px;
+        &:first-child {
+            margin-bottom: 20px;
+            font-size: 12px;
+        }
     }
-  }
 }
 
 .buy-info .futuristic-container {
-  border-top: 1px solid $primary;
-
-  p {
-    width: 80%;
-  }
+    border-top: 1px solid $primary;
+    p {
+        width: 80%;
+    }
 }
 
 .explanation {
-  line-height: 30px;
+    line-height: 30px;
 }
 
 @media only screen and (max-width: $md) {
-  section.mission > .inner > div {
-    flex-direction: column;
-  }
-
-  .stats {
-    margin-right: 0;
-  }
-
-  .buy-info .futuristic-container {
-    border-top: 1px solid $primary;
-
-    p {
-      width: 100%;
-      margin-right: 0;
+    section.mission>.inner>div {
+        flex-direction: column;
     }
-  }
+    .stats {
+        margin-right: 0;
+    }
+    .buy-info .futuristic-container {
+        border-top: 1px solid $primary;
+        p {
+            width: 100%;
+            margin-right: 0;
+        }
+    }
 }
