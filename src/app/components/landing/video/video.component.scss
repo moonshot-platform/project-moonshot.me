@@ -47,35 +47,37 @@ video::-webkit-media-controls-panel {
 
 .video-player {
   .video {
+    transition: 400ms all ease-in-out;
+
     margin-left: -50px;
     margin-right: -50px;
     margin-bottom: 80px;
     position: relative;
-    min-height: 570px;
     background-color: black;
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 
     .playbtn {
-      display: none;
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       z-index: 99;
-    }
+      height: 22%;
+      opacity: 1;
+      transition: 700ms all ease-in-out;
 
-    &:hover {
-      .playbtn {
-        display: block;
+      &.fadeAway {
+        opacity: 0;
       }
     }
 
+    &:hover,
     &.toFront {
       z-index: 100;
       box-shadow: 0 0 0 2px $primary;
-      border-radius: 30px;
     }
   }
 }
