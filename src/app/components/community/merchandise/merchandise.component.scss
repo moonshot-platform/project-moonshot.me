@@ -25,6 +25,9 @@ section.merchandise {
 
     .flex-col {
       align-self: flex-end;
+      .donate {
+        opacity: 0;
+      }
     }
     .title {
       font-size: larger;
