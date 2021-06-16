@@ -47,8 +47,6 @@ video::-webkit-media-controls-panel {
 
 .video-player {
   .video {
-    transition: 400ms all ease-in-out;
-
     margin-left: -50px;
     margin-right: -50px;
     margin-bottom: 80px;
@@ -78,6 +76,10 @@ video::-webkit-media-controls-panel {
     &.toFront {
       z-index: 100;
       box-shadow: 0 0 0 2px $primary;
+    }
+
+    > video {
+      box-shadow: inset 0 0 100px black;
     }
   }
 }
