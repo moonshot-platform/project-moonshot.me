@@ -16,9 +16,12 @@ section.mission {
     div>p {
         font-size: 30px;
         &:first-child {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             font-size: 12px;
         }
+    }
+    .mb40 {
+        margin-bottom: 40px;
     }
 }
 

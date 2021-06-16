@@ -16,9 +16,12 @@ section.roadmap {
         color: white;
         &:first-child {
             color: $primary;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             font-size: 12px;
         }
+    }
+    .mb40 {
+        margin-bottom: 40px;
     }
 }
 
