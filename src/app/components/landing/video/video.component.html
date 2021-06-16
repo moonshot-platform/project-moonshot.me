@@ -11,10 +11,8 @@
             </div>
         </div>
         <div class="video-player flex3">
-            <div class="video" [class.toFront]="videoPlaying == true">
-                <p class="playbtn outlined-button mb10" (click)="toggleVideo()">
-                    {{ videoPlayer.paused ? 'Play' : 'Pause'}}
-                </p>
+            <div class="video" [class.toFront]="isPlaying == true" (click)="toggleVideo()" (mouseenter) ="onShow(true)"  (mouseleave)="onShow(false)">
+                <img class="playbtn" [class.show]="show" [class.fadeAway]="fadeOut" *ngIf="show" src="assets/media/images/{{!isPlaying ? 'play-button.svg': 'pause-button.svg'}}" />
                 <video width="100%" height="auto" #videoPlayer>
                     <source src="{{videoSource}}" type="video/mp4" />
                     Browser not supported
