@@ -26,7 +26,6 @@ export class TutorialComponent implements OnInit {
     {
       title: 'Import the token address',
       description: 'The PancakeSwap website starts with a pop up form asking if the address belongs to Moonshot. Double check before you accept! ',
-      span: '0xd27d3f7f329d93d897612e413f207a4dbe8bf799',
     },
     {
       title: 'Set slippage to 11%',
