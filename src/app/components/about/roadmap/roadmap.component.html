@@ -45,14 +45,21 @@
         <div class="carousel-container">
             <ng-carousel #carouselRef="ngCarousel" [config]="config" (itemIndexChange)="setItemIndex($event)" class="carousel-block">
                 <ng-template [ngCarouselSlide]="carouselRef" let-item let-active="isActive" let-activeOnTheRight="activeOnTheRight" let-activeOnTheLeft="activeOnTheLeft">
-                    <div [class.active]="active" class="carousel-slide">
-                        <h2 class="mb20 title">
-                            {{item.title}}
-                        </h2>
-                        <p class="description">
-                            {{item.description}}
-                        </p>
+                    <div class="carousel-container-col">
+                        <div [class.active]="active" class="carousel-slide">
+                            <h2 class="mb20 title">
+                                {{item.title}}
+                            </h2>
+                            <p class="description">
+                                {{item.description}}
+                            </p>
+                        </div>
+                        <div class="round-mini-button timeline-icons">
+                            <mat-icon fontSet="material-icons" class="color-primary">sync</mat-icon>
+                        </div>
                     </div>
+
+
                 </ng-template>
             </ng-carousel>
             <div class="bottom-line"></div>
