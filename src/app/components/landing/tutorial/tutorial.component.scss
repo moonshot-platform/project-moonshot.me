@@ -1,7 +1,7 @@
 @import "includes";
 
 section.tutorial {
-  @include paddingsInside(150px, 20px);
+  @include paddingsInside(100px, 20px);
 
   background: url("/assets/media/images/galaxy02_homepage.png") center top
     no-repeat;
@@ -9,6 +9,16 @@ section.tutorial {
 
   > .inner {
     @extend %max-width-center;
+  }
+}
+
+.address-container li {
+  padding: 10px 20px;
+  box-sizing: border-box;
+  border-bottom: 1px solid $primary;
+
+  > p {
+    line-break: anywhere;
   }
 }
 
@@ -137,8 +147,38 @@ section.tutorial {
 }
 
 @media only screen and (max-width: $md) {
-  .buttons-container {
-    display: none;
+  .buttons-container,
+  .address-container,
+  .quick-buy-container {
+    flex-direction: column;
+
+    ul {
+      flex-direction: column;
+    }
+
+    p,
+    a,
+    ul,
+    li {
+      margin-right: 0;
+      width: 100%;
+    }
+  }
+
+  .address-container {
+    li {
+      padding: 20px;
+      p {
+        text-align: center;
+      }
+    }
+  }
+
+  .buttons-container,
+  .quick-buy-container {
+    li {
+      margin-top: 20px;
+    }
   }
 
   .how-to-buy-flow {

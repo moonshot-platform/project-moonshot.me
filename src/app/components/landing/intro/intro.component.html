@@ -4,7 +4,7 @@
        <div class="stats flex1">
            <div class="timer futuristic-container">
             <p>MISSION ELAPSED TIME</p>
-            <countdown [config]="{ leftTime: 100, format: 'HH:mm:ss:SS' }"></countdown>
+            <p class="countdown">--:--:--:--</p>
            </div>
            <div class="price futuristic-container">
             <p>PRICE FOR ONE MILLION MOONSHOT</p>
@@ -12,7 +12,11 @@
            </div>
        </div>
        <div class="info flex3">
-            <div class="top futuristic-container">
+            <div class="line-container flex">
+                <div class="line flex2"></div>
+                <div class="empty flex1"></div>
+            </div>
+            <div class="top futuristic-container bottom-only">
                 <p class="p-white-span-primary p34 orbitron">Hold Moonshot<br><span>and get rewarded when<br>others transfer</span></p>
             </div>
             <div class="bottom flex pv20">

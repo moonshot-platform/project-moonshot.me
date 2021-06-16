@@ -11,9 +11,11 @@
             </div>
         </div>
         <div class="video-player flex3">
-            <div class="video">
-                <a class="playbtn outlined-button mb10">PLAY</a>
-                <video (click)="toggleVideo" width="100%" height="auto" controls #videoPlayer>
+            <div class="video" [class.toFront]="videoPlaying == true">
+                <p class="playbtn outlined-button mb10" (click)="toggleVideo()">
+                    {{ videoPlayer.paused ? 'Play' : 'Pause'}}
+                </p>
+                <video width="100%" height="auto" #videoPlayer>
                     <source src="{{videoSource}}" type="video/mp4" />
                     Browser not supported
                 </video>

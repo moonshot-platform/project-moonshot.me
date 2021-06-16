@@ -72,6 +72,9 @@ ul {
 .mt50 {
   margin-top: 50px;
 }
+.mt70 {
+  margin-top: 70px;
+}
 .mt100 {
   margin-top: 100px;
 }
@@ -137,6 +140,10 @@ ul {
 }
 .ml100 {
   margin-left: 100px;
+}
+
+.mv70 {
+  margin: 70px 0;
 }
 
 .mv100 {
@@ -372,6 +379,12 @@ ul {
 .flex3 {
   flex: 3;
 }
+.flex4 {
+  flex: 4;
+}
+.flex5 {
+  flex: 5;
+}
 
 .col {
   flex-direction: column;
@@ -556,7 +569,7 @@ ul {
   min-width: 200px;
   border-radius: 25px;
   color: $secondary;
-  font-family: $primary;
+  font-family: $font-family-base;
   font-weight: $semi-bold;
   background-color: transparent;
   font-size: 16px;

@@ -4,14 +4,20 @@ section.partners {
   background: url("/assets/media/images/galaxy03_homepage.png") right center
     no-repeat;
   background-size: 80%;
+  @include paddingsInside(70px, 20px);
 
   > .inner {
     @extend %max-width-center;
-    @include paddingsInside(70px, 20px);
+    @include paddingsInside(50px, 0px);
   }
 
-  img {
+  a {
     max-height: 50px;
+
+    > img {
+      width: 100%;
+      max-height: 50px;
+    }
   }
 }
 
@@ -21,10 +27,14 @@ section.partners {
     flex-wrap: wrap;
   }
 
-  img {
+  a {
     width: 50%;
     margin-bottom: 20px;
     padding: 10px;
     box-sizing: border-box;
+
+    > img {
+      max-height: 30px;
+    }
   }
 }
