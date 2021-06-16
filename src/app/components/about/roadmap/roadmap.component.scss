@@ -1,111 +1,130 @@
 @import "includes";
-
 section.roadmap {
-  @include paddingsInside(200px, 20px);
-  background: url("/assets/media/images/galaxy04_homepage.png") center no-repeat;
-  background-size: 80%;
-
-  > .inner {
-    @extend %max-width-center;
-  }
+    @include paddingsInside(200px, 20px);
+    background: url("/assets/media/images/galaxy04_homepage.png") center no-repeat;
+    background-size: 80%;
+    >.inner {
+        @extend %max-width-center;
+    }
 }
 
 .next-event-container {
-  min-width: 300px;
-  margin-right: 150px;
-
-  div > p {
-    font-size: 30px;
-    color: white;
-
-    &:first-child {
-      color: $primary;
-      margin-bottom: 20px;
-      font-size: 12px;
+    min-width: 300px;
+    margin-right: 150px;
+    div>p {
+        font-size: 30px;
+        color: white;
+        &:first-child {
+            color: $primary;
+            margin-bottom: 20px;
+            font-size: 12px;
+        }
     }
-  }
 }
 
 .info-container {
-  border-top-width: 1px;
-
-  ul li {
-    @extend %flex-justify-start;
-    margin-bottom: 10px;
-
-    .round-mini-button {
-      @extend %flex-center;
-
-      width: 30px;
-      height: 30px;
-      margin-right: 10px;
-      font-size: 10px;
-      background-color: $primary;
-
-      > .mat-icon {
-        font-size: 20px;
-        height: auto;
-        color: black;
-      }
-    }
-
-    p {
-      font-weight: $extra-light;
-    }
-
-    &:last-child {
-      margin-bottom: 0;
-
-      .round-mini-button {
-        background-color: transparent;
-
-        > .mat-icon {
-          color: $primary;
+    border-top-width: 1px;
+    ul li {
+        @extend %flex-justify-start;
+        margin-bottom: 10px;
+        .round-mini-button {
+            @extend %flex-center;
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+            font-size: 10px;
+            background-color: $primary;
+            >.mat-icon {
+                font-size: 20px;
+                height: auto;
+                color: black;
+            }
         }
-      }
+        p {
+            font-weight: $extra-light;
+        }
+        &:last-child {
+            margin-bottom: 0;
+            .round-mini-button {
+                background-color: transparent;
+                >.mat-icon {
+                    color: $primary;
+                }
+            }
+        }
     }
-  }
 }
 
 ::ng-deep .ng-carousel-slide {
-  @include paddingInside(10px);
-
-  color: $primary;
-  height: 180px;
-  border-left: 1px solid $primary;
-
-  &:hover {
-    color: white;
-    border-left: 1px solid white;
-  }
-
-  .active {
-    color: white;
-  }
+    @include paddingInside(10px);
+    color: $primary;
+    height: 180px;
+    border-left: 1px solid $primary;
+    &:hover {
+        color: white;
+        border-left: 1px solid white;
+    }
+    .title {
+        font-size: 16px;
+        font-family: primary-font;
+        text-align: left;
+        font-weight: 700;
+        line-height: 27px;
+    }
+    .description {
+        font-size: 20px;
+        font-family: primary-font;
+        text-align: left;
+        font-weight: 500;
+        line-height: 27px;
+    }
+    .active {
+        color: white;
+    }
 }
 
 .carousel-container {
-  position: relative;
+    position: relative;
+}
+
+.carousel-container-col {
+    height: 160px;
+    flex-direction: column;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.timeline-icons {
+    margin-left: -25px;
+    margin-bottom: -25px;
+    width: 30px;
+    height: 30px;
+    font-size: 10px;
+    background-color: $primary;
+    >.mat-icon {
+        font-size: 20px;
+        height: auto;
+        color: black;
+    }
 }
 
 .bottom-line {
-  height: 1px;
-  background-color: $primary;
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
+    z-index: -99;
+    height: 1px;
+    background-color: $primary;
+    width: 100%;
+    bottom: 0;
+    left: 0;
 }
 
 @media only screen and (max-width: $md) {
-  section.roadmap .next-event-container {
-    min-width: auto;
-  }
-
-  .top {
-    flex-direction: column;
-  }
+    section.roadmap .next-event-container {
+        min-width: auto;
+    }
+    .top {
+        flex-direction: column;
+    }
 }
 
-@media only screen and (max-width: $sm) {
-}
+@media only screen and (max-width: $sm) {}

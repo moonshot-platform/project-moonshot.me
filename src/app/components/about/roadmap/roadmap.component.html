@@ -3,8 +3,8 @@
         <div class="top flex-space-between align-start mb100">
             <div class="next-event-container flex1">
                 <div class="timer futuristic-container top-only">
-                 <p>WHAT’S NEXT?</p>
-                 <p class="color-white orbitron">Roadmap to the future</p>
+                    <p>WHAT’S NEXT?</p>
+                    <p class="color-white orbitron">Roadmap to the future</p>
                 </div>
             </div>
             <div class="info-container futuristic-container top-only flex-space-between align-start flex3">
@@ -41,29 +41,25 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="carousel-container">
-            <ng-carousel
-                #carouselRef="ngCarousel"
-                [config]="config"
-                (itemIndexChange)="setItemIndex($event)"
-                class="carousel-block">
-                <ng-template
-                    [ngCarouselSlide]="carouselRef"
-                    let-item
-                    let-active="isActive"
-                    let-activeOnTheRight="activeOnTheRight"
-                    let-activeOnTheLeft="activeOnTheLeft">
-                    <div
-                        [class.active]="active"
-                        class="carousel-slide">
-                        <h2 class="mb20">
-                            {{item.title}}
-                        </h2>
-                        <p>
-                            {{item.description}}
-                        </p>
+            <ng-carousel #carouselRef="ngCarousel" [config]="config" (itemIndexChange)="setItemIndex($event)" class="carousel-block">
+                <ng-template [ngCarouselSlide]="carouselRef" let-item let-active="isActive" let-activeOnTheRight="activeOnTheRight" let-activeOnTheLeft="activeOnTheLeft">
+                    <div class="carousel-container-col">
+                        <div [class.active]="active" class="carousel-slide">
+                            <h2 class="mb20 title">
+                                {{item.title}}
+                            </h2>
+                            <p class="description">
+                                {{item.description}}
+                            </p>
+                        </div>
+                        <div class="round-mini-button timeline-icons">
+                            <mat-icon fontSet="material-icons" class="color-primary">sync</mat-icon>
+                        </div>
                     </div>
+
+
                 </ng-template>
             </ng-carousel>
             <div class="bottom-line"></div>
