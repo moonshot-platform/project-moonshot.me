@@ -14,25 +14,45 @@ export class RoadmapComponent implements OnInit {
 
   items: CarouselItem[] = [
     {
-      title: 'Q2 2021 — ongoing',
-      description: 'Marketing; Build social media presence'
+        title: 'Q2 2021 — ongoing',
+        description: 'Marketing; Build social media presence'
     },
     {
-      title: 'Q2 2021 — ongoing',
-      description: 'Listing at HotBit.io'
+        title: 'Q2 2021 — ongoing',
+        description: 'Listing at HotBit.io'
     },
     {
-      title: 'Q2 2021 — ongoing',
-      description: 'Moonboxes'
+        title: 'Q3 2021 — ongoing',
+        description: 'Moonboxes'
     },
     {
-      title: 'Q2 2021 — ongoing',
-      description: 'Moonarcade'
+        title: 'Q3 2021 — ongoing',
+        description: 'Moonarcade'
     },
     {
+        title: 'Q3 2021',
+        description: 'Lottery Pools'
+    },
+    {
+        title: 'Q3 2021',
+        description: 'Blockchain Gamification, Highscore rankings and Price Pools '
+    },
+    {
+        title: 'Q3 2021',
+        description: 'Security Audit by a well respected Audit firm'
+    },
+    {
+        title: 'Q4 2021 — ongoing',
+        description: 'Lotteries'
+    },
+    {
+        title: 'Q4 2021 — ongoing',
+        description: 'Further development'
+    },
+    /* {
       title: 'Q2 2021 — ongoing',
       description: 'To the moon!'
-    }
+    } */
   ]
 
   @ViewChild(CarouselComponent, {static: true}) carouselRef?: CarouselComponent;
