@@ -12,6 +12,7 @@ section.navigation {
   z-index: 1000;
   display: flex;
   justify-content: center;
+  transition: 200ms all ease-in-out;
 
   &.withBG {
     background-color: rgba($color: #0c0c0c, $alpha: 0.9);

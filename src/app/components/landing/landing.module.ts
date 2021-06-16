@@ -15,7 +15,7 @@ import { InvestmentComponent } from './investment/investment.component';
 import { TutorialComponent } from './tutorial/tutorial.component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { NavigationModule } from '../base/navigation/navigation.module';
-import { SidebarModule } from './sidebar/sidebar.module';
+import { SidebarModule } from '../base/sidebar/sidebar.module';
 
 import { CarouselModule } from 'ng-carousel-cdk';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -26,8 +26,6 @@ import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { RoadmapModule } from './roadmap/roadmap.module';
-import { TokenomicsModule } from './tokenomics/tokenomics.module';
 
 
 
@@ -53,7 +51,6 @@ import { TokenomicsModule } from './tokenomics/tokenomics.module';
     NgParticlesModule,
     AppRoutingModule,
     SidebarModule,
-    RoadmapModule,
     MatToolbarModule,
     MatButtonModule,
     MatCardModule,
@@ -63,7 +60,6 @@ import { TokenomicsModule } from './tokenomics/tokenomics.module';
     FormsModule,
     ReactiveFormsModule,
     CarouselModule,
-    TokenomicsModule
   ]
 })
 export class LandingModule { }
