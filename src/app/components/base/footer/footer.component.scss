@@ -1,6 +1,8 @@
 @import "includes";
 
 footer {
+  position: relative;
+  z-index: 2;
   @include paddingsInside(0px, 20px);
   min-height: 500px;
   width: 100%;
