@@ -47,14 +47,6 @@
 }
 
 @font-face {
-  font-family: "Montserrat-SemiBold";
-  src: url("/assets/fonts/montserrat/semi-bold.woff2") format("woff2"),
-    url("/assets/fonts/montserrat/semi-bold.woff") format("woff");
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
   font-family: "Montserrat";
   src: url("/assets/fonts/montserrat/thin.woff2") format("woff2"),
     url("/assets/fonts/montserrat/thin.woff") format("woff");
@@ -121,6 +113,22 @@
   font-family: "Montserrat";
   src: url("/assets/fonts/montserrat/black.woff2") format("woff2"),
     url("/assets/fonts/montserrat/black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lato-Bold";
+  src: url("/assets/fonts/lato/bold.woff2") format("woff2"),
+    url("/assets/fonts/lato/bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lato-Black";
+  src: url("/assets/fonts/lato/black.woff2") format("woff2"),
+    url("/assets/fonts/lato/black.woff") format("woff");
   font-weight: 900;
   font-style: normal;
 }

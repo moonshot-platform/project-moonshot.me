@@ -48,3 +48,37 @@
     border-radius: $borderRadius;
   }
 }
+
+// Desktop Mixins
+@mixin xs-up {
+  @media (min-width: #{$xs}) {
+    @content;
+  }
+} // Tiny devices
+@mixin sm-up {
+  @media (min-width: #{$sm}) {
+    @content;
+  }
+} // Small devices
+@mixin md-up {
+  @media (min-width: #{$md}) {
+    @content;
+  }
+} // Medium devices
+
+// Mobile Mixins
+@mixin xs-down {
+  @media (max-width: #{$xs}) {
+    @content;
+  }
+} // Tiny devices
+@mixin sm-down {
+  @media (max-width: #{$sm}) {
+    @content;
+  }
+} // Small devices
+@mixin md-down {
+  @media (max-width: #{$md}) {
+    @content;
+  }
+} // Medium devices
