@@ -11,7 +11,7 @@ import { MissionComponent } from './mission/mission.component';
 import { MechanicsComponent } from './mechanics/mechanics.component';
 import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from 'src/app/app-routing.module';
-import { SidebarModule } from '../landing/sidebar/sidebar.module';
+import { SidebarModule } from '../base/sidebar/sidebar.module';
 import { RoadmapModule } from './roadmap/roadmap.module';
 import { NavigationModule } from '../base/navigation/navigation.module';
 

@@ -8,7 +8,7 @@ import { NgParticlesModule } from 'ng-particles';
 import { GalleryComponent } from './gallery/gallery.component';
 import { MoontvComponent } from './moontv/moontv.component';
 import { MoonticketComponent } from './moonticket/moonticket.component';
-import { SidebarModule } from '../landing/sidebar/sidebar.module';
+import { SidebarModule } from '../base/sidebar/sidebar.module';
 import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { RoadmapModule } from '../about/roadmap/roadmap.module';
