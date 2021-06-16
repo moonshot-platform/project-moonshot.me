@@ -15,6 +15,7 @@ section.landing {
     right: 0;
     top: 0;
     bottom: 0;
+    z-index: -1;
   }
 
   .moon-bg {
@@ -57,7 +58,23 @@ app-header {
 }
 
 @media only screen and (max-width: $md) {
-  section.landing > .inner {
-    width: 100%;
+  section.landing {
+    > .inner {
+      width: 100%;
+    }
+
+    .rocket-bg,
+    .milkyway-bg {
+      background: none;
+    }
+  }
+}
+
+@media only screen and (max-width: $sm) {
+  section.landing {
+    .moon-bg {
+      background-position-x: left;
+      background-size: 130%;
+    }
   }
 }
