@@ -12,13 +12,5 @@ section.intro {
   }
 }
 
-.info {
-  color: $primary;
-
-  .bottom > div:first-child > p {
-    line-height: 30px;
-  }
-}
-
 @media only screen and (max-width: $sm) {
 }
