@@ -1,5 +1,9 @@
 @import "includes";
 
+p {
+  color: black;
+}
+
 .my-3 {
   margin: 1rem 0;
 }
@@ -30,11 +34,10 @@
     margin-bottom: 1rem;
   }
 }
-  
+
 .invisible-md {
-    min-height: 15px;
+  min-height: 15px;
 }
 li:last-child .hr_line {
   display: none;
 }
-

@@ -20,6 +20,7 @@ section.news {
 
 .info {
   color: $primary;
+  max-width: 760px;
 
   .bottom > div:first-child > p {
     line-height: 30px;
@@ -38,7 +39,7 @@ section.news {
         margin-left: 0;
       }
 
-      > img {
+      svg {
         width: 50%;
       }
     }

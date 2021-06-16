@@ -11,7 +11,9 @@ section.video {
 }
 
 .stats {
-  min-width: 300px;
+  width: 100%;
+  max-width: 75rem;
+  min-width: 270px;
   z-index: 90;
 
   div {
@@ -29,14 +31,16 @@ section.video {
 }
 
 .stats-btn {
-  min-width: 60px;
   z-index: 90;
-  div {
+  > div {
     padding-bottom: 200px;
+    width: 100%;
+    min-width: 270px;
   }
 
   .futuristic-container > div {
     float: right;
+    width: auto;
   }
 }
 
@@ -51,31 +55,35 @@ video::-webkit-media-controls-panel {
     margin-right: -50px;
     margin-bottom: 80px;
     position: relative;
-    min-height: 570px;
     background-color: black;
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 
     .playbtn {
-      display: none;
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       z-index: 99;
-    }
+      height: 22%;
+      opacity: 1;
+      transition: 700ms all ease-in-out;
 
-    &:hover {
-      .playbtn {
-        display: block;
+      &.fadeAway {
+        opacity: 0;
       }
     }
 
+    &:hover,
     &.toFront {
       z-index: 100;
       box-shadow: 0 0 0 2px $primary;
-      border-radius: 30px;
+    }
+
+    > video {
+      box-shadow: inset 0 0 100px black;
     }
   }
 }
