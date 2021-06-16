@@ -87,11 +87,33 @@ section.roadmap {
     position: relative;
 }
 
+.carousel-container-col {
+    height: 160px;
+    flex-direction: column;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.timeline-icons {
+    margin-left: -25px;
+    margin-bottom: -25px;
+    width: 30px;
+    height: 30px;
+    font-size: 10px;
+    background-color: $primary;
+    >.mat-icon {
+        font-size: 20px;
+        height: auto;
+        color: black;
+    }
+}
+
 .bottom-line {
+    z-index: -99;
     height: 1px;
     background-color: $primary;
     width: 100%;
-    position: absolute;
     bottom: 0;
     left: 0;
 }
