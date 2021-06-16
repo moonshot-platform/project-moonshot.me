@@ -19,7 +19,6 @@ $md-header: toRem(1150px);
 $sidebar-width: toRem(64px);
 
 // Colors
-$primary-font-color: #0f0f0f;
 $primary: #d5a642;
 $secondary: #ca9800;
 
@@ -59,7 +58,7 @@ $font-lg: 20px;
 
 $font-size-base: toRem($primary-fs);
 $font-weight-base: $medium;
-$font-color-base: $primary-font-color;
+$font-color-base: $primary;
 $font-family-base: $primary-font, "Sans";
 $font-family-secondary: $secondary-font, "Arial";
 

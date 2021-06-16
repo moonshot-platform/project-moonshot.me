@@ -26,7 +26,6 @@ import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { RoadmapModule } from './roadmap/roadmap.module';
 import { TokenomicsModule } from './tokenomics/tokenomics.module';
 
 
@@ -53,7 +52,6 @@ import { TokenomicsModule } from './tokenomics/tokenomics.module';
     NgParticlesModule,
     AppRoutingModule,
     SidebarModule,
-    RoadmapModule,
     MatToolbarModule,
     MatButtonModule,
     MatCardModule,
