@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TutorialComponent implements OnInit {
 
-  visibleStep = 0;
+  visibleStep = 1;
 
   steps: any = [
     {
