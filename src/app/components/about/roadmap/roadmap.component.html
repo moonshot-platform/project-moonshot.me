@@ -57,7 +57,7 @@
                                     {{item.description}}
                                 </p>
                             </div>
-                            <div class="round-mini-button timeline-icons">
+                            <div class="round-mini-button timeline-icons" [class.blue-bg]="item.icon == 'auto_awesome'">
                                 <mat-icon fontSet="material-icons" class="color-primary">{{item.icon}}</mat-icon>
                             </div>
                         </div>
