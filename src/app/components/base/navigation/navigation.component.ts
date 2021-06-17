@@ -15,6 +15,11 @@ export class NavigationComponent implements OnInit {
 
   public navItems: any[] = [
     {
+      'name': 'How to buy',
+      'path': '',
+      'fragment': 'how-to-buy'
+    },
+    {
       'name': 'MoonPaper',
       'externalPath': '/assets/files/moonpaper.pdf'
     },
@@ -96,11 +101,22 @@ export class NavigationComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    
   }
 
   toggleTokenomics() {
     this.tokenomicsToggleService.doToggle();
     this.open = false;
+
+    console.log('test');
+  }
+
+  isSamePath( path: string ): boolean {
+    if( path != undefined ) {
+      return location.pathname === path;
+    }
+
+    return false;
   }
 
 }

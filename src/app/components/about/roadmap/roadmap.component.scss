@@ -5,6 +5,8 @@ section.roadmap {
 
   > .outer {
     position: relative;
+    overflow: hidden;
+
     .inner {
       @extend %max-width-center;
     }
@@ -107,7 +109,6 @@ section.roadmap {
 .carousel-container {
   position: relative;
   padding: 15px;
-  overflow: hidden;
 }
 
 .carousel-container-col {

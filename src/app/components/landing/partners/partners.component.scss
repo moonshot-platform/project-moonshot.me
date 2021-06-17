@@ -7,33 +7,41 @@ section.partners {
 
   > .inner {
     @extend %max-width-center;
-    @include paddingsInside(50px, 0px);
+    padding: 0;
   }
 
   a {
-    max-height: 50px;
+    padding: 60px 20px;
+    border-bottom: 3px solid transparent;
+
+    &:hover {
+      border-bottom-color: $primary;
+    }
 
     > img {
       width: 100%;
-      max-height: 50px;
+      height: 50px;
     }
   }
 }
 
 @media only screen and (max-width: $md) {
-  section.partners > .inner {
-    display: flex;
-    flex-wrap: wrap;
-  }
+  section.partners {
+    > .inner {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 30px 0;
+    }
 
-  a {
-    width: 50%;
-    margin-bottom: 20px;
-    padding: 10px;
-    box-sizing: border-box;
+    a {
+      width: 50%;
+      padding: 20px 0;
+      box-sizing: border-box;
+      border-bottom: 0;
 
-    > img {
-      max-height: 30px;
+      > img {
+        max-height: 30px;
+      }
     }
   }
 }
