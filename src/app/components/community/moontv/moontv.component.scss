@@ -2,18 +2,18 @@
 
 section.moontv {
   @include paddingsInside(0px, 20px);
-  padding-top: 100px;
+  padding-top: 200px;
 
   background: url("/assets/media/images/galaxy02_homepage.png") no-repeat left;
   > .inner {
     @extend %max-width-center;
-    margin-bottom: 250px;
   }
 }
 
 .stats {
-  min-width: 300px;
-  margin-right: 150px;
+  width: 100%;
+  max-width: 270px;
+  margin-right: 20px;
 
   div > p {
     font-size: 30px;
@@ -38,6 +38,9 @@ section.moontv {
 }
 
 .buy-info {
+  width: 100%;
+  max-width: 770px;
+
   .futuristic-container {
     border-top: 1px solid $primary;
     flex-direction: row;
@@ -62,6 +65,10 @@ section.moontv {
 }
 
 @media only screen and (max-width: $md) {
+  section.moontv {
+    padding-top: 100px;
+  }
+
   .main {
     display: flex;
     flex-direction: column;
@@ -69,5 +76,27 @@ section.moontv {
 
   .stats {
     margin-right: 0;
+    max-width: initial;
+
+    > .more {
+      display: none;
+    }
+  }
+
+  .buy-info > .futuristic-container > .video {
+    width: 100%;
+    padding: 10px 0;
+    min-width: initial;
+
+    > iframe {
+      width: 100%;
+      box-sizing: border-box;
+    }
+  }
+
+  .more.mobile-only {
+    border-top: 1px solid;
+    padding: 20px 0;
+    justify-content: flex-end;
   }
 }

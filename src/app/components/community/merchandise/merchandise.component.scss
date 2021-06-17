@@ -5,6 +5,7 @@ section.merchandise {
   position: relative;
   background-size: 60%;
   z-index: 2;
+  padding-top: 280px;
 
   .inner {
     @extend %max-width-center;
@@ -22,13 +23,6 @@ section.merchandise {
     > div:first-child {
       border-right: 1px solid;
     }
-
-    .flex-col {
-      align-self: flex-end;
-      .donate {
-        opacity: 0;
-      }
-    }
     .title {
       font-size: larger;
       font-family: "Orbitron";
@@ -36,7 +30,6 @@ section.merchandise {
     }
     .group-img {
       align-items: center;
-      margin-top: -80px;
 
       &:nth-child(2) {
         justify-content: space-between;
@@ -46,6 +39,10 @@ section.merchandise {
       padding: 30px;
       box-sizing: border-box;
       max-height: 250px;
+    }
+
+    .inner-container {
+      transform: translateY(-80px);
     }
 
     div {
@@ -61,10 +58,6 @@ section.merchandise {
     }
   }
 
-  .inner-container {
-    min-height: 500px;
-  }
-
   .btn-group > .inner {
     @extend %max-width-center;
 
@@ -76,6 +69,7 @@ section.merchandise {
 
 @media only screen and (max-width: $md) {
   section.merchandise {
+    padding-top: 180px;
     .info > .bottom {
       flex-direction: column;
       .flex-col {
