@@ -14,6 +14,7 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { SidebarModule } from '../base/sidebar/sidebar.module';
 import { RoadmapModule } from './roadmap/roadmap.module';
 import { NavigationModule } from '../base/navigation/navigation.module';
+import { DisclaimerComponent } from './disclaimer/disclaimer.component';
 
 
 
@@ -25,6 +26,7 @@ import { NavigationModule } from '../base/navigation/navigation.module';
     NextComponent,
     MissionComponent,
     MechanicsComponent,
+    DisclaimerComponent
   ],
   imports: [
     MatIconModule,
