@@ -162,11 +162,17 @@ nav {
 
       > li {
         margin: 0;
-        padding: 10px 0;
         width: 100%;
 
         > ul.fragments {
           border-bottom-width: 0;
+
+          li {
+            padding-top: 0;
+            p {
+              padding: 10px 0;
+            }
+          }
         }
       }
     }
