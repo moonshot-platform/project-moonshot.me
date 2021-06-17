@@ -57,6 +57,10 @@ ul {
   color: $primary;
 }
 
+.mobile-only {
+  display: none;
+}
+
 .mt10 {
   margin-top: 10px;
 }
@@ -675,5 +679,11 @@ ul {
 
   > img {
     transform: translate(0, -50%);
+  }
+}
+
+@media only screen and (max-width: $md) {
+  .mobile-only {
+    display: flex;
   }
 }

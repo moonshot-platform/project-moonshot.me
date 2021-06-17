@@ -1,21 +1,22 @@
 @import "includes";
 
 section.intro {
-  @include paddingsInside(0px, 20px);
-
+  padding-top: 148px;
+  box-sizing: border-box;
   min-height: 100vh;
   position: relative;
   background: url("/assets/media/images/moon-community.png") top no-repeat;
 
   .inner {
     @extend %max-width-center;
-    margin-bottom: 200px;
+    @include paddingsInside(0px, 20px);
   }
 }
 
 .stats {
-  min-width: 300px;
-  margin-right: 150px;
+  width: 100%;
+  max-width: 270px;
+  margin-right: 20px;
 
   div {
     &:first-child {
@@ -38,6 +39,8 @@ section.intro {
 }
 
 .info {
+  width: 100%;
+  max-width: 770px;
   color: $primary;
 
   .top {
@@ -55,10 +58,29 @@ section.intro {
 }
 
 @media only screen and (max-width: $md) {
-  section.intro > .inner {
-    display: flex;
-    flex-direction: column;
-    padding-top: 200px;
+  section.intro {
+    padding-top: 120px;
+    background-size: 190%;
+
+    > .inner {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 0;
+    }
+  }
+
+  .stats {
+    display: none;
+  }
+
+  .info {
+    .bottom {
+      border-top: 1px solid $primary;
+
+      div:first-child {
+        margin-right: 0;
+      }
+    }
   }
 }
 

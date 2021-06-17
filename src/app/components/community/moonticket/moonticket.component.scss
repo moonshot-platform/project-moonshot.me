@@ -2,12 +2,12 @@
 
 section.moonticket {
   @include paddingsInside(0px, 20px);
+  padding-top: 200px;
 
   background: url("/assets/media/images/galaxy03_homepage.png") no-repeat right;
 
   > .inner {
     @extend %max-width-center;
-    padding-bottom: 200px;
   }
   div > img {
     width: 100%;
@@ -16,8 +16,9 @@ section.moonticket {
 }
 
 .stats {
-  min-width: 300px;
-  margin-right: 150px;
+  width: 100%;
+  max-width: 270px;
+  margin-right: 20px;
 
   div > p {
     font-size: 30px;
@@ -28,6 +29,11 @@ section.moonticket {
       font-size: 12px;
     }
   }
+}
+
+.ticket-input-container {
+  width: 100%;
+  max-width: 770px;
 }
 
 .ticket-input-container .futuristic-container {
@@ -65,17 +71,32 @@ section.moonticket {
 }
 
 @media only screen and (max-width: $md) {
+  section.moonticket {
+    padding-top: 100px;
+  }
+
+  .stats {
+    margin-right: 0;
+    max-width: initial;
+  }
+
   .main {
     display: flex;
     flex-direction: column;
   }
 
-  .ticket-input-container {
+  .ticket-input-container.futuristic-container {
     width: 100%;
 
     button {
       width: 100%;
       margin-top: 40px;
+    }
+
+    div {
+      input {
+        width: 100%;
+      }
     }
   }
 
