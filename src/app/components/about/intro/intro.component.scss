@@ -1,10 +1,19 @@
 @import "includes";
 
 section.intro {
-  min-height: 100vh;
+  min-height: 80vh;
   position: relative;
   padding-top: 148px;
   box-sizing: border-box;
+
+  .moon-bg {
+    position: absolute;
+    left: 10%;
+
+    > img {
+      width: 100%;
+    }
+  }
 
   .inner {
     @extend %max-width-center;
@@ -24,6 +33,10 @@ section.intro {
     padding-top: 120px;
     padding-bottom: 0px;
     min-height: 100vh;
+
+    .moon-bg {
+      left: 0;
+    }
   }
 }
 
