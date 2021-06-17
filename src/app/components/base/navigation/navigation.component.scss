@@ -157,6 +157,8 @@ nav {
     ul {
       overflow: scroll;
       height: fit-content;
+      display: block;
+
       > li {
         margin: 0;
         width: 100%;
