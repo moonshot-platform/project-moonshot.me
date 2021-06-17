@@ -25,6 +25,12 @@
     
                     <ng-template #internal>
                         <a [routerLink]="[item.path]">{{item.name}}</a>
+
+                        <ul *ngIf="item.frags != undefined" class="fragments flex-col">
+                            <li *ngFor="let fragment of item.frags" (click)="scrollToElement(item.path, fragment.path)">
+                                <p>{{fragment.name}}</p>
+                            </li>
+                        </ul>
                     </ng-template>
                     
                 </li>
