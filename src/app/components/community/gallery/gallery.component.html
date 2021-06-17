@@ -14,23 +14,17 @@
                     </div>
                     <div class="btn-group flex justify-end">
                         <div class="round-mini-button mr10">
-                            <mat-icon fontSet="material-icons" class="color-primary">arrow_back</mat-icon>
+                            <mat-icon fontSet="material-icons" class="color-primary" (click)="prev()">arrow_back</mat-icon>
                         </div>
                         <div class="round-mini-button">
-                            <mat-icon fontSet="material-icons" class="color-primary">arrow_forward</mat-icon>
+                            <mat-icon fontSet="material-icons" class="color-primary" (click)="next()">arrow_forward</mat-icon>
                         </div>
                     </div>
                 </div>
            </div>
         </div>
         <div class="ga2 flex-space-between">
-            <img src="assets/media/images/community/snt.png" alt="bitmart" />
-            <img src="assets/media/images/community/sns.png" alt="pancakeswap" />
-        </div>
-        <div class="ga3 flex-space-between">
-            <img src="assets/media/images/community/sn1.jpeg" alt="bitmart" />
-            <img src="assets/media/images/community/sn2.jpeg" alt="pancakeswap" />
-            <img src="assets/media/images/community/sn3.jpeg" alt="p2p-b2b" />
+            <img src={{items[current]}} alt="bitmart" />
         </div>
     </div>
 </section>
