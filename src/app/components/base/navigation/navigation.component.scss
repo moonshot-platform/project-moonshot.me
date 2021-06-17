@@ -8,6 +8,7 @@ section.navigation {
   position: fixed;
   width: calc(100% - #{$sidebar-width});
   left: 0;
+  top: 0;
   right: $sidebar-width;
   z-index: 1000;
   display: flex;
@@ -144,6 +145,14 @@ nav {
 @media only screen and (max-width: $md) {
   section.navigation {
     width: 100%;
+
+    &:hover {
+      background-color: transparent;
+    }
+
+    &.withBG {
+      background-color: rgba($color: #0c0c0c, $alpha: 0.9);
+    }
   }
 
   .mobile-only {
@@ -155,7 +164,7 @@ nav {
     overflow: scroll;
     background: rgba(12, 12, 12, 0.9);
 
-    ul {
+    > ul {
       overflow: scroll;
       height: fit-content;
       display: block;
