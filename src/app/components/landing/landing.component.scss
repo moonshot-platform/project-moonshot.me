@@ -5,9 +5,7 @@ section.landing {
   position: relative;
 
   .rocket-bg,
-  .moon-bg,
-  .galaxy2-bg,
-  .galaxy3-bg {
+  .moon-bg {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -28,22 +26,21 @@ section.landing {
     background-size: 46%;
   }
 
-  .milkyway-bg {
-    background: url("/assets/media/images/galaxy_homeage.png") right bottom 77%
-      no-repeat;
-    background-size: 80%;
+  .milkyway-bg > img {
+    height: 100%;
+    width: 100%;
   }
 
-  .galaxy2-bg {
-    background: url("/assets/media/images/galaxy02_homepage.png") right bottom
-      40% no-repeat;
-    background-size: 80%;
+  .galaxy2-bg > img {
+    height: 100%;
+    width: 70%;
+    transform: translate(35%, -120%);
   }
 
-  .galaxy3-bg {
-    background: url("/assets/media/images/galaxy03_homepage.png") right bottom
-      12% no-repeat;
-    background-size: 80%;
+  .galaxy3-bg > img {
+    height: 60%;
+    width: 100%;
+    transform: translate(0, -60%);
   }
 
   > .inner {

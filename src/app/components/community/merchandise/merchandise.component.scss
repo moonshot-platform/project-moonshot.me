@@ -57,7 +57,6 @@ section.merchandise {
       > p.description {
         line-height: 30px;
         padding: 0 30px;
-        margin: auto;
       }
     }
   }
@@ -92,6 +91,6 @@ section.merchandise {
 
   p {
     overflow: hidden;
-    text-overflow: ellipsis;
+    line-break: anywhere;
   }
 }
