@@ -166,6 +166,17 @@ nav {
     }
   }
 
+  .logo-container {
+    max-width: 211px;
+    .logo {
+      height: toRem(60px);
+    }
+
+    p {
+      font-size: 20px;
+    }
+  }
+
   .inner > img.mob-menu {
     display: block;
   }

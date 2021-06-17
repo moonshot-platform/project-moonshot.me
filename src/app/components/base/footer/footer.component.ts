@@ -35,9 +35,9 @@ export class FooterComponent implements OnInit {
       alt: 'Reddit'
     },
     {
-      link: 'https://solidity.finance/audits/MOONSHOT/',
-      icon: 'solidity-yellow-round-icon.png',
-      alt: 'Solidity'
+      link: 'https://www.instagram.com/moonshotrs25/',
+      icon: 'instagram-yellow-round-icon.svg',
+      alt: 'Instagram'
     },
     {
       link: 'https://bscscan.com/token/0x8301f0146f8f58e267a3c229bce13b03bc4a1ba0?a=0xbd67d157502a23309db761c41965600c2ec788b2',
@@ -48,7 +48,12 @@ export class FooterComponent implements OnInit {
       link: 'https://exchange.pancakeswap.finance/#/swap?inputCurrency=0xd27D3F7f329D93d897612E413F207A4dbe8bF799',
       icon: 'pancakeswap-yellow-round-icon.png',
       alt: 'Pancakeswap'
-    }
+    },
+    {
+      link: 'https://solidity.finance/audits/MOONSHOT/',
+      icon: 'solidity-yellow-round-icon.png',
+      alt: 'Solidity'
+    },
   ]
 
   constructor(private _router: Router) { }
