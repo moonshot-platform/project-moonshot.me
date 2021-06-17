@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TutorialComponent implements OnInit {
 
+  visibleStep = 0;
+
   steps: any = [
     {
       indicator: 'Counting down'

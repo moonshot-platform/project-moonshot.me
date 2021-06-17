@@ -2,8 +2,8 @@
     <div class="overlay"></div>
     <div class="inner flex justify-end align-start ">
        <div class="info">
-            <div class="btn-group futuristic-container bottom-only">
-                <div class="inner flex-space-between pb50">
+            <div class="top futuristic-container bottom-only">
+                <div class="inner flex-space-between">
                     <a *ngFor="let item of iconList" class="round-large-button" (mouseover)="item.hover = true" (mouseout)="item.hover = false" href={{item.url}}>
                         <svg version="1.1" id="Laag_1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 70 70" xml:space="preserve">
                             <style>path{fill:#d5a642}</style>
@@ -12,15 +12,17 @@
                     </a>
                 </div>
             </div>
-            <div class="bottom flex pv20">
-                <div class="flex2 top futuristic-container no-padding-top bottom-only mr50">
+            <div class="left">
+                <div class="futuristic-container bottom-only">
                     <span class="p30 orbitron">Keep up with</span><br><span class="p-white-span-primary p30 orbitron">the latest news!</span>
                 </div>
-                <div class="flex1 text-right mr20">
+            </div>
+            <div class="right flex">
+                <div class="text-right mr20">
                     <p class="bold mt10">Join on:</p>
                 </div>
-                <div class="buttons-container flex1 justify-end">
-                    <a href="https://t.me/MoonShotChat" class="outlined-button mb10">Telegram</a>
+                <div class="buttons-container">
+                    <a href="https://t.me/MoonShotChat" class="button mb20">Telegram</a>
                     <a href="https://twitter.com/RS25Moonshot" class="button">Twitter</a>
                 </div>
             </div>

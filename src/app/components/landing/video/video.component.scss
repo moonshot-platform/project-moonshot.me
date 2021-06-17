@@ -99,16 +99,23 @@ video::-webkit-media-controls-panel {
     }
   }
 
+  .stats > div:nth-child(2) {
+    border-bottom: none;
+  }
+
   .video-player {
     .video {
       margin-left: 0;
       margin-right: 0;
+      margin-bottom: 20px;
     }
   }
 
   .stats-btn {
+    width: 100%;
     div {
       padding-bottom: 0;
+      border-top-width: 1px;
     }
   }
 }
