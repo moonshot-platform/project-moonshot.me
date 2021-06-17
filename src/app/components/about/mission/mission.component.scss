@@ -9,8 +9,10 @@ section.mission {
 }
 
 .stats {
-  min-width: 300px;
-  margin-right: 150px;
+  width: 100%;
+  max-width: 270px;
+  margin-right: 20px;
+
   div > p {
     font-size: 30px;
     &:first-child {
@@ -20,11 +22,14 @@ section.mission {
   }
 }
 
-.buy-info .futuristic-container {
+.info {
+  width: 100%;
+  max-width: 770px;
+}
+
+.info .futuristic-container {
   border-top: 1px solid $primary;
-  p {
-    width: 80%;
-  }
+  padding-right: 20%;
 }
 
 .explanation {
@@ -32,17 +37,19 @@ section.mission {
 }
 
 @media only screen and (max-width: $md) {
-  section.mission > .inner > div {
-    flex-direction: column;
+  section.mission {
+    padding-top: 100px;
+    margin-top: -100px;
+    > .inner > div {
+      flex-direction: column;
+    }
   }
   .stats {
     margin-right: 0;
+    max-width: initial;
   }
-  .buy-info .futuristic-container {
-    border-top: 1px solid $primary;
-    p {
-      width: 100%;
-      margin-right: 0;
-    }
+  .info .futuristic-container {
+    border-top: 0;
+    padding-right: 0;
   }
 }

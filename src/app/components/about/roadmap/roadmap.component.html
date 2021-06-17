@@ -1,48 +1,49 @@
 <section class="roadmap mv200">
-    <div class="outer">
-        <div class="inner">
-            <div class="top flex-space-between align-start mb100">
-                <div class="next-event-container flex1">
-                    <div class="timer futuristic-container top-only">
-                        <p>WHAT’S NEXT?</p>
-                        <p class="color-white orbitron">Roadmap to the future</p>
-                    </div>
+    <div class="top-inner mb100">
+        <div class="top flex-space-between align-start">
+            <div class="next-event-container flex1">
+                <div class="timer futuristic-container top-only">
+                    <p>WHAT’S NEXT?</p>
+                    <p class="color-white orbitron">Roadmap to the future</p>
                 </div>
-                <div class="info-container futuristic-container top-only flex-space-between align-start flex3">
-                    <div class="flex-col">
-                        <ul>
-                            <li>
-                                <div class="round-mini-button">
-                                    <mat-icon fontSet="material-icons" class="color-primary">done</mat-icon>
-                                </div>
-                                <p class="color-primary">Accomplished</p>
-                            </li>
-                            <li>
-                                <div class="round-mini-button">
-                                    <mat-icon fontSet="material-icons" class="color-primary">sync</mat-icon>
-                                </div>
-                                <p class="color-primary">Ongoing</p>
-                            </li>
-                            <li>
-                                <div class="round-mini-button">
-                                    <mat-icon fontSet="material-icons">auto_awesome</mat-icon>
-                                </div>
-                                <p class="color-primary">Upcoming</p>
-                            </li>
-                        </ul>
-                    </div>
+            </div>
+            <div class="info-container futuristic-container top-only flex-space-between align-start flex3">
+                <div class="flex-col">
+                    <ul>
+                        <li>
+                            <div class="round-mini-button">
+                                <mat-icon fontSet="material-icons" class="color-primary">done</mat-icon>
+                            </div>
+                            <p class="color-primary">Accomplished</p>
+                        </li>
+                        <li>
+                            <div class="round-mini-button">
+                                <mat-icon fontSet="material-icons" class="color-primary">sync</mat-icon>
+                            </div>
+                            <p class="color-primary">Ongoing</p>
+                        </li>
+                        <li>
+                            <div class="round-mini-button">
+                                <mat-icon fontSet="material-icons">auto_awesome</mat-icon>
+                            </div>
+                            <p class="color-primary">Upcoming</p>
+                        </li>
+                    </ul>
+                </div>
 
-                    <div class="route-container flex">
-                        <div class="round-mini-button mr10" (click)="carouselRef.prev()">
-                            <mat-icon fontSet="material-icons" class="color-primary">west</mat-icon>
-                        </div>
-                        <div class="round-mini-button" (click)="carouselRef.next()">
-                            <mat-icon fontSet="material-icons" class="color-primary">east</mat-icon>
-                        </div>
+                <div class="route-container flex">
+                    <div class="round-mini-button mr10" (click)="carouselRef.prev()">
+                        <mat-icon fontSet="material-icons" class="color-primary">west</mat-icon>
+                    </div>
+                    <div class="round-mini-button" (click)="carouselRef.next()">
+                        <mat-icon fontSet="material-icons" class="color-primary">east</mat-icon>
                     </div>
                 </div>
             </div>
-
+        </div>
+    </div>
+    <div class="outer">
+        <div class="inner">
             <div class="carousel-container">
                 <ng-carousel #carouselRef="ngCarousel" [config]="config" (itemIndexChange)="setItemIndex($event)" class="carousel-block">
                     <ng-template [ngCarouselSlide]="carouselRef" let-item let-active="isActive" let-activeOnTheRight="activeOnTheRight" let-activeOnTheLeft="activeOnTheLeft">
