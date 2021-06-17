@@ -71,8 +71,6 @@ ul.circles {
 
 @media only screen and (max-width: $md) {
   section.about {
-    margin-bottom: 0;
-
     > .inner {
       flex-direction: column;
 
@@ -85,7 +83,16 @@ ul.circles {
       }
 
       .stats-btn {
-        margin-top: 50px;
+        margin-top: 10px;
+        width: 100%;
+
+        > .futuristic-container {
+          border-top-width: 1px;
+
+          > a {
+            float: right;
+          }
+        }
       }
     }
   }
