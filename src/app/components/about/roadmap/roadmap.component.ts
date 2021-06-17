@@ -16,47 +16,56 @@ export class RoadmapComponent implements OnInit {
     {
         title: 'Q2 2021',
         span: ' - ongoing',
-        description: 'Marketing; Build social media presence'
+        description: 'Marketing; Build social media presence',
+        icon: Icon.ONGOING
     },
     {
         title: 'Q2 2021',
         span: ' - ongoing',
-        description: 'Listing at HotBit.io'
+        description: 'Listing at HotBit.io',
+        icon: Icon.ONGOING
     },
     {
         title: 'Q3 2021',
         span: ' - ongoing',
-        description: 'Moonboxes'
+        description: 'Moonboxes',
+        icon: Icon.ONGOING
     },
     {
         title: 'Q3 2021',
         span: ' - ongoing',
-        description: 'Moonarcade'
+        description: 'Moonarcade',
+        icon: Icon.ONGOING
     },
     {
         title: 'Q3 2021',
         span: '',
-        description: 'Lottery Pools'
+        description: 'Lottery Pools',
+        icon: Icon.UPCOMING
     },
     {
         title: 'Q3 2021',
         span: '',
-        description: 'Blockchain Gamification, Highscore rankings and Price Pools '
+        description: 'Blockchain Gamification, Highscore rankings and Price Pools ',
+        icon: Icon.UPCOMING
     },
     {
         title: 'Q3 2021',
         span: '',
-        description: 'Security Audit by a well respected Audit firm'
+        description: 'Security Audit by a well respected Audit firm',
+        icon: Icon.UPCOMING
     },
     {
         title: 'Q4 2021',
         span: ' — ongoing',
-        description: 'Lotteries'
+        description: 'Lotteries',
+        icon: Icon.ONGOING
     },
     {
         title: 'Q4 2021',
         span: ' — ongoing',
-        description: 'Further development'
+        description: 'Further development',
+        icon: Icon.ONGOING
     },
   ]
 
@@ -189,4 +198,11 @@ export interface CarouselItem {
   title: string;
   span: string;
   description: string;
+  icon: Icon
+}
+
+enum Icon {
+    ACCOMPLISHED = 'done',
+    ONGOING = 'sync',
+    UPCOMING = 'auto_awesome'
 }
