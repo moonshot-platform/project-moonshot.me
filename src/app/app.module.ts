@@ -12,7 +12,6 @@ import { CommunityModule } from './components/community/community.module';
 import { SignModule } from './components/sign/sign.module';
 import { CountdownConfig, CountdownGlobalConfig, CountdownModule } from 'ngx-countdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HeaderModule } from './components/base/header/header.module';
 
 export function countdownConfigFactory(): CountdownConfig {
   return {};
@@ -53,7 +52,6 @@ export class HammerConfig extends HammerGestureConfig {
   bootstrap: [AppComponent],
   exports: [
     FooterModule,
-    HeaderModule,
     AppRoutingModule
   ]
 })

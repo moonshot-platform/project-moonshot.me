@@ -12,7 +12,9 @@
         <nav [class.show]="open" class="flex">
             <img src="assets/media/icons/close-2.svg" alt="menu button" class="mob-menu" [class.open]="open" (click)="open = !open">
             <ul>
-                <li><a (click)="scrollToElement('', 'how-to-buy')">How to buy</a></li>
+                <li (click)="scrollToElement('', 'how-to-buy')">
+                    <p>How to buy</p>
+                </li>
                 <li *ngFor="let item of navItems">
                     <ng-container *ngIf="item.externalPath != undefined; then external else internal"></ng-container>
                     
@@ -25,6 +27,9 @@
                         <a [routerLink]="[item.path]">{{item.name}}</a>
                     </ng-template>
                     
+                </li>
+                <li class="mobile-only" (click)="toggleTokenomics()">
+                    <p>Tokenomics</p>
                 </li>
             </ul>
         </nav>

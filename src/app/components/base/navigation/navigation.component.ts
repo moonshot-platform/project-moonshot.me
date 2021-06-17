@@ -1,5 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import { TokenomicsToggleService } from 'src/app/services/tokenomics-toggle.service';
 
 @Component({
   selector: 'app-navigation',
@@ -39,9 +40,14 @@ export class NavigationComponent implements OnInit {
       this._router.navigate( [page], {fragment: fragment});
   }
 
-  constructor(private _router: Router) { }
+  constructor(private _router: Router, private tokenomicsToggleService: TokenomicsToggleService) { }
 
   ngOnInit(): void {
+  }
+
+  toggleTokenomics() {
+    this.tokenomicsToggleService.doToggle();
+    this.open = false;
   }
 
 }

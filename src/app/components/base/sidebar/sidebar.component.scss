@@ -16,29 +16,6 @@ section.sidebar {
 .d-flex {
   display: flex;
 }
-section.tokenomics {
-  padding: 22px 60px 0px;
-  box-sizing: border-box;
-  .inner {
-    @extend %max-width-center;
-
-    border-radius: 160px;
-  }
-}
-
-section.tokenomics {
-  background: $primary;
-  position: fixed;
-  right: 0;
-  top: 0;
-  width: 50vw;
-  z-index: 12000;
-  margin-right: 64px;
-  height: 100vh;
-  max-height: 100vh;
-  overflow: auto;
-  border-right: 1px solid black;
-}
 
 .block {
   background: $secondary;
