@@ -23,23 +23,23 @@ export class NavigationComponent implements OnInit {
       'frags': [
         {
           'name': 'MoonTV',
-          'fragment': 'moon-tv'
+          'path': 'moon-tv'
         },
         {
           'name': 'MoonTicket',
-          'fragment': 'moon-ticket'
+          'path': 'moon-ticket'
         },
         {
           'name': 'Merchandise',
-          'fragment': 'merchandise'
+          'path': 'merchandise'
         },
         {
           'name': 'MoonGallery',
-          'fragment': 'gallery'
+          'path': 'gallery'
         },
         {
-          'name': 'MoonTV',
-          'fragment': 'merchandise'
+          'name': 'Fuel the rocket',
+          'path': 'merchandise'
         },
       ]
     },
@@ -49,15 +49,15 @@ export class NavigationComponent implements OnInit {
       'frags': [
         {
           'name': 'Mission',
-          'fragment': 'mission'
+          'path': 'mission'
         },
         {
           'name': 'Mechanics',
-          'fragment': 'mechanics'
+          'path': 'mechanics'
         },
         {
           'name': 'Roadmap',
-          'fragment': 'roadmap'
+          'path': 'roadmap'
         },
       ]
     }
