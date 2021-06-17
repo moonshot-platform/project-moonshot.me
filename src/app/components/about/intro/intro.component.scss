@@ -1,16 +1,14 @@
 @import "includes";
 
 section.intro {
-  @include paddingsInside(0px, 20px);
-  padding-top: 400px;
-  padding-bottom: 300px;
-
+  min-height: 100vh;
   position: relative;
-  background: url("/assets/media/images/moon-about.png") 10% center no-repeat;
-  background-size: contain;
+  padding-top: 148px;
+  box-sizing: border-box;
 
   .inner {
     @extend %max-width-center;
+    padding: 0 20px;
   }
 }
 
@@ -23,7 +21,7 @@ section.intro {
 @media only screen and (max-width: $md) {
   section.intro {
     background-size: 100%;
-    padding-top: 0px;
+    padding-top: 120px;
     padding-bottom: 0px;
     min-height: 100vh;
   }

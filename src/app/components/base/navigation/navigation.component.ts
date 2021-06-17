@@ -1,5 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 import { TokenomicsToggleService } from 'src/app/services/tokenomics-toggle.service';
 
 @Component({
@@ -67,16 +68,32 @@ export class NavigationComponent implements OnInit {
     this.atTop = (window.pageYOffset == 0) ? true : false;
   } 
 
-  scrollToElement(page: string, fragment: string): void {
-    const element = document.querySelector(`#${fragment}`)
-    if (element)  {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      this.open = false;
-    } else
-      this._router.navigate( [page], {fragment: fragment});
+  scrollToElement(page: string, fragment: string = null): void {
+
+    if( fragment === null ) {
+      if( location.pathname === page ) {
+        const element = document.querySelector(`#${page.substr(1)}-page`)
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        this.open = false;
+      } else {
+        this._router.navigate( [page] );
+      }
+      
+    } else {
+      const element = document.querySelector(`#${fragment}`)
+      if (element)  {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        this.open = false;
+      } else
+        this._router.navigate( [page], {fragment: fragment});
+    }
   }
 
-  constructor(private _router: Router, private tokenomicsToggleService: TokenomicsToggleService) { }
+  constructor(
+    private _router: Router, 
+    private location: Location,
+    private tokenomicsToggleService: TokenomicsToggleService
+  ) { }
 
   ngOnInit(): void {
   }
