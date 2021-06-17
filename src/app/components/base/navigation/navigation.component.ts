@@ -19,11 +19,47 @@ export class NavigationComponent implements OnInit {
     },
     {
       'name': 'Community',
-      'path': '/community'
+      'path': '/community',
+      'frags': [
+        {
+          'name': 'MoonTV',
+          'fragment': 'moon-tv'
+        },
+        {
+          'name': 'MoonTicket',
+          'fragment': 'moon-ticket'
+        },
+        {
+          'name': 'Merchandise',
+          'fragment': 'merchandise'
+        },
+        {
+          'name': 'MoonGallery',
+          'fragment': 'gallery'
+        },
+        {
+          'name': 'MoonTV',
+          'fragment': 'merchandise'
+        },
+      ]
     },
     {
       'name': 'About us',
-      'path': '/about'
+      'path': '/about',
+      'frags': [
+        {
+          'name': 'Mission',
+          'fragment': 'mission'
+        },
+        {
+          'name': 'Mechanics',
+          'fragment': 'mechanics'
+        },
+        {
+          'name': 'Roadmap',
+          'fragment': 'roadmap'
+        },
+      ]
     }
   ];
 

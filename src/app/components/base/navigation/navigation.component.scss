@@ -13,6 +13,14 @@ section.navigation {
   display: flex;
   transition: 200ms all ease-in-out;
 
+  &:hover {
+    background-color: rgba($color: #0c0c0c, $alpha: 0.9);
+
+    ul.fragments {
+      display: flex;
+    }
+  }
+
   &.withBG {
     background-color: rgba($color: #0c0c0c, $alpha: 0.9);
     justify-content: center;
@@ -74,6 +82,30 @@ nav {
   @extend %max-width-center;
   align-items: initial;
 
+  nav > ul > li {
+    border-top: 3px solid $primary;
+    margin: 0 toEm(12.5px);
+    width: 25%;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  ul.fragments {
+    display: none;
+    border-bottom: 1px solid $primary;
+    padding-bottom: 14px;
+
+    > li > p {
+      font-weight: $medium;
+    }
+  }
+
   ul {
     display: flex;
     width: inherit;
@@ -82,18 +114,7 @@ nav {
     max-width: 770px;
 
     li {
-      border-top: 3px solid $primary;
       padding-top: 14px;
-      margin: 0 toEm(12.5px);
-      width: 25%;
-
-      &:first-child {
-        margin-left: 0;
-      }
-
-      &:last-child {
-        margin-right: 0;
-      }
 
       a,
       p {
@@ -129,8 +150,22 @@ nav {
     display: block;
   }
 
-  nav {
+  .inner > nav {
     display: none;
+    overflow: scroll;
+
+    ul {
+      overflow: scroll;
+      height: fit-content;
+      > li {
+        margin: 0;
+        width: 100%;
+
+        > ul.fragments {
+          border-bottom-width: 0;
+        }
+      }
+    }
 
     &.show {
       position: fixed;
