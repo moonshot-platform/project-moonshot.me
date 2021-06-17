@@ -45,4 +45,11 @@ export class IntroComponent implements OnInit, OnDestroy {
 
     }, 1000);
   }
+
+  scrollToElement(page: string, fragment: string): void {
+    const element = document.querySelector(`#${fragment}`)
+    if (element)  {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }
 }

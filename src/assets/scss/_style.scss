@@ -123,6 +123,9 @@ ul {
 .mb100 {
   margin-bottom: 100px;
 }
+.mb150 {
+  margin-bottom: 150px;
+}
 .ml10 {
   margin-left: 10px;
 }
@@ -144,6 +147,10 @@ ul {
 
 .mv70 {
   margin: 70px 0;
+}
+
+.mv30 {
+  margin: 30px 0;
 }
 
 .mv100 {
@@ -210,6 +217,9 @@ ul {
 .pv100 {
   @include paddingsInside(100px, 0px);
 }
+.pv180 {
+  @include paddingsInside(180px, 0px);
+}
 .pv200 {
   @include paddingsInside(200px, 0px);
 }
@@ -240,6 +250,10 @@ ul {
 }
 .pt150 {
   padding-top: 150px;
+  box-sizing: border-box;
+}
+.pt200 {
+  padding-top: 200px;
   box-sizing: border-box;
 }
 .pr10 {
@@ -553,7 +567,7 @@ ul {
   min-width: 200px;
   border-radius: 25px;
   color: black;
-  font-weight: $semi-bold;
+  font-weight: $bold;
   text-align: center;
   cursor: pointer;
   text-decoration: none;
@@ -574,7 +588,7 @@ ul {
   border-radius: 25px;
   color: $secondary;
   font-family: $font-family-base;
-  font-weight: $semi-bold;
+  font-weight: $bold;
   background-color: transparent;
   font-size: 16px;
   cursor: pointer;
@@ -651,5 +665,15 @@ ul {
     position: absolute;
     top: 0;
     width: 100%;
+  }
+}
+
+.hidden-bg {
+  max-height: 0;
+  z-index: -1;
+  position: relative;
+
+  > img {
+    transform: translate(0, -50%);
   }
 }

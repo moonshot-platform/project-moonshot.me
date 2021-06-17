@@ -19,7 +19,7 @@
             </ul>
         </div>
         <ul class="how-to-buy-flow">
-            <li *ngFor="let step of steps; let i = index">
+            <li *ngFor="let step of steps; let i = index" (click)="visibleStep == i ? visibleStep = -1 : visibleStep = i">
                 <ng-container *ngIf="i == 0 || i == steps.length - 1; then link else chain"></ng-container>
                 
                 <!-- link = start & end -->
@@ -47,7 +47,7 @@
                         <div class="line"></div>
                     </div>
                     <div class="right">
-                        <p class="description">{{ step.description }}<span>{{ step.span }}</span></p>
+                        <p class="description" [class.visible]="visibleStep === i">{{ step.description }}<span>{{ step.span }}</span></p>
                     </div>
                 </ng-template>
             </li>

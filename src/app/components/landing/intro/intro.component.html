@@ -1,5 +1,4 @@
 <section class="intro flex-center">
-    <div class="overlay"></div>
     <div class="inner flex-space-between align-start">
        <div class="stats flex1">
            <div class="timer futuristic-container">
@@ -24,11 +23,11 @@
                     <p class="mb20">Moonshot is a deflationary, frictionless yield and Liquidity protocol. Read more about Moonshot or start buying!</p>
                 </div>
                 <div class="buttons-container flex1">
-                    <a [routerLink]="['/about']" class="outlined-button mb10">Read more</a>
+                    <a [routerLink]="['/about']" class="outlined-button mb20">Read more</a>
                     <a href="https://exchange.pancakeswap.finance/#/swap" class="button">Buy Moonshot</a>
                 </div>
                 <div class="flex1 flex justify-end">
-                    <div class="round-mini-button">
+                    <div class="round-mini-button" (click)="scrollToElement('', 'news')">
                         <mat-icon fontSet="material-icons" class="color-primary">arrow_downward</mat-icon>
                     </div>
                 </div>

@@ -2,10 +2,10 @@
 
 section.tutorial {
   @include paddingsInside(100px, 20px);
+  padding-top: 200px;
 
-  background: url("/assets/media/images/galaxy02_homepage.png") center top
-    no-repeat;
-  background-size: 80%;
+  position: relative;
+  z-index: 2;
 
   > .inner {
     @extend %max-width-center;
@@ -147,6 +147,10 @@ section.tutorial {
 }
 
 @media only screen and (max-width: $md) {
+  section.tutorial {
+    padding-top: 100px;
+  }
+
   .buttons-container,
   .address-container,
   .quick-buy-container {
@@ -209,7 +213,13 @@ section.tutorial {
       }
 
       .right > .description {
-        margin-top: 10px;
+        margin-top: 20px;
+        padding-left: 82px;
+        display: none;
+
+        &.visible {
+          display: block;
+        }
       }
 
       .indicator {

@@ -16,29 +16,6 @@ section.sidebar {
 .d-flex {
   display: flex;
 }
-section.tokenomics {
-  padding: 22px 60px 0px;
-  box-sizing: border-box;
-  .inner {
-    @extend %max-width-center;
-
-    border-radius: 160px;
-  }
-}
-
-section.tokenomics {
-  background: $primary;
-  position: fixed;
-  right: 0;
-  top: 0;
-  width: 50vw;
-  z-index: 12000;
-  margin-right: 64px;
-  height: 100vh;
-  max-height: 100vh;
-  overflow: auto;
-  border-right: 1px solid black;
-}
 
 .block {
   background: $secondary;
@@ -54,9 +31,12 @@ ul {
   display: flex;
   flex-direction: column;
   align-items: center;
+
   li {
     text-align: center;
     border-bottom: 2px solid black;
+    display: flex;
+    justify-content: center;
 
     &:last-child {
       border: 0;
@@ -64,7 +44,7 @@ ul {
 
     a,
     p {
-      padding: 20px 23px;
+      padding: 20px 22px;
       color: black;
       text-decoration: none;
       font-weight: $bold;

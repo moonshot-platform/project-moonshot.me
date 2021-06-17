@@ -2,45 +2,55 @@
 
 section.news {
   position: relative;
-  background: url("/assets/media/images/illustration_1.png") left no-repeat;
   background-size: 50%;
   z-index: 2;
   padding: 0 20px;
+  margin-top: -200px;
+  padding-top: 200px;
+  margin-bottom: 350px;
 
   .inner {
     @extend %max-width-center;
-    margin-bottom: 450px;
   }
-}
-
-.stats {
-  min-width: 300px;
-  margin-right: 150px;
 }
 
 .info {
   color: $primary;
-  max-width: 760px;
+  max-width: 770px;
 
-  .bottom > div:first-child > p {
-    line-height: 30px;
+  .left {
+    float: left;
+    width: fit-content;
+    .futuristic-container {
+      height: 136px;
+    }
   }
 
-  .btn-group > .inner {
-    @extend %max-width-center;
+  .right {
+    height: 136px;
+    float: right;
+    padding: 20px 0;
+  }
 
-    > .round-large-button {
-      width: 20%;
-      height: auto;
-      border-radius: 50%;
-      margin-left: 5%;
+  .top {
+    padding-bottom: 60px;
 
-      &:first-child {
-        margin-left: 0;
-      }
+    .inner {
+      @extend %max-width-center;
 
-      svg {
-        width: 50%;
+      > .round-large-button {
+        width: 20%;
+        height: auto;
+        border-radius: 50%;
+        margin-left: 5%;
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        svg {
+          width: 50%;
+        }
       }
     }
   }
@@ -50,28 +60,53 @@ section.news {
   section.news {
     background: 0;
     padding-top: 0;
+    margin-top: 100px;
+    margin-bottom: 100px;
+
     .inner {
       @extend %max-width-center;
-      margin-bottom: 100px;
       justify-content: center;
     }
   }
 
-  .info .btn-group > .inner {
-    flex-wrap: wrap;
-    justify-content: flex-start;
+  .info {
+    display: flex;
+    flex-direction: column;
 
-    .round-large-button {
-      width: 30%;
-      margin-bottom: 20px;
+    .top {
+      order: 2;
+      padding-bottom: 30px;
+      .inner {
+        flex-wrap: wrap;
+        justify-content: flex-start;
 
-      &:nth-child(4n) {
-        margin-left: 0;
+        .round-large-button {
+          width: 30%;
+          margin-bottom: 20px;
+
+          &:nth-child(4n) {
+            margin-left: 0;
+          }
+        }
       }
     }
-  }
 
-  .info .bottom {
-    flex-direction: column;
+    .left {
+      order: 1;
+      float: none;
+      width: 100%;
+      border-bottom: 0;
+      border-top: 3px solid $primary;
+
+      > .futuristic-container {
+        border-bottom: 0;
+      }
+    }
+
+    .right {
+      order: 3;
+      float: none;
+      justify-content: flex-end;
+    }
   }
 }

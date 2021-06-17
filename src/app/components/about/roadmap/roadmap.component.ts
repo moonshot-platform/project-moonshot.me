@@ -14,32 +14,66 @@ export class RoadmapComponent implements OnInit {
 
   items: CarouselItem[] = [
     {
-      title: 'Q2 2021 — ongoing',
-      description: 'Marketing; Build social media presence'
+        title: 'Q2 2021',
+        span: ' - ongoing',
+        description: 'Marketing; Build social media presence',
+        icon: Icon.ONGOING
     },
     {
-      title: 'Q2 2021 — ongoing',
-      description: 'Listing at HotBit.io'
+        title: 'Q2 2021',
+        span: ' - ongoing',
+        description: 'Listing at HotBit.io',
+        icon: Icon.ONGOING
     },
     {
-      title: 'Q2 2021 — ongoing',
-      description: 'Moonboxes'
+        title: 'Q3 2021',
+        span: ' - ongoing',
+        description: 'Moonboxes',
+        icon: Icon.ONGOING
     },
     {
-      title: 'Q2 2021 — ongoing',
-      description: 'Moonarcade'
+        title: 'Q3 2021',
+        span: ' - ongoing',
+        description: 'Moonarcade',
+        icon: Icon.ONGOING
     },
     {
-      title: 'Q2 2021 — ongoing',
-      description: 'To the moon!'
-    }
+        title: 'Q3 2021',
+        span: '',
+        description: 'Lottery Pools',
+        icon: Icon.UPCOMING
+    },
+    {
+        title: 'Q3 2021',
+        span: '',
+        description: 'Blockchain Gamification, Highscore rankings and Price Pools ',
+        icon: Icon.UPCOMING
+    },
+    {
+        title: 'Q3 2021',
+        span: '',
+        description: 'Security Audit by a well respected Audit firm',
+        icon: Icon.UPCOMING
+    },
+    {
+        title: 'Q4 2021',
+        span: ' — ongoing',
+        description: 'Lotteries',
+        icon: Icon.ONGOING
+    },
+    {
+        title: 'Q4 2021',
+        span: ' — ongoing',
+        description: 'Further development',
+        icon: Icon.ONGOING
+    },
   ]
 
   @ViewChild(CarouselComponent, {static: true}) carouselRef?: CarouselComponent;
 
     config: CarouselConfig<CarouselItem> = {
         widthMode: CarouselWidthMode.PX,
-        slideWidth: 300,
+        slideWidth: 270,
         transitionDuration: 250,
         alignMode: CarouselAlignMode.LEFT,
         shouldLoop: false,
@@ -162,5 +196,13 @@ export class RoadmapComponent implements OnInit {
 
 export interface CarouselItem {
   title: string;
+  span: string;
   description: string;
+  icon: string
+}
+
+enum Icon {
+    ACCOMPLISHED = 'done',
+    ONGOING = 'sync',
+    UPCOMING = 'auto_awesome'
 }

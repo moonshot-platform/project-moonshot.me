@@ -2,6 +2,7 @@
 
 section.moontv {
   @include paddingsInside(0px, 20px);
+  padding-top: 100px;
 
   background: url("/assets/media/images/galaxy02_homepage.png") no-repeat left;
   > .inner {

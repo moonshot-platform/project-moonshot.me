@@ -2,14 +2,11 @@
 
 section.about {
   position: relative;
-  background: url("/assets/media/images/galaxy_homeage.png") right bottom
-    no-repeat;
-  background-size: 80%;
   padding: 20px;
+  margin-bottom: 100px;
 
   .inner {
     @extend %max-width-center;
-    margin-bottom: 200px;
     align-items: flex-end;
   }
 }
@@ -58,27 +55,24 @@ ul.circles {
     box-sizing: border-box;
 
     > div {
-      padding: 20%;
       width: 100%;
 
       img {
-        width: 100%;
+        width: 60%;
       }
     }
 
     > p {
       text-align: center;
-      margin-top: 10px;
+      margin-top: 20px;
     }
   }
 }
 
 @media only screen and (max-width: $md) {
   section.about {
-    background: none;
     > .inner {
       flex-direction: column;
-      margin-bottom: 0;
 
       > .stats {
         margin-right: 0;
@@ -89,9 +83,23 @@ ul.circles {
       }
 
       .stats-btn {
-        margin-top: 50px;
+        margin-top: 10px;
+        margin-bottom: 0;
+        width: 100%;
+
+        > .futuristic-container {
+          border-top-width: 1px;
+
+          > a {
+            float: right;
+          }
+        }
       }
     }
+  }
+
+  ul.circles > li > div {
+    max-width: 200px;
   }
 }
 
