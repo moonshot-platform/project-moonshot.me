@@ -9,6 +9,11 @@ section.disclaimer {
   > .inner {
     @extend %max-width-center;
   }
+
+  p {
+    font-size: 13px;
+    line-height: 22px;
+  }
 }
 
 @media only screen and (max-width: $md) {

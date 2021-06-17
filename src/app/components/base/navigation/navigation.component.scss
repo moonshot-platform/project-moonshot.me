@@ -14,21 +14,9 @@ section.navigation {
   display: flex;
   transition: 200ms all ease-in-out;
 
-  &:hover {
-    background-color: rgba($color: #0c0c0c, $alpha: 0.9);
-
-    ul.fragments {
-      display: flex;
-    }
-  }
-
   &.withBG {
     background-color: rgba($color: #0c0c0c, $alpha: 0.9);
     justify-content: center;
-
-    > .inner {
-      align-items: center;
-    }
 
     .logo {
       height: toRem(32px);
@@ -87,6 +75,10 @@ nav {
     border-top: 3px solid $primary;
     margin: 0 toEm(12.5px);
     width: 25%;
+
+    &.active {
+      border-top-width: 6px;
+    }
 
     &:first-child {
       margin-left: 0;
@@ -148,6 +140,10 @@ nav {
 
     &:hover {
       background-color: transparent;
+
+      ul.fragments {
+        display: flex;
+      }
     }
 
     &.withBG {

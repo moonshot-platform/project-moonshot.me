@@ -12,19 +12,18 @@
         <nav [class.show]="open" class="flex">
             <img src="assets/media/icons/close-2.svg" alt="menu button" class="mob-menu" [class.open]="open" (click)="open = !open">
             <ul>
-                <li (click)="scrollToElement('', 'how-to-buy')">
-                    <p>How to buy</p>
-                </li>
-                <li *ngFor="let item of navItems">
+                <li *ngFor="let item of navItems" [class.active]="isSamePath(item.path)">
                     <ng-container *ngIf="item.externalPath != undefined; then external else internal"></ng-container>
                     
                     <!-- link = start & end -->
                     <ng-template #external>
-                        <a href={{item.externalPath}}>{{item.name}}</a>
+                        <a href={{item.externalPath}} target="_blank">{{item.name}}</a>
                     </ng-template>
     
                     <ng-template #internal>
-                        <p (click)="scrollToElement(item.path)">{{item.name}}</p>
+                        <p *ngIf="item.fragment != undefined" (click)="scrollToElement(item.path, item.fragment)">{{item.name}}</p>
+
+                        <p *ngIf="item.fragment == undefined" (click)="scrollToElement(item.path)">{{item.name}}</p>
 
                         <ul *ngIf="item.frags != undefined" class="fragments flex-col">
                             <li *ngFor="let fragment of item.frags" (click)="scrollToElement(item.path, fragment.path)">
