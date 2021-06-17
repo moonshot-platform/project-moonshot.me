@@ -198,7 +198,7 @@ export interface CarouselItem {
   title: string;
   span: string;
   description: string;
-  icon: Icon
+  icon: string
 }
 
 enum Icon {

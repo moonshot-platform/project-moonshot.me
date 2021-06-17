@@ -58,10 +58,11 @@ section.roadmap {
     p {
       font-weight: $medium;
     }
+
     &:last-child {
       margin-bottom: 0;
       .round-mini-button {
-        background-color: transparent;
+        background-color: $body-bg-color;
         > .mat-icon {
           color: $primary;
         }
@@ -138,6 +139,14 @@ section.roadmap {
     font-size: 20px;
     height: auto;
     color: black;
+  }
+
+  &.blue-bg {
+    background-color: $body-bg-color;
+
+    > .mat-icon {
+      color: $primary;
+    }
   }
 }
 
