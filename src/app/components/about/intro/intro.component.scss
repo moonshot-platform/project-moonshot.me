@@ -2,19 +2,30 @@
 
 section.intro {
   @include paddingsInside(0px, 20px);
+  padding-top: 400px;
+  padding-bottom: 300px;
 
-  min-height: 100vh;
   position: relative;
-  background: url("/assets/media/images/moon-about.png") center center no-repeat;
+  background: url("/assets/media/images/moon-about.png") 10% center no-repeat;
+  background-size: contain;
 
   .inner {
     @extend %max-width-center;
   }
 }
 
+.info {
+  width: 100%;
+  max-width: 770px;
+  color: #d5a642;
+}
+
 @media only screen and (max-width: $md) {
   section.intro {
     background-size: 100%;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    min-height: 100vh;
   }
 }
 
