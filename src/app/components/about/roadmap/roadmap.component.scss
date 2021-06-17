@@ -56,7 +56,7 @@ section.roadmap {
       }
     }
     p {
-      font-weight: $extra-light;
+      font-weight: $medium;
     }
     &:last-child {
       margin-bottom: 0;
@@ -157,10 +157,14 @@ section.roadmap {
 }
 
 @media only screen and (max-width: $md) {
-  section.roadmap .next-event-container {
-    min-width: auto;
-    margin-right: 0;
-    max-width: initial;
+  section.roadmap {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    .next-event-container {
+      min-width: auto;
+      margin-right: 0;
+      max-width: initial;
+    }
   }
   .top {
     flex-direction: column;
