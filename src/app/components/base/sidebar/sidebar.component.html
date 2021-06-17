@@ -3,15 +3,10 @@
         <img src="assets/media/icons/wallet.svg" alt="wallet">
     </div> -->
     <ul>
-        <li><p (click)="tokenomics()">Tokenomics</p></li>
+        <li><p (click)="toggleTokenomicsView()">Tokenomics</p></li>
     </ul>
 </section>
 
 <section class="tokenomics" *ngIf="active">
-    <div class="d-flex">
-        <div class="p30 close text-right pull-right" (click)="inactive()">
-            <img src="assets/media/icons/close.svg" alt="close">
-        </div>
-    </div>
     <app-tokenomics></app-tokenomics>
 </section>

@@ -11,4 +11,11 @@ export class IntroComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  scrollToElement(page: string, fragment: string): void {
+    const element = document.querySelector(`#${fragment}`)
+    if (element)  {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }
 }

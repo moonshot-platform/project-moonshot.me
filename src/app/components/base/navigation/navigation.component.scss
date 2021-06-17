@@ -8,14 +8,23 @@ section.navigation {
   position: fixed;
   width: calc(100% - #{$sidebar-width});
   left: 0;
+  top: 0;
   right: $sidebar-width;
   z-index: 1000;
   display: flex;
-  justify-content: center;
   transition: 200ms all ease-in-out;
+
+  &:hover {
+    background-color: rgba($color: #0c0c0c, $alpha: 0.9);
+
+    ul.fragments {
+      display: flex;
+    }
+  }
 
   &.withBG {
     background-color: rgba($color: #0c0c0c, $alpha: 0.9);
+    justify-content: center;
 
     > .inner {
       align-items: center;
@@ -35,6 +44,10 @@ section.navigation {
 nav {
   width: 100%;
   justify-content: flex-end;
+}
+
+.mobile-only {
+  display: none;
 }
 
 .logo-container {
@@ -70,6 +83,30 @@ nav {
   @extend %max-width-center;
   align-items: initial;
 
+  nav > ul > li {
+    border-top: 3px solid $primary;
+    margin: 0 toEm(12.5px);
+    width: 25%;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  ul.fragments {
+    display: none;
+    border-bottom: 1px solid $primary;
+    padding-bottom: 14px;
+
+    > li > p {
+      font-weight: $medium;
+    }
+  }
+
   ul {
     display: flex;
     width: inherit;
@@ -78,18 +115,7 @@ nav {
     max-width: 770px;
 
     li {
-      border-top: 3px solid $primary;
       padding-top: 14px;
-      margin: 0 toEm(12.5px);
-      width: 25%;
-
-      &:first-child {
-        margin-left: 0;
-      }
-
-      &:last-child {
-        margin-right: 0;
-      }
 
       a,
       p {
@@ -113,104 +139,52 @@ nav {
     position: relative;
     transition: 0.1s;
     cursor: pointer;
-
-    &.open {
-      transform: rotate(180deg);
-      cursor: pointer;
-      transition: 0.2s cubic-bezier(0.8, 0.5, 0.2, 1.4);
-
-      > span {
-        border-radius: 50%;
-        transition-delay: 200ms;
-        transition: 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4);
-
-        &:nth-child(2) {
-          left: 6px;
-          top: 6px;
-        }
-
-        &:nth-child(4) {
-          left: 6px;
-          top: 18px;
-        }
-
-        &:nth-child(6) {
-          right: 6px;
-          top: 6px;
-        }
-
-        &:nth-child(8) {
-          left: 18px;
-          bottom: 6px;
-        }
-      }
-    }
-
-    > span {
-      width: 5px;
-      height: 5px;
-      background-color: #fff;
-      display: block;
-      border-radius: 50%;
-      position: absolute;
-
-      &:nth-child(1) {
-        left: 0;
-        top: 0;
-      }
-
-      &:nth-child(2) {
-        left: 12px;
-        top: 0;
-      }
-
-      &:nth-child(3) {
-        right: 0;
-        top: 0;
-      }
-
-      &:nth-child(4) {
-        left: 0;
-        top: 12px;
-      }
-
-      &:nth-child(5) {
-        position: absolute;
-        left: 12px;
-        top: 12px;
-      }
-
-      &:nth-child(6) {
-        right: 0px;
-        top: 12px;
-      }
-
-      &:nth-child(7) {
-        left: 0px;
-        bottom: 0px;
-      }
-
-      &:nth-child(8) {
-        position: absolute;
-        left: 12px;
-        bottom: 0px;
-      }
-
-      &:nth-child(9) {
-        right: 0px;
-        bottom: 0px;
-      }
-    }
   }
 }
 
 @media only screen and (max-width: $md) {
   section.navigation {
     width: 100%;
+
+    &:hover {
+      background-color: transparent;
+    }
+
+    &.withBG {
+      background-color: rgba($color: #0c0c0c, $alpha: 0.9);
+    }
   }
 
-  nav {
+  .mobile-only {
+    display: block;
+  }
+
+  .inner > nav {
     display: none;
+    overflow: scroll;
+    background: rgba(12, 12, 12, 0.9);
+
+    > ul {
+      overflow: scroll;
+      height: fit-content;
+      display: block;
+
+      > li {
+        margin: 0;
+        width: 100%;
+
+        > ul.fragments {
+          border-bottom-width: 0;
+
+          li {
+            padding-top: 0;
+            p {
+              padding: 10px 0;
+            }
+          }
+        }
+      }
+    }
 
     &.show {
       position: fixed;
@@ -232,7 +206,7 @@ nav {
         margin-left: 0;
         display: flex;
         flex-direction: column;
-        background: rgba(12, 12, 12, 0.9);
+        background-color: transparent;
         padding: 20px;
         box-sizing: border-box;
 
@@ -245,7 +219,8 @@ nav {
             border-top: 0;
           }
 
-          > a {
+          > a,
+          > p {
             padding: 20px 0;
             display: block;
           }
@@ -254,7 +229,18 @@ nav {
     }
   }
 
-  .inner > div.mob-menu {
+  .logo-container {
+    max-width: 211px;
+    .logo {
+      height: toRem(60px);
+    }
+
+    p {
+      font-size: 20px;
+    }
+  }
+
+  .inner > img.mob-menu {
     display: block;
   }
 }

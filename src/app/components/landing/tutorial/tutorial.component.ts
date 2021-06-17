@@ -7,38 +7,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TutorialComponent implements OnInit {
 
+  visibleStep = 1;
+
   steps: any = [
     {
       indicator: 'Counting down'
     },
     {
       title: 'Download a browser based wallet',
-      description: 'Moonshot is a token running on the Binance Smart Chain Network. You can use Metamask, TrustWallet, Binance Smart Chain Wallet and others. Accept warning and go on V1.',
+      description: 'The Moonshot token runs on the Binance Smart Chain network. In order to buy Moonshot tokens from PancakeSwap you must first download a wallet. This wallet can be the TrustWallet, Metamask wallet or any other wallet which supports the Binance Smart Chain Network. Once you have set up your wallet, proceed to the next step.',
     },
     {
       title: 'Buy BNB',
-      description: 'Use an exchange to buy BNB. Some exchanges are Binance, Binance US.',
+      description: 'Now that you have set up your wallet you will need to buy BNB and send your BNB to your wallet. You can buy BNB from most centralized exchanges such as Binance.com or from in-wallet applications.',
     },
     {
       title: 'Go to Moonshot website',
-      description: 'When you visit Moonshot, click on \'Buy on PancakeSwap\' button. This will take you to the PancakeSwap website. ',
+      description: 'Now that you have BNB in your wallet you can connect your wallet to PancakeSwap. When you visit the Moonshot website, click on “Buy Moonshot” and you’ll be redirected to PancakeSwap.',
     },
     {
       title: 'Import the token address',
-      description: 'The PancakeSwap website starts with a pop up form asking if the address belongs to Moonshot. Double check before you accept! ',
-      span: '0xd27d3f7f329d93d897612e413f207a4dbe8bf799',
+      description: 'The PancakeSwap website loads with a pop-up form asking if the token address belongs to Moonshot. Always double check before you accept!',
     },
     {
       title: 'Set slippage to 11%',
-      description: 'Click on the gear button and set slippage to 11%. (the slippage covers the 10% explained in tokenomics) If that gives you an error, increase the slippage to 12% or more.',
-    },
-    {
-      title: 'Swap BNB for Moonshot',
-      description: 'Confirm with your browser based wallet.',
+      description: 'Click on the gear button and set slippage to 11% (the slippage covers the 10% explained in tokenomics). If that gives you an error, increase the slippage to 12% or more.',
     },
     {
       title: 'View Moonshot in your wallet',
-      description: 'To view your Moonshot, add custom token to your browser based wallet. Use the address above.',
+      description: 'To view your Moonshot, add a custom token to your browser based wallet. Use the address above.',
     },
     {
       indicator: 'Lift-off',

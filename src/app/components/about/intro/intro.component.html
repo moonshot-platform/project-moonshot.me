@@ -1,13 +1,15 @@
 <section class="intro flex-center">
-    <div class="overlay"></div>
-    <div class="inner flex-space-between align-start">
+    <div class="moon-bg hidden-bg">
+        <img src="assets/media/images/moon-about.png" alt="moon">
+    </div>
+    <div class="inner flex justify-end">
        <div class="info flex3">
             <div class="top futuristic-container">
                 <p class="p-white-span-primary p30 orbitron">An ambitious, exploratory, <br>community driven <br>experiment<span> in the DeFi space</span></p>
             </div>
             <div class="bottom flex pv20">
                 <div class="flex1 flex justify-end">
-                    <div class="round-mini-button">
+                    <div class="round-mini-button" (click)="scrollToElement('', 'mission')">
                         <mat-icon fontSet="material-icons" class="color-primary">arrow_downward</mat-icon>
                     </div>
                 </div>

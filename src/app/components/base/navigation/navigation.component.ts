@@ -1,5 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
+import { TokenomicsToggleService } from 'src/app/services/tokenomics-toggle.service';
 
 @Component({
   selector: 'app-navigation',
@@ -18,11 +20,47 @@ export class NavigationComponent implements OnInit {
     },
     {
       'name': 'Community',
-      'path': '/community'
+      'path': '/community',
+      'frags': [
+        {
+          'name': 'MoonTV',
+          'path': 'moon-tv'
+        },
+        {
+          'name': 'MoonTicket',
+          'path': 'moon-ticket'
+        },
+        {
+          'name': 'Merchandise',
+          'path': 'merchandise'
+        },
+        {
+          'name': 'MoonGallery',
+          'path': 'gallery'
+        },
+        {
+          'name': 'Fuel the rocket',
+          'path': 'merchandise'
+        },
+      ]
     },
     {
       'name': 'About us',
-      'path': '/about'
+      'path': '/about',
+      'frags': [
+        {
+          'name': 'Mission',
+          'path': 'mission'
+        },
+        {
+          'name': 'Mechanics',
+          'path': 'mechanics'
+        },
+        {
+          'name': 'Roadmap',
+          'path': 'roadmap'
+        },
+      ]
     }
   ];
 
@@ -30,18 +68,39 @@ export class NavigationComponent implements OnInit {
     this.atTop = (window.pageYOffset == 0) ? true : false;
   } 
 
-  scrollToElement(page: string, fragment: string): void {
-    const element = document.querySelector(`#${fragment}`)
-    if (element)  {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      this.open = false;
-    } else
-      this._router.navigate( [page], {fragment: fragment});
+  scrollToElement(page: string, fragment: string = null): void {
+
+    if( fragment === null ) {
+      if( location.pathname === page ) {
+        const element = document.querySelector(`#${page.substr(1)}-page`)
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        this.open = false;
+      } else {
+        this._router.navigate( [page] );
+      }
+      
+    } else {
+      const element = document.querySelector(`#${fragment}`)
+      if (element)  {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        this.open = false;
+      } else
+        this._router.navigate( [page], {fragment: fragment});
+    }
   }
 
-  constructor(private _router: Router) { }
+  constructor(
+    private _router: Router, 
+    private location: Location,
+    private tokenomicsToggleService: TokenomicsToggleService
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  toggleTokenomics() {
+    this.tokenomicsToggleService.doToggle();
+    this.open = false;
   }
 
 }
