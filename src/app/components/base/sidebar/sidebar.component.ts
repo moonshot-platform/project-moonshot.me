@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TokenomicsToggleService } from 'src/app/services/tokenomics-toggle.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -8,15 +9,16 @@ import { Component, OnInit } from '@angular/core';
 export class SidebarComponent implements OnInit {
 
   active = false;
-  constructor() { }
+
+  constructor(private tokenomicsToggleService: TokenomicsToggleService) { }
 
   ngOnInit(): void {
+    this.tokenomicsToggleService.onToggle().subscribe(() => {
+      this.toggleTokenomicsView();    
+    });
   }
 
-  tokenomics() {
-    this.active = !this.active;
-  }
-  inactive() {
-    this.active = false;
+  toggleTokenomicsView( active: boolean = null ) {
+    this.active = active || !this.active;
   }
 }

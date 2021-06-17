@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TokenomicsToggleService } from 'src/app/services/tokenomics-toggle.service';
 
 @Component({
   selector: 'app-tokenomics',
@@ -49,9 +50,13 @@ export class TokenomicsComponent implements OnInit {
     ]
   ]
 
-  constructor() { }
+  constructor(private tokenomicsToggleService: TokenomicsToggleService) { }
 
   ngOnInit(): void {
+  }
+
+  toggleTokenomics() {
+    this.tokenomicsToggleService.doToggle();
   }
 
 }
