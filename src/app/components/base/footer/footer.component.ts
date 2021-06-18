@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TokenomicsToggleService } from 'src/app/services/tokenomics-toggle.service';
 
 @Component({
   selector: 'app-footer',
@@ -40,7 +41,7 @@ export class FooterComponent implements OnInit {
       alt: 'Instagram'
     },
     {
-      link: 'https://bscscan.com/token/0x8301f0146f8f58e267a3c229bce13b03bc4a1ba0?a=0xbd67d157502a23309db761c41965600c2ec788b2',
+      link: 'https://bscscan.com/address/0xd27d3f7f329d93d897612e413f207a4dbe8bf799#code',
       icon: 'bscscan-yellow-round-icon.png',
       alt: 'Bscscan'
     },
@@ -56,7 +57,7 @@ export class FooterComponent implements OnInit {
     },
   ]
 
-  constructor(private _router: Router) { }
+  constructor(private _router: Router, private tokenomicsToggleService: TokenomicsToggleService) { }
 
   ngOnInit(): void {
   }
@@ -67,6 +68,10 @@ export class FooterComponent implements OnInit {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' })
     } else
       this._router.navigate( [page], {fragment: fragment});
+  }
+
+  toggleTokenomics() {
+    this.tokenomicsToggleService.doToggle();
   }
 
 }

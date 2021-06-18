@@ -29,8 +29,6 @@ section.gallery {
   margin-right: 20px;
 
   div > p {
-    font-size: 30px;
-
     &:first-child {
       color: $primary;
       margin-bottom: 20px;
@@ -68,5 +66,12 @@ section.gallery {
   .main {
     display: flex;
     flex-direction: column;
+  }
+
+  .gallery-group > .bottom {
+    flex-direction: column;
+    > div {
+      margin-right: 0;
+    }
   }
 }

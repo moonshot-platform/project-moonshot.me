@@ -71,20 +71,26 @@ section.intro {
         display: none;
       }
 
-      .info > .bottom {
-        flex-direction: column;
-
-        .futuristic-container {
-          border-bottom: 0;
+      .info {
+        > .top > p {
+          font-size: 27px;
         }
 
-        .buttons-container {
-          margin-top: 0px;
-          margin-bottom: 0px;
-        }
+        .bottom {
+          flex-direction: column;
 
-        .round-mini-button {
-          display: none;
+          .futuristic-container {
+            border-bottom: 0;
+          }
+
+          .buttons-container {
+            margin-top: 0px;
+            margin-bottom: 0px;
+          }
+
+          .round-mini-button {
+            display: none;
+          }
         }
       }
     }

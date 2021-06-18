@@ -58,6 +58,10 @@ section.merchandise {
     }
   }
 
+  .address {
+    line-height: 30px;
+  }
+
   .btn-group > .inner {
     @extend %max-width-center;
 
@@ -72,8 +76,23 @@ section.merchandise {
     padding-top: 180px;
     .info > .bottom {
       flex-direction: column;
+
       .flex-col {
         align-self: auto;
+      }
+
+      .group-img {
+        align-items: center;
+        margin-bottom: 50px;
+
+        &:nth-child(2) {
+          justify-content: space-between;
+        }
+      }
+
+      img {
+        padding: 0;
+        max-height: 150px;
       }
 
       > div:first-child {
@@ -81,10 +100,5 @@ section.merchandise {
         border: none;
       }
     }
-  }
-
-  p {
-    overflow: hidden;
-    line-break: anywhere;
   }
 }

@@ -21,8 +21,6 @@ section.moonticket {
   margin-right: 20px;
 
   div > p {
-    font-size: 30px;
-
     &:first-child {
       color: $primary;
       margin-bottom: 20px;
@@ -46,15 +44,17 @@ section.moonticket {
       color: $primary;
       font-weight: bold;
     }
-    input {
-      width: 80%;
-      font-size: 20px;
-      background: transparent;
-      color: $primary;
-      border: 0;
-      border-bottom: 1px solid $primary;
-    }
   }
+}
+
+.name-input {
+  width: 80%;
+  font-size: 20px;
+  background: transparent;
+  color: $primary;
+  border: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid $primary;
 }
 
 .ticket-section {
@@ -92,12 +92,19 @@ section.moonticket {
       width: 100%;
       margin-top: 40px;
     }
+  }
 
-    div {
-      input {
-        width: 100%;
-      }
-    }
+  .name-input {
+    width: 100%;
+  }
+
+  .download-button {
+    width: 100%;
+    margin-top: 50px;
+  }
+
+  .ticket-section {
+    margin-top: 0;
   }
 
   form {

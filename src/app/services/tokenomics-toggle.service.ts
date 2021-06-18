@@ -9,6 +9,14 @@ export class TokenomicsToggleService {
         this.subject.next();
     }
 
+    open() {
+        this.subject.next(true);
+    }
+
+    close() {
+        this.subject.next(false);
+    }
+
     onToggle(): Observable<any> {
         return this.subject.asObservable();
     }
