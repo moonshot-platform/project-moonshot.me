@@ -9,11 +9,12 @@ import { NextComponent } from './next/next.component';
 import { SecurityComponent } from './security/security.component';
 import { MissionComponent } from './mission/mission.component';
 import { MechanicsComponent } from './mechanics/mechanics.component';
-import { TutorialComponent } from './tutorial/tutorial.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
 import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from 'src/app/app-routing.module';
-import { NavigationModule } from '../landing/navigation/navigation.module';
+import { SidebarModule } from '../base/sidebar/sidebar.module';
+import { RoadmapModule } from './roadmap/roadmap.module';
+import { NavigationModule } from '../base/navigation/navigation.module';
+import { DisclaimerComponent } from './disclaimer/disclaimer.component';
 
 
 
@@ -25,17 +26,18 @@ import { NavigationModule } from '../landing/navigation/navigation.module';
     NextComponent,
     MissionComponent,
     MechanicsComponent,
-    TutorialComponent,
-    SidebarComponent,
+    DisclaimerComponent
   ],
   imports: [
     MatIconModule,
     CommonModule,
-    NavigationModule,
     FooterModule,
     CountdownModule,
     NgParticlesModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RoadmapModule,
+    SidebarModule,
+    NavigationModule
   ]
 })
 export class AboutModule { }

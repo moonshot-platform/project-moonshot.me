@@ -1,26 +1,6 @@
 @import "includes";
 
-#particles {
-  height: $full;
-  width: $full;
-  background-color: #030018;
-
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 1;
-
-  &:before {
-    content: "";
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-  }
-}
-
-section.about {
+section.about-section {
   z-index: 2;
   position: relative;
 
@@ -33,4 +13,16 @@ section.about {
 app-header {
   display: block;
   width: calc(100% - 64px);
+}
+
+.hole-bg > img {
+  height: 100%;
+  width: 100%;
+  transform: translate(-15%, -65%);
+}
+
+@media only screen and (max-width: $md) {
+  section.about-section > .inner {
+    width: 100%;
+  }
 }

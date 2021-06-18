@@ -3,26 +3,29 @@
 section.intro {
   min-height: 100vh;
   position: relative;
-  background: url("/assets/media/images/moon-shadow.png") top right no-repeat;
+  padding: 148px 20px 0;
+  box-sizing: border-box;
 
   .inner {
     @extend %max-width-center;
-    margin-bottom: 200px;
   }
 }
 
 .stats {
-  min-width: 300px;
-  margin-right: 150px;
+  width: 100%;
+  max-width: 270px;
+  margin-right: 20px;
 
   div {
     &:first-child {
       margin-bottom: 40px;
     }
 
-    p {
-      color: $secondary;
-      font-size: 20px;
+    p,
+    countdown {
+      color: $primary;
+      font-size: 25px;
+      font-weight: $bold;
 
       &:first-child {
         color: $primary;
@@ -34,11 +37,62 @@ section.intro {
 }
 
 .info {
+  width: 100%;
+  max-width: 770px;
   color: $primary;
+
+  .line-container {
+    .line {
+      height: 3px;
+      background-color: $primary;
+    }
+
+    .empty {
+      margin-left: -120px;
+    }
+  }
 
   .bottom > div:first-child > p {
     line-height: 30px;
-    font-weight: 200;
+  }
+}
+
+@media only screen and (max-width: $md) {
+  section.intro {
+    align-items: center;
+    padding-top: 120px;
+
+    .inner {
+      flex-direction: column;
+      margin-bottom: 0;
+
+      .stats {
+        display: none;
+      }
+
+      .info {
+        > .top > p {
+          font-size: 27px;
+        }
+
+        .bottom {
+          flex-direction: column;
+
+          .futuristic-container {
+            border-bottom: 0;
+          }
+
+          .buttons-container {
+            margin-top: 0px;
+            margin-bottom: 0px;
+          }
+
+          .round-mini-button {
+            display: none;
+          }
+        }
+      }
+    }
   }
 }
 

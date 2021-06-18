@@ -1,0 +1,22 @@
+@import "includes";
+
+section.community {
+  z-index: 2;
+  position: relative;
+
+  > .inner {
+    position: relative;
+    width: calc(100% - 64px);
+  }
+}
+
+app-header {
+  display: block;
+  width: calc(100% - 64px);
+}
+
+@media only screen and (max-width: $md) {
+  section.community > .inner {
+    width: 100%;
+  }
+}

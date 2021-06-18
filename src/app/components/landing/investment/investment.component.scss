@@ -2,11 +2,12 @@
 
 section.investment {
   @include margins(100px, 0px);
+  @include paddingsInside(100px, 20px);
+
   background-color: $secondary;
 
   > .inner {
     @extend %max-width-center;
-    @include paddingsInside(100px, 0px);
   }
 }
 
@@ -53,6 +54,21 @@ section.investment {
     .icon {
       height: 120px;
       margin-bottom: 30px;
+    }
+  }
+}
+
+@media only screen and (max-width: $md) {
+  .options {
+    flex-direction: column;
+    padding: 20px;
+
+    > div.option {
+      margin: 20px 0;
+
+      &:nth-child(2) {
+        margin: 20px 0;
+      }
     }
   }
 }

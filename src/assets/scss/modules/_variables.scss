@@ -8,9 +8,9 @@ $quarter: 50%;
 $max-width: toRem(1200px);
 $margin-auto: 0 auto;
 
-$md: toRem(1200px);
-$sm: toRem(720px);
-$xs: toRem(400px);
+$md: toRem(1000px);
+$sm: toRem(600px);
+$xs: toRem(300px);
 
 // Header
 $md-header: toRem(1150px);
@@ -19,11 +19,10 @@ $md-header: toRem(1150px);
 $sidebar-width: toRem(64px);
 
 // Colors
-$primary-font-color: #0f0f0f;
-$primary: #d7b13e;
+$primary: #d5a642;
 $secondary: #ca9800;
 
-$body-bg-color: #1f1e1e;
+$body-bg-color: #090d16;
 
 $black: #000000;
 $white: #ffffff;
@@ -39,7 +38,7 @@ $light: #f8f9fc;
 
 // fonts
 $primary-font: "Montserrat";
-$secondary-font: "PressStart2P";
+$secondary-font: "Orbitron";
 
 $thin: 100;
 $extra-light: 200;
@@ -58,8 +57,8 @@ $font-md: 18px;
 $font-lg: 20px;
 
 $font-size-base: toRem($primary-fs);
-$font-weight-base: $regular;
-$font-color-base: $primary-font-color;
+$font-weight-base: $medium;
+$font-color-base: $primary;
 $font-family-base: $primary-font, "Sans";
 $font-family-secondary: $secondary-font, "Arial";
 

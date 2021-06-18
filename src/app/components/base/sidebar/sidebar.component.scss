@@ -1,0 +1,70 @@
+@import "includes";
+
+section.sidebar {
+  background-color: $primary;
+  width: $sidebar-width;
+  height: 100vh;
+  z-index: 2;
+  position: fixed;
+}
+
+.close {
+  color: #7e6328;
+  cursor: pointer;
+  margin-left: auto;
+}
+.d-flex {
+  display: flex;
+}
+
+.block {
+  background: $secondary;
+  width: $sidebar-width;
+  height: $sidebar-width;
+
+  > p {
+    color: #d6a644;
+  }
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  li {
+    text-align: center;
+    border-bottom: 2px solid black;
+    display: flex;
+    justify-content: center;
+
+    &:last-child {
+      border: 0;
+    }
+
+    a,
+    p {
+      padding: 20px 22px;
+      color: black;
+      text-decoration: none;
+      font-weight: $bold;
+      writing-mode: tb-rl;
+      cursor: pointer;
+      -webkit-transform: rotate(180deg);
+      -moz-transform: rotate(180deg);
+      -o-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      transform: rotate(180deg);
+
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $md) {
+  section.sidebar {
+    display: none;
+  }
+}

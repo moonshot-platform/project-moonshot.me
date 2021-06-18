@@ -1,0 +1,30 @@
+@import "includes";
+
+section.disclaimer {
+  @include paddingsInside(100px, 20px);
+
+  z-index: 2;
+  position: relative;
+
+  > .inner {
+    @extend %max-width-center;
+  }
+
+  p {
+    font-size: 13px;
+    line-height: 22px;
+  }
+}
+
+@media only screen and (max-width: $md) {
+  section.disclaimer > .inner {
+    flex-direction: column;
+
+    > div {
+      margin: 0;
+      &:first-child {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}

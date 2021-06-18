@@ -3,42 +3,53 @@
 section.intro {
   min-height: 100vh;
   position: relative;
-  background: url("/assets/media/images/moon-about.png") top no-repeat;
+  padding-top: 148px;
+  box-sizing: border-box;
+
+  .moon-bg {
+    position: absolute;
+    left: 10%;
+
+    > img {
+      width: 100%;
+    }
+  }
 
   .inner {
     @extend %max-width-center;
-    margin-bottom: 200px;
-  }
-}
-
-.stats {
-  min-width: 300px;
-  margin-right: 150px;
-
-  div {
-    &:first-child {
-      margin-bottom: 40px;
-    }
-
-    p {
-      color: $secondary;
-      font-size: 20px;
-
-      &:first-child {
-        color: $primary;
-        margin-bottom: 50px;
-        font-size: 12px;
-      }
-    }
+    padding: 0 20px;
   }
 }
 
 .info {
-  color: $primary;
+  width: 100%;
+  max-width: 770px;
+  color: #d5a642;
 
-  .bottom > div:first-child > p {
-    line-height: 30px;
-    font-weight: 200;
+  > .top {
+    max-width: 570px;
+    width: 100%;
+  }
+
+  > .bottom {
+    border-top: 1px solid $primary;
+  }
+}
+
+@media only screen and (max-width: $md) {
+  section.intro {
+    background-size: 100%;
+    padding-top: 120px;
+    padding-bottom: 0px;
+    min-height: 100vh;
+
+    .moon-bg {
+      left: 0;
+    }
+  }
+
+  .info > .top > p {
+    font-size: 27px;
   }
 }
 

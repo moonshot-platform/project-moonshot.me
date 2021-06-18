@@ -1,0 +1,38 @@
+<section class="gallery">
+    <div class="inner">
+        <div class="main flex-space-between align-start">
+            <div class="stats flex1">
+                <div class="timer futuristic-container p30d24m">
+                 <p>MOONGALLERY</p>
+                 <p class="color-white orbitron">Community creativity</p>
+                </div>
+            </div>
+            <div class="gallery-group futuristic-container top-only flex3">
+                <div class="bottom flex pv20">
+                    <div class="flex2 futuristic-container bottom-only no-padding mr50">
+                        <p class="mb50">The MoonGallery is a space where we showcase community’s creativity. Imagery made by our holders and Moonshot enthusiasts get a spot on our gallery wall below.</p>
+                    </div>
+                    <div class="btn-group flex justify-end desktop-only">
+                        <div class="round-mini-button mr10">
+                            <mat-icon fontSet="material-icons" class="color-primary" (click)="prev()">arrow_back</mat-icon>
+                        </div>
+                        <div class="round-mini-button">
+                            <mat-icon fontSet="material-icons" class="color-primary" (click)="next()">arrow_forward</mat-icon>
+                        </div>
+                    </div>
+                </div>
+           </div>
+        </div>
+        <div class="ga2 desktop-only flex-space-between">
+            <img src={{items[current]}} alt="bitmart" />
+        </div>
+
+        <div class="flex-col mobile-only">
+            <img class="mb20" src="assets/media/images/community/snt.png" alt="moonshot logo" />
+            <img class="mb20" src="assets/media/images/community/sn1.jpeg" alt="moonshot logo" />
+            <img class="mb20" src="assets/media/images/community/sn2.jpeg" alt="moonshot logo" />
+            <img class="mb20" src="assets/media/images/community/sns.jpeg" alt="moonshot logo" />
+            <img src="assets/media/images/community/sn3.jpeg" alt="moonshot logo" />
+        </div>
+    </div>
+</section>

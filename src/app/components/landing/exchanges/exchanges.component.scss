@@ -1,8 +1,16 @@
 @import "includes";
 
 section.exchanges {
-  > .inner {
+  position: relative;
+  background: url("/assets/media/images/illustration_2.png") no-repeat right;
+  background-position: 100% 300px;
+  background-size: 50%;
+  z-index: 2;
+  padding: 0 20px;
+
+  .inner {
     @extend %max-width-center;
+    padding-bottom: 300px;
 
     > div:first-child > img {
       width: calc(100% / 3 - 20px);
@@ -31,5 +39,25 @@ section.exchanges {
 
 .explanation {
   line-height: 30px;
-  font-weight: 200;
+}
+
+@media only screen and (max-width: $md) {
+  .inner > div {
+    flex-direction: column;
+  }
+
+  section.exchanges .inner > div:first-child > img {
+    width: 80%;
+
+    &:first-child {
+      margin-bottom: 30px;
+    }
+  }
+
+  .buy-info .futuristic-container {
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: $sm) {
 }

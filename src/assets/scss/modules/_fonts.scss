@@ -1,8 +1,48 @@
 @font-face {
-  font-family: "PressStart2P";
-  src: url("/assets/fonts/press-start-2p/regular.woff2") format("woff2"),
-    url("/assets/fonts/press-start-2p/regular.woff") format("woff");
+  font-family: "Orbitron";
+  src: url("/assets/fonts/orbitron/regular.woff2") format("woff2"),
+    url("/assets/fonts/orbitron/regular.woff") format("woff");
   font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Orbitron";
+  src: url("/assets/fonts/orbitron/medium.woff2") format("woff2"),
+    url("/assets/fonts/orbitron/medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Orbitron";
+  src: url("/assets/fonts/orbitron/semi-bold.woff2") format("woff2"),
+    url("/assets/fonts/orbitron/semi-bold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Orbitron";
+  src: url("/assets/fonts/orbitron/bold.woff2") format("woff2"),
+    url("/assets/fonts/orbitron/bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Orbitron";
+  src: url("/assets/fonts/orbitron/extra-bold.woff2") format("woff2"),
+    url("/assets/fonts/orbitron/extra-bold.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Orbitron";
+  src: url("/assets/fonts/orbitron/black.woff2") format("woff2"),
+    url("/assets/fonts/orbitron/black.woff") format("woff");
+  font-weight: 900;
   font-style: normal;
 }
 
@@ -18,7 +58,6 @@
   font-family: "Montserrat";
   src: url("/assets/fonts/montserrat/extra-light.woff2") format("woff2"),
     url("/assets/fonts/montserrat/extra-light.woff") format("woff");
-  font-weight: 200;
   font-style: normal;
 }
 
@@ -74,6 +113,22 @@
   font-family: "Montserrat";
   src: url("/assets/fonts/montserrat/black.woff2") format("woff2"),
     url("/assets/fonts/montserrat/black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lato-Bold";
+  src: url("/assets/fonts/lato/bold.woff2") format("woff2"),
+    url("/assets/fonts/lato/bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lato-Black";
+  src: url("/assets/fonts/lato/black.woff2") format("woff2"),
+    url("/assets/fonts/lato/black.woff") format("woff");
   font-weight: 900;
   font-style: normal;
 }

@@ -1,36 +1,57 @@
 @import "includes";
-
 section.mechanics {
+  @include paddingsInside(0px, 20px);
+  padding-top: 200px;
+
   > .inner {
     @extend %max-width-center;
-    margin-top: -250px;
   }
 }
 
 .stats {
-  min-width: 300px;
-  margin-right: 150px;
+  width: 100%;
+  max-width: 270px;
+  margin-right: 20px;
 
   div > p {
-    font-size: 30px;
-
     &:first-child {
-      color: $primary;
-      margin-bottom: 50px;
+      margin-bottom: 20px;
       font-size: 12px;
     }
   }
 }
 
-.buy-info .futuristic-container {
-  border-top: 1px solid $primary;
+.info {
+  width: 100%;
+  max-width: 770px;
+}
 
-  p {
-    width: 80%;
+.info .futuristic-container {
+  border-top: 1px solid $primary;
+  > p {
+    max-width: 570px;
+    width: 100%;
   }
 }
 
 .explanation {
   line-height: 30px;
-  font-weight: 200;
+}
+
+@media only screen and (max-width: $md) {
+  section.mechanics {
+    padding-top: 100px;
+    margin-bottom: 50px;
+    > .inner > div {
+      flex-direction: column;
+    }
+  }
+  .stats {
+    margin-right: 0;
+    max-width: initial;
+  }
+  .info .futuristic-container {
+    border-top: 0;
+    padding-right: 0;
+  }
 }

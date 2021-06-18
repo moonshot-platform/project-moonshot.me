@@ -1,0 +1,107 @@
+@import "includes";
+
+section.tokenomics {
+  padding: 22px 60px 0px;
+  box-sizing: border-box;
+  background: $primary;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  max-width: 700px;
+  z-index: 12000;
+  margin-right: 64px;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: auto;
+  border-right: 1px solid black;
+
+  .inner {
+    @extend %max-width-center;
+
+    border-radius: 160px;
+  }
+}
+
+.close {
+  display: block;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  cursor: pointer;
+}
+
+p {
+  color: black;
+  line-break: anywhere;
+}
+
+.my-3 {
+  margin: 1rem 0;
+}
+.deeper {
+  @include paddings(60px, 0px);
+  align-items: flex-start;
+
+  li p {
+    margin-bottom: 1rem;
+  }
+  .right div {
+    padding-left: 20px;
+  }
+  .left div {
+    padding-right: 20px;
+  }
+
+  .left,
+  .right {
+    flex: 1;
+  }
+  .right {
+    border-left: 2px solid #7e6328;
+  }
+}
+
+.invisible-md {
+  min-height: 15px;
+}
+li {
+  border-bottom: 1px solid black;
+  margin-bottom: 1rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@media only screen and (max-width: $md) {
+  section.tokenomics {
+    width: 100%;
+    margin-right: 0;
+    padding: 30px 20px 0px;
+  }
+
+  .deeper {
+    flex-direction: column;
+    padding-bottom: 0;
+
+    .left {
+      li:last-child {
+        border-bottom: 1px solid black;
+        margin-bottom: 1rem;
+      }
+    }
+
+    .right {
+      border-left: 0;
+      li:last-child {
+        border-bottom: 0;
+      }
+    }
+
+    .left,
+    .right {
+      width: 100%;
+    }
+  }
+}

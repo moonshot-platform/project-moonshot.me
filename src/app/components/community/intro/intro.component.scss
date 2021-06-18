@@ -1,0 +1,92 @@
+@import "includes";
+
+section.intro {
+  padding: 148px 20px 0;
+  box-sizing: border-box;
+  min-height: 100vh;
+  position: relative;
+  background: url("/assets/media/images/moon-community.png") top no-repeat;
+
+  .inner {
+    @extend %max-width-center;
+  }
+}
+
+.stats {
+  width: 100%;
+  max-width: 270px;
+  margin-right: 20px;
+  visibility: hidden;
+
+  div {
+    &:first-child {
+      margin-bottom: 40px;
+    }
+
+    p {
+      color: $secondary;
+      font-size: 25px;
+      font-weight: bold;
+
+      &:first-child {
+        color: $primary;
+        margin-bottom: 50px;
+        font-size: 12px;
+        font-weight: normal;
+      }
+    }
+  }
+}
+
+.info {
+  width: 100%;
+  max-width: 770px;
+  color: $primary;
+
+  .top {
+    max-width: 570px;
+    width: 100%;
+  }
+
+  .bottom {
+    border-top: 1px solid $primary;
+
+    div:first-child > p {
+      line-height: 30px;
+    }
+  }
+}
+
+@media only screen and (max-width: $md) {
+  section.intro {
+    padding-top: 120px;
+    background-size: 190%;
+
+    > .inner {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 0;
+    }
+  }
+
+  .stats {
+    display: none;
+  }
+
+  .info {
+    .top > p {
+      font-size: 27px;
+    }
+
+    .bottom {
+      border-top: 1px solid $primary;
+
+      div:first-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $sm) {
+}

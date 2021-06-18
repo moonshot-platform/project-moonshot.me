@@ -1,0 +1,113 @@
+@import "includes";
+
+section.moonticket {
+  @include paddingsInside(0px, 20px);
+  padding-top: 200px;
+
+  background: url("/assets/media/images/galaxy03_homepage.png") no-repeat right;
+
+  > .inner {
+    @extend %max-width-center;
+  }
+  div > img {
+    width: 100%;
+    padding-top: 80px;
+  }
+}
+
+.stats {
+  width: 100%;
+  max-width: 270px;
+  margin-right: 20px;
+
+  div > p {
+    &:first-child {
+      color: $primary;
+      margin-bottom: 20px;
+      font-size: 12px;
+    }
+  }
+}
+
+.ticket-input-container {
+  width: 100%;
+  max-width: 770px;
+}
+
+.ticket-input-container .futuristic-container {
+  border-top: 1px solid $primary;
+  padding-top: 100px;
+
+  div {
+    border: 0;
+    p {
+      color: $primary;
+      font-weight: bold;
+    }
+  }
+}
+
+.name-input {
+  width: 80%;
+  font-size: 20px;
+  background: transparent;
+  color: $primary;
+  border: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid $primary;
+}
+
+.ticket-section {
+  box-shadow: 0 0 20px 2px #4a4a4ad1;
+  overflow: hidden;
+}
+
+.explanation {
+  line-height: 30px;
+}
+
+.ticket-canvas {
+  @extend %max-width-center;
+}
+
+@media only screen and (max-width: $md) {
+  section.moonticket {
+    padding-top: 100px;
+  }
+
+  .stats {
+    margin-right: 0;
+    max-width: initial;
+  }
+
+  .main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ticket-input-container.futuristic-container {
+    width: 100%;
+
+    button {
+      width: 100%;
+      margin-top: 40px;
+    }
+  }
+
+  .name-input {
+    width: 100%;
+  }
+
+  .download-button {
+    width: 100%;
+    margin-top: 50px;
+  }
+
+  .ticket-section {
+    margin-top: 0;
+  }
+
+  form {
+    flex-direction: column;
+  }
+}

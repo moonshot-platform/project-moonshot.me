@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LandingComponent } from './components/landing/landing.component';
 import { AboutComponent } from './components/about/about.component';
+import { CommunityComponent } from './components/community/community.component';
 
 const routes: Routes = [
   {
@@ -12,11 +13,18 @@ const routes: Routes = [
     path: AboutComponent.routeName,
     component: AboutComponent
   },
+  {
+    path: CommunityComponent.routeName,
+    component: CommunityComponent
+  },
   { path: '**', redirectTo: LandingComponent.routeName }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    scrollPositionRestoration: 'top',
+    useHash: false
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

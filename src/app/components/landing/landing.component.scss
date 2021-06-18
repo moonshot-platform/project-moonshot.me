@@ -1,28 +1,47 @@
 @import "includes";
 
-#particles {
-  height: $full;
-  width: $full;
-  background-color: #030018;
-
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 1;
-
-  &:before {
-    content: "";
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-  }
-}
-
 section.landing {
   z-index: 2;
   position: relative;
+
+  .rocket-bg,
+  .moon-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+
+  .moon-bg {
+    background: url("/assets/media/images/moon-shadow.png") top right no-repeat;
+    background-size: 59%;
+  }
+
+  .rocket-bg {
+    background: url("/assets/media/images/illustration_1.png") 0 90vh no-repeat;
+    background-size: 46%;
+  }
+
+  .milkyway-bg > img {
+    height: 100%;
+    width: 100%;
+  }
+
+  .galaxy2-bg > img {
+    height: 100%;
+    width: 70%;
+    transform: translate(35%, -120%);
+  }
+
+  .galaxy3-bg > img {
+    height: 50%;
+    width: 50%;
+    transform: translate(80%, -60%);
+  }
 
   > .inner {
     position: relative;
@@ -33,4 +52,26 @@ section.landing {
 app-header {
   display: block;
   width: calc(100% - 64px);
+}
+
+@media only screen and (max-width: $md) {
+  section.landing {
+    > .inner {
+      width: 100%;
+    }
+
+    .rocket-bg,
+    .milkyway-bg {
+      background: none;
+    }
+  }
+}
+
+@media only screen and (max-width: $sm) {
+  section.landing {
+    .moon-bg {
+      background-position-x: left;
+      background-size: 130%;
+    }
+  }
 }
