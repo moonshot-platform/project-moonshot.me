@@ -14,41 +14,120 @@ export class RoadmapComponent implements OnInit {
 
   items: CarouselItem[] = [
     {
-        title: 'Q2 2021',
-        span: ' - ongoing',
-        description: 'Marketing; Build social media presence',
-        icon: Icon.ONGOING
+        title: 'Q1 2021',
+        span: ' - done',
+        description: 'Moonshot initiated',
+        icon: Icon.ACCOMPLISHED,
+    },
+    {
+        title: 'Q1 2021',
+        span: ' - done',
+        description: 'Building social media presence',
+        icon: Icon.ACCOMPLISHED,
+    },
+    {
+        title: 'Q1 2021',
+        span: ' - done',
+        description: 'Presale',
+        icon: Icon.ACCOMPLISHED,
+    },
+    {
+        title: 'Q1 2021',
+        span: ' - done',
+        description: 'Listed at PanceSwap',
+        icon: Icon.ACCOMPLISHED,
+    },
+    {
+        title: 'Q1 2021',
+        span: ' - done',
+        description: '31% of the total supply burned after lunch',
+        icon: Icon.ACCOMPLISHED
+    },
+    {
+        title: 'Q1 2021',
+        span: ' - done',
+        description: 'Delta listing',
+        icon: Icon.ACCOMPLISHED
+    },
+    {
+        title: 'Q1 2021',
+        span: ' - done',
+        description: 'Blockfolio listing',
+        icon: Icon.ACCOMPLISHED
+    },
+    {
+        title: 'Q1 2021',
+        span: ' - done',
+        description: 'Coinmarketcap tracking',
+        icon: Icon.ACCOMPLISHED
+    },
+    {
+        title: 'Q1 2021',
+        span: ' - done',
+        description: 'Manual burning of tokens',
+        icon: Icon.ACCOMPLISHED
     },
     {
         title: 'Q2 2021',
+        span: ' - done',
+        description: 'Listed at P2PB2B exchange',
+        icon: Icon.ACCOMPLISHED
+    },
+    {
+        title: 'Q2 2021',
+        span: ' - done',
+        description: 'Listed at BitMart exchange',
+        icon: Icon.ACCOMPLISHED
+    },
+    {
+        title: 'Q2 2021',
+        span: ' - done',
+        description: 'Merchandise store at TeePublic',
+        icon: Icon.ACCOMPLISHED
+    },
+    {
+        title: 'Q2 2021',
+        span: ' - done',
+        description: 'Coingecko tracking',
+        icon: Icon.ACCOMPLISHED
+    },
+    {
+        title: 'Q2 2021',
+        span: ' - done',
+        description: 'Listed at Hotbit exchange',
+        icon: Icon.ACCOMPLISHED
+    },
+    {
+        title: 'Q2 2021',
+        span: ' - done',
+        description: 'New website launch',
+        icon: Icon.ACCOMPLISHED
+    },
+    {
+        title: 'Q2 2021',
         span: ' - ongoing',
-        description: 'Listing at HotBit.io',
+        description: 'Conceptual Storyboard for MoonShooters series created (MoonBoxes)',
         icon: Icon.ONGOING
     },
     {
-        title: 'Q3 2021',
+        title: 'Q2 2021',
         span: ' - ongoing',
-        description: 'Moonboxes',
-        icon: Icon.ONGOING
+        description: 'Conceptual Artwork for 1,000 NFTs created (MoonBoxes)',
+        icon: Icon.UPCOMING
     },
     {
-        title: 'Q3 2021',
+        title: 'Q2 2021',
         span: ' - ongoing',
-        description: 'Moonarcade',
-        icon: Icon.ONGOING
-    },
-    {
-        title: 'Q3 2021',
-        span: '',
-        description: 'Lottery Pools',
+        description: 'LATOKEN exchange listing',
         icon: Icon.UPCOMING
     },
     {
         title: 'Q3 2021',
         span: '',
-        description: 'Blockchain Gamification, Highscore rankings and Price Pools ',
+        description: 'MoonBoxes',
         icon: Icon.UPCOMING
     },
+    
     {
         title: 'Q3 2021',
         span: '',
@@ -56,16 +135,16 @@ export class RoadmapComponent implements OnInit {
         icon: Icon.UPCOMING
     },
     {
-        title: 'Q4 2021',
-        span: ' — ongoing',
-        description: 'Lotteries',
-        icon: Icon.ONGOING
+        title: 'Q3 2021',
+        span: '',
+        description: 'Arcade style games',
+        icon: Icon.UPCOMING
     },
     {
         title: 'Q4 2021',
-        span: ' — ongoing',
-        description: 'Further development',
-        icon: Icon.ONGOING
+        span: '',
+        description: 'Lottery Pools',
+        icon: Icon.UPCOMING
     },
   ]
 
