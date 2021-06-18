@@ -24,7 +24,19 @@ export class CommunityComponent {
       this.meta.addTags([
         {name: 'description', content: 'The endless energy and creativity of our community and the desire to help each other to reach project milestones is our biggest strength and motivator. Join the #MoonSquad and be part of the Moonshot community'},
         {name: 'author', content: 'moonshot'},
-        {name: 'keywords', content: 'Moonshot, Moonshot Community, MoonTV, MoonTicket, MoonGallery, moonshot, moonshot community, moontv, moongallery, moonticket, moon tv, moon gallery, moon ticket'}
+        //{name: 'keywords', content: 'Moonshot, Moonshot Community, MoonTV, MoonTicket, MoonGallery, moonshot, moonshot community, moontv, moongallery, moonticket, moon tv, moon gallery, moon ticket'}
+        {name:'twitter:card', content:'summary'},
+        {name:'twitter:description', content:'Watch MoonTV - Zap to your favourite channel and watch some Moonshot crypto'},
+        {name:'twitter:title', content:'MoonTV'},
+        {name:'twitter:image', content:'https://project-moonshot.me/img/moonshot-logo.png'},
+        {name:'twitter:site', content:'@RS25Moonshot'},
+
+        {property:'og:title', content:'Project Moonshot'},
+        {property:'og:site_name', content:'Moonshot'},
+        {property:'og:description', content:'MoonTV - Zap to your favourite channel'},
+        {property:'og:image', content:'https://project-moonshot.me/img/moonshot-logo.png'},     
+
+     
       ]);
       this.setTitle('Moonshot Comunity');
     }
