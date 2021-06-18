@@ -8,6 +8,7 @@ import { TokenomicsToggleService } from 'src/app/services/tokenomics-toggle.serv
 })
 export class TokenomicsComponent implements OnInit {
 
+  
   public list: any = [
     [
       {
@@ -34,17 +35,17 @@ export class TokenomicsComponent implements OnInit {
       },
       {
         key: "market cap:",
-        val: "$6,088,156",
+        val: "$"+"6,088,156".substring(0,13),
         shortVal: ""
       },
       {
         key: "price for 1 million moonshot:",
-        val: "$0.010208506798924172",
+        val: "$"+"0.010208506798924172".substring(0,13),
         shortVal: ""
       },
       {
         key: "price for 1 moonshot:",
-        val: "$0.000000010208234217472335",
+        val: "$"+"0.000000010208234217472335".substring(0,13),
         shortVal: ""
       }
     ]
