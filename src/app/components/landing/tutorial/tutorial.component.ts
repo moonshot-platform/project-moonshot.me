@@ -9,6 +9,8 @@ export class TutorialComponent implements OnInit {
 
   visibleStep = 1;
 
+  address = '0xd27d3f7f329d93d897612e413f207a4dbe8bf799';
+
   steps: any = [
     {
       indicator: 'Counting down'
@@ -32,6 +34,10 @@ export class TutorialComponent implements OnInit {
     {
       title: 'Set slippage to 11%',
       description: 'Click on the gear button and set slippage to 11% (the slippage covers the 10% explained in tokenomics). If that gives you an error, increase the slippage to 12% or more.',
+    },
+    {
+      title: 'Swap BNB for Moonshot',
+      description: 'The first time you trade Moonshot, you have to click "Approve".  After a short moment, the SWAP button becomes available and you can swap your BNB for Moonshot.',
     },
     {
       title: 'View Moonshot in your wallet',

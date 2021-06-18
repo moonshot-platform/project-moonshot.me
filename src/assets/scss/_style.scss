@@ -61,6 +61,10 @@ ul {
   display: none;
 }
 
+.desktop-only {
+  display: flex;
+}
+
 .mt10 {
   margin-top: 10px;
 }
@@ -685,5 +689,9 @@ ul {
 @media only screen and (max-width: $md) {
   .mobile-only {
     display: flex;
+  }
+
+  .desktop-only {
+    display: none;
   }
 }

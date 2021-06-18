@@ -40,6 +40,7 @@ nav {
   width: 100%;
   max-width: 270px;
   margin-right: 20px;
+  cursor: pointer;
 
   a {
     text-decoration: none;
@@ -160,6 +161,7 @@ nav {
       overflow: scroll;
       height: fit-content;
       display: block;
+      max-width: initial;
 
       > li {
         margin: 0;
