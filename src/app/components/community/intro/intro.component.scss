@@ -1,7 +1,7 @@
 @import "includes";
 
 section.intro {
-  padding-top: 148px;
+  padding: 148px 20px 0;
   box-sizing: border-box;
   min-height: 100vh;
   position: relative;
@@ -9,7 +9,6 @@ section.intro {
 
   .inner {
     @extend %max-width-center;
-    @include paddingsInside(0px, 20px);
   }
 }
 
@@ -17,6 +16,7 @@ section.intro {
   width: 100%;
   max-width: 270px;
   margin-right: 20px;
+  visibility: hidden;
 
   div {
     &:first-child {
