@@ -10,8 +10,11 @@ export class IntroComponent implements OnInit, OnDestroy {
 
   countDown: string = '29 March 2021 6:00:00 UTC';
   interval: any;
+  priceForOneMillion : string;
 
-  constructor() {}
+  constructor() {
+    this.priceForOneMillion = '0.010208506798924172'.substring(0,13);
+  }
 
   ngOnDestroy(): void {
     clearInterval(this.interval);
