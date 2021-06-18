@@ -1,3 +1,45 @@
 <footer>
-    <div class="inner"></div>
+    <div class="inner pv100 flex">
+        <div class="left flex flex1">
+            <div class="main-box">
+                <p>Main</p>
+                <ul class="mt30">
+                    <li class="mb20"><p (click)="scrollToElement('', 'how-to-buy')">How to buy</p></li>
+                    <li class="mb20"><a href="/assets/files/moonpaper.pdf" target="_blank">MoonPaper</a></li>
+                    <li class="mb20"><p (click)="toggleTokenomics()">Tokenomics</p></li>
+                    <li><p (click)="scrollToElement('/about', 'about-page')">About Moonshot</p></li>
+                </ul>
+            </div>
+            <div class="community-box">
+                <p>Community</p>
+                <ul class="mt30">
+                    <li class="mb20"><p (click)="scrollToElement('/community', 'moon-tv')">MoonTV</p></li>
+                    <li class="mb20"><p (click)="scrollToElement('/community', 'merchandise')">Fuel the rocket</p></li>
+                    <li class="mb20"><p  (click)="scrollToElement('/community', 'merchandise')">Merchandise</p></li>
+                    <li class="mb20"><p  (click)="scrollToElement('/community', 'moon-ticket')">MoonTicket</p></li>
+                    <li><p  (click)="scrollToElement('/community', 'gallery')">MoonGallery</p></li>
+                </ul>
+            </div>
+            <!-- <div class="moonbase-box">
+                <p>MoonBase</p>
+                <ul class="mt30">
+                    <li class="mb20"><a href="#">MoonBoxes</a></li>
+                    <li class="mb20"><a href="#">MoonLottery</a></li>
+                    <li class="mb20"><a href="#">MoonArcade</a></li>
+                </ul>
+            </div> -->
+        </div>
+        <div class="right flex1 flex-col-align-end">
+            <div class="social-icon-links">
+                <p>Links</p>
+                <ul class="mt30">
+                    <li *ngFor="let item of icons">
+                        <a target="_blank" class="icon" href="{{item.link}}">
+                            <img src="assets/media/icons/social/{{item.icon}}" alt="{{item.alt}}">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </footer>

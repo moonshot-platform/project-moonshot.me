@@ -1,9 +1,37 @@
 @import "includes";
 
 section.tutorial {
+  @include paddingsInside(100px, 20px);
+  padding-top: 200px;
+
+  position: relative;
+  z-index: 2;
+
   > .inner {
     @extend %max-width-center;
-    @include paddingsInside(70px, 20px);
+  }
+}
+
+.address-container li {
+  padding: 10px 20px;
+  box-sizing: border-box;
+  border-bottom: 1px solid $primary;
+  cursor: pointer;
+
+  > p {
+    line-break: anywhere;
+  }
+
+  &:hover {
+    > p {
+      color: white;
+    }
+  }
+
+  &:active {
+    > p {
+      color: $primary;
+    }
   }
 }
 
@@ -16,12 +44,14 @@ section.tutorial {
     cursor: cell;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
 
     p {
       color: $primary !important;
     }
 
-    &:hover {
+    &:hover:not(:first-child, :last-child) {
       .indicator > .point {
         .line:first-child {
           height: 3px;
@@ -57,11 +87,6 @@ section.tutorial {
       flex: 2;
       align-items: center;
       justify-content: flex-start;
-      min-width: 465px;
-
-      .title {
-        font-size: 24px;
-      }
 
       > .step {
         width: 70px;
@@ -83,14 +108,14 @@ section.tutorial {
 
     .indicator {
       width: 230px;
-      height: 170px;
+      min-height: 180px;
       display: flex;
       align-items: center;
       flex-direction: column;
 
       > .line {
         width: 2px;
-        height: 70px;
+        height: 100%;
         background-color: $primary;
       }
 
@@ -118,11 +143,92 @@ section.tutorial {
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      min-width: 465px;
 
       > .description {
         line-height: 30px;
-        font-weight: 200;
+
+        > span {
+          line-break: anywhere;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $md) {
+  section.tutorial {
+    padding-top: 100px;
+  }
+
+  .buttons-container,
+  .address-container,
+  .quick-buy-container {
+    flex-direction: column;
+
+    ul {
+      flex-direction: column;
+    }
+
+    p,
+    a,
+    ul,
+    li {
+      margin-right: 0;
+      width: 100%;
+    }
+  }
+
+  .address-container {
+    li {
+      padding: 20px;
+      p {
+        text-align: center;
+      }
+    }
+  }
+
+  .buttons-container,
+  .quick-buy-container {
+    li {
+      margin-top: 20px;
+    }
+  }
+
+  .how-to-buy-flow {
+    li {
+      flex-direction: column;
+      margin-bottom: 20px;
+
+      &:first-child,
+      &:last-child {
+        display: none;
+      }
+
+      .left,
+      .right {
+        min-width: auto;
+      }
+
+      .left {
+        .step {
+          height: 50px;
+          width: 50px;
+          min-width: 50px;
+        }
+      }
+
+      .right > .description {
+        margin-top: 20px;
+        padding-left: 82px;
+        display: none;
+
+        &.visible {
+          display: block;
+        }
+      }
+
+      .indicator {
+        display: none;
       }
     }
   }

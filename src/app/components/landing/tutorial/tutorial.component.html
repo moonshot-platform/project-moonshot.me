@@ -1,18 +1,25 @@
-<section class="tutorial mt200">
+<section class="tutorial">
     <div class="inner">
         <div class="header text-center mb50">
             <div class="title color-primary mb20">7 EASY STEPS</div>
-            <div class="sub-title color-white p40">How to buy Moonshot!</div>
+            <div class="sub-title color-white p30d24m orbitron">How to buy Moonshot!</div>
         </div>
-        <div class="buttons-container flex align-center mb100">
-            <p class="color-primary mr30">Buy on:</p>
-            <a class="outlined-button mr30">Pancakeswap</a>
-            <a class="outlined-button mr30">BitMart</a>
-            <a class="outlined-button mr30">P2PB2B</a>
-            <a class="outlined-button mr30">HotBit</a>
+        <div class="quick-buy-container flex-center mv70">
+            <p class="color-primary mr30 p18 bold">Quickest way to buy:</p>
+            <ul class="flex">
+                <li><a href="https://exchange.pancakeswap.finance/#/swap?inputCurrency=0xd27D3F7f329D93d897612E413F207A4dbe8bF799" target="_blank" class="outlined-button mr30">Pancakeswap</a></li>
+            </ul>
+        </div>
+        <div class="address-container flex-center mv70">
+            <p class="color-primary mr30 p18 bold">Token address:</p>
+            <ul class="flex">
+                <li>
+                    <p class="clipboard color-primary" [cdkCopyToClipboard]=address>0xd27d3f7f329d93d897612e413f207a4dbe8bf799</p>
+                </li>
+            </ul>
         </div>
         <ul class="how-to-buy-flow">
-            <li *ngFor="let step of steps; let i = index">
+            <li *ngFor="let step of steps; let i = index" (click)="visibleStep == i ? visibleStep = -1 : visibleStep = i">
                 <ng-container *ngIf="i == 0 || i == steps.length - 1; then link else chain"></ng-container>
                 
                 <!-- link = start & end -->
@@ -26,7 +33,7 @@
                         <div class="step">
                             <p>{{ i }}</p>
                         </div>
-                        <div class="title">
+                        <div class="title p24d18m">
                             <p>{{ step.title }}</p>
                         </div>
                     </div>
@@ -40,10 +47,18 @@
                         <div class="line"></div>
                     </div>
                     <div class="right">
-                        <p class="description">{{ step.description }}</p>
+                        <p class="description p16d14m" [class.visible]="visibleStep === i">{{ step.description }}<span>{{ step.span }}</span></p>
                     </div>
                 </ng-template>
             </li>
         </ul>
+        <div class="buttons-container flex-center mt70">
+            <p class="color-primary mr30 p18 bold">Also traded on:</p>
+            <ul class="flex">
+                <li><a href="https://www.bitmart.com/trade/en?symbol=MOONSHOT_USDT" target="_blank" class="outlined-button mr30">BitMart</a></li>
+                <li><a href="https://p2pb2b.io/trade/MNSHT_USDT/" target="_blank" class="outlined-button mr30">P2PB2B</a></li>
+                <li><a href="https://www.hotbit.io/exchange?symbol=MOONSHOT_USDT" target="_blank" class="outlined-button">HotBit</a></li>
+            </ul>
+        </div>
     </div>
 </section>

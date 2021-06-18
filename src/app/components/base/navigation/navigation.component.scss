@@ -1,0 +1,240 @@
+@import "includes";
+
+section.navigation {
+  @include paddingsInside(20px, 15px);
+
+  box-shadow: 0 4px 12px 0 #00000000;
+  box-sizing: border-box;
+  position: fixed;
+  width: calc(100% - #{$sidebar-width});
+  left: 0;
+  top: 0;
+  right: $sidebar-width;
+  z-index: 1000;
+  display: flex;
+  transition: 200ms all ease-in-out;
+
+  &.withBG {
+    background-color: rgba($color: #0c0c0c, $alpha: 0.9);
+    justify-content: center;
+
+    .logo {
+      height: toRem(32px);
+    }
+
+    .logo-container {
+      border-top: 0;
+      padding-top: 0;
+    }
+  }
+}
+
+nav {
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.logo-container {
+  border-top: 6px solid $primary;
+  padding-top: toRem(14px);
+  width: 100%;
+  max-width: 270px;
+  margin-right: 20px;
+  cursor: pointer;
+
+  a {
+    text-decoration: none;
+  }
+
+  .logo {
+    height: toRem(88px);
+    margin-right: 10px;
+  }
+
+  p {
+    font-size: 25px;
+    font-weight: $semi-bold;
+    font-family: $secondary-font;
+    color: white;
+
+    > span {
+      color: $primary;
+      font-weight: $regular;
+    }
+  }
+}
+
+.inner {
+  @extend %max-width-center;
+  align-items: initial;
+
+  nav > ul > li {
+    border-top: 3px solid $primary;
+    margin: 0 toEm(12.5px);
+    width: 25%;
+
+    &.active {
+      border-top-width: 6px;
+    }
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  ul.fragments {
+    display: none;
+    border-bottom: 1px solid $primary;
+    padding-bottom: 14px;
+
+    > li > p {
+      font-weight: $medium;
+    }
+  }
+
+  ul {
+    display: flex;
+    width: inherit;
+    justify-content: flex-end;
+    width: 100%;
+    max-width: 770px;
+
+    li {
+      padding-top: 14px;
+
+      a,
+      p {
+        color: $primary;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 15px;
+        cursor: pointer;
+
+        &:hover {
+          color: $white;
+        }
+      }
+    }
+  }
+
+  .mob-menu {
+    display: none;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    transition: 0.1s;
+    cursor: pointer;
+  }
+}
+
+@media only screen and (max-width: $md) {
+  section.navigation {
+    width: 100%;
+
+    &:hover {
+      background-color: transparent;
+
+      ul.fragments {
+        display: flex;
+      }
+    }
+
+    &.withBG {
+      background-color: rgba($color: #0c0c0c, $alpha: 0.9);
+    }
+  }
+
+  .mobile-only {
+    display: block;
+  }
+
+  .inner > nav {
+    display: none;
+    overflow: scroll;
+    background: rgba(12, 12, 12, 0.9);
+
+    > ul {
+      overflow: scroll;
+      height: fit-content;
+      display: block;
+      max-width: initial;
+
+      > li {
+        margin: 0;
+        width: 100%;
+
+        > ul.fragments {
+          border-bottom-width: 0;
+
+          li {
+            padding-top: 0;
+            p {
+              padding: 10px 0;
+            }
+          }
+        }
+      }
+    }
+
+    &.show {
+      position: fixed;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+
+      > .mob-menu {
+        display: block;
+        position: absolute;
+        right: 15px;
+        top: 15px;
+      }
+
+      > ul {
+        width: 100%;
+        margin-left: 0;
+        display: flex;
+        flex-direction: column;
+        background-color: transparent;
+        padding: 20px;
+        box-sizing: border-box;
+
+        > li {
+          width: 100%;
+          margin: 0;
+          padding: 0;
+
+          &:first-child {
+            border-top: 0;
+          }
+
+          > a,
+          > p {
+            padding: 20px 0;
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
+  .logo-container {
+    max-width: 211px;
+    .logo {
+      height: toRem(60px);
+    }
+
+    p {
+      font-size: 20px;
+    }
+  }
+
+  .inner > img.mob-menu {
+    display: block;
+  }
+}

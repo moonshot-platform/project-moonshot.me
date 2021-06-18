@@ -1,0 +1,12 @@
+<section class="sidebar">
+    <!-- <div class="block flex-center">
+        <img src="assets/media/icons/wallet.svg" alt="wallet">
+    </div> -->
+    <ul>
+        <li><p (click)="toggleTokenomicsView()">Tokenomics</p></li>
+    </ul>
+</section>
+
+<section class="tokenomics" *ngIf="active">
+    <app-tokenomics></app-tokenomics>
+</section>

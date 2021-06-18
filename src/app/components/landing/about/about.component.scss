@@ -2,15 +2,19 @@
 
 section.about {
   position: relative;
+  padding: 20px;
+  margin-bottom: 100px;
+
   .inner {
     @extend %max-width-center;
-    margin-bottom: 200px;
     align-items: flex-end;
   }
 }
 
 .stats {
-  min-width: 300px;
+  width: 100%;
+  max-width: 75rem;
+  min-width: 270px;
   margin-right: 100px;
 
   div {
@@ -20,7 +24,7 @@ section.about {
 
       &:first-child {
         color: $primary;
-        line-height: 25px;
+        margin-bottom: 20px;
         font-size: 16px;
       }
     }
@@ -28,7 +32,7 @@ section.about {
 }
 
 .stats-btn {
-  min-width: 30px;
+  min-width: 200px;
   padding-left: 30px;
 
   .futuristic-container > div {
@@ -36,50 +40,66 @@ section.about {
   }
 }
 
-.circles {
+ul.circles {
   color: $primary;
+  display: flex;
+  flex-wrap: wrap;
 
-  .bottom > div:first-child > p {
-    line-height: 30px;
-    font-weight: 200;
+  > li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    margin-bottom: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+
+    > div {
+      width: 100%;
+
+      img {
+        width: 60%;
+      }
+    }
+
+    > p {
+      text-align: center;
+      margin-top: 20px;
+    }
   }
 }
 
-.btn-group {
-  width: 100%;
+@media only screen and (max-width: $md) {
+  section.about {
+    > .inner {
+      flex-direction: column;
 
-  div {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+      > .stats {
+        margin-right: 0;
+
+        > div:nth-child(2) {
+          border-bottom: 0;
+        }
+      }
+
+      .stats-btn {
+        margin-top: 10px;
+        margin-bottom: 0;
+        width: 100%;
+
+        > .futuristic-container {
+          border-top-width: 1px;
+
+          > a {
+            float: right;
+          }
+        }
+      }
+    }
   }
 
-  div > div {
-    margin: 10px;
-    align-items: center;
-    img {
-      width: 120px;
-    }
-    p {
-      color: #d7b13e;
-      font-size: 18px;
-    }
-  }
-
-  .round-xlarge-button {
-    box-sizing: border-box;
-    display: inline-block;
-    border: 1px solid #d7b13e;
-    border-radius: 130px;
-    color: white;
-    font-weight: 600;
-    cursor: pointer;
-    text-align: center;
-    width: 260px;
-    height: 260px;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+  ul.circles > li > div {
+    max-width: 200px;
   }
 }
 

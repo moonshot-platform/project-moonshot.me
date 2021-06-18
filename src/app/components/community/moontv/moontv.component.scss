@@ -1,0 +1,101 @@
+@import "includes";
+
+section.moontv {
+  @include paddingsInside(0px, 20px);
+  padding-top: 200px;
+
+  background: url("/assets/media/images/galaxy02_homepage.png") no-repeat left;
+  > .inner {
+    @extend %max-width-center;
+  }
+}
+
+.stats {
+  width: 100%;
+  max-width: 270px;
+  margin-right: 20px;
+
+  div > p {
+    font-weight: bold;
+
+    &:first-child {
+      color: $primary;
+      margin-bottom: 20px;
+      font-size: 12px;
+      font-weight: normal;
+    }
+  }
+  div.desc > p {
+    font-size: 16px;
+    font-weight: normal;
+  }
+  .more {
+    width: 80%;
+    text-align: center;
+    padding-top: 20px;
+  }
+}
+
+.buy-info {
+  width: 100%;
+  max-width: 770px;
+
+  .futuristic-container {
+    border-top: 1px solid $primary;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    border: 0;
+
+    p {
+      width: 80%;
+    }
+
+    .video {
+      width: 45%;
+      padding: 10px;
+      min-width: 300px;
+    }
+  }
+}
+
+.explanation {
+  line-height: 30px;
+}
+
+@media only screen and (max-width: $md) {
+  section.moontv {
+    padding-top: 100px;
+  }
+
+  .main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stats {
+    margin-right: 0;
+    max-width: initial;
+
+    > .more {
+      display: none;
+    }
+  }
+
+  .buy-info > .futuristic-container > .video {
+    width: 100%;
+    padding: 10px 0;
+    min-width: initial;
+
+    > iframe {
+      width: 100%;
+      box-sizing: border-box;
+    }
+  }
+
+  .more.mobile-only {
+    border-top: 1px solid;
+    padding: 20px 0;
+    justify-content: flex-end;
+  }
+}

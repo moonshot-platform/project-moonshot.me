@@ -21,10 +21,28 @@ body {
   color: $font-color-base;
 }
 
+.orbitron {
+  font-family: $secondary-font;
+  font-weight: $black;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
 ul {
   padding-left: 0;
   list-style-type: none;
   margin: 0;
+}
+
+.lh30 {
+  line-height: 30px;
+}
+
+.bold {
+  font-weight: $bold;
 }
 
 .logo-small {
@@ -43,6 +61,14 @@ ul {
   color: $primary;
 }
 
+.mobile-only {
+  display: none !important;
+}
+
+.desktop-only {
+  display: flex !important;
+}
+
 .mt10 {
   margin-top: 10px;
 }
@@ -58,11 +84,20 @@ ul {
 .mt50 {
   margin-top: 50px;
 }
+.mt70 {
+  margin-top: 70px;
+}
 .mt100 {
   margin-top: 100px;
 }
 .mt200 {
   margin-top: 200px;
+}
+.mt300 {
+  margin-top: 300px;
+}
+.mt400 {
+  margin-top: 400px;
 }
 .mr10 {
   margin-right: 10px;
@@ -100,6 +135,9 @@ ul {
 .mb100 {
   margin-bottom: 100px;
 }
+.mb150 {
+  margin-bottom: 150px;
+}
 .ml10 {
   margin-left: 10px;
 }
@@ -117,6 +155,22 @@ ul {
 }
 .ml100 {
   margin-left: 100px;
+}
+
+.mv70 {
+  margin: 70px 0;
+}
+
+.mv30 {
+  margin: 30px 0;
+}
+
+.mv100 {
+  margin: 100px 0;
+}
+
+.mv200 {
+  margin: 200px 0;
 }
 
 .pa10 {
@@ -175,6 +229,12 @@ ul {
 .pv100 {
   @include paddingsInside(100px, 0px);
 }
+.pv180 {
+  @include paddingsInside(180px, 0px);
+}
+.pv200 {
+  @include paddingsInside(200px, 0px);
+}
 
 .pt10 {
   padding-top: 10px;
@@ -198,6 +258,14 @@ ul {
 }
 .pt100 {
   padding-top: 100px;
+  box-sizing: border-box;
+}
+.pt150 {
+  padding-top: 150px;
+  box-sizing: border-box;
+}
+.pt200 {
+  padding-top: 200px;
   box-sizing: border-box;
 }
 .pr10 {
@@ -246,6 +314,10 @@ ul {
 }
 .pb100 {
   padding-bottom: 100px;
+  box-sizing: border-box;
+}
+.pb200 {
+  padding-bottom: 200px;
   box-sizing: border-box;
 }
 .pl10 {
@@ -316,6 +388,11 @@ ul {
   align-items: center;
 }
 
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
 .flex-col-align-end {
   display: flex;
   flex-direction: column;
@@ -331,6 +408,12 @@ ul {
 }
 .flex3 {
   flex: 3;
+}
+.flex4 {
+  flex: 4;
+}
+.flex5 {
+  flex: 5;
 }
 
 .col {
@@ -388,6 +471,24 @@ ul {
 
 .p22 {
   font-size: 22px;
+}
+
+.p24 {
+  font-size: 24px;
+}
+
+.p30d24m {
+  font-size: 30px;
+}
+.p24d18m {
+  font-size: 24px;
+}
+.p16d14m {
+  font-size: 16px;
+}
+
+.p25 {
+  font-size: 25px;
 }
 
 .p30 {
@@ -488,13 +589,14 @@ ul {
   min-width: 200px;
   border-radius: 25px;
   color: black;
-  font-weight: $semi-bold;
+  font-weight: $bold;
+  text-align: center;
   cursor: pointer;
   text-decoration: none;
-  text-transform: uppercase;
+  text-transform: capitalize;
 
   &:hover {
-    color: white;
+    background-color: white;
   }
 }
 
@@ -506,15 +608,19 @@ ul {
   height: fit-content;
   min-width: 200px;
   border-radius: 25px;
-  color: $secondary;
-  font-weight: $semi-bold;
+  color: $primary;
+  font-family: $font-family-base;
+  font-weight: $bold;
+  background-color: transparent;
+  font-size: 16px;
   cursor: pointer;
   text-decoration: none;
-  text-transform: uppercase;
+  text-transform: capitalize;
   text-align: center;
 
   &:hover {
     color: white;
+    border-color: white;
   }
 }
 
@@ -535,6 +641,10 @@ ul {
   &:hover {
     color: white;
     border: 1px solid white;
+
+    > mat-icon {
+      color: white;
+    }
   }
 }
 
@@ -547,8 +657,70 @@ ul {
   font-weight: 600;
   cursor: pointer;
   text-align: center;
-  height: 130px;
+  height: auto;
+  border-radius: 50%;
   width: 130px;
   justify-content: center;
   align-items: center;
+
+  &:before {
+    content: "";
+    display: block;
+    padding-top: 100%; /* initial ratio of 1:1*/
+  }
+}
+
+#particles {
+  height: $full;
+  width: $full;
+  background-color: #090d16;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1;
+
+  &:before {
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+
+.hidden-bg {
+  max-height: 0;
+  z-index: -1;
+  position: relative;
+
+  > img {
+    transform: translate(0, -50%);
+  }
+}
+
+.break-chars {
+  line-break: anywhere;
+}
+
+@media only screen and (max-width: $md) {
+  .p30d24m {
+    font-size: 24px;
+  }
+
+  .p24d18m {
+    font-size: 18px;
+  }
+  .p16d14m {
+    font-size: 14px;
+  }
+
+  .mobile-only {
+    display: flex !important;
+  }
+
+  .desktop-only {
+    display: none !important;
+  }
 }

@@ -1,0 +1,42 @@
+<section class="navigation" [class.withBG]="atTop == false">
+    <div class="inner flex-space-between">
+        <div class="logo-container flex align-start" (click)="scrollToElement('', 'landing-page')">
+            <p class="flex-center">
+                <img class="logo" src="assets/media/images/logo.png" alt="moonshot logo" />
+                MOON<span>SHOT</span>
+            </p>
+        </div>
+
+        <img src="assets/media/icons/menu-button.svg" alt="menu button" class="mob-menu" [class.open]="open" (click)="open = !open">
+
+        <nav [class.show]="open" class="flex">
+            <img src="assets/media/icons/close-2.svg" alt="menu button" class="mob-menu" [class.open]="open" (click)="open = !open">
+            <ul>
+                <li *ngFor="let item of navItems" [class.active]="isSamePath(item.path)">
+                    <ng-container *ngIf="item.externalPath != undefined; then external else internal"></ng-container>
+                    
+                    <!-- link = start & end -->
+                    <ng-template #external>
+                        <a href={{item.externalPath}} target="_blank">{{item.name}}</a>
+                    </ng-template>
+    
+                    <ng-template #internal>
+                        <p *ngIf="item.fragment != undefined" (click)="scrollToElement(item.path, item.fragment)">{{item.name}}</p>
+
+                        <p *ngIf="item.fragment == undefined" (click)="scrollToElement(item.path)">{{item.name}}</p>
+
+                        <ul *ngIf="item.frags != undefined" class="fragments flex-col">
+                            <li *ngFor="let fragment of item.frags" (click)="scrollToElement(item.path, fragment.path)">
+                                <p>{{fragment.name}}</p>
+                            </li>
+                        </ul>
+                    </ng-template>
+                    
+                </li>
+                <li class="mobile-only" (click)="toggleTokenomics()">
+                    <p>Tokenomics</p>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</section>

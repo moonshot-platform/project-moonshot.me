@@ -1,0 +1,28 @@
+<section class="moonticket">
+    <div class="inner">
+        <div class="main flex-space-between align-start">
+            <div class="stats flex1">
+                <div class="timer futuristic-container p30d24m">
+                 <p class="mt10">MOONTICKET</p>
+                 <p class="color-white orbitron">Get your ticket to the moon</p>
+                </div>
+            </div>
+            <div class="ticket-input-container flex3">
+                <form class="futuristic-container flex top-only" [formGroup]="downloadFormGroup" (submit)="downloadTicket()">
+                    <div class="flex1 no-padding mr20">
+                        <p class="mt20">Your name</p>
+                    </div>
+                    <div class="flex2">
+                        <input class="name-input mt20" id="name" type="text" formControlName="name" oninput="this.value = this.value.toUpperCase()">
+                    </div>
+                    <div class="flex1 flex justify-end">
+                        <button class="download-button outlined-button mb10" type="submit">Download</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="ticket-section flex-space-between mt100">
+            <canvas #ticketCanvas id="ticketCanvas" class="ticket-canvas" width="1200" height="436"></canvas>
+        </div>
+    </div>
+</section>

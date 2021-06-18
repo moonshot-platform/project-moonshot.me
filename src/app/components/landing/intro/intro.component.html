@@ -1,30 +1,33 @@
-<section class="intro flex-end">
-    <div class="overlay"></div>
+<section class="intro flex-center">
     <div class="inner flex-space-between align-start">
        <div class="stats flex1">
            <div class="timer futuristic-container">
             <p>MISSION ELAPSED TIME</p>
-            <p>46:00:08:35</p>
+            <p class="countdown">--:--:--:--</p>
            </div>
            <div class="price futuristic-container">
             <p>PRICE FOR ONE MILLION MOONSHOT</p>
-            <p>$0.0393556932...</p>
+            <p class="break-chars">$0.010208506798924172</p>
            </div>
        </div>
        <div class="info flex3">
-            <div class="top futuristic-container">
-                <p class="p-white-span-primary p34">Hold Moonshot<br><span>and get rewarded when<br>others transfer</span></p>
+            <div class="line-container flex">
+                <div class="line flex2"></div>
+                <div class="empty flex1"></div>
+            </div>
+            <div class="top futuristic-container bottom-only">
+                <p class="p-white-span-primary p34 orbitron">Hold Moonshot<br><span>and get rewarded when<br>others transfer</span></p>
             </div>
             <div class="bottom flex pv20">
                 <div class="flex2 futuristic-container bottom-only no-padding mr50">
                     <p class="mb20">Moonshot is a deflationary, frictionless yield and Liquidity protocol. Read more about Moonshot or start buying!</p>
                 </div>
                 <div class="buttons-container flex1">
-                    <a class="outlined-button mb10">Read more</a>
-                    <a class="button">Buy Moonshot</a>
+                    <a [routerLink]="['/about']" class="outlined-button mb20">Read more</a>
+                    <a href="https://exchange.pancakeswap.finance/#/swap?inputCurrency=0xd27D3F7f329D93d897612E413F207A4dbe8bF799" target="_blank" class="button">Buy Moonshot</a>
                 </div>
                 <div class="flex1 flex justify-end">
-                    <div class="round-mini-button">
+                    <div class="round-mini-button" (click)="scrollToElement('', 'news')">
                         <mat-icon fontSet="material-icons" class="color-primary">arrow_downward</mat-icon>
                     </div>
                 </div>

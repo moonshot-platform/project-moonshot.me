@@ -27,7 +27,7 @@ export class AboutComponent implements OnInit {
       srcOut: "assets/media/images/about/liquidity_icon_yellow.svg",
       srcOn: "assets/media/images/about/liquidity_icon.svg",
       alt: "liquidity",
-      text: "Auto-adding liquidity for lower volatility"
+      text: "Auto-adding liquidity for lower price volatility"
     },
     {
       src: "",

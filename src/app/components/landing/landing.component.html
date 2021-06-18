@@ -1,16 +1,25 @@
-<div id="particles"></div>
-<section class="landing flex">
+<section id="landing-page" class="landing flex">
     <div class="inner">
+        <div class="moon-bg"></div>
+        <div class="rocket-bg"></div>
         <app-navigation></app-navigation>
-        <app-intro></app-intro>
-        <app-news></app-news>
-        <app-about></app-about>
-        <app-exchanges></app-exchanges>
-        <app-tutorial></app-tutorial>
-        <app-partners></app-partners>
-        <app-investment></app-investment>
-        <app-video></app-video>
-        <app-economy></app-economy>
+        <app-intro id="intro"></app-intro>
+        <app-news id="news"></app-news>
+        <app-about id="about"></app-about>
+        <div class="milkyway-bg hidden-bg">
+            <img src="assets/media/images/galaxy_homeage.png" alt="milkyway">
+        </div>
+        <app-tutorial id="how-to-buy"></app-tutorial>
+        <div class="galaxy2-bg hidden-bg">
+            <img src="assets/media/images/galaxy02_homepage.png" alt="galaxy">
+        </div>
+        <app-partners id="partners"></app-partners>
+        <!-- <app-investment></app-investment> -->
+        <div class="galaxy3-bg hidden-bg">
+            <img src="assets/media/images/galaxy03_homepage.png" alt="galaxy">
+        </div>
+        <app-video id="video"></app-video>
+        <app-footer></app-footer>
     </div>
     <app-sidebar></app-sidebar>
 </section>
