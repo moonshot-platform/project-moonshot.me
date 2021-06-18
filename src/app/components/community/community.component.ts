@@ -28,13 +28,13 @@ export class CommunityComponent {
         {name:'twitter:card', content:'summary'},
         {name:'twitter:description', content:'Watch MoonTV - Zap to your favourite channel and watch some Moonshot crypto'},
         {name:'twitter:title', content:'MoonTV'},
-        {name:'twitter:image', content:'https://project-moonshot.me/img/moonshot-logo.png'},
+        {name:'twitter:image', content:'./src/assets/media/images/moonshot-logo.png'},
         {name:'twitter:site', content:'@RS25Moonshot'},
 
         {property:'og:title', content:'Project Moonshot'},
         {property:'og:site_name', content:'Moonshot'},
         {property:'og:description', content:'MoonTV - Zap to your favourite channel'},
-        {property:'og:image', content:'https://project-moonshot.me/img/moonshot-logo.png'},     
+        {property:'og:image', content:'./src/assets/media/images/moonshot-logo.png'},     
 /* 
         {property:'og:type', content:'website'},
         {property:'og:site_name', content:'Moonshot'},
