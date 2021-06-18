@@ -35,7 +35,7 @@ export class CommunityComponent {
         {property:'og:site_name', content:'Moonshot'},
         {property:'og:description', content:'MoonTV - Zap to your favourite channel'},
         {property:'og:image', content:'https://project-moonshot.me/img/moonshot-logo.png'},     
-
+/* 
         {property:'og:type', content:'website'},
         {property:'og:site_name', content:'Moonshot'},
         {property:'og:title', content:'Project Moonshot'},
@@ -43,7 +43,7 @@ export class CommunityComponent {
         {property:'og:url', content:'https://t.me/MoonShotChat'},
         {property:'og:locale', content:'en_US'},
         {property:'og:image', content:'https://cdn4.telesco.pe/file/WB_mshLvhrX1lDICQ_oYE_8zcAS_gse7Oz7EeSMZHMyOiLYJ3QloLfPuUeRDkobvrk6eDoc9DzRHu6Ct2JrrotdUfnH7xBIzyVlHS53InqEKKUpqw4202ccEvr8LVfoadOHMo-Lbmu6fULjK9dk6xt8pnGAPitxtBP_NQjKDwAlR7PV7OsPdohlplsuWzWAuusPBP0kZD2ZV5Z7hHiUCKS2YzDfSYHqKXliUe1MnKG7XOjEj05Cy5ZRh1QtWDsWiJsDwLHNlzKEIBwCbYTS-06xouZwghEiJMB8mSn3HeNsbIa6b3THJeCELtquzalT1Ee7Z_-_O9kRP0lzYnGqj2A.jpg'},
-
+ */
       ]);
       this.setTitle('Moonshot Comunity');
     }
