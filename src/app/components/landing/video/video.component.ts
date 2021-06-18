@@ -7,7 +7,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
   styleUrls: ['./video.component.scss']
 })
 export class VideoComponent implements OnInit, OnDestroy {
-  public videoSource: string = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
+  public videoSource: string = "assets/media/videos/intro.mp4";
 
   @ViewChild('videoPlayer') public videoPlayer: ElementRef<HTMLVideoElement>;
   public isPlaying = false;
