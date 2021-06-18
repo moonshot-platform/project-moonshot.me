@@ -27,6 +27,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
+import { ClipboardModule } from '@angular/cdk/clipboard';
+
 
 
 @NgModule({
@@ -60,6 +62,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     FormsModule,
     ReactiveFormsModule,
     CarouselModule,
+    ClipboardModule,
   ]
 })
 export class LandingModule { }

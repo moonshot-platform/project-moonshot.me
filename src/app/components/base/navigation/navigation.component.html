@@ -1,10 +1,10 @@
 <section class="navigation" [class.withBG]="atTop == false">
     <div class="inner flex-space-between">
-        <div class="logo-container flex align-start">
-            <a class="flex-center" [routerLink]="['']">
-                <img class="logo" src="assets/media/images/logo.png" alt="moonshot logo">
-                <p>MOON<span>SHOT</span></p>
-            </a>
+        <div class="logo-container flex align-start" (click)="scrollToElement('', 'landing-page')">
+            <p class="flex-center">
+                <img class="logo" src="assets/media/images/logo.png" alt="moonshot logo" />
+                MOON<span>SHOT</span>
+            </p>
         </div>
 
         <img src="assets/media/icons/menu-button.svg" alt="menu button" class="mob-menu" [class.open]="open" (click)="open = !open">

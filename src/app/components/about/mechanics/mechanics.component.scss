@@ -29,7 +29,10 @@ section.mechanics {
 
 .info .futuristic-container {
   border-top: 1px solid $primary;
-  padding-right: 20%;
+  > p {
+    max-width: 570px;
+    width: 100%;
+  }
 }
 
 .explanation {

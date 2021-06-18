@@ -10,7 +10,15 @@ export class MoontvComponent implements OnInit {
 
   public videoSrcList = [
     {
-      src: this.transform("https://www.youtube.com/embed/kvSewdKNsuM"),
+      src: this.transform("https://www.youtube.com/embed/sD8ekD21fmI"),
+      thumb: ""
+    },
+    {
+      src: this.transform("https://www.youtube.com/embed/1rgyL0NE3C4"),
+      thumb: ""
+    },
+    {
+      src: this.transform("https://www.youtube.com/embed/RZA56Ks9pk8"),
       thumb: ""
     },
     {
@@ -18,27 +26,19 @@ export class MoontvComponent implements OnInit {
       thumb: ""
     },
     {
-      src: this.transform("https://www.youtube.com/embed/sD8ekD21fmI"),
+      src: this.transform("https://www.youtube.com/embed/J6enw7vVGUE"),
       thumb: ""
     },
     {
-      src: this.transform("https://www.youtube.com/embed/9gcutFdutvw"),
+      src: this.transform("https://www.youtube.com/embed/FXDgb0Gwyik"),
       thumb: ""
     },
     {
-      src: this.transform("https://www.youtube.com/embed/kvSewdKNsuM"),
+      src: this.transform("https://www.youtube.com/embed/j6uvJM7ssCc"),
       thumb: ""
     },
     {
-      src: this.transform("https://www.youtube.com/embed/7kBNo1CeQ7Y"),
-      thumb: ""
-    },
-    {
-      src: this.transform("https://www.youtube.com/embed/sD8ekD21fmI"),
-      thumb: ""
-    },
-    {
-      src: this.transform("https://www.youtube.com/embed/9gcutFdutvw"),
+      src: this.transform("https://www.youtube.com/embed/_QEFPraYRIU"),
       thumb: ""
     },
   ];

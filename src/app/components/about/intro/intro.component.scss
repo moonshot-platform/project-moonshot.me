@@ -1,7 +1,7 @@
 @import "includes";
 
 section.intro {
-  min-height: 80vh;
+  min-height: 100vh;
   position: relative;
   padding-top: 148px;
   box-sizing: border-box;
@@ -25,6 +25,15 @@ section.intro {
   width: 100%;
   max-width: 770px;
   color: #d5a642;
+
+  > .top {
+    max-width: 570px;
+    width: 100%;
+  }
+
+  > .bottom {
+    border-top: 1px solid $primary;
+  }
 }
 
 @media only screen and (max-width: $md) {
