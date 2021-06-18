@@ -17,34 +17,34 @@ export class TokenomicsComponent implements OnInit {
       },
       {
         key: "circulating supply:",
-        val: "607,374,578,320,453",
+        val: "595,058,408,293,513",
         shortVal: ""
       },
       {
         key: "burned forever:",
-        val: "392,625,581,608,018",
+        val: "404,941,663,493,997",
         shortVal: ""
       },
     ],
     [
       {
         key: "moonshot for 1 bnb:",
-        val: "15,117,475,090",
+        val: "34,088,893,200",
         shortVal: ""
       },
       {
         key: "market cap:",
-        val: "$23,918,890",
+        val: "$6,088,156",
         shortVal: ""
       },
       {
         key: "price for 1 million moonshot:",
-        val: "$0.03935",
+        val: "$0.010208506798924172",
         shortVal: ""
       },
       {
         key: "price for 1 moonshot:",
-        val: "$0.00000004219",
+        val: "$0.000000010208234217472335",
         shortVal: ""
       }
     ]
