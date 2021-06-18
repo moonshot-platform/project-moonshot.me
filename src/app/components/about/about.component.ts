@@ -24,7 +24,20 @@ export class AboutComponent {
       this.meta.addTags([
         {name: 'description', content: 'An ambitious, exploratory, community driven experiment in the DeFi space'},
         {name: 'author', content: 'moonshot'},
-        {name: 'keywords', content: 'Moonshot, About Moonshot, Vision and Mission, Moonshot Mechanics, Security, What\'s Next'}
+        //{name: 'keywords', content: 'Moonshot, About Moonshot, Vision and Mission, Moonshot Mechanics, Security, What\'s Next'},
+        
+        {name:'twitter:card', content:'summary'},
+        {name:'twitter:description', content:'Watch MoonTV - Zap to your favourite channel and watch some Moonshot crypto'},
+        {name:'twitter:title', content:'MoonTV'},
+        {name:'twitter:image', content:'https://project-moonshot.me/img/moonshot-logo.png'},
+        {name:'twitter:site', content:'@RS25Moonshot'},
+
+        {property:'og:title', content:'Project Moonshot'},
+        {property:'og:site_name', content:'Moonshot'},
+        {property:'og:description', content:'MoonTV - Zap to your favourite channel'},
+        {property:'og:image', content:'https://project-moonshot.me/img/moonshot-logo.png'},     
+
+      
       ]);
       this.setTitle('About Moonshot'); // i do not know it is necessary.
     }
