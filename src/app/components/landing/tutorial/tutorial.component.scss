@@ -51,7 +51,7 @@ section.tutorial {
       color: $primary !important;
     }
 
-    &:hover {
+    &:hover:not(:first-child, :last-child) {
       .indicator > .point {
         .line:first-child {
           height: 3px;
@@ -214,10 +214,6 @@ section.tutorial {
       }
 
       .left {
-        > .title {
-          font-size: 22px;
-        }
-
         .step {
           height: 50px;
           width: 50px;

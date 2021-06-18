@@ -47,6 +47,10 @@ section.intro {
       left: 0;
     }
   }
+
+  .info > .top > p {
+    font-size: 27px;
+  }
 }
 
 @media only screen and (max-width: $sm) {

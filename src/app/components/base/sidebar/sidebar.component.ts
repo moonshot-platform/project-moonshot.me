@@ -13,8 +13,8 @@ export class SidebarComponent implements OnInit {
   constructor(private tokenomicsToggleService: TokenomicsToggleService) { }
 
   ngOnInit(): void {
-    this.tokenomicsToggleService.onToggle().subscribe(() => {
-      this.toggleTokenomicsView();    
+    this.tokenomicsToggleService.onToggle().subscribe((state:boolean) => {
+      this.toggleTokenomicsView(state);
     });
   }
 

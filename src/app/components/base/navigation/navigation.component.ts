@@ -107,8 +107,6 @@ export class NavigationComponent implements OnInit {
   toggleTokenomics() {
     this.tokenomicsToggleService.doToggle();
     this.open = false;
-
-    console.log('test');
   }
 
   isSamePath( path: string ): boolean {

@@ -74,6 +74,10 @@ section.intro {
   }
 
   .info {
+    .top > p {
+      font-size: 27px;
+    }
+
     .bottom {
       border-top: 1px solid $primary;
 
