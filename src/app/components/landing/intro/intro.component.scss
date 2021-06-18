@@ -3,12 +3,11 @@
 section.intro {
   min-height: 100vh;
   position: relative;
-  padding-top: 148px;
+  padding: 148px 20px 0;
   box-sizing: border-box;
 
   .inner {
     @extend %max-width-center;
-    padding: 0 20px;
   }
 }
 
