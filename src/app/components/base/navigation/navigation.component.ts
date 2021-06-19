@@ -1,7 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { TokenomicsToggleService } from 'src/app/services/tokenomics-toggle.service';
+import { TokenomicsService } from 'src/app/services/tokenomics.service';
 
 @Component({
   selector: 'app-navigation',
@@ -97,7 +97,7 @@ export class NavigationComponent implements OnInit {
   constructor(
     private _router: Router, 
     private location: Location,
-    private tokenomicsToggleService: TokenomicsToggleService
+    private tokenomicsService: TokenomicsService
   ) { }
 
   ngOnInit(): void {
@@ -105,8 +105,8 @@ export class NavigationComponent implements OnInit {
   }
 
   toggleTokenomics() {
-    this.tokenomicsToggleService.doToggle();
     this.open = false;
+    this.tokenomicsService.close();
   }
 
   isSamePath( path: string ): boolean {

@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { TokenomicsToggleService } from 'src/app/services/tokenomics-toggle.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { TokenomicsShareService } from 'src/app/services/tokenomics-share.service';
+import { TokenomicsService } from 'src/app/services/tokenomics.service';
 
 @Component({
   selector: 'app-tokenomics',
   templateUrl: './tokenomics.component.html',
   styleUrls: ['./tokenomics.component.scss']
 })
-export class TokenomicsComponent implements OnInit {
+export class TokenomicsComponent implements OnInit, OnDestroy {
 
+  interval: any;
   
   public list: any = [
     [
@@ -18,46 +20,71 @@ export class TokenomicsComponent implements OnInit {
       },
       {
         key: "circulating supply:",
-        val: "595,058,408,293,513",
+        val: "---",
         shortVal: ""
       },
       {
         key: "burned forever:",
-        val: "404,941,663,493,997",
+        val: "---",
         shortVal: ""
       },
     ],
     [
       {
         key: "moonshot for 1 bnb:",
-        val: "34,088,893,200",
+        val: "---",
         shortVal: ""
       },
       {
         key: "market cap:",
-        val: "$"+"6,088,156".substring(0,13),
+        val: "---",
         shortVal: ""
       },
       {
         key: "price for 1 million moonshot:",
-        val: "$"+"0.010208506798924172".substring(0,13),
+        val: "---",
         shortVal: ""
       },
       {
         key: "price for 1 moonshot:",
-        val: "$"+"0.000000010208234217472335".substring(0,13),
+        val: "---",
         shortVal: ""
       }
     ]
   ]
 
-  constructor(private tokenomicsToggleService: TokenomicsToggleService) { }
+  constructor(private tokenomicsShareService: TokenomicsShareService, private tokenomicsService: TokenomicsService) {
+  }
 
   ngOnInit(): void {
+    if( this.tokenomicsShareService.data !== undefined ) {
+      this.replaceData();
+    } else {
+      this.interval = setInterval(() => {
+        if( this.tokenomicsShareService.data !== undefined ) {
+          this.replaceData();
+          clearInterval(this.interval);
+        }
+      }, 100);
+    }
+  }
+
+  replaceData() {
+    this.list[0][1]['val'] = this.tokenomicsShareService.data['circulatingSupply'];
+    this.list[0][2]['val'] = this.tokenomicsShareService.data['burnedAmount'];
+    this.list[1][0]['val'] = this.tokenomicsShareService.data['priceFor1BNB'];
+    this.list[1][0]['val'] = this.tokenomicsShareService.data['priceFor1BNB'];
+    this.list[1][1]['val'] = '$' + this.tokenomicsShareService.data['marketcap'].substring(0,13);
+    this.list[1][2]['val'] = '$' + this.tokenomicsShareService.data['priceFor1mMoonshot'].substring(0,13);
+    this.list[1][3]['val'] = '$' + this.tokenomicsShareService.data['priceForMoonshot'].substring(0,13);
+  }
+
+  ngOnDestroy(): void {
+    clearInterval(this.interval);
   }
 
   toggleTokenomics() {
-    this.tokenomicsToggleService.doToggle();
+    this.tokenomicsService.close();
   }
 
 }
