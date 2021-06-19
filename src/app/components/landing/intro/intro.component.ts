@@ -1,5 +1,6 @@
 import { OnDestroy } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
+import { TokenomicsShareService } from 'src/app/services/tokenomics-share.service';
 
 @Component({
   selector: 'app-intro',
@@ -10,10 +11,12 @@ export class IntroComponent implements OnInit, OnDestroy {
 
   countDown: string = '29 March 2021 6:00:00 UTC';
   interval: any;
-  priceForOneMillion : string;
+  priceForOneMillion : string = '---';
 
-  constructor() {
-    this.priceForOneMillion = '0.010208506798924172'.substring(0,13);
+  constructor( tokenomicsShareService: TokenomicsShareService ) {
+    tokenomicsShareService.onReceive().subscribe((data) => {
+      this.priceForOneMillion = '$' + data['priceFor1mMoonshot'].substring(0,13);
+    });
   }
 
   ngOnDestroy(): void {
