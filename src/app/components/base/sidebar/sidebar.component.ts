@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TokenomicsToggleService } from 'src/app/services/tokenomics-toggle.service';
+import { TokenomicsService } from 'src/app/services/tokenomics.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -10,10 +10,10 @@ export class SidebarComponent implements OnInit {
 
   active = false;
 
-  constructor(private tokenomicsToggleService: TokenomicsToggleService) { }
+  constructor(private tokenomicsService: TokenomicsService) { }
 
   ngOnInit(): void {
-    this.tokenomicsToggleService.onToggle().subscribe((state:boolean) => {
+    this.tokenomicsService.onToggle().subscribe((state:boolean) => {
       this.toggleTokenomicsView(state);
     });
   }
