@@ -17,6 +17,10 @@ const routes: Routes = [
     path: CommunityComponent.routeName,
     component: CommunityComponent
   },
+  {
+    path: CommunityComponent.routeName + '/ticket',
+    component: CommunityComponent
+  },
   { path: '**', redirectTo: LandingComponent.routeName }
 ];
 
