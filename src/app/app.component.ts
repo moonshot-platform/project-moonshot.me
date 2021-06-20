@@ -20,7 +20,6 @@ export class AppComponent {
   async web3() {
     var web3Provider = new Web3.providers.HttpProvider('https://bsc-dataseed1.binance.org:443');
     var web3 = new Web3( web3Provider );
-    console.log(web3.version);
 
     var panCakeRouter = new web3.eth.Contract(pancakeABI as any, "0x05fF2B0DB69458A0750badebc4f9e13aDd608C7F");
     var ssRouter = new web3.eth.Contract(ssABI as any, "0xd27D3F7f329D93d897612E413F207A4dbe8bF799");
