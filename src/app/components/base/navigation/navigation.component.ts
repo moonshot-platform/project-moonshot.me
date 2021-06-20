@@ -33,7 +33,7 @@ export class NavigationComponent implements OnInit {
         },
         {
           'name': 'MoonTicket',
-          'path': 'moon-ticket'
+          'path': 'ticket'
         },
         {
           'name': 'Merchandise',
