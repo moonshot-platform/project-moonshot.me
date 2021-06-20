@@ -68,6 +68,7 @@ p {
 li {
   border-bottom: 1px solid black;
   margin-bottom: 1rem;
+  min-height: 101px;
 
   &:last-child {
     margin-bottom: 0;
@@ -79,6 +80,10 @@ li {
     width: 100%;
     margin-right: 0;
     padding: 30px 20px 0px;
+  }
+
+  .li {
+    min-height: auto;
   }
 
   .deeper {
