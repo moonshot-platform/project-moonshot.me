@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { TokenomicsToggleService } from 'src/app/services/tokenomics-toggle.service';
+import { TokenomicsService } from 'src/app/services/tokenomics.service';
 
 @Component({
   selector: 'app-footer',
@@ -57,7 +57,7 @@ export class FooterComponent implements OnInit {
     },
   ]
 
-  constructor(private _router: Router, private tokenomicsToggleService: TokenomicsToggleService) { }
+  constructor(private _router: Router, private tokenomicsService: TokenomicsService) { }
 
   ngOnInit(): void {
   }
@@ -71,7 +71,7 @@ export class FooterComponent implements OnInit {
   }
 
   toggleTokenomics() {
-    this.tokenomicsToggleService.doToggle();
+    this.tokenomicsService.open();
   }
 
 }
