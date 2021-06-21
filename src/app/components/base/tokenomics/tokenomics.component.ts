@@ -1,5 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { TokenomicsShareService } from 'src/app/services/tokenomics-share.service';
+import { Component, OnInit } from '@angular/core';
 import { TokenomicsService } from 'src/app/services/tokenomics.service';
 
 @Component({
@@ -7,9 +6,9 @@ import { TokenomicsService } from 'src/app/services/tokenomics.service';
   templateUrl: './tokenomics.component.html',
   styleUrls: ['./tokenomics.component.scss']
 })
-export class TokenomicsComponent implements OnInit, OnDestroy {
+export class TokenomicsComponent implements OnInit {
 
-  interval: any;
+  data: any;
   
   public list: any = [
     [
@@ -53,38 +52,35 @@ export class TokenomicsComponent implements OnInit, OnDestroy {
     ]
   ]
 
-  constructor(private tokenomicsShareService: TokenomicsShareService, private tokenomicsService: TokenomicsService) {
+  constructor( private tokenomicsService: TokenomicsService ) {
   }
 
   ngOnInit(): void {
-    if( this.tokenomicsShareService.data !== undefined ) {
+    this.getTokenomicsData();
+  }
+
+  getTokenomicsData(): void {
+    this.data = this.tokenomicsService.tokenomicsData;
+    this.replaceData();
+
+    this.tokenomicsService.whenShared().subscribe((data) => {
+      this.data = data;
       this.replaceData();
-    } else {
-      this.interval = setInterval(() => {
-        if( this.tokenomicsShareService.data !== undefined ) {
-          this.replaceData();
-          clearInterval(this.interval);
-        }
-      }, 100);
-    }
+    });
   }
 
-  replaceData() {
-    this.list[0][1]['val'] = this.tokenomicsShareService.data['circulatingSupply'];
-    this.list[0][2]['val'] = this.tokenomicsShareService.data['burnedAmount'];
-    this.list[1][0]['val'] = this.tokenomicsShareService.data['priceFor1BNB'];
-    this.list[1][0]['val'] = this.tokenomicsShareService.data['priceFor1BNB'];
-    this.list[1][1]['val'] = '$' + this.tokenomicsShareService.data['marketcap'].substring(0,13);
-    this.list[1][2]['val'] = '$' + this.tokenomicsShareService.data['priceFor1mMoonshot'].substring(0,13);
-    this.list[1][3]['val'] = '$' + this.tokenomicsShareService.data['priceForMoonshot'].substring(0,13);
+  replaceData(): void {
+    this.list[0][1]['val'] = this.data['circulatingSupply'];
+    this.list[0][2]['val'] = this.data['burnedAmount'];
+    this.list[1][0]['val'] = this.data['priceFor1BNB'];
+    this.list[1][0]['val'] = this.data['priceFor1BNB'];
+    this.list[1][1]['val'] = '$' + this.data['marketcap'].substring(0,13);
+    this.list[1][2]['val'] = '$' + this.data['priceFor1mMoonshot'].substring(0,13);
+    this.list[1][3]['val'] = '$' + this.data['priceForMoonshot'].substring(0,13);
   }
 
-  ngOnDestroy(): void {
-    clearInterval(this.interval);
-  }
-
-  toggleTokenomics() {
-    this.tokenomicsService.close();
+  toggleTokenomics(): void {
+    this.tokenomicsService.onToggle(false);
   }
 
 }
