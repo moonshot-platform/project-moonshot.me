@@ -71,7 +71,7 @@ export class FooterComponent implements OnInit {
   }
 
   toggleTokenomics() {
-    this.tokenomicsService.open();
+    this.tokenomicsService.onToggle(true);
   }
 
 }

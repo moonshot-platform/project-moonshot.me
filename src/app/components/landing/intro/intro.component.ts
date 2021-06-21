@@ -1,6 +1,6 @@
 import { OnDestroy } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
-import { TokenomicsShareService } from 'src/app/services/tokenomics-share.service';
+import { TokenomicsService } from 'src/app/services/tokenomics.service';
 
 @Component({
   selector: 'app-intro',
@@ -13,8 +13,12 @@ export class IntroComponent implements OnInit, OnDestroy {
   interval: any;
   priceForOneMillion : string = '---';
 
-  constructor( tokenomicsShareService: TokenomicsShareService ) {
-    tokenomicsShareService.onReceive().subscribe((data) => {
+  constructor( tokenomicsService: TokenomicsService ) {
+    if( tokenomicsService.tokenomicsData !== undefined ) {
+      this.priceForOneMillion = '$' + tokenomicsService.tokenomicsData['priceFor1mMoonshot'].substring(0,13);
+    }
+
+    tokenomicsService.whenShared().subscribe((data) => {
       this.priceForOneMillion = '$' + data['priceFor1mMoonshot'].substring(0,13);
     });
   }
