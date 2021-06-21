@@ -10,35 +10,43 @@ export class MoontvComponent implements OnInit {
 
   public videoSrcList = [
     {
-      src: this.transform("https://www.youtube.com/embed/sD8ekD21fmI"),
+      src: this.transform("https://www.youtube.com/embed/zPpOdMsC2Wk"),
       thumb: ""
     },
     {
-      src: this.transform("https://www.youtube.com/embed/1rgyL0NE3C4"),
+      src: this.transform("https://www.youtube.com/embed/Pia5VrY8bXA"),
       thumb: ""
     },
     {
-      src: this.transform("https://www.youtube.com/embed/RZA56Ks9pk8"),
+      src: this.transform("https://www.youtube.com/embed/XyBA15bko2o"),
       thumb: ""
     },
     {
-      src: this.transform("https://www.youtube.com/embed/7kBNo1CeQ7Y"),
+      src: this.transform("https://www.youtube.com/embed/tVeZFQWqwmI"),
       thumb: ""
     },
     {
-      src: this.transform("https://www.youtube.com/embed/J6enw7vVGUE"),
+      src: this.transform("https://www.youtube.com/embed/KzSIDJf3Dgs"),
       thumb: ""
     },
     {
-      src: this.transform("https://www.youtube.com/embed/FXDgb0Gwyik"),
+      src: this.transform("https://www.youtube.com/embed/SnsdjLtS33I"),
       thumb: ""
     },
     {
-      src: this.transform("https://www.youtube.com/embed/j6uvJM7ssCc"),
+      src: this.transform("https://www.youtube.com/embed/JQPIOCeVNsc"),
       thumb: ""
     },
     {
-      src: this.transform("https://www.youtube.com/embed/_QEFPraYRIU"),
+      src: this.transform("https://www.youtube.com/embed/sYGy3D0ERzA"),
+      thumb: ""
+    },
+    {
+      src: this.transform("https://www.youtube.com/embed/k-3vRPmZpU0"),
+      thumb: ""
+    },
+    {
+      src: this.transform("https://www.youtube.com/embed/u5vn5c2lja0"),
       thumb: ""
     },
   ];
