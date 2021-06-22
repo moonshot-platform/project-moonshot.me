@@ -54,6 +54,10 @@ section.moontv {
     .video {
       padding: 0 10px 10px;
       min-width: 300px;
+
+      > iframe {
+        min-height: 190px;
+      }
     }
   }
 }
@@ -82,7 +86,18 @@ section.moontv {
   }
 
   .buy-info > .futuristic-container {
-    padding-top: 20px;
+    padding-top: 30px;
+  }
+
+  .more.mobile-only {
+    border-top: 1px solid;
+    padding: 20px 0;
+    justify-content: flex-end;
+  }
+}
+
+@media only screen and (max-width: $sm) {
+  .buy-info > .futuristic-container {
     > .video {
       padding: 10px 0;
       min-width: initial;
@@ -90,14 +105,7 @@ section.moontv {
 
       > iframe {
         box-sizing: border-box;
-        min-height: 190px;
       }
     }
-  }
-
-  .more.mobile-only {
-    border-top: 1px solid;
-    padding: 20px 0;
-    justify-content: flex-end;
   }
 }
