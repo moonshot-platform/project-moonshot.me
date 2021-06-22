@@ -38,7 +38,6 @@ section.moontv {
 
 .buy-info {
   width: 100%;
-  max-width: 770px;
 
   .futuristic-container {
     border-top: 1px solid $primary;
@@ -46,14 +45,14 @@ section.moontv {
     flex-wrap: wrap;
     justify-content: center;
     border: 0;
+    padding-top: 0;
 
     p {
       width: 80%;
     }
 
     .video {
-      width: 45%;
-      padding: 10px;
+      padding: 0 10px 10px;
       min-width: 300px;
     }
   }
@@ -82,14 +81,17 @@ section.moontv {
     }
   }
 
-  .buy-info > .futuristic-container > .video {
-    width: 100%;
-    padding: 10px 0;
-    min-width: initial;
-
-    > iframe {
+  .buy-info > .futuristic-container {
+    padding-top: 20px;
+    > .video {
+      padding: 10px 0;
+      min-width: initial;
       width: 100%;
-      box-sizing: border-box;
+
+      > iframe {
+        box-sizing: border-box;
+        min-height: 190px;
+      }
     }
   }
 
