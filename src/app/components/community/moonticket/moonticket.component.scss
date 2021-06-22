@@ -29,6 +29,18 @@ section.moonticket {
   }
 }
 
+form {
+  align-items: flex-end;
+}
+
+.name-label {
+  margin-bottom: 11px;
+}
+
+.download-button {
+  margin-bottom: 0;
+}
+
 .ticket-input-container {
   width: 100%;
   max-width: 770px;
@@ -109,5 +121,13 @@ section.moonticket {
 
   form {
     flex-direction: column;
+
+    .name-label {
+      margin-right: 0;
+    }
+
+    > div {
+      width: 100%;
+    }
   }
 }
