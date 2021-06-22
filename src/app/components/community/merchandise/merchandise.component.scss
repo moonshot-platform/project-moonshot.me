@@ -5,7 +5,7 @@ section.merchandise {
   position: relative;
   background-size: 60%;
   z-index: 2;
-  padding-top: 280px;
+  padding-top: 200px;
 
   .inner {
     @extend %max-width-center;
@@ -72,6 +72,10 @@ section.merchandise {
 }
 
 @media only screen and (max-width: $md) {
+  .shirts-carousel {
+    justify-content: space-between;
+  }
+
   section.merchandise {
     padding-top: 180px;
     .info > .bottom {
