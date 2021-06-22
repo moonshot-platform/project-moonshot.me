@@ -75,7 +75,6 @@ section.roadmap {
 ::ng-deep .ng-carousel-slide {
   @include paddingInside(10px);
   color: $primary;
-  height: 180px;
   border-left: 1px solid $primary;
   &:hover {
     color: white;
@@ -111,7 +110,7 @@ section.roadmap {
 }
 
 .carousel-container-col {
-  height: 160px;
+  min-height: 160px;
   flex-direction: column;
   display: flex;
   align-items: flex-start;
