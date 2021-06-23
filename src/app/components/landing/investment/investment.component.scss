@@ -4,8 +4,9 @@ section.investment {
   @include margins(100px, 0px);
   @include paddingsInside(100px, 20px);
 
-  background-color: $secondary;
+  background-color: $primary;
   color: black;
+  border-right: 1px solid black;
 
   > .inner {
     @extend %max-width-center;
@@ -26,7 +27,6 @@ section.investment {
   }
 
   .sub-title {
-    font-size: 36px;
     font-weight: $bold;
   }
 }
@@ -75,7 +75,12 @@ section.investment {
 }
 
 @media only screen and (max-width: $md) {
+  section.investment {
+    border-right: none;
+  }
+
   .options {
+    margin-top: 50px;
     flex-direction: column;
 
     > div.option {
