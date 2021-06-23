@@ -29,6 +29,7 @@
     "ng-carousel-cdk": "^1.7.0",
     "ng-particles": "^2.9.3",
     "ngx-countdown": "^11.0.3",
+    "ngx-device-detector": "^2.1.1",
     "os-browserify": "^0.3.0",
     "particles.js": "^2.0.0",
     "process": "^0.11.10",
