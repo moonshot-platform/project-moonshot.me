@@ -14,8 +14,9 @@ export class NavigationComponent implements OnInit {
   public atTop = true;
   public open = false;
 
-  isOnHovered :boolean = false;
-
+  isMobile = this.deviceService.isMobile();
+  isTablet = this.deviceService.isTablet();
+  
   public navItems: any[] = [
     {
       'name': 'How to buy',
@@ -79,7 +80,7 @@ export class NavigationComponent implements OnInit {
   } 
 
   scrollToElement(page: string, fragment: string = null,item:any = null): void {
-    if(item !== null && (this.deviceService.isMobile || this.deviceService.isTablet())){
+    /* if(item !== null && (this.deviceService.isMobile || this.deviceService.isTablet())){
       
       this.navItems.filter((navItem)=>(navItem.name != item.name ? navItem.onHover = false : null ));
       
@@ -88,7 +89,7 @@ export class NavigationComponent implements OnInit {
       }
       item.onHover = !item.onHover;
       return;
-    } 
+    }  */
     this.jumpThere(page,fragment);
     
   }
