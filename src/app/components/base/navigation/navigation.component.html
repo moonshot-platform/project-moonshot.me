@@ -23,13 +23,29 @@
                     <ng-template #internal>
                         <p *ngIf="item.fragment != undefined" (click)="scrollToElement(item.path, item.fragment )">{{item.name}}</p>
 
-                        <p (mouseenter)="item.onHover=true" *ngIf="item.fragment == undefined" (click)="scrollToElement(item.path, null, item)">{{item.name}}</p>
+                        <p (mouseenter)="item.onHover=true" *ngIf="item.fragment == undefined" (click)="scrollToElement(item.path, null)">{{item.name}}</p>
 
-                        <ul (mouseleave)="item.onHover=false" *ngIf="(item.frags != undefined) && (item.onHover)" class="fragments flex-col">
-                            <li *ngFor="let fragment of item.frags" (click)="scrollToElement(item.path, fragment.path , item)">
-                                <p>{{fragment.name}}</p>
-                            </li>
-                        </ul>
+                        <ng-container *ngIf="open; then mobile else desktop"></ng-container>
+                        <!-- "open" variable for close or open the navbar for small screen . 
+                            Also "open" can useable "is it desktop or not". 
+                            it used in if statement line 28 because of this.-->
+                        <!-- link = start & end -->
+                        <ng-template #mobile>
+                            <ul *ngIf="(item.frags != undefined)" class="fragments flex-col">
+                                <li *ngFor="let fragment of item.frags" (click)="scrollToElement(item.path, fragment.path)">
+                                    <p>{{fragment.name}}</p>
+                                </li>
+                            </ul>
+                        </ng-template>
+
+                        <ng-template #desktop>
+                            <ul (mouseleave)="item.onHover=false" *ngIf="(item.frags != undefined) && (item.onHover)" class="fragments flex-col">
+                                <li *ngFor="let fragment of item.frags" (click)="scrollToElement(item.path, fragment.path )">
+                                    <p>{{fragment.name}}</p>
+                                </li>
+                            </ul>
+                        </ng-template>
+
                     </ng-template>
 
                 </li>
