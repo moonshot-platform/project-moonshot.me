@@ -11,8 +11,10 @@
         </div>
         <ul class="circles flex3">
             <li *ngFor="let item of imgSrcList">
-                <div class="round-large-button" (mouseover)="item.src = item.srcOn" (mouseout)="item.src = item.srcOut">
-                    <img [src]="item.src || item.srcOut" alt="{{item.thumb}}" />
+                <div class="round-large-button" (mouseover)="item.hovered = true" (mouseout)="item.hovered = false">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" [attr.viewBox]=item.viewBox xml:space="preserve">
+                        <path [style.fill]="item.hovered == true ? item.focusColor : item.fillColor" *ngFor="let p of item.paths" attr.d={{p}} />
+                    </svg>
                 </div>
                 <p>{{item.text}}</p>
             </li>
