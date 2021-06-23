@@ -82,7 +82,7 @@ export class NavigationComponent implements OnInit {
     if(item !== null && (this.deviceService.isMobile || this.deviceService.isTablet())){
       
       this.navItems.filter((navItem)=>(navItem.name != item.name ? navItem.onHover = false : null ));
-      console.log("clicked")
+      
       if(item.onHover){
         this.jumpThere(page,fragment);
       }
