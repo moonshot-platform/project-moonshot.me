@@ -499,6 +499,14 @@ ul {
   font-size: 25px;
 }
 
+.p27 {
+  font-size: 27px;
+}
+
+.p27d18m {
+  font-size: 24px;
+}
+
 .p30 {
   font-size: 30px;
 }
@@ -603,6 +611,10 @@ ul {
   text-decoration: none;
   text-transform: capitalize;
 
+  &.fit {
+    width: fit-content;
+  }
+
   &:hover {
     background-color: white;
   }
@@ -621,14 +633,24 @@ ul {
   font-weight: $bold;
   background-color: transparent;
   font-size: 16px;
-  cursor: pointer;
   text-decoration: none;
   text-transform: capitalize;
   text-align: center;
+  cursor: default;
 
-  &:hover {
+  &.fit {
+    width: fit-content;
+  }
+
+  &.inverse {
+    border: 1px solid black;
+    color: black;
+  }
+
+  &:hover:not(&.disabled) {
     color: white;
     border-color: white;
+    cursor: pointer;
   }
 }
 
@@ -718,6 +740,9 @@ ul {
   }
 
   .p24d18m {
+    font-size: 18px;
+  }
+  .p27d18m {
     font-size: 18px;
   }
   .p16d14m {
