@@ -5,6 +5,7 @@ section.investment {
   @include paddingsInside(100px, 20px);
 
   background-color: $secondary;
+  color: black;
 
   > .inner {
     @extend %max-width-center;
@@ -40,28 +41,47 @@ section.investment {
   margin-top: 100px;
   .option {
     flex: 1;
-    padding: 80px 0;
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
 
     &:nth-child(2) {
       margin: 0 30px;
     }
 
+    > .box {
+      @include paddingsInside(50px, 0px);
+      width: 100%;
+      position: relative;
+
+      &.moon-box {
+        background: url("/assets/media/images/moon_box_frame.png") no-repeat
+          center center;
+        background-size: contain;
+      }
+      &.moon-arcade {
+        background: url("/assets/media/images/moon_arcade_frame.png") no-repeat
+          center center;
+        background-size: contain;
+      }
+      &.moon-lottery {
+        background: url("/assets/media/images/moon_lottery_frame.png") no-repeat
+          center center;
+        background-size: contain;
+      }
+    }
+
     .icon {
-      height: 120px;
-      margin-bottom: 30px;
+      max-height: 120px;
+      height: 100%;
     }
   }
+}
+
+.notice {
+  position: absolute;
 }
 
 @media only screen and (max-width: $md) {
   .options {
     flex-direction: column;
-    padding: 20px;
 
     > div.option {
       margin: 20px 0;

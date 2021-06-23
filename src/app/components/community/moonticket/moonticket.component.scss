@@ -69,9 +69,10 @@ form {
   border-bottom: 1px solid $primary;
 }
 
-.ticket-section {
+.ticket-container {
   box-shadow: 0 0 20px 2px #4a4a4ad1;
   overflow: hidden;
+  background-color: black;
 }
 
 .explanation {
@@ -115,7 +116,7 @@ form {
     margin-top: 50px;
   }
 
-  .ticket-section {
+  .ticket-container {
     margin-top: 0;
   }
 
