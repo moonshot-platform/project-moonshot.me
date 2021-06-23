@@ -2,6 +2,7 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { TokenomicsService } from 'src/app/services/tokenomics.service';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-navigation',
@@ -12,6 +13,8 @@ export class NavigationComponent implements OnInit {
 
   public atTop = true;
   public open = false;
+
+  isOnHovered :boolean = false;
 
   public navItems: any[] = [
     {
@@ -26,6 +29,7 @@ export class NavigationComponent implements OnInit {
     {
       'name': 'Community',
       'path': '/community',
+      'onHover': false,
       'frags': [
         {
           'name': 'MoonTV',
@@ -52,6 +56,7 @@ export class NavigationComponent implements OnInit {
     {
       'name': 'About us',
       'path': '/about',
+      'onHover': false,
       'frags': [
         {
           'name': 'Mission',
@@ -73,9 +78,23 @@ export class NavigationComponent implements OnInit {
     this.atTop = (window.pageYOffset == 0) ? true : false;
   } 
 
-  scrollToElement(page: string, fragment: string = null): void {
+  scrollToElement(page: string, fragment: string = null,item:any = null): void {
+    if(item !== null && (this.deviceService.isMobile || this.deviceService.isTablet())){
+      
+      this.navItems.filter((navItem)=>(navItem.name != item.name ? navItem.onHover = false : null ));
+      console.log("clicked")
+      if(item.onHover){
+        this.jumpThere(page,fragment);
+      }
+      item.onHover = !item.onHover;
+      return;
+    } 
+    this.jumpThere(page,fragment);
+    
+  }
 
-    if( fragment === null ) {
+  jumpThere(page: string, fragment: string = null){
+    if( fragment === null) {
       if( location.pathname === page ) {
         const element = document.querySelector(`#${page.substr(1)}-page`)
         element.scrollIntoView({ behavior: 'smooth', block: 'start' })
@@ -97,7 +116,8 @@ export class NavigationComponent implements OnInit {
   constructor(
     private _router: Router, 
     private location: Location,
-    private tokenomicsService: TokenomicsService
+    private tokenomicsService: TokenomicsService, 
+    private deviceService: DeviceDetectorService
   ) { }
 
   ngOnInit(): void {
