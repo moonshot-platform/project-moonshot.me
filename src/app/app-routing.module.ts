@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LandingComponent } from './components/landing/landing.component';
 import { AboutComponent } from './components/about/about.component';
+import { TokenLockComponent } from './components/token-lock/token-lock.component';
 import { CommunityComponent } from './components/community/community.component';
 
 const routes: Routes = [
@@ -14,11 +15,11 @@ const routes: Routes = [
     component: AboutComponent
   },
   {
-    path: CommunityComponent.routeName,
-    component: CommunityComponent
+    path: TokenLockComponent.routeName,
+    component: TokenLockComponent
   },
   {
-    path: CommunityComponent.routeName + '/ticket',
+    path: CommunityComponent.routeName,
     component: CommunityComponent
   },
   { path: '**', redirectTo: LandingComponent.routeName }
