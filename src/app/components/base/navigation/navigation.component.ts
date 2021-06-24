@@ -37,20 +37,20 @@ export class NavigationComponent implements OnInit {
           'path': 'moon-tv'
         },
         {
-          'name': 'MoonTicket',
-          'path': 'ticket'
+          'name': 'Fuel the rocket',
+          'path': 'merchandise'
         },
         {
           'name': 'Merchandise',
           'path': 'merchandise'
         },
         {
-          'name': 'MoonGallery',
-          'path': 'gallery'
+          'name': 'MoonTicket',
+          'path': 'ticket'
         },
         {
-          'name': 'Fuel the rocket',
-          'path': 'merchandise'
+          'name': 'MoonGallery',
+          'path': 'gallery'
         },
       ]
     },
@@ -66,6 +66,10 @@ export class NavigationComponent implements OnInit {
         {
           'name': 'Mechanics',
           'path': 'mechanics'
+        },
+        {
+          'name': 'Security',
+          'path': 'security'
         },
         {
           'name': 'Roadmap',
