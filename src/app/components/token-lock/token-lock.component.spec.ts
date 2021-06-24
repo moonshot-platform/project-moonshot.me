@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LptokenComponent } from './lptoken.component';
+import { TokenLockComponent } from './token-lock.component';
 
-describe('LptokenComponent', () => {
-  let component: LptokenComponent;
-  let fixture: ComponentFixture<LptokenComponent>;
+describe('TokenLockComponent', () => {
+  let component: TokenLockComponent;
+  let fixture: ComponentFixture<TokenLockComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LptokenComponent ]
+      declarations: [ TokenLockComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LptokenComponent);
+    fixture = TestBed.createComponent(TokenLockComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

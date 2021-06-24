@@ -4,13 +4,13 @@ import { Location } from '@angular/common';
 import { Meta,Title } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-lptoken',
-  templateUrl: './lptoken.component.html',
-  styleUrls: ['./lptoken.component.scss']
+  selector: 'app-token-lock',
+  templateUrl: './token-lock.component.html',
+  styleUrls: ['./token-lock.component.scss']
 })
-export class LptokenComponent {
+export class TokenLockComponent {
 
-  static readonly routeName: string = 'lptoken';
+  static readonly routeName: string = 'token-lock';
 
   private fragment: string;
 
@@ -46,7 +46,7 @@ export class LptokenComponent {
   ngOnInit(): void {
     this.route.fragment.subscribe(fragment => { 
       this.fragment = fragment; 
-      this.location.replaceState('/lptoken'); 
+      this.location.replaceState('/token-lock'); 
     });
   }
 
