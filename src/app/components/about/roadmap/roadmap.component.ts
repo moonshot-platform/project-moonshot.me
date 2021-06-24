@@ -16,7 +16,7 @@ export class RoadmapComponent implements OnInit {
     {
         title: 'Q1 2021',
         span: ' - done',
-        description: 'Moonshot initiated',
+        description: 'Initiate Moonshot',
         icon: Icon.ACCOMPLISHED,
     },
     {
@@ -34,7 +34,7 @@ export class RoadmapComponent implements OnInit {
     {
         title: 'Q1 2021',
         span: ' - done',
-        description: 'Listed at PanceSwap',
+        description: 'Listing at PancakeSwap',
         icon: Icon.ACCOMPLISHED,
     },
     {
