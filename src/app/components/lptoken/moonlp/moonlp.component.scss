@@ -60,11 +60,20 @@ section.moonlp {
 }
 
 @media only screen and (max-width: $md) {
-  section.moontv {
+  section.moonlp {
     padding-top: 100px;
   }
 
+  .lp-group p {
+    font-size: 18px;
+  }
+
   .main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main2 {
     display: flex;
     flex-direction: column;
   }
@@ -78,10 +87,6 @@ section.moonlp {
     }
   }
 
-  .buy-info > .futuristic-container {
-    padding-top: 30px;
-  }
-
   .more.mobile-only {
     border-top: 1px solid;
     padding: 20px 0;
@@ -90,15 +95,5 @@ section.moonlp {
 }
 
 @media only screen and (max-width: $sm) {
-  .buy-info > .futuristic-container {
-    > .video {
-      padding: 10px 0;
-      min-width: initial;
-      width: 100%;
 
-      > iframe {
-        box-sizing: border-box;
-      }
-    }
-  }
 }
