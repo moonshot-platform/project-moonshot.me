@@ -14,9 +14,14 @@ section.moonlp {
   max-width: 770px;
   border-top: 1px solid $primary;
 
-  p {
+  p, a {
     font-size: 27px;
     font-weight: bold;
+    color: $primary;
+    cursor: pointer;
+    &:hover {
+      color: white;
+    }
   }
 }
 
