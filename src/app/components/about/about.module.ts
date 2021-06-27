@@ -16,6 +16,7 @@ import { RoadmapModule } from './roadmap/roadmap.module';
 import { NavigationModule } from '../base/navigation/navigation.module';
 import { DisclaimerComponent } from './disclaimer/disclaimer.component';
 import { TeamComponent } from './team/team.component';
+import { MembersComponent } from './team/members/members.component';
 
 
 
@@ -28,7 +29,8 @@ import { TeamComponent } from './team/team.component';
     MissionComponent,
     MechanicsComponent,
     DisclaimerComponent,
-    TeamComponent
+    TeamComponent,
+    MembersComponent
   ],
   imports: [
     MatIconModule,
