@@ -10,9 +10,9 @@ export class GalleryComponent implements OnInit {
   current = 0;
 
   public items: any = [
-    'assets/media/images/community/ga1.png',
-    'assets/media/images/community/ga2.png',
-    'assets/media/images/community/ga3.png'
+    'tab1',
+    'tab2',
+    'tab3'
   ]
 
   constructor() { }

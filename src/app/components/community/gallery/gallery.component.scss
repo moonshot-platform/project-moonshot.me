@@ -7,7 +7,12 @@ section.gallery {
     @extend %max-width-center;
 
     div.ga3 > img {
+      padding-top: 100px;
       width: calc(100% / 3 - 20px);
+    }
+
+    div.ga4 > img {
+      width: 100%;
     }
 
     div.ga2 {
@@ -18,6 +23,28 @@ section.gallery {
           width: 100%;
         }
         width: 30%;
+      }
+    }
+
+    div.ga {
+      width: 100%;
+      padding-top: 100px;
+      > img {
+        &:first-child {
+          width: 70%;
+        }
+        width: 30%;
+      }
+    }
+
+    div.ga1 {
+      width: 100%;
+      padding-top: 100px;
+      > img {
+        &:first-child {
+          width: 80%;
+        }
+        width: 20%;
       }
     }
   }
