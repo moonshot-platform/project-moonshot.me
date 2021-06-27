@@ -1,1 +1,19 @@
-<p>members works!</p>
+<section id="members">
+    <div class="all-members inner">
+        <div *ngFor="let member of members" class="member-card">
+            <div class="rounded-container">
+                <img class="rounded-image" src={{member.image}} alt="control zero">
+            </div>
+            <div class="title">
+                <p>{{member.name}}</p>
+                <p class="job-title">{{member.title}}</p>
+            </div>
+            <div class="about">
+                <p>{{member.about}} </p>
+            </div>
+        </div>
+    </div>
+    <div class="load-more-button">
+        <a class="outlined-button">Load more</a>
+    </div>
+</section>
