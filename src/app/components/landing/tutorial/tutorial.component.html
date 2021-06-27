@@ -21,7 +21,7 @@
         <ul class="how-to-buy-flow">
             <li *ngFor="let step of steps; let i = index" (click)="visibleStep == i ? visibleStep = -1 : visibleStep = i">
                 <ng-container *ngIf="i == 0 || i == steps.length - 1; then link else chain"></ng-container>
-                
+
                 <!-- link = start & end -->
                 <ng-template #link>
                     <p>{{step.indicator}}</p>
@@ -57,7 +57,8 @@
             <ul class="flex">
                 <li><a href="https://www.bitmart.com/trade/en?symbol=MOONSHOT_USDT" target="_blank" class="outlined-button mr30">BitMart</a></li>
                 <li><a href="https://p2pb2b.io/trade/MNSHT_USDT/" target="_blank" class="outlined-button mr30">P2PB2B</a></li>
-                <li><a href="https://www.hotbit.io/exchange?symbol=MOONSHOT_USDT" target="_blank" class="outlined-button">HotBit</a></li>
+                <li><a href="https://www.hotbit.io/exchange?symbol=MOONSHOT_USDT" target="_blank" class="outlined-button mr30">HotBit</a></li>
+                <li><a href="https://latoken.com/exchange/MOONSHOT_USDT" target="_blank" class="outlined-button">Latoken</a></li>
             </ul>
         </div>
     </div>
