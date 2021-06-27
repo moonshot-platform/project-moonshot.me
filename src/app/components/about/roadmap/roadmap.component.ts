@@ -117,9 +117,9 @@ export class RoadmapComponent implements OnInit {
     },
     {
         title: 'Q2 2021',
-        span: ' - ongoing',
+        span: ' - done',
         description: 'LATOKEN exchange listing',
-        icon: Icon.UPCOMING
+        icon: Icon.ACCOMPLISHED
     },
     {
         title: 'Q3 2021',
