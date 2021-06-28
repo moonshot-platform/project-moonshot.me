@@ -75,14 +75,10 @@ export class NavigationComponent implements OnInit {
           'name': 'Roadmap',
           'path': 'roadmap'
         },
-        {
-          'name': 'Roadmap',
-          'path': 'roadmap'
-        },
-        {
-          'name': 'Team',
-          'path': 'team'
-        }
+        // {
+        //   'name': 'Team',
+        //   'path': 'team'
+        // }
       ]
     }
   ];
