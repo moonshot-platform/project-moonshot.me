@@ -8,6 +8,8 @@ import { TokenomicsService } from 'src/app/services/tokenomics.service';
 })
 export class TokenomicsComponent implements OnInit {
 
+  public isOldPancakeRouter = true;
+
   data: any;
   
   public list: any = [
@@ -81,6 +83,7 @@ export class TokenomicsComponent implements OnInit {
     this.list[1][1]['val'] = '$' + this.data['marketcap'].substring(0,13);
     this.list[1][2]['val'] = '$' + this.data['priceFor1mMoonshot'].substring(0,13);
     this.list[1][3]['val'] = '$' + this.data['priceForMoonshot'].substring(0,13);
+    this.isOldPancakeRouter = this.tokenomicsService.oldPancakeAddress;
   }
 
   toggleTokenomics(): void {

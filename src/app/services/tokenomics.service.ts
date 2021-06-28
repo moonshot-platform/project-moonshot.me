@@ -16,7 +16,7 @@ export class TokenomicsService {
     private interval: any;
     private serverError: boolean = false;
     public tokenomicsData: any;
-    private oldPancakeAddress = true;
+    public oldPancakeAddress = true;
 
     onToggle( state?: boolean ) { 
         this.toggle.next(state);
