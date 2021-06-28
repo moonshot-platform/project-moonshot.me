@@ -14,7 +14,7 @@
                 <p class="p17">Pancakeswap:</p>
                 <div class="flex-space-between align-center">
                     <p class="p17">V1</p>
-                    <ui-switch defaultBgColor="transparent" (click)="doChangePancakeRouter()"></ui-switch>
+                    <ui-switch defaultBgColor="transparent" (click)="doChangePancakeRouter()" [checked]="!isOldPancakeRouter"></ui-switch>
                     <p class="p17">V2</p>
                 </div>
             </div>
