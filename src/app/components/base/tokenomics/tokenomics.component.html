@@ -7,9 +7,17 @@
             <p class="p17 mb10">
                 Staking: For every transaction, 4% is distributed to holders.
             </p>
-            <p class="p17">
+            <p class="p17 mb10">
                 Liquidity: For every transaction, 6% is auto-added to PancakeSwap v1 liquidity pool.
             </p>
+            <div class="pancake-switch-container flex align-center">
+                <p class="p17">Pancakeswap:</p>
+                <div class="flex-space-between align-center">
+                    <p class="p17">V1</p>
+                    <ui-switch defaultBgColor="transparent" (click)="doChangePancakeRouter()"></ui-switch>
+                    <p class="p17">V2</p>
+                </div>
+            </div>
         </div>
         <div class="deeper flex-space-between">
             <div class="left">

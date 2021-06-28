@@ -23,6 +23,36 @@ section.tokenomics {
   }
 }
 
+.pancake-switch-container {
+  > p:first-child {
+    margin-right: 80px;
+  }
+
+  > div {
+    max-width: 150px;
+    width: 100%;
+  }
+}
+
+::ng-deep .switch.switch-medium {
+  min-width: 60px;
+}
+::ng-deep .switch.checked {
+  background-color: transparent !important;
+}
+::ng-deep .switch.switch-medium small {
+  width: 26px;
+  height: 26px;
+  right: calc(100% - 28px);
+  top: 2px;
+}
+::ng-deep .switch.checked small {
+  width: 26px;
+  height: 26px;
+  right: 2px;
+  top: 2px;
+}
+
 .close {
   display: block;
   position: absolute;
@@ -80,6 +110,20 @@ li {
     width: 100%;
     margin-right: 0;
     padding: 30px 20px 0px;
+  }
+
+  .pancake-switch-container {
+    > p:first-child {
+      margin-right: 20px;
+    }
+
+    > div {
+      max-width: 120px;
+    }
+  }
+
+  .block p {
+    font-size: 16px;
   }
 
   .li {

@@ -16,6 +16,7 @@ export class TokenomicsService {
     private interval: any;
     private serverError: boolean = false;
     public tokenomicsData: any;
+    private oldPancakeAddress = true;
 
     onToggle( state?: boolean ) { 
         this.toggle.next(state);
@@ -39,11 +40,21 @@ export class TokenomicsService {
         this.interval = setInterval( () =>  this.getTokenomicsData(), 5000 );
     }
 
+    changePancakeRouter() : number {
+      this.oldPancakeAddress = !this.oldPancakeAddress;
+      
+      clearInterval(this.interval);
+      this.init();
+
+      return this.oldPancakeAddress ? 1 : 2;
+    }
+
     async getTokenomicsData() {
         var web3Provider = new Web3.providers.HttpProvider('https://bsc-dataseed1.binance.org:443');
         var web3 = new Web3( web3Provider );
     
-        var panCakeRouter = new web3.eth.Contract(pancakeABI as any, "0x05fF2B0DB69458A0750badebc4f9e13aDd608C7F");
+        var panCakeRouter = new web3.eth.Contract(pancakeABI as any, 
+          this.oldPancakeAddress ? "0x05fF2B0DB69458A0750badebc4f9e13aDd608C7F" : "0x10ED43C718714eb63d5aA57B78B54704E256024E");
         var ssRouter = new web3.eth.Contract(ssABI as any, "0xd27D3F7f329D93d897612E413F207A4dbe8bF799");
     
         const WBNB = "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c";
