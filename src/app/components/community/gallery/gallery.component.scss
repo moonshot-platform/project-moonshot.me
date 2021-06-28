@@ -32,6 +32,8 @@ section.gallery {
       > img {
         &:first-child {
           width: 70%;
+          padding-right: 30px;
+          box-sizing: border-box;
         }
         width: 30%;
       }
