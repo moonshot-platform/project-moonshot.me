@@ -69,6 +69,10 @@ export class TokenomicsComponent implements OnInit {
     });
   }
 
+  doChangePancakeRouter() {
+    this.tokenomicsService.changePancakeRouter();
+  }
+
   replaceData(): void {
     this.list[0][1]['val'] = this.data['circulatingSupply'];
     this.list[0][2]['val'] = this.data['burnedAmount'];

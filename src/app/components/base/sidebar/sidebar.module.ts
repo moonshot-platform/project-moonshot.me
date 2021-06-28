@@ -5,6 +5,7 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 
 import { MatIconModule } from '@angular/material/icon';
 import { TokenomicsComponent } from '../tokenomics/tokenomics.component';
+import { UiSwitchModule } from 'ngx-ui-switch';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,12 @@ import { TokenomicsComponent } from '../tokenomics/tokenomics.component';
     CommonModule,
     AppRoutingModule,
     MatIconModule,
+    UiSwitchModule.forRoot({
+      color: 'rgb(0, 189, 99)',
+      switchColor: 'black',
+      defaultBgColor: 'transparent',
+      defaultBoColor : 'black',
+    }),
   ],
   exports: [
     SidebarComponent
