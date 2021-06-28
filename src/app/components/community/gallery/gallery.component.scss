@@ -7,7 +7,7 @@ section.gallery {
     @extend %max-width-center;
 
     div.ga3 > img {
-      padding-top: 100px;
+      padding-top: 10px;
       width: calc(100% / 3 - 20px);
     }
 
