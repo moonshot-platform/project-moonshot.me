@@ -4,7 +4,7 @@ section.intro {
     position: relative;
     padding-top: 148px;
     box-sizing: border-box;
-    .moon-bg {
+    .moon-bg-position {
         position: absolute;
         left: 10%;
         >img {
@@ -17,15 +17,15 @@ section.intro {
     }
 }
 
-.info {
+.info-card {
     width: 100%;
     max-width: 770px;
-    color: #d5a642;
-    >.top {
+    color: $primary;
+    >.top-width {
         max-width: 570px;
         width: 100%;
     }
-    >.bottom {
+    >.border-top {
         border-top: 1px solid $primary;
     }
 }
@@ -36,11 +36,11 @@ section.intro {
         padding-top: 120px;
         padding-bottom: 0px;
         min-height: 100vh;
-        .moon-bg {
+        .moon-bg-position {
             left: 0;
         }
     }
-    .info>.top>p {
+    .info-card>.top>p {
         font-size: 27px;
     }
 }
