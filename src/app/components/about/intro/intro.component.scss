@@ -17,7 +17,7 @@ section.intro {
     }
 }
 
-.info-card {
+.info-container {
     width: 100%;
     max-width: 770px;
     color: $primary;
@@ -40,7 +40,7 @@ section.intro {
             left: 0;
         }
     }
-    .info-card>.top>p {
+    .info-container>.top>p {
         font-size: 27px;
     }
 }
