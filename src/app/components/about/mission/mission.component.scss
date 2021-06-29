@@ -8,7 +8,7 @@ section.mission {
     }
 }
 
-.info-card-title-section {
+.info-container-title-section {
     width: 100%;
     max-width: 270px;
     margin-right: 20px;
@@ -20,12 +20,12 @@ section.mission {
     }
 }
 
-.info-card {
+.info-container {
     width: 100%;
     max-width: 770px;
 }
 
-.info-card .futuristic-container {
+.info-container .futuristic-container {
     border-top: 1px solid $primary;
     >p {
         max-width: 570px;
@@ -45,11 +45,11 @@ section.mission {
             flex-direction: column;
         }
     }
-    .info-card-title-section {
+    .info-container-title-section {
         margin-right: 0;
         max-width: initial;
     }
-    .info-card .futuristic-container {
+    .info-container .futuristic-container {
         border-top: 0;
         padding-right: 0;
     }
