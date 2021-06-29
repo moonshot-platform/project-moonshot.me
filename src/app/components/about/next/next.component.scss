@@ -1,47 +1,41 @@
 @import "includes";
-
 section.next {
-  > .inner {
-    @extend %max-width-center;
-    margin-bottom: 250px;
-  }
+    >.inner {
+        @extend %max-width-center;
+        margin-bottom: 250px;
+    }
 }
 
-.stats {
-  min-width: 300px;
-  margin-right: 150px;
-
-  div > p {
-    font-size: 30px;
-
-    &:first-child {
-      color: $primary;
-      margin-bottom: 50px;
-      font-size: 12px;
+.info-card-title-section {
+    min-width: 300px;
+    margin-right: 150px;
+    div>p {
+        font-size: 30px;
+        &:first-child {
+            color: $primary;
+            margin-bottom: 50px;
+            font-size: 12px;
+        }
     }
-  }
 }
 
-.buy-info .futuristic-container {
-  border-top: 1px solid $primary;
-
-  .button-wrap {
-    padding-bottom: 10px;
-    color: $primary;
-    display: flex;
-    align-items: center;
-
-    span {
-      padding-left: 20px;
-      font-size: 18px;
+.info-card .futuristic-container {
+    border-top: 1px solid $primary;
+    .button-wrap {
+        padding-bottom: 10px;
+        color: $primary;
+        display: flex;
+        align-items: center;
+        span {
+            padding-left: 20px;
+            font-size: 18px;
+        }
     }
-  }
-
-  p {
-    width: 80%;
-  }
+    p {
+        width: 80%;
+    }
 }
 
 .explanation {
-  line-height: 30px;
+    line-height: 30px;
 }
