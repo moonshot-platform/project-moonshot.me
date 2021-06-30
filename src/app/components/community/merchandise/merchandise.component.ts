@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
+import { DonateDialogComponent } from '../donate-dialog/donate-dialog.component';
+
 
 @Component({
   selector: 'app-merchandise',
   templateUrl: './merchandise.component.html',
-  styleUrls: ['./merchandise.component.scss']
+  styleUrls: ['./merchandise.component.scss'],
+  
 })
 export class MerchandiseComponent implements OnInit {
 
@@ -15,7 +19,7 @@ export class MerchandiseComponent implements OnInit {
     'assets/media/images/community/shop-moonbirb.png'
   ]
 
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -27,5 +31,20 @@ export class MerchandiseComponent implements OnInit {
   prev() {
       this.current = this.current > 0 ? this.current - 1 : this.shirts.length - 1;
   }
+
+  openDialog() {
+
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.panelClass = 'donate-dialog-container';
+    /* dialogConfig.position ={
+      'left' : '0',
+      'top' : '0'
+    }; */
+
+    this.dialog.open(DonateDialogComponent, dialogConfig);
+}
 
 }
