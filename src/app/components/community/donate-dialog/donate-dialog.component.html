@@ -1,12 +1,12 @@
 <section class="alert-dialog">
-    <div [ngClass]="{'bottom-border' : matemaskBoxHover}" class="dialog-box" (mouseleave)="matemaskBoxHover=false" (mouseenter)="matemaskBoxHover=true">
+    <div [ngClass]="{'bottom-border' : matemaskBoxHover}" class="dialog-box" (click)="onClick()" (mouseleave)="matemaskBoxHover=false" (mouseenter)="matemaskBoxHover=true">
         <div>
             <img class="dialog-icon" src="../../../../assets/media/images/logo.png" />
         </div>
         <p class="dialog-box-title">Matemask</p>
         <p class="dialog-box-desc"> Connect to your Metamask<br>wallet</p>
     </div>
-    <div [ngClass]="{'bottom-border' : walletConnectBoxHover}" class="dialog-box" (mouseleave)="walletConnectBoxHover=false" (mouseenter)="walletConnectBoxHover=true">
+    <div [ngClass]="{'bottom-border' : walletConnectBoxHover}" class="dialog-box" (click)="onClick()" (mouseleave)="walletConnectBoxHover=false" (mouseenter)="walletConnectBoxHover=true">
         <div>
             <img class="dialog-icon" src="assets/media/images/logo.png" />
         </div>
