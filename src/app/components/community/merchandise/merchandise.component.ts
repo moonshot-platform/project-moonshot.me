@@ -44,7 +44,7 @@ export class MerchandiseComponent implements OnInit {
       'top' : '0'
     }; */
 
-    this.dialog.open(DonateDialogComponent, dialogConfig);
+    const dialogRef = this.dialog.open(DonateDialogComponent, dialogConfig);
 }
 
 }
