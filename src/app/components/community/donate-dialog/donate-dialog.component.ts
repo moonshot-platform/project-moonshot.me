@@ -8,7 +8,7 @@ import { MerchandiseComponent } from '../merchandise/merchandise.component';
   styleUrls: ['./donate-dialog.component.scss']
 })
 export class DonateDialogComponent implements OnInit {
-  matemaskBoxHover: boolean = false;
+  metamaskBoxHover: boolean = false;
   walletConnectBoxHover: boolean = false;
   constructor(public dialogRef: MatDialogRef<MerchandiseComponent>) { }
 
