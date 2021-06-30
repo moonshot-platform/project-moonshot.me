@@ -15,6 +15,7 @@ import { RoadmapModule } from '../about/roadmap/roadmap.module';
 import { MerchandiseModule } from './merchandise/merchandise.module';
 import { NavigationModule } from '../base/navigation/navigation.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DonateDialogComponent } from './donate-dialog/donate-dialog.component';
 
 
 
@@ -25,6 +26,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     GalleryComponent,
     MoontvComponent,
     MoonticketComponent,
+    DonateDialogComponent,
   ],
   imports: [
     MatIconModule,
