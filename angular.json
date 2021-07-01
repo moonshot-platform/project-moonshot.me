@@ -42,7 +42,8 @@
               ]
             },
             "scripts": [
-              "node_modules/particles.js/particles.js"
+              "node_modules/particles.js/particles.js",
+              "node_modules/pixi.js/dist/browser/pixi.min.js"
             ],
             "vendorChunk": true,
             "extractLicenses": false,

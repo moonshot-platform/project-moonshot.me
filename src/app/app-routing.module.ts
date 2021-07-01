@@ -4,6 +4,7 @@ import { LandingComponent } from './components/landing/landing.component';
 import { AboutComponent } from './components/about/about.component';
 import { TokenLockComponent } from './components/token-lock/token-lock.component';
 import { CommunityComponent } from './components/community/community.component';
+import { ShooterComponent } from './components/games/shooter/shooter.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: CommunityComponent.routeName,
     component: CommunityComponent
+  },
+  {
+    path: ShooterComponent.routeName,
+    component: ShooterComponent
   },
   { path: '**', redirectTo: LandingComponent.routeName }
 ];

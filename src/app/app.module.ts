@@ -20,6 +20,8 @@ export function countdownConfigFactory(): CountdownConfig {
 
 import * as Hammer from 'hammerjs';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import { ShooterModule } from './components/games/shooter/shooter.module';
+import { SpaceInvaderComponent } from './components/games/space-invader/space-invader.component';
 
 @Injectable()
 export class HammerConfig extends HammerGestureConfig {
@@ -31,6 +33,7 @@ export class HammerConfig extends HammerGestureConfig {
 @NgModule({
   declarations: [
     AppComponent,
+    SpaceInvaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,8 @@ export class HammerConfig extends HammerGestureConfig {
     FooterModule,
     CountdownModule,
     NgParticlesModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ShooterModule
   ],
   providers: [{ provide: CountdownGlobalConfig, useFactory: countdownConfigFactory },
     {
