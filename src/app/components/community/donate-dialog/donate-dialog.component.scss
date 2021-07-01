@@ -32,7 +32,7 @@ section.alert-dialog {
     .dialog-box-title {
         margin-top: 24px;
         margin-bottom: 30px;
-        font-family: 'Orbitron';
+        font-family: $secondary-font;
         font-size: 24px;
         font-weight: 900;
         font-stretch: normal;
@@ -43,7 +43,7 @@ section.alert-dialog {
         color: white;
     }
     .dialog-box-desc {
-        font-family: 'Montserrat';
+        font-family: $primary-font;
         font-size: 16px;
         font-weight: 500;
         font-stretch: normal;
