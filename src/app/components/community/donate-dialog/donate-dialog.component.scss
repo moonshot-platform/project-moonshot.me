@@ -24,6 +24,7 @@ section.alert-dialog {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-bottom: 6px solid transparent;
     .dialog-icon {
         width: 70px;
         height: 70px;
