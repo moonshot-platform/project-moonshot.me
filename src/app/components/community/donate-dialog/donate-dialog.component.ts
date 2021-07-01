@@ -10,6 +10,7 @@ import { MerchandiseComponent } from '../merchandise/merchandise.component';
 export class DonateDialogComponent implements OnInit {
   metamaskBoxHover: boolean = false;
   walletConnectBoxHover: boolean = false;
+  
   constructor(public dialogRef: MatDialogRef<MerchandiseComponent>) { }
 
   ngOnInit(): void {
