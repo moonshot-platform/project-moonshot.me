@@ -78,3 +78,7 @@ section.alert-dialog {
         }
     }
 }
+
+::ng-deep.mat-dialog-container {
+    background-color: transparent !important;
+}

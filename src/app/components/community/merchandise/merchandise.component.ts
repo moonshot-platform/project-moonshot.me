@@ -38,13 +38,9 @@ export class MerchandiseComponent implements OnInit {
 
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
-    dialogConfig.panelClass = 'donate-dialog-container';
-    /* dialogConfig.position ={
-      'left' : '0',
-      'top' : '0'
-    }; */
+    
 
     const dialogRef = this.dialog.open(DonateDialogComponent, dialogConfig);
-}
+  }
 
 }
