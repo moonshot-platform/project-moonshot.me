@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgParticlesModule } from "ng-particles";
 
 import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterModule } from './components/base/footer/footer.module';
@@ -48,7 +49,8 @@ export class HammerConfig extends HammerGestureConfig {
     CountdownModule,
     NgParticlesModule,
     BrowserAnimationsModule,
-    ShooterModule
+    ShooterModule,
+    MatDialogModule
   ],
   providers: [{ provide: CountdownGlobalConfig, useFactory: countdownConfigFactory },
     {
