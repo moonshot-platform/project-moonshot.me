@@ -9,7 +9,7 @@ import { TokenomicsService } from 'src/app/services/tokenomics.service';
 })
 export class IntroComponent implements OnInit, OnDestroy {
 
-  countDown: string = '29 March 2021 6:00:00 UTC';
+  countDown: string = '29 March 2021 6:00:00';
   interval: any;
   priceForOneMillion : string = '---';
 
