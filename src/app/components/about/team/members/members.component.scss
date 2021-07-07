@@ -92,6 +92,7 @@ section.team-members {
             letter-spacing: normal;
             text-align: left;
             color: $primary;
+            word-break: break-word;
         }
     }
     .about::-webkit-scrollbar {
@@ -104,10 +105,13 @@ section.team-members {
         justify-content: flex-start;
         width: 100%;
         margin-top: 10px;
-        .social-media-link-with-icon {
+        img {
             height: 25px;
             width: 25px;
             margin-right: 10px;
+        }
+        img:hover {
+            filter: brightness(0) invert(1);
         }
         .social-media-link-with-icon-empty {
             height: 30px;
