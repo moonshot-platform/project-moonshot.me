@@ -59,13 +59,13 @@ export class MembersComponent implements OnInit {
       name : 'CryptoKam',
       image : 'assets/media/images/members/cryptokam.jpeg',
       title : 'Moderator/Contributor',
-      about : 'Marketing Advisor \nCreative Ideas Support \nShill Trooper'.replace("\n", "<br>"),
+      about : 'Marketing Advisor,<br>Creative Ideas Support,<br>Shill Trooper.<br>',
     },
     {
       name : 'CryptoHunter',
       image : 'assets/media/images/members/cryptohunter.jpg',
       title : 'Moderator/Marketeer', //'CryptoHunter, [Moderator/Marketeer]',
-      about : 'Digital Marketing SMO (Youtube, Instagram)',
+      about : 'Digital Marketing SMO (Youtube, Instagram).',
       social : [
         {
           link: 'https://twitter.com/cryptomshot/',
@@ -98,14 +98,14 @@ export class MembersComponent implements OnInit {
       name : 'Moon Squad',
       image : 'assets/media/images/members/moonsquad.jpg',
       title : 'Moderator/Marketeer ',
-      about : 'Social Media Director & Digital Marketing - SMO',
+      about : 'Social Media Director & Digital Marketing - SMO.',
       
     },
     {
       name : 'Rick',
       image : 'assets/media/images/members/rick.jpeg',
       title : 'Moderator & Discord Guru',
-      about : 'Marketing & hype Contributor MOONSHOT lover since day 1',
+      about : 'Marketing & hype Contributor MOONSHOT lover since day 1.',
       
     },
     {
