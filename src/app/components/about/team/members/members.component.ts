@@ -116,10 +116,10 @@ export class MembersComponent implements OnInit {
       
     },
     {
-      name : 'Shef',
+      name : 'Meenu',
       image : 'assets/media/images/members/shef.jpg',
-      title : 'Moderator/Contributor',//'Meenu (Moderator/contributor)',
-      about : 'Focused on the threads, making sure that the right people are answering questions.',//'Focused on the threads, making sure that the right people are answering questions,moving threads when posted in the wrong place, dealing with spammers, and other day to day maintenance in the community.Responding to comments and queries in a timely manner.Staying totally active all the time.',
+      title : 'Moderator/Contributor',
+      about : 'Monitoring ,Tracking and engaging with contents in the community and responding their queries in a timely manner.',
       social : [
         {
           link: 'https://twitter.com/meenubeniwal',
