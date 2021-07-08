@@ -12,9 +12,9 @@ section.team {
     max-width: 270px;
     margin-right: 20px;
     div>p {
-        padding-bottom: 34px;
+        padding-bottom: 48px;
         &:first-child {
-            padding-bottom: 34px;
+            padding-bottom: 48px;
             font-size: 12px;
         }
     }
@@ -29,11 +29,12 @@ section.team {
     }
 }
 
-.info-container .futuristic-container {
+.info-container .futuristic-info-container {
     border-top: 0px solid $primary;
     >p {
         max-width: 570px;
         width: 100%;
+        word-break: break-word;
     }
 }
 
@@ -51,6 +52,7 @@ section.team {
     @include paddingsInside(20px, 0px);
     border-top: 3px solid $primary;
     border-bottom: 1px solid $primary;
+    margin-right: 50px;
     &.no-padding {
         padding: 0;
     }
@@ -98,5 +100,6 @@ section.team {
     }
     .futuristic-info-container {
         border-bottom: none;
+        margin-right: 0px;
     }
 }
