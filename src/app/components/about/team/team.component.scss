@@ -12,9 +12,9 @@ section.team {
     max-width: 270px;
     margin-right: 20px;
     div>p {
-        margin-bottom: 47px;
+        padding-bottom: 34px;
         &:first-child {
-            margin-bottom: 20px;
+            padding-bottom: 34px;
             font-size: 12px;
         }
     }
@@ -47,6 +47,24 @@ section.team {
     line-height: 30px;
 }
 
+.futuristic-info-container {
+    @include paddingsInside(20px, 0px);
+    border-top: 3px solid $primary;
+    border-bottom: 1px solid $primary;
+    &.no-padding {
+        padding: 0;
+    }
+    &.bottom-only {
+        border-top: 0;
+    }
+    &.top-only {
+        border-bottom: 0;
+    }
+    &.no-padding-top {
+        padding-top: 0;
+    }
+}
+
 @media only screen and (max-width: $md) {
     section.team {
         padding-top: 100px;
@@ -68,10 +86,17 @@ section.team {
     }
     .border-top-full-width {
         border-top: 0px solid $primary;
+        border-bottom: 1px solid $primary;
     }
     .info-container-title-section {
         div>p {
-            margin-bottom: 0px;
+            padding-bottom: 0px;
+            &:first-child {
+                padding-bottom: 20px;
+            }
         }
+    }
+    .futuristic-info-container {
+        border-bottom: none;
     }
 }
