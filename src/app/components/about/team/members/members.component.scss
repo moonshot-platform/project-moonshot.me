@@ -2,8 +2,7 @@
 section.team-members {
     z-index: 2;
     padding: 0 20px;
-    padding-top: 130px;
-    //padding-top: 200px;
+    //padding-top: 35px;
     .inner {
         @extend %max-width-center;
     }
@@ -13,7 +12,7 @@ section.team-members {
     display: grid;
     max-width: 100%;
     grid-template-columns: repeat(auto-fill, minmax(270px, 0fr));
-    padding-top: 130px;
+    padding-top: 40px;
     align-items: flex-start;
     justify-content: center;
     grid-gap: 30px;
@@ -29,7 +28,7 @@ section.team-members {
     justify-content: center;
     align-content: center;
     align-items: center;
-    padding-bottom: 90px;
+    padding-top: 90px;
     max-width: 270px;
     height: 100%;
     .rounded-container {
@@ -128,6 +127,7 @@ section.team-members {
     align-items: center;
     align-content: center;
     text-align: center;
+    margin-top: 100px;
     a {
         width: 535px;
     }
@@ -135,7 +135,7 @@ section.team-members {
 
 @media only screen and (max-width: $sm) {
     .member-card {
-        padding-bottom: 85px;
+        padding-top: 85px;
         width: 100%;
         max-width: 100%;
         .about {
@@ -147,5 +147,8 @@ section.team-members {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+    .load-more-button {
+        margin-top: 76px;
     }
 }
