@@ -1,7 +1,7 @@
 <section id="members">
     <div class="all-members inner">
         <div class="members-container" *ngFor="let member of members; let i = index">
-            <div *ngIf="i < loadMoreCount" class="member-card">
+            <div class="member-card">
                 <div class="rounded-container">
                     <img class="rounded-image" src={{member.image}} alt="control zero">
                 </div>
@@ -28,7 +28,7 @@
             </div>
         </div>
     </div>
-    <div *ngIf="loadMoreCount != members.length" class="load-more-button" (click)="onLoadMoreClick()">
+    <div *ngIf="allMembers != members" class="load-more-button" (click)="onLoadMoreClick()">
         <a class="outlined-button">Load more</a>
     </div>
 </section>
