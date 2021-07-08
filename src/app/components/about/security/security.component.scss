@@ -1,61 +1,58 @@
 @import "includes";
 section.security {
-  @include paddingsInside(0px, 20px);
-  padding-top: 200px;
-
-  > .inner {
-    @extend %max-width-center;
-  }
-}
-
-.stats {
-  width: 100%;
-  max-width: 270px;
-  margin-right: 20px;
-
-  div > p {
-    &:first-child {
-      margin-bottom: 20px;
-      font-size: 12px;
+    @include paddingsInside(0px, 20px);
+    padding-top: 200px;
+    >.inner {
+        @extend %max-width-center;
     }
-  }
 }
 
-.info {
-  width: 100%;
-  max-width: 770px;
-}
-
-.info .futuristic-container {
-  border-top: 1px solid $primary;
-  > p {
-    max-width: 570px;
+.info-container-title-section {
     width: 100%;
-  }
+    max-width: 270px;
+    margin-right: 20px;
+    div>p {
+        &:first-child {
+            margin-bottom: 20px;
+            font-size: 12px;
+        }
+    }
+}
+
+.info-container {
+    width: 100%;
+    max-width: 770px;
+}
+
+.info-container .futuristic-container {
+    border-top: 1px solid $primary;
+    >p {
+        max-width: 570px;
+        width: 100%;
+    }
 }
 
 .explanation {
-  line-height: 30px;
+    line-height: 30px;
 }
 
 a {
-  word-break: break-word;
+    word-break: break-word;
 }
 
 @media only screen and (max-width: $md) {
-  section.security {
-    padding-top: 100px;
-
-    > .inner > div {
-      flex-direction: column;
+    section.security {
+        padding-top: 100px;
+        >.inner>div {
+            flex-direction: column;
+        }
     }
-  }
-  .stats {
-    margin-right: 0;
-    max-width: initial;
-  }
-  .info .futuristic-container {
-    border-top: 0;
-    padding-right: 0;
-  }
+    .info-container-title-section {
+        margin-right: 0;
+        max-width: initial;
+    }
+    .info-container .futuristic-container {
+        border-top: 0;
+        padding-right: 0;
+    }
 }

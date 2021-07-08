@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgParticlesModule } from "ng-particles";
 
 import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterModule } from './components/base/footer/footer.module';
@@ -20,6 +21,7 @@ export function countdownConfigFactory(): CountdownConfig {
 
 import * as Hammer from 'hammerjs';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import { GtagModule } from 'angular-gtag';
 
 @Injectable()
 export class HammerConfig extends HammerGestureConfig {
@@ -44,7 +46,9 @@ export class HammerConfig extends HammerGestureConfig {
     FooterModule,
     CountdownModule,
     NgParticlesModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatDialogModule,
+    GtagModule.forRoot({ trackingId: 'G-5Q9LF9T9Q6', trackPageviews: true })
   ],
   providers: [{ provide: CountdownGlobalConfig, useFactory: countdownConfigFactory },
     {
