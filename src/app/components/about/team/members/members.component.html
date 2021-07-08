@@ -15,7 +15,7 @@
                 <div *ngIf="member.social != null" class="social-media-container">
                     <div *ngFor="let media of member.social">
                         <a href={{media.link}} target="_blank">
-                            <img class="social-media-link-with-icon" src={{media.icon}} alt="social-media">
+                            <img class="social-media-link-with-icon" src={{media.icon}} alt={{media.alt}}>
                         </a>
                     </div>
                 </div>
