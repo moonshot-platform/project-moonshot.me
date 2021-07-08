@@ -1,78 +1,77 @@
 @import "includes";
 section.team {
-  @include paddingsInside(200px, 20px);
-  padding-bottom: 0;
-
-  > .inner {
-    @extend %max-width-center;
-  }
+    @include paddingsInside(200px, 20px);
+    padding-bottom: 0;
+    >.inner {
+        @extend %max-width-center;
+    }
 }
 
 .stats {
-  width: 100%;
-  max-width: 270px;
-  margin-right: 20px;
-  div > p {
-    margin-bottom: 47px;
-    &:first-child {
-      margin-bottom: 20px;
-      font-size: 12px;
+    width: 100%;
+    max-width: 270px;
+    margin-right: 20px;
+    div>p {
+        margin-bottom: 47px;
+        &:first-child {
+            margin-bottom: 20px;
+            font-size: 12px;
+        }
     }
-  }
 }
 
 .info {
-  width: 100%;
-  max-width: 770px;
-  .bottom > div:first-child > p {
-    line-height: 27px;
-    font-size: 16px;
-  }
+    width: 100%;
+    max-width: 770px;
+    .bottom>div:first-child>p {
+        line-height: 27px;
+        font-size: 16px;
+    }
 }
 
 .info .futuristic-container {
-  border-top: 0px solid $primary;
-  > p {
-    max-width: 570px;
-    width: 100%;
-  }
+    border-top: 0px solid $primary;
+    >p {
+        max-width: 570px;
+        width: 100%;
+    }
 }
 
 .border-top-full-width {
-  border-top: 1px solid $primary;
-  width: 100%;
-  padding-right: -50px;
+    border-top: 1px solid $primary;
+    width: 100%;
+    padding-right: -50px;
 }
 
 .explanation {
-  line-height: 30px;
+    line-height: 30px;
 }
 
 @media only screen and (max-width: $md) {
-  section.team {
-    padding-top: 100px;
-    //margin-top: -100px;
-    > .inner > div {
-      flex-direction: column;
+    section.team {
+        padding-top: 100px;
+        //margin-top: -100px;
+        >.inner>div {
+            flex-direction: column;
+        }
     }
-  }
-  .stats {
-    margin-right: 0;
-    max-width: initial;
-  }
-  .info .futuristic-container {
-    border-top: 1;
-    padding-right: 0;
-  }
-  .round-mini-button {
-    display: none;
-  }
-  .border-top-full-width {
-    border-top: 0px solid $primary;
-  }
-  .stats {
-    div > p {
-      margin-bottom: 0px;
+    .stats {
+        margin-right: 0;
+        max-width: initial;
     }
-  }
+    .info .futuristic-container {
+        border-top: 1;
+        padding-right: 0;
+    }
+    .round-mini-button {
+        display: none;
+    }
+    .border-top-full-width {
+        border-top: 0px solid $primary;
+    }
+    .stats {
+        div>p {
+            margin-bottom: 0px;
+        }
+    }
 }
