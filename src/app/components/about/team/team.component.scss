@@ -7,7 +7,7 @@ section.team {
     }
 }
 
-.stats {
+.info-container-title-section {
     width: 100%;
     max-width: 270px;
     margin-right: 20px;
@@ -20,7 +20,7 @@ section.team {
     }
 }
 
-.info {
+.info-container {
     width: 100%;
     max-width: 770px;
     .bottom>div:first-child>p {
@@ -29,7 +29,7 @@ section.team {
     }
 }
 
-.info .futuristic-container {
+.info-container .futuristic-container {
     border-top: 0px solid $primary;
     >p {
         max-width: 570px;
@@ -55,11 +55,11 @@ section.team {
             flex-direction: column;
         }
     }
-    .stats {
+    .info-container-title-section {
         margin-right: 0;
         max-width: initial;
     }
-    .info .futuristic-container {
+    .info-container .futuristic-container {
         border-top: 1;
         padding-right: 0;
     }
@@ -69,7 +69,7 @@ section.team {
     .border-top-full-width {
         border-top: 0px solid $primary;
     }
-    .stats {
+    .info-container-title-section {
         div>p {
             margin-bottom: 0px;
         }
