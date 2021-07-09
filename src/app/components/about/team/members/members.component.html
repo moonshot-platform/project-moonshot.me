@@ -1,6 +1,6 @@
 <section id="members">
     <div class="all-members inner">
-        <div class="members-container" *ngFor="let member of members; let i = index">
+        <div class="members-container" *ngFor="let member of members">
             <div class="member-card">
                 <div class="rounded-container">
                     <img class="rounded-image" src={{member.image}} alt="control zero">
@@ -20,9 +20,7 @@
                     </div>
                 </div>
                 <div *ngIf="member.social == null" class="social-media-container">
-
                     <div class="social-media-link-with-icon-empty"></div>
-
                 </div>
 
             </div>
