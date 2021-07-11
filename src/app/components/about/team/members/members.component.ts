@@ -146,7 +146,7 @@ export class MembersComponent implements OnInit {
     {
       name : 'CryptoHunter',
       image : 'assets/media/images/members/cryptohunter.jpg',
-      title : 'Moderator/Marketeer', //'CryptoHunter, [Moderator/Marketeer]',
+      title : 'Moderator/Marketeer', 
       about : 'Digital Marketing SMO (Youtube, Instagram).',
       social : [
         {
@@ -162,6 +162,24 @@ export class MembersComponent implements OnInit {
       title : 'Solidity Developer',
       about : 'Experienced backend engineer turned solidity developer. Enthusiast of blockchain and smart contract.'
       
+    },
+    {
+      name : 'Majestic Drama',
+      image : 'assets/media/images/members/majestic.png',
+      title : 'Community Ambassador', 
+      about : 'Music producer & songwriter who has produced tracks for Wale, Kid Ink, Fetty Wap, Twista, and La Fouine.',
+      social : [
+        {
+          link: 'https://twitter.com/MajesticDrama',
+          icon: 'assets/media/icons/social/twitter-yellow-round-icon.svg',
+          alt: 'twitter-icon'
+        },
+        {
+          link: 'https://en.m.wikipedia.org/wiki/Majestic_Drama',
+          icon: 'assets/media/icons/social/world-icon.svg',
+          alt: 'wikipedia-icon'
+        }
+      ]
     },
     {
       name : 'Light',
