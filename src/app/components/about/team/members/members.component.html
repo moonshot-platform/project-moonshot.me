@@ -26,7 +26,7 @@
             </div>
         </div>
     </div>
-    <div *ngIf="allMembers != members" class="load-more-button" (click)="onLoadMoreClick()">
+    <div *ngIf="members.length <= 8" class="load-more-button" (click)="onLoadMoreClick()">
         <a class="outlined-button">Load more</a>
     </div>
 </section>
