@@ -22,6 +22,7 @@ export function countdownConfigFactory(): CountdownConfig {
 import * as Hammer from 'hammerjs';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { GtagModule } from 'angular-gtag';
+import { MoonbaseModule } from './components/moonbase/moonbase.module';
 
 @Injectable()
 export class HammerConfig extends HammerGestureConfig {
@@ -48,7 +49,9 @@ export class HammerConfig extends HammerGestureConfig {
     NgParticlesModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    GtagModule.forRoot({ trackingId: 'G-5Q9LF9T9Q6', trackPageviews: true })
+    GtagModule.forRoot({ trackingId: 'G-5Q9LF9T9Q6', trackPageviews: true }),
+    MoonbaseModule,
+    MatDialogModule
   ],
   providers: [{ provide: CountdownGlobalConfig, useFactory: countdownConfigFactory },
     {
