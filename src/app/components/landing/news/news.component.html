@@ -4,7 +4,7 @@
             <div class="top futuristic-container bottom-only">
                 <div class="inner flex-space-between">
                     <a *ngFor="let item of iconList" class="round-large-button" (mouseover)="item.hover = true" (mouseout)="item.hover = false" href={{item.url}} target="_blank">
-                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 70 70" xml:space="preserve">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" [attr.viewBox]=item.viewBox xml:space="preserve">
                             <style>path{fill:#d5a642}</style>
                             <path [style.fill]="item.hover == true ? item.focusColor : null" *ngFor="let p of item.paths" attr.d={{p}} />
                         </svg>
