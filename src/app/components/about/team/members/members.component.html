@@ -1,19 +1,32 @@
 <section id="members">
     <div class="all-members inner">
-        <div *ngFor="let member of members" class="member-card">
-            <div class="rounded-container">
-                <img class="rounded-image" src={{member.image}} alt="control zero">
-            </div>
-            <div class="title">
-                <p>{{member.name}}</p>
-                <p class="job-title">{{member.title}}</p>
-            </div>
-            <div class="about">
-                <p>{{member.about}} </p>
+        <div class="members-container" *ngFor="let member of members">
+            <div class="member-card">
+                <div class="rounded-container">
+                    <img class="rounded-image" src={{member.image}} alt="control zero">
+                </div>
+                <div class="title">
+                    <p>{{member.name}}</p>
+                    <p class="job-title">{{member.title}}</p>
+                </div>
+                <div *ngIf="member.about != ''" class="about">
+                    <p [innerHTML]="member.about">{{member.about}} </p>
+                </div>
+                <div *ngIf="member.social != null" class="social-media-container">
+                    <div *ngFor="let media of member.social">
+                        <a href={{media.link}} target="_blank">
+                            <img class="social-media-link-with-icon" src={{media.icon}} alt={{media.alt}}>
+                        </a>
+                    </div>
+                </div>
+                <div *ngIf="member.social == null" class="social-media-container">
+                    <div class="social-media-link-with-icon-empty"></div>
+                </div>
+
             </div>
         </div>
     </div>
-    <div class="load-more-button">
+    <div *ngIf="members.length <= 8" class="load-more-button" (click)="onLoadMoreClick()">
         <a class="outlined-button">Load more</a>
     </div>
 </section>

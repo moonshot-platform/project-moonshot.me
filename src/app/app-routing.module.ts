@@ -4,7 +4,10 @@ import { LandingComponent } from './components/landing/landing.component';
 import { AboutComponent } from './components/about/about.component';
 import { TokenLockComponent } from './components/token-lock/token-lock.component';
 import { CommunityComponent } from './components/community/community.component';
-import { ShooterComponent } from './components/games/shooter/shooter.component';
+import { MoonbaseComponent } from './components/moonbase/moonbase.component';
+import { BuyMoonbaseComponent } from './components/moonbase/buy-moonbase/buy-moonbase.component';
+import { PrizePoolComponent } from './components/moonbase/prize-pool/prize-pool.component';
+import { HistoryComponent } from './components/moonbase/history/history.component';
 
 const routes: Routes = [
   {
@@ -24,9 +27,25 @@ const routes: Routes = [
     component: CommunityComponent
   },
   {
-    path: ShooterComponent.routeName,
-    component: ShooterComponent
+    path: MoonbaseComponent.routeName,
+    component: MoonbaseComponent
   },
+  {
+    path: BuyMoonbaseComponent.routeName,
+    component: BuyMoonbaseComponent
+  },
+  {
+    path: PrizePoolComponent.routeName,
+    component: PrizePoolComponent
+  },
+  {
+    path: HistoryComponent.routeName,
+    component: HistoryComponent
+  },
+//   {
+//     path: 'moonbase',
+//     loadChildren: () => import('./components/moonbase/moonbase.module').then(m => m.MoonbaseModule)
+// },
   { path: '**', redirectTo: LandingComponent.routeName }
 ];
 

@@ -23,6 +23,8 @@ import * as Hammer from 'hammerjs';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { ShooterModule } from './components/games/shooter/shooter.module';
 import { SpaceInvaderComponent } from './components/games/space-invader/space-invader.component';
+import { GtagModule } from 'angular-gtag';
+import { MoonbaseModule } from './components/moonbase/moonbase.module';
 
 @Injectable()
 export class HammerConfig extends HammerGestureConfig {
@@ -50,6 +52,9 @@ export class HammerConfig extends HammerGestureConfig {
     NgParticlesModule,
     BrowserAnimationsModule,
     ShooterModule,
+    MatDialogModule,
+    GtagModule.forRoot({ trackingId: 'G-5Q9LF9T9Q6', trackPageviews: true }),
+    MoonbaseModule,
     MatDialogModule
   ],
   providers: [{ provide: CountdownGlobalConfig, useFactory: countdownConfigFactory },

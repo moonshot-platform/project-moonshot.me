@@ -2,7 +2,7 @@
 section.team-members {
     z-index: 2;
     padding: 0 20px;
-    padding-top: 130px;
+    //padding-top: 35px;
     .inner {
         @extend %max-width-center;
     }
@@ -12,20 +12,25 @@ section.team-members {
     display: grid;
     max-width: 100%;
     grid-template-columns: repeat(auto-fill, minmax(270px, 0fr));
-    padding-top: 130px;
-    align-items: center;
+    padding-top: 40px;
+    align-items: flex-start;
     justify-content: center;
     grid-gap: 30px;
+    .members-container {
+        width: 100%;
+        height: 100%;
+    }
 }
 
 .member-card {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-content: center;
-    flex-direction: column;
     align-items: center;
-    padding-bottom: 90px;
+    padding-top: 90px;
     max-width: 270px;
+    height: 100%;
     .rounded-container {
         display: flex;
         width: 200px;
@@ -51,8 +56,7 @@ section.team-members {
         align-items: center;
         margin-top: 20px;
         margin-bottom: 5px;
-        height: 71.2px;
-        font-family: Montserrat;
+        font-family: $primary-font;
         font-size: 20px;
         font-weight: bold;
         font-stretch: normal;
@@ -62,13 +66,21 @@ section.team-members {
         text-align: center;
         color: $primary;
         .job-title {
-            font-weight: 400;
+            font-weight: 300;
+            font-family: $primary-font;
+            font-size: 20px;
         }
     }
     .about {
+        height: 110px;
         padding: 15px 0px 15px 0px;
         border-top: 1px solid $primary;
         border-bottom: 1px solid $primary;
+        overflow-y: scroll;
+        width: 100%;
+        -ms-overflow-style: none;
+        /* Internet Explorer 10+ */
+        scrollbar-width: none;
         p {
             font-family: $primary-font;
             font-size: 16px;
@@ -79,6 +91,31 @@ section.team-members {
             letter-spacing: normal;
             text-align: left;
             color: $primary;
+            word-break: break-word;
+        }
+    }
+    .about::-webkit-scrollbar {
+        display: none;
+        /* Safari and Chrome */
+    }
+    .social-media-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        width: 100%;
+        margin-top: 10px;
+        img {
+            height: 25px;
+            width: 25px;
+            margin-right: 10px;
+        }
+        img:hover {
+            filter: brightness(0) invert(1);
+        }
+        .social-media-link-with-icon-empty {
+            height: 30px;
+            width: 30px;
+            margin-right: 10px;
         }
     }
 }
@@ -90,6 +127,7 @@ section.team-members {
     align-items: center;
     align-content: center;
     text-align: center;
+    margin-top: 100px;
     a {
         width: 535px;
     }
@@ -97,13 +135,20 @@ section.team-members {
 
 @media only screen and (max-width: $sm) {
     .member-card {
+        padding-top: 85px;
+        width: 100%;
         max-width: 100%;
-        padding-bottom: 85px;
+        .about {
+            height: max-content;
+        }
     }
     .all-members {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+    .load-more-button {
+        margin-top: 76px;
     }
 }

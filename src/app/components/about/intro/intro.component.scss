@@ -1,46 +1,46 @@
 @import "includes";
 section.intro {
-    min-height: 100vh;
-    position: relative;
-    padding-top: 148px;
-    box-sizing: border-box;
-    .moon-bg-position {
-        position: absolute;
-        left: 10%;
-        >img {
-            width: 100%;
-        }
+  min-height: 100vh;
+  position: relative;
+  padding-top: 148px;
+  box-sizing: border-box;
+  .moon-bg-position {
+    position: absolute;
+    left: 10%;
+    > img {
+      width: 100%;
     }
-    .inner {
-        @extend %max-width-center;
-        padding: 0 20px;
-    }
+  }
+  .inner {
+    @extend %max-width-center;
+    padding: 0 20px;
+  }
 }
 
 .info-container {
+  width: 100%;
+  max-width: 770px;
+  color: $primary;
+  > .top-width {
+    max-width: 570px;
     width: 100%;
-    max-width: 770px;
-    color: $primary;
-    >.top-width {
-        max-width: 570px;
-        width: 100%;
-    }
-    >.border-top {
-        border-top: 1px solid $primary;
-    }
+  }
+  > .border-top {
+    border-top: 1px solid $primary;
+  }
 }
 
 @media only screen and (max-width: $md) {
-    section.intro {
-        background-size: 100%;
-        padding-top: 120px;
-        padding-bottom: 0px;
-        min-height: 100vh;
-        .moon-bg-position {
-            left: 0;
-        }
+  section.intro {
+    background-size: 100%;
+    padding-top: 200px;
+    padding-bottom: 0px;
+    min-height: 100vh;
+    .moon-bg-position {
+      left: 0;
     }
-    .info-container>.top>p {
-        font-size: 27px;
-    }
+  }
+  .info-container > .top > p {
+    font-size: 27px;
+  }
 }
