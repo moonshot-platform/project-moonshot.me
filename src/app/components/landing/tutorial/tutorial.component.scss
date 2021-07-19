@@ -13,18 +13,25 @@ section.tutorial {
 }
 
 .address-container li {
-  padding: 10px 20px;
-  box-sizing: border-box;
-  border-bottom: 1px solid $primary;
   cursor: pointer;
+  box-sizing: border-box;
+  padding: 0;
 
   > p {
     line-break: anywhere;
+    padding: 10px 20px;
+
+    box-sizing: border-box;
+    border-bottom: 1px solid $primary;
   }
 
   &:hover {
     > p {
       color: white;
+    }
+
+    .copy-icon > path {
+      fill: white;
     }
   }
 
@@ -32,7 +39,16 @@ section.tutorial {
     > p {
       color: $primary;
     }
+
+    .copy-icon > path {
+      fill: $primary;
+    }
   }
+}
+
+.copy-icon {
+  width: 24px;
+  margin-left: 20px;
 }
 
 .how-to-buy-flow {
@@ -155,6 +171,12 @@ section.tutorial {
   }
 }
 
+@media only screen and (max-width: $sm) {
+  .copy-icon {
+    display: none;
+  }
+}
+
 @media only screen and (max-width: $md) {
   section.tutorial {
     padding-top: 100px;
@@ -180,7 +202,7 @@ section.tutorial {
 
   .address-container {
     li {
-      padding: 20px;
+      padding: 20px 0;
       p {
         text-align: center;
       }

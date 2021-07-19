@@ -41,18 +41,28 @@ ul > li {
   display: flex;
   flex-wrap: wrap;
   > li {
-    width: calc(33.333% - 15px);
-    margin-bottom: 30px;
-    &:nth-child(3n + 2) {
-      margin: 0 22px 30px;
+    width: calc(25% - 15px);
+    margin: 10px 10px;
+
+    > a {
+      display: contents;
+    }
+
+    &:nth-child(4n) {
+      margin-right: 0;
+    }
+    &:nth-child(4n + 1),
+    &:first-child {
+        margin-left: 0;
     }
   }
 }
 
-.icon {
-  > img {
-    width: 100%;
-  }
+.icon > svg {
+  max-height: 52px;
+  path{fill:#d5a642}
+
+  &:hover > path { fill: #FFFFFF; }
 }
 
 @media only screen and (max-width: $md) {
@@ -76,27 +86,18 @@ ul > li {
   }
   .social-icon-links ul {
     width: auto;
-    > li {
-      width: calc(25% - 15px);
-      margin: 0 10px 10px;
-      &:nth-child(3n + 2) {
-        margin: 0 10px 30px;
-      }
-      &:nth-child(4n) {
-        margin-right: 0;
-      }
-      &:nth-child(4n + 1),
-      &:first-child {
-        margin-left: 0;
-      }
-    }
   }
   .icon {
     display: block;
-    > img {
-      width: 100%;
+    > svg {
       height: auto;
       max-width: 85px;
     }
+  }
+}
+
+@media only screen and (max-width: $sm) {
+  .icon > svg {
+    width: 100%;
   }
 }

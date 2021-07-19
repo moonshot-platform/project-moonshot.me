@@ -49,9 +49,12 @@
             <div class="social-icon-links">
                 <p>Links</p>
                 <ul class="mt30">
-                    <li *ngFor="let item of icons">
+                    <li *ngFor="let item of icons" class="flex-center">
                         <a target="_blank" class="icon" href="{{item.link}}">
-                            <img src="assets/media/icons/social/{{item.icon}}" alt="{{item.alt}}">
+                            <!-- <img src="assets/media/icons/social/{{item.icon}}" alt="{{item.alt}}"> -->
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" [attr.viewBox]=item.viewBox xml:space="preserve">
+                                <path *ngFor="let p of item.paths" attr.opacity={{p[1]}} attr.d={{p[0]}} />
+                            </svg>
                         </a>
                     </li>
                 </ul>
