@@ -1,0 +1,55 @@
+@import "includes";
+
+section.sidebar {
+  background-color: $primary;
+  width: $sidebar-width;
+  height: 100vh;
+  z-index: 2;
+  position: fixed;
+  border-left: 1px solid $body-bg-color;
+}
+.right-0 {
+    right: 0;
+}
+
+.block {
+  background: $secondary;
+  width: $sidebar-width;
+  height: $sidebar-width;
+  border-left: 1px solid $body-bg-color;
+  > p {
+    color: #d6a644;
+  }
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  li {
+    text-align: center;
+    border-bottom: 2px solid black;
+    width: 40px;
+
+    &:last-child {
+      border: 0;
+    }
+
+    a {
+      padding: 20px 0;
+      color: black;
+      text-decoration: none;
+      font-weight: $semi-bold;
+      writing-mode: tb-rl;
+      -webkit-transform: rotate(180deg);
+      -moz-transform: rotate(180deg);
+      -o-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      transform: rotate(180deg);
+
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+}
