@@ -7,6 +7,18 @@ section.sidebar {
   z-index: 2;
   position: fixed;
   border-left: 1px solid black;
+
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-icon {
+  margin-top: auto;
+  margin-bottom: 10px;
+  > img {
+    width: 36px;
+  }
 }
 
 .close {
