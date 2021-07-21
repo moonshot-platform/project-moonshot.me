@@ -1,25 +1,33 @@
 import { OnInit, Component, Input, HostListener, NgZone } from '@angular/core';
-import { Application, IApplicationOptions, Sprite } from 'pixi.js';
+import * as PIXI from 'pixi.js';
 
+export enum KEY_CODE {
+  RIGHT_ARROW = "ArrowRight",
+  LEFT_ARROW = "ArrowLeft",
+  SPACE = " "
+}
 @Component({
   selector: 'app-shooter',
   templateUrl: './shooter.component.html',
   styleUrls: ['./shooter.component.scss']
 })
+
 export class ShooterComponent implements OnInit {
 
   static readonly routeName: string = 'games/shooter';
 
-  public app: Application;
-  private player: Sprite;
-  private keys: { [k: string]: boolean };
-  private keysDiv: any;
+  public app: PIXI.Application;
+  private player: any;
+  private playerSpeed = 3;
+  private keys: { [key: string]: boolean } = {};
   private bullets = [];
-  private bulletSpeed = 10;
+  private bulletSpeed = 7;
   private bullet: any;
+  private bulletTimer;
   private enemies = [];
-  private enemySpeed = 3;
+  private enemySpeed = 1;
   private enemy: any;
+  private enemyTimer;
   private scoreTable: any;
   private score = 0;
   private isGameOver = false;
@@ -28,8 +36,8 @@ export class ShooterComponent implements OnInit {
   public devicePixelRatio = window.devicePixelRatio || 1;
 
   @Input()
-  public applicationOptions: IApplicationOptions = {
-    backgroundAlpha: 0.1,
+  public applicationOptions: PIXI.IApplicationOptions = {
+    backgroundAlpha: 0,
     antialias: true,
     resolution: this.devicePixelRatio,
     autoDensity: true,
@@ -39,67 +47,51 @@ export class ShooterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.keys = { "32": false, "37": false, "39": false };
     this.init();
   }
 
   init() {
     this.ngZone.runOutsideAngular(() => {
-      this.app = new Application(this.applicationOptions);
-      /*       //preload assets
-            this.app.loader.baseUrl = "assets/media/icons/game";
-            this.app.loader
-              .add("bullet", "bullet.png")
-              .add("ufo", "ufo.png")
-              .add("player", "player.png")
-      
-            this.app.loader.onProgress.add(this.showProgress);
-            this.app.loader.onComplete.add(this.doneLoading);
-            this.app.loader.onError.add(this.reportError);
-      
-            this.app.loader.load(); */
+      this.app = new PIXI.Application(this.applicationOptions);
+      //preload assets
+      this.app.loader.baseUrl = "assets/media/icons/game";
+      this.app.loader
+        .add("bullet", "bullet.png")
+        .add("ufo", "ufo.png")
+        .add("player", "player.png")
+
+      this.app.loader.onProgress.add((e) => this.showProgress(e));
+      this.app.loader.onComplete.add((e) => this.doneLoading(e));
+      this.app.loader.onError.add((e) => this.reportError(e));
+
+      this.app.loader.load();
+
+      document.getElementById('pixi-container').appendChild(this.app.view);
 
     });
-
-
-    document.getElementById('pixi-container').appendChild(this.app.view);
 
     this.resize();
     this.onRender();
 
-    window.addEventListener("keydown", this.keysDown)
-    window.addEventListener("keyup", this.keysUp)
-
-
   }
 
-  private bunny: Sprite;
+  private bunny: PIXI.Sprite;
 
   onRender(): void {
     this.app.view.style.transformOrigin = `top left`;
 
-
-
-    // player object
-    this.player = Sprite.from("assets/media/icons/game/player.png");
-    this.player.anchor.set(0.5);
-    this.player.x = this.app.view.width / 2;
-    this.player.y = this.app.view.height / 2;;
-    this.app.stage.addChild(this.player);
-
     this.generateEnemy();
     this.repositionAssets();
-    this.app.ticker.add(this.gameLoop);
+    this.app.ticker.add(() => this.gameLoop());
   }
 
   repositionAssets(): void {
-    if (this.bunny !== undefined) {
+    if (this.player !== undefined) {
       // move the sprite to the center of the screen
-      this.bunny.x = this.app.screen.width / 2;
-      this.bunny.y = this.app.screen.height / 2;
+      this.player.x = this.app.screen.width / 2;
+      this.player.y = this.app.screen.height - this.player.height;
     }
   }
-
 
   @HostListener('window:resize')
   public resize() {
@@ -118,66 +110,89 @@ export class ShooterComponent implements OnInit {
     this.repositionAssets();
   }
 
+  @HostListener('window:keyup', ['$event'])
+  keyUpEvent(event: KeyboardEvent) {
+    this.keys[event.key] = false;
+  }
+
+  @HostListener('window:keydown', ['$event'])
+  keyDownEvent(event: KeyboardEvent) {
+    this.keys[event.key] = true;
+  }
+
   ngOnDestroy(): void {
     this.app.destroy();
   }
+
   showProgress(e): void {
-    console.log(e.progress);
+    //console.log(e.progress);
   }
 
   doneLoading(e): void {
-    console.log('DONE LOADING!');
+    // * creating player object
+    this.player = PIXI.Sprite.from(this.app.loader.resources.player.texture);
+    this.player.anchor.set(0.5);
+    this.player.height = 30;
+    this.player.width = 30;
+    this.player.x = this.app.screen.width / 2;
+    this.player.y = this.app.screen.height - this.player.height;
+    this.player.speed = this.playerSpeed;
+    this.app.stage.addChild(this.player);
   }
 
   reportError(e): void {
     console.log("ERROR : " + e.message);
   }
-  keysDown(e) {
-    this.keys[e.keyCode] = true;
-    console.log(e.keyCode);
-
-  }
-
-  keysUp(e) {
-    this.keys[e.keyCode] = false;
-    console.log(e.keyCode);
-  }
 
   gameLoop() {
-    console.log(typeof this.keys);
-    // left arrow
-    if (this.keys["37"]) {
-      if (this.player.x > 20)
-        this.player.x -= 5;
-    }
-    // right arrow
-    if (this.keys["39"]) {
-      if (this.player.x < this.app.view.width - 20)
-        this.player.x += 5;
-    }
+    this.detectMovement();
 
-    // space
-    if (this.keys["32"]) {
-
-      window.clearTimeout();
-      setTimeout(function () {
-        this.fireBullet();
-      }, 100);
-
-    }
-
-    //if (this.updateBullet !== undefined)
     this.updateBullet();
-    //if (this.updateEnemy !== undefined)
-    this.updateEnemy();
-    //if (this.updateLevel !== undefined)
-    this.updateLevel();
-    // if (this.gameOver !== undefined)
-    this.gameOver();
-    //if (this.detectShootingEnemy !== undefined)
-    this.detectShootingEnemy();
 
-    this.generateEnemy();
+    this.updateEnemy();
+
+    this.updateLevel();
+
+    this.gameOver();
+
+    this.detectShootingEnemy();
+  }
+  detectMovement() {
+    if (this.keys[KEY_CODE.LEFT_ARROW] && (this.player.x > this.player.width / 2)) {
+
+      this.player.x -= 5;
+
+    }
+    if (this.keys[KEY_CODE.RIGHT_ARROW] && (this.player.x < this.app.screen.width - this.player.width / 2)) {
+
+      this.player.x += 5;
+
+    }
+    if (this.keys[KEY_CODE.SPACE]) {
+
+      clearTimeout(this.bulletTimer);
+      this.bulletTimer = setTimeout(() => { this.fireBullet(); }, 50);
+
+    }
+  }
+  fireBullet() {
+    if (!this.isGameOver) {
+      let tempBullet = this.createBullet();
+      this.bullets.push(tempBullet);
+      console.log("FIRE!");
+    }
+  }
+  createBullet(): any {
+    this.bullet = PIXI.Sprite.from(this.app.loader.resources.bullet.texture);
+    this.bullet.anchor.set(0.5);
+    this.bullet.height = 15;
+    this.bullet.width = 15;
+    this.bullet.x = this.player.x;
+    this.bullet.y = this.player.y - this.bullet.height;
+    this.bullet.speed = this.bulletSpeed;
+    this.app.stage.addChild(this.bullet);
+
+    return this.bullet;
   }
 
   updateBullet() {
@@ -192,10 +207,13 @@ export class ShooterComponent implements OnInit {
 
   }
   createEnemy(): any {
-    this.enemy = Sprite.from("assets/media/icons/game/ufo.png");
+    this.enemy = PIXI.Sprite.from("assets/media/icons/game/ufo.png");
     this.enemy.anchor.set(0.5);
-    this.enemy.x = (Math.random() * (this.app.view.width - this.enemy.width / 2)) + this.enemy.width / 2;
+    this.enemy.x = (Math.random() * (this.app.screen.width - this.enemy.width / 2)) + this.enemy.width / 2;
     this.enemy.y = 0;
+    let randomSize = Math.random() * 30
+    this.enemy.height = randomSize < 20 ? 20 : randomSize;
+    this.enemy.width = randomSize < 20 ? 20 : randomSize;
     this.enemy.speed = this.enemySpeed;
     this.app.stage.addChild(this.enemy);
 
@@ -203,28 +221,28 @@ export class ShooterComponent implements OnInit {
   }
 
   generateEnemy(): void {
-    if (typeof this.createEnemy === 'function') {
-      var tempEnemy = this.createEnemy();
-      this.enemies.push(tempEnemy);
-      console.log("CRAETING ENEMY!!");
-      setTimeout(this.generateEnemy, 1000);
-      clearTimeout();
-    }
+    var tempEnemy = this.createEnemy();
+    this.enemies.push(tempEnemy);
+    setTimeout(() => { this.generateEnemy() }, 1000);
+    clearTimeout();
   }
 
   updateEnemy() {
     for (let index = 0; index < this.enemies.length; index++) {
       this.enemies[index].position.y += this.enemies[index].speed;
-      if (this.enemies[index].position.y > this.app.view.height) {
+      if (this.enemies[index].position.y > this.app.screen.height) {
         this.app.stage.removeChild(this.enemies[index]);
         this.enemies.splice(index, 1);
       }
     }
   }
 
-  collision(bullet, enemy) {
+  collision(bullet: any, enemy: any) {
+    if (bullet === undefined || enemy === undefined)
+      return false;
     let aBox = bullet.getBounds();
     let bBox = enemy.getBounds();
+
     return (((aBox.x >= bBox.x) && (aBox.x <= bBox.x + bBox.width)) || ((aBox.x + aBox.width >= bBox.x) && (aBox.x + aBox.width <= bBox.x + bBox.width))) &&
       (aBox.y <= bBox.y + bBox.height);
 
@@ -239,7 +257,7 @@ export class ShooterComponent implements OnInit {
           this.app.stage.removeChild(this.enemies[j]);
           this.enemies.splice(j, 1);
           this.score += 5;
-          this.scoreTable.textContent = 'Score : ' + this.score;
+          //this.scoreTable.textContent = 'Score : ' + this.score;
         }
       }
     }
@@ -247,9 +265,9 @@ export class ShooterComponent implements OnInit {
 
   updateLevel() {
     if (this.score == 100)
-      this.enemySpeed = 5;
+      this.enemySpeed = 3;
     else if (this.score == 200)
-      this.enemySpeed = 7;
+      this.enemySpeed = 4;
   }
 
   gameOver() {
