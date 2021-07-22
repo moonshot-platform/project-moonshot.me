@@ -276,14 +276,15 @@ export class ShooterComponent implements OnInit {
     for (let i = 0; i < this.bullets.length; i++) {
       for (let j = 0; j < this.enemies.length; j++) {
         if (this.collision(this.bullets[i], this.enemies[j])) {
-          //app.stage.removeChild(bullets[i]);
-          if (this.enemies[j].width < 25)
+          if (this.enemies[j].width < 22)
             this.score += 10;
           else
             this.score += 5;
           this.scoreTable.textContent = 'Score : ' + this.score;
           this.app.stage.removeChild(this.enemies[j]);
           this.enemies.splice(j, 1);
+          this.app.stage.removeChild(this.bullets[i]);
+          this.bullets.splice(i, 1);
         }
       }
     }
