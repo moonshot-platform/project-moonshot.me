@@ -21,6 +21,8 @@ export function countdownConfigFactory(): CountdownConfig {
 
 import * as Hammer from 'hammerjs';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import { ShooterModule } from './components/games/shooter/shooter.module';
+import { SpaceInvaderComponent } from './components/games/space-invader/space-invader.component';
 import { GtagModule } from 'angular-gtag';
 import { MoonbaseModule } from './components/moonbase/moonbase.module';
 
@@ -34,6 +36,7 @@ export class HammerConfig extends HammerGestureConfig {
 @NgModule({
   declarations: [
     AppComponent,
+    SpaceInvaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,16 +51,16 @@ export class HammerConfig extends HammerGestureConfig {
     CountdownModule,
     NgParticlesModule,
     BrowserAnimationsModule,
+    ShooterModule,
     MatDialogModule,
     GtagModule.forRoot({ trackingId: 'G-5Q9LF9T9Q6', trackPageviews: true }),
     MoonbaseModule,
-    MatDialogModule
   ],
   providers: [{ provide: CountdownGlobalConfig, useFactory: countdownConfigFactory },
-    {
-      provide: HAMMER_GESTURE_CONFIG,
-      useClass: HammerConfig
-    }],
+  {
+    provide: HAMMER_GESTURE_CONFIG,
+    useClass: HammerConfig
+  }],
   bootstrap: [AppComponent],
   exports: [
     FooterModule,
