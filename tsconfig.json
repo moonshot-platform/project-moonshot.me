@@ -31,6 +31,7 @@
       "http": ["./node_modules/stream-http"],
       "https": ["./node_modules/https-browserify"],
       "os": ["./node_modules/os-browserify"],
+      "mini-signals": ["node_modules/mini-signals/index.js"]
     }
   },
   "angularCompilerOptions": {
@@ -38,5 +39,5 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  }
+  },
 }
