@@ -20,4 +20,20 @@ section.shooter {
         width: 100%;
         height: 100%;
     }
+    p {
+        margin-bottom: -40px;
+        margin-left: 20px;
+        color: $primary;
+        z-index: 99;
+        position: relative;
+        font-size: 30px;
+    }
+}
+
+@media only screen and (max-width: $sm) {
+    #pixi-container {
+        p {
+            font-size: 20px;
+        }
+    }
 }
