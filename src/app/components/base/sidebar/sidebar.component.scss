@@ -18,6 +18,10 @@ section.sidebar {
   margin-bottom: 10px;
   > img {
     width: 36px;
+
+    &:hover {
+      filter: invert(100%);
+    }
   }
 }
 
