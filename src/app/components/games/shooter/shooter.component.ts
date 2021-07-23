@@ -102,16 +102,10 @@ export class ShooterComponent implements OnInit {
     this.resize();
     this.onRender();
 
-    /* document.addEventListener("visibilitychange", () => {
-      this.isFocused = !this.isFocused;
-    }); */
-
     window.onblur = () => {
-      console.log("ON BLUR!!!");
       this.isFocused = !this.isFocused;
     }
     window.onfocus = () => {
-      console.log("ON FOCUS!!!");
       this.isFocused = !this.isFocused;
     }
 
