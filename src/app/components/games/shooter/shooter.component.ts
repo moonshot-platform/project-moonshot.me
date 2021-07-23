@@ -31,6 +31,8 @@ export class ShooterComponent implements OnInit {
   private scoreTable: any;
   private score = 0;
   private isGameOver = false;
+
+  private isFocused = true;
   // alien images
   private alien_r_fud = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAC6CAYAAABBVJPBAAAACXBIWXMAAAguAAAILgHhOGQRAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAACLJJREFUeJzt3VuMHQUZwPH/2XP23t1eLRZWKYRWKcQ+YDESIomJUUkTHoiStA8kNIaYaPAC0RdjjT4YYiMxSuMlJvqCUaPRoEh4AbQklkLS0GqpSmtpi/SyLWsv272ND1sNknN2z5mer93D9/8l+8DOzDezs2f/ZdqdOdChCniwgCLoY/eV/vrUXgXsDny9PHilv76yuq70AUi6cgyAlJgBkBIzAFJiBkBKzABIiRkAKTEDICVmAKTEDICUmAGQEjMAUmIGQErMAEiJGQApMQMgJWYApMQMgJSYAZASMwBSYgZASswASIlVCtgROP9zFXg+YnABVwPXRcwGlgFfDpoNsLECpwLnd5wClgKPB+7im8Bo0OwDFTgaMbiADcAjEbMBasBtUcOZ/aaGuHjCo076emLPS0/g7E7VQ+w5P1TpzPd7WErgefESQErMAEiJGQApMQMgJWYApMQMgJSYAZASMwBSYgZASswASIkZACkxAyAlZgCkxAyAlJgBkBIzAFJiBkBKzABIiRkAKTEDICVmAKTEasAzgfMnogYX8CFgY9z40PPy+SIuvqPMPta802bPEHvONxWwOWj24xV4Nmj2BIHnpQbcETWc2Mdf3wo8FDR7P7A2aDbATcCKoNnPEfcY6cjZJ4g7JwCriPueHiMuAD0E/ox6CSAlZgCkxAyAlJgBkBIzAFJiBkBKzABIiRkAKTEDICVmAKTEDICUmAGQEjMAUmIGQErMAEiJGQApMQMgJWYApMQMgJSYAZASMwBSYjVgZ+D8NQX0B80eJu7YTwL7gmbD7LEPBM0eJfa8RM0+B4wFzQboBk4HzR4q4K6g2SNE/owWUAR+vBA4++nA2bvDTvjsOX898Nh3dOjs14PP+e4OfS1G/gwVXgJIiRkAKTEDICVmAKTEDICUmAGQEjMAUmIGQErMAEiJGQApMQMgJWYApMQMgJSYAZASMwBSYgZASswASIkZACkxAyAlZgCkxAyAlFiN2cdIRzkfOH8ycPaZAlYEzYbZx1PXgmZfIO68RM4+HXzOz9CZr8XInyFqwLKo4cy+J0DU/O7A2SuA40GzAU4Qd+y9HTp7hthzvp/OfC1G/gyF/SkUaoou/szIokVMhMy/QLW3l+mQ2QDTdNWqzLCWk/QzWXedf7CMM/S0PHuEsepyzl3qIf6f1xjiGIOcpXtwsMHx1rOSs6zi33WXnWSAwwz/77//e06izPU9HWCSNZwM2/dC1pEBGKWf27nvlsBdXBs4G2AJwPP8gPdztO4K93EXz5Y4jB/x2yVbePHSju4ttvFBtnEbwPpWtnuIHTzMU3WXPcbNfJY73/ypJaUPsDkNT+YGjrCTHwbvfmHyLwGlxAyAlJgBkBIzAFJiBkBKzABIiRkAKTEDICVmAKTEDICUmAGQEuvIewEuxXs4Me86k1Qnuplu/U6cJk1Tma5SVPuZitrF29YQF7i6wQ1Gcxmjd+o1huq+3sepsa/Bnci9THMdp1reX6dIF4B9fLeZ1Q4CawMP4xSx976/bX2Mv/NzftHydk+w5l93snmk3rKXuIob+Uzd7W7iGHt4tOX9dQovAaTEDICUmAGQEjMAUmIGQErMAEiJGQApsRrw3sD53yDgkcbTVKrAu0pufrCJdUabXK+sMWafU9/QBNV3An2tDp6iMk6bj32c2jJ40yN8m3Se2htQ/7doxqkNU+K1MU7tLCUeHz5JtdSjkqfomgSOzLPaOeJeL68Am4JmU6vAy1HDC1gMrG733CrFpWy+uol1Jppcr6wTzPOLQD0lH0teo+ijzcfeV/I3FvuZWszsa6BtM/uYGgQGW92um+nDZfZXY6ab+c/nP5tYp6y/Rf6MegkgJWYApMTS3QugnAaYnFnN6brLJqhylKG6yyapcoCldZd1M80IY207xivBACiFOzg4foBH6i7byTV8gE/VXbaf5VzPA3WXreY0jWZ2Ci8BpMQMgJSYAZASMwBSYgZASswASIkZACkxAyAlZgCkxAyAlJgBkBJLdy/AkSaeazFFV63GTFv2dxVnaNcsqd3SBWCELzSz2vXt2t9evse61h9gI10WXgJIiRkAKTEDICVmAKTEov8ScBvws3YPPczwMPDtds+NsIeVX1nH8aNv+fQU85z7V1j6JUq8RfkLrHpiCzzc6nZz2ck1nwQ+WmK7P0D99/L+E+/+MLC51Zl7WLkL2N7qdsBG4Fi9BWfoGQLWtzrwArVxYBfwHPDTEsfUjPkeSX5JQgNQgSdjJt+/kg4JwD184lf3sPcvrW85fC8lArCdDTu287tftr6/uVy7jhIBeIbVL1Xgx/WX3jxAiQD8lXccaDyzsQIeAN5Xb9kiJlodB0AvU33A7cBvyhzTQuAlgJSYAZASMwBSYgZASswASImluxdgOfO/Sew0lenT9Nd/G5nWlXsXTOkySBeAE839E/neSol/F5Y6jZcAUmIGQErMAEiJGQApMQMgJWYApMQMgJSYAZASMwBSYgZASswASImluxdAOU3RVTlPd91l5xp8HqCLggEm6y4r+yixhcQAKIUnuWFwI5ta3u5GjrOHRwOOaGHwEkBKLPT/AIrZJ8mOtHvui3x/6BbuL7t5M09vfbXscC1Mr7L4j5R4z8c36DsF/Hqe1SYK2FLqwOZ3OO7p2vGXAF8EPtLuoSOMld62EveN0gL2aTb+BIp7W93uMMNH53vNFPAtZl/rEZ4iMABeAkiJGQApMQMgJWYApMQMgJSYAZASMwBSYgZASsx7ARauiYsf9dRoHO8afKe3vYcyWp1j4fTFj3oi3hWpq9zXN9r4jh8ooMEdP42/B28LBmDB2jrHb1Bu/T3w8QYLH4PRiANqoPJ1+OrXLuMO74bRu9s8cxdsvbXNMzuClwBSYgZASswASIkZACkxAyAlZgCkxAyAlJgBkBIzAFJiBkBKzABIiUXfC3AIeLndQ6foqgI3tHuuVNIxAl7nFx0KmgvAfwCvW1D/HksSiwAAAABJRU5ErkJggg==";
   private alien_y_fud = "data:image/png;base64,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";
@@ -90,10 +92,14 @@ export class ShooterComponent implements OnInit {
       this.scoreTable = document.querySelector("#scoreTable");
       this.scoreTable.textContent = 'Score : ' + this.score;
 
+
     });
 
     this.resize();
     this.onRender();
+
+    window.onblur = () => this.isFocused = false;
+    window.onfocus = () => this.isFocused = true;
 
   }
 
@@ -231,9 +237,9 @@ export class ShooterComponent implements OnInit {
     this.enemy.anchor.set(0.5);
     this.enemy.x = (Math.random() * (this.app.screen.width - this.enemy.width / 2)) + this.enemy.width / 2;
     this.enemy.y = 0;
-    let randomSize = Math.random() * 30
-    this.enemy.height = randomSize < 20 ? 20 : randomSize;
-    this.enemy.width = randomSize < 20 ? 20 : randomSize;
+    let randomSize = Math.random() * 40
+    this.enemy.height = randomSize < 15 ? 15 : randomSize;
+    this.enemy.width = randomSize < 15 ? 15 : randomSize;
     this.enemy.speed = this.enemySpeed;
     this.app.stage.addChild(this.enemy);
     randomImageIndex = 0;
@@ -241,10 +247,12 @@ export class ShooterComponent implements OnInit {
   }
 
   generateEnemy(): void {
-    var tempEnemy = this.createEnemy();
-    this.enemies.push(tempEnemy);
-    setTimeout(() => { this.generateEnemy() }, this.generateEnemySpeed);
-    clearTimeout();
+    if (this.isFocused) {
+      var tempEnemy = this.createEnemy();
+      this.enemies.push(tempEnemy);
+      setTimeout(() => { this.generateEnemy() }, this.generateEnemySpeed);
+      clearTimeout();
+    }
   }
 
   updateEnemy() {
@@ -271,7 +279,7 @@ export class ShooterComponent implements OnInit {
     for (let i = 0; i < this.bullets.length; i++) {
       for (let j = 0; j < this.enemies.length; j++) {
         if (this.collision(this.bullets[i], this.enemies[j])) {
-          if (this.enemies[j].width < 22)
+          if (this.enemies[j].width <= 22)
             this.score += 10;
           else
             this.score += 5;
