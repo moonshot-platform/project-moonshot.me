@@ -27,7 +27,7 @@ export class ShooterComponent implements OnInit {
   private enemies = [];
   private enemySpeed = 1;
   private enemy: any;
-  private gameOverTimer;
+  private generateEnemySpeed = 1000;
   private scoreTable: any;
   private score = 0;
   private isGameOver = false;
@@ -240,7 +240,7 @@ export class ShooterComponent implements OnInit {
   generateEnemy(): void {
     var tempEnemy = this.createEnemy();
     this.enemies.push(tempEnemy);
-    setTimeout(() => { this.generateEnemy() }, 1000);
+    setTimeout(() => { this.generateEnemy() }, this.generateEnemySpeed);
     clearTimeout();
   }
 
@@ -283,10 +283,13 @@ export class ShooterComponent implements OnInit {
   }
 
   updateLevel() {
-    if (this.score == 100)
+    if (this.score == 100) {
       this.enemySpeed = 3;
-    else if (this.score == 200)
+      this.generateEnemySpeed = 850;
+    } else if (this.score == 200) {
       this.enemySpeed = 4;
+      this.generateEnemySpeed = 650;
+    }
   }
 
   gameOver() {
@@ -297,8 +300,6 @@ export class ShooterComponent implements OnInit {
       }
     }
   }
-
-
 
   createPlayer() {
     this.player = PIXI.Sprite.from(this.app.loader.resources.player.texture);
