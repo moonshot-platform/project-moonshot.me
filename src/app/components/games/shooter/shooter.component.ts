@@ -170,17 +170,20 @@ export class ShooterComponent implements OnInit {
     this.gameOver();
     // Detecting hitting the enemy
     this.detectShootingEnemy();
+    // Restart game
+    this.restartGame();
   }
 
   detectMovement() {
-    if (this.keys[KEY_CODE.LEFT_ARROW] && (this.player.x > this.player.width / 2)) {
 
-      this.player.x -= 5;
+    if (this.keys[KEY_CODE.LEFT_ARROW] && (this.player.x > this.player.width / 2)) {
+      if (this.player.visible)
+        this.player.x -= 5;
 
     }
     if (this.keys[KEY_CODE.RIGHT_ARROW] && (this.player.x < this.app.screen.width - this.player.width / 2)) {
-
-      this.player.x += 5;
+      if (this.player.visible)
+        this.player.x += 5;
 
     }
     if (this.keys[KEY_CODE.SPACE]) {
@@ -192,7 +195,7 @@ export class ShooterComponent implements OnInit {
   }
 
   fireBullet() {
-    if (!this.isGameOver) {
+    if (this.player.visible) {
       let tempBullet = this.createBullet();
       this.bullets.push(tempBullet);
     }
@@ -295,9 +298,26 @@ export class ShooterComponent implements OnInit {
   gameOver() {
     for (let i = 0; i < this.enemies.length; i++) {
       if (this.collision(this.player, this.enemies[i])) {
-        this.app.stage.removeChild(this.player);
+        //this.app.stage.removeChild(this.player);
+        this.player.visible = false;
         this.isGameOver = true;
       }
+    }
+  }
+
+  restartGame() {
+    if (this.isGameOver) {
+      this.isGameOver = false;
+      this.score = 0;
+      this.enemySpeed = 1;
+      this.generateEnemySpeed = 1000;
+      this.scoreTable.textContent = 'Score : ' + this.score;
+      setTimeout(() => {
+        this.player.visible = true;
+        this.player.anchor.set(0.5);
+        this.player.x = this.app.screen.width / 2;
+        this.player.y = this.app.screen.height - this.player.height;
+      }, 2000);
     }
   }
 
