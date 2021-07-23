@@ -26,14 +26,14 @@ section.shooter {
         color: $primary;
         z-index: 99;
         position: relative;
-        font-size: 30px;
+        font-size: 20px;
     }
 }
 
 @media only screen and (max-width: $sm) {
     #pixi-container {
         p {
-            font-size: 20px;
+            font-size: 16px;
         }
     }
 }
