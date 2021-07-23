@@ -20,16 +20,20 @@ export class ShooterComponent implements OnInit {
   private player: any;
   private playerSpeed = 3;
   private keys: { [key: string]: boolean } = {};
+
   private bullets = [];
   private bulletSpeed = 7;
   private bullet: any;
   private bulletTimer;
+
   private enemies = [];
   private enemySpeed = 1;
   private enemy: any;
   private generateEnemySpeed = 1000;
+
   private scoreTable: any;
   private score = 0;
+
   private isGameOver = false;
 
   private isFocused = true;
@@ -98,8 +102,18 @@ export class ShooterComponent implements OnInit {
     this.resize();
     this.onRender();
 
-    window.onblur = () => this.isFocused = false;
-    window.onfocus = () => this.isFocused = true;
+    /* document.addEventListener("visibilitychange", () => {
+      this.isFocused = !this.isFocused;
+    }); */
+
+    window.onblur = () => {
+      console.log("ON BLUR!!!");
+      this.isFocused = !this.isFocused;
+    }
+    window.onfocus = () => {
+      console.log("ON FOCUS!!!");
+      this.isFocused = !this.isFocused;
+    }
 
   }
 
@@ -250,9 +264,11 @@ export class ShooterComponent implements OnInit {
     if (this.isFocused) {
       var tempEnemy = this.createEnemy();
       this.enemies.push(tempEnemy);
-      setTimeout(() => { this.generateEnemy() }, this.generateEnemySpeed);
-      clearTimeout();
     }
+    setTimeout(() => { this.generateEnemy() }, this.generateEnemySpeed);
+    clearTimeout();
+
+
   }
 
   updateEnemy() {
