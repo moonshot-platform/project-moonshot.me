@@ -27,7 +27,7 @@ export class ShooterComponent implements OnInit {
   private enemies = [];
   private enemySpeed = 1;
   private enemy: any;
-  private enemyTimer;
+  private gameOverTimer;
   private scoreTable: any;
   private score = 0;
   private isGameOver = false;
@@ -97,8 +97,6 @@ export class ShooterComponent implements OnInit {
 
   }
 
-  private bunny: PIXI.Sprite;
-
   onRender(): void {
     this.app.view.style.transformOrigin = `top left`;
 
@@ -152,14 +150,7 @@ export class ShooterComponent implements OnInit {
 
   doneLoading(e): void {
     // * creating player object
-    this.player = PIXI.Sprite.from(this.app.loader.resources.player.texture);
-    this.player.anchor.set(0.5);
-    this.player.height = 30;
-    this.player.width = 30;
-    this.player.x = this.app.screen.width / 2;
-    this.player.y = this.app.screen.height - this.player.height;
-    this.player.speed = this.playerSpeed;
-    this.app.stage.addChild(this.player);
+    this.createPlayer();
   }
 
   reportError(e): void {
@@ -167,18 +158,20 @@ export class ShooterComponent implements OnInit {
   }
 
   gameLoop() {
+    // Detecting key press
     this.detectMovement();
-
+    // Updating bullet position
     this.updateBullet();
-
+    // Updating enemy position
     this.updateEnemy();
-
+    // Checking score for updating level
     this.updateLevel();
-
+    // Checking collision of between enemy and shooter
     this.gameOver();
-
+    // Detecting hitting the enemy
     this.detectShootingEnemy();
   }
+
   detectMovement() {
     if (this.keys[KEY_CODE.LEFT_ARROW] && (this.player.x > this.player.width / 2)) {
 
@@ -197,18 +190,19 @@ export class ShooterComponent implements OnInit {
 
     }
   }
+
   fireBullet() {
     if (!this.isGameOver) {
       let tempBullet = this.createBullet();
       this.bullets.push(tempBullet);
-      //console.log("FIRE!");
     }
   }
+
   createBullet(): any {
     this.bullet = PIXI.Sprite.from(this.app.loader.resources.bullet.texture);
     this.bullet.anchor.set(0.5);
-    this.bullet.height = 15;
-    this.bullet.width = 15;
+    this.bullet.height = 12;
+    this.bullet.width = 12;
     this.bullet.x = this.player.x;
     this.bullet.y = this.player.y - this.bullet.height;
     this.bullet.speed = this.bulletSpeed;
@@ -226,11 +220,10 @@ export class ShooterComponent implements OnInit {
         this.bullets.splice(index, 1);
       }
     }
-
   }
+
   createEnemy(): any {
     let randomImageIndex = Math.floor(Math.random() * this.images.length - 2) + 1;
-    //console.log(randomImageIndex + 1);
     this.enemy = PIXI.Sprite.from(this.images[randomImageIndex + 1]);
     this.enemy.anchor.set(0.5);
     this.enemy.x = (Math.random() * (this.app.screen.width - this.enemy.width / 2)) + this.enemy.width / 2;
@@ -261,18 +254,17 @@ export class ShooterComponent implements OnInit {
     }
   }
 
-  collision(bullet: any, enemy: any) {
-    if (bullet === undefined || enemy === undefined)
+  collision(a: any, b: any) {
+    if (a === undefined || b === undefined)
       return false;
-    let aBox = bullet.getBounds();
-    let bBox = enemy.getBounds();
+    let aBox = a.getBounds();
+    let bBox = b.getBounds();
 
     return (((aBox.x >= bBox.x) && (aBox.x <= bBox.x + bBox.width)) || ((aBox.x + aBox.width >= bBox.x) && (aBox.x + aBox.width <= bBox.x + bBox.width))) &&
       (aBox.y <= bBox.y + bBox.height);
   }
 
   detectShootingEnemy(): void {
-
     for (let i = 0; i < this.bullets.length; i++) {
       for (let j = 0; j < this.enemies.length; j++) {
         if (this.collision(this.bullets[i], this.enemies[j])) {
@@ -304,6 +296,19 @@ export class ShooterComponent implements OnInit {
         this.isGameOver = true;
       }
     }
-
   }
+
+
+
+  createPlayer() {
+    this.player = PIXI.Sprite.from(this.app.loader.resources.player.texture);
+    this.player.anchor.set(0.5);
+    this.player.height = 20;
+    this.player.width = 20;
+    this.player.x = this.app.screen.width / 2;
+    this.player.y = this.app.screen.height - this.player.height;
+    this.player.speed = this.playerSpeed;
+    this.app.stage.addChild(this.player);
+  }
+
 }
