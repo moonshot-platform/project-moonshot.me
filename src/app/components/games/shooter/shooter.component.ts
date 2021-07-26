@@ -1,5 +1,6 @@
 import { OnInit, Component, Input, HostListener, NgZone } from '@angular/core';
 import * as PIXI from 'pixi.js';
+import { Enemy } from './models/enemy.model';
 
 export enum KEY_CODE {
   RIGHT_ARROW = "ArrowRight",
@@ -243,14 +244,14 @@ export class ShooterComponent implements OnInit {
 
   createEnemy(): any {
     let randomImageIndex = Math.floor(Math.random() * this.images.length - 2) + 1;
-    this.enemy = PIXI.Sprite.from(this.images[randomImageIndex + 1]);
-    this.enemy.anchor.set(0.5);
-    this.enemy.x = (Math.random() * (this.app.screen.width - this.enemy.width / 2)) + this.enemy.width / 2;
-    this.enemy.y = 0;
-    let randomSize = Math.random() * 40
-    this.enemy.height = randomSize < 15 ? 15 : randomSize;
-    this.enemy.width = randomSize < 15 ? 15 : randomSize;
-    this.enemy.speed = this.enemySpeed;
+    let enemyModel = new Enemy(
+      this.images[randomImageIndex + 1],
+      0.5, this.enemySpeed,
+      this.app.screen.width
+    );
+
+    this.enemy = enemyModel.createEnemy();
+
     this.app.stage.addChild(this.enemy);
     randomImageIndex = 0;
     return this.enemy;
@@ -258,8 +259,7 @@ export class ShooterComponent implements OnInit {
 
   generateEnemy(): void {
     if (this.hasFocused) {
-      var tempEnemy = this.createEnemy();
-      this.enemies.push(tempEnemy);
+      this.enemies.push(this.createEnemy());
     }
     setTimeout(() => { this.generateEnemy() }, this.generateEnemySpeed);
     clearTimeout();
@@ -289,30 +289,40 @@ export class ShooterComponent implements OnInit {
   }
 
   detectShootingEnemy(): void {
+    let isCollisionDetected = false;
     for (let i = 0; i < this.bullets.length; i++) {
+
       for (let j = 0; j < this.enemies.length; j++) {
         if (this.collision(this.bullets[i], this.enemies[j])) {
-          if (this.enemies[j].width <= 22)
-            this.score += 10;
-          else
-            this.score += 5;
-          this.scoreTable.textContent = 'Score : ' + this.score;
-          this.app.stage.removeChild(this.enemies[j]);
-          this.enemies.splice(j, 1);
-          this.app.stage.removeChild(this.bullets[i]);
-          this.bullets.splice(i, 1);
+
+          this.enemies[j].live--;
+
+          if (this.enemies[j].live <= 0) {
+
+            this.score += this.enemies[j].point;
+            this.scoreTable.textContent = 'Score : ' + Math.floor(this.score);
+
+            this.app.stage.removeChild(this.enemies[j]);
+            this.enemies.splice(j, 1);
+
+            this.app.stage.removeChild(this.bullets[i]);
+            this.bullets.splice(i, 1);
+          } else {
+            this.app.stage.removeChild(this.bullets[i]);
+            this.bullets.splice(i, 1);
+          }
         }
       }
     }
   }
 
   updateLevel() {
-    if (this.score == 100) {
+    if (this.score >= 1000) {
       this.enemySpeed = 3;
-      this.generateEnemySpeed = 850;
-    } else if (this.score == 200) {
-      this.enemySpeed = 4;
-      this.generateEnemySpeed = 650;
+      this.generateEnemySpeed = 700;
+    } else if (this.score >= 500) {
+      this.enemySpeed = 2;
+      this.generateEnemySpeed = 800;
     }
   }
 
@@ -340,7 +350,7 @@ export class ShooterComponent implements OnInit {
           this.app.stage.removeChild(this.enemies[i]);
         }
         this.enemies = [];
-        // recreating player
+
         this.player.visible = true;
         this.player.anchor.set(0.5);
         this.player.x = this.app.screen.width / 2;
@@ -352,8 +362,8 @@ export class ShooterComponent implements OnInit {
   createPlayer() {
     this.player = PIXI.Sprite.from(this.app.loader.resources.player.texture);
     this.player.anchor.set(0.5);
-    this.player.height = 20;
-    this.player.width = 20;
+    this.player.height = 30;
+    this.player.width = 30;
     this.player.x = this.app.screen.width / 2;
     this.player.y = this.app.screen.height - this.player.height;
     this.player.speed = this.playerSpeed;
