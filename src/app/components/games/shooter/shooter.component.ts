@@ -102,7 +102,7 @@ export class ShooterComponent implements OnInit {
     this.resize();
     this.onRender();
 
-    // if user does not on current tab
+    // if user is not on current tab
     window.onblur = () => {
       this.hasFocused = !this.hasFocused;
     }
@@ -332,7 +332,14 @@ export class ShooterComponent implements OnInit {
       this.enemySpeed = 1;
       this.generateEnemySpeed = 1000;
       this.scoreTable.textContent = 'Score : ' + this.score;
+
       setTimeout(() => {
+        // removing all enemies
+        for (let i = 0; i < this.enemies.length; i++) {
+          this.app.stage.removeChild(this.enemies[i]);
+        }
+        this.enemies = [];
+        // recreating player
         this.player.visible = true;
         this.player.anchor.set(0.5);
         this.player.x = this.app.screen.width / 2;
