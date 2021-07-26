@@ -106,10 +106,8 @@ export class ShooterComponent implements OnInit {
     document.addEventListener('visibilitychange', () => {
       if (document.hidden) {
         this.hasFocused = false;
-        console.log('bye');
       } else {
         this.hasFocused = true;
-        console.log('well back');
       }
     }, false);
 
@@ -273,7 +271,7 @@ export class ShooterComponent implements OnInit {
     if (this.hasFocused)
       for (let index = 0; index < this.enemies.length; index++) {
         this.enemies[index].position.y += this.enemies[index].speed;
-        if (this.enemies[index].position.y > this.app.screen.height) {
+        if (this.enemies[index].position.y > this.app.screen.height + 30) {
           this.app.stage.removeChild(this.enemies[index]);
           this.enemies.splice(index, 1);
         }
