@@ -102,14 +102,16 @@ export class ShooterComponent implements OnInit {
     this.resize();
     this.onRender();
 
-    // if user is not on current tab
-    window.onblur = () => {
-      this.hasFocused = !this.hasFocused;
-    }
-    // if user is on current tab
-    window.onfocus = () => {
-      this.hasFocused = !this.hasFocused;
-    }
+    // Checking is the user on current tab or not
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        this.hasFocused = false;
+        console.log('bye');
+      } else {
+        this.hasFocused = true;
+        console.log('well back');
+      }
+    }, false);
 
   }
 
@@ -268,13 +270,14 @@ export class ShooterComponent implements OnInit {
   }
 
   updateEnemy() {
-    for (let index = 0; index < this.enemies.length; index++) {
-      this.enemies[index].position.y += this.enemies[index].speed;
-      if (this.enemies[index].position.y > this.app.screen.height) {
-        this.app.stage.removeChild(this.enemies[index]);
-        this.enemies.splice(index, 1);
+    if (this.hasFocused)
+      for (let index = 0; index < this.enemies.length; index++) {
+        this.enemies[index].position.y += this.enemies[index].speed;
+        if (this.enemies[index].position.y > this.app.screen.height) {
+          this.app.stage.removeChild(this.enemies[index]);
+          this.enemies.splice(index, 1);
+        }
       }
-    }
   }
 
   collision(a: any, b: any) {
