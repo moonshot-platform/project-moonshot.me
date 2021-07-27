@@ -18,6 +18,7 @@ export class ShooterComponent implements OnInit {
   static readonly routeName: string = 'games/shooter';
 
   public app: PIXI.Application;
+  public isGameStarted: boolean = false;
   private player: any;
   private playerSpeed = 3;
   private keys: { [key: string]: boolean } = {};
@@ -174,6 +175,16 @@ export class ShooterComponent implements OnInit {
     console.log("ERROR : " + e.message);
   }
 
+  startGame(): void {
+    setTimeout(() => {
+      this.player.visible = true;
+    }, 1000)
+
+    // removing all enemies
+    this.removeAllEnemies();
+    this.isGameStarted = true;
+  }
+
   gameLoop() {
     // Detecting key press
     this.detectMovement();
@@ -284,15 +295,14 @@ export class ShooterComponent implements OnInit {
 
     let aBox = a.getBounds();
     let bBox = b.getBounds();
-    /* if (aBox.y < bBox.y + bBox.height && aBox.y > bBox.y)
-      console.log('HIT!!'); */
+
     return ((((aBox.x >= bBox.x) && (aBox.x <= bBox.x + bBox.width)) || ((aBox.x + aBox.width >= bBox.x) && (aBox.x + aBox.width <= bBox.x + bBox.width))) || (((bBox.x >= aBox.x) && (bBox.x <= aBox.x + aBox.width)) || ((bBox.x + bBox.width >= aBox.x) && (bBox.x + bBox.width <= aBox.x + aBox.width)))) &&
       (aBox.y < bBox.y + bBox.height && aBox.y > bBox.y);
 
   }
 
   detectShootingEnemy(): void {
-    let isCollisionDetected = false;
+
     for (let i = 0; i < this.bullets.length; i++) {
 
       for (let j = 0; j < this.enemies.length; j++) {
@@ -331,8 +341,7 @@ export class ShooterComponent implements OnInit {
 
   gameOver() {
     for (let i = 0; i < this.enemies.length; i++) {
-      if (this.collision(this.player, this.enemies[i])) {
-        //this.app.stage.removeChild(this.player);
+      if (this.collision(this.player, this.enemies[i]) && this.player.visible) {
         this.player.visible = false;
         this.isGameOver = true;
       }
@@ -349,10 +358,7 @@ export class ShooterComponent implements OnInit {
 
       setTimeout(() => {
         // removing all enemies
-        for (let i = 0; i < this.enemies.length; i++) {
-          this.app.stage.removeChild(this.enemies[i]);
-        }
-        this.enemies = [];
+        this.removeAllEnemies();
         // reactivating player
         this.player.visible = true;
         this.player.anchor.set(0.5);
@@ -360,6 +366,14 @@ export class ShooterComponent implements OnInit {
         this.player.y = this.app.screen.height - this.player.height;
       }, 2000);
     }
+  }
+
+  removeAllEnemies(): void {
+    // removing all enemies
+    for (let i = 0; i < this.enemies.length; i++) {
+      this.app.stage.removeChild(this.enemies[i]);
+    }
+    this.enemies = [];
   }
 
   createPlayer() {
@@ -370,6 +384,7 @@ export class ShooterComponent implements OnInit {
     this.player.x = this.app.screen.width / 2;
     this.player.y = this.app.screen.height - this.player.height;
     this.player.speed = this.playerSpeed;
+    this.player.visible = false;
     this.app.stage.addChild(this.player);
   }
 
