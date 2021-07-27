@@ -281,11 +281,14 @@ export class ShooterComponent implements OnInit {
   collision(a: any, b: any) {
     if (a === undefined || b === undefined)
       return false;
+
     let aBox = a.getBounds();
     let bBox = b.getBounds();
+    /* if (aBox.y < bBox.y + bBox.height && aBox.y > bBox.y)
+      console.log('HIT!!'); */
+    return ((((aBox.x >= bBox.x) && (aBox.x <= bBox.x + bBox.width)) || ((aBox.x + aBox.width >= bBox.x) && (aBox.x + aBox.width <= bBox.x + bBox.width))) || (((bBox.x >= aBox.x) && (bBox.x <= aBox.x + aBox.width)) || ((bBox.x + bBox.width >= aBox.x) && (bBox.x + bBox.width <= aBox.x + aBox.width)))) &&
+      (aBox.y < bBox.y + bBox.height && aBox.y > bBox.y);
 
-    return (((aBox.x >= bBox.x) && (aBox.x <= bBox.x + bBox.width)) || ((aBox.x + aBox.width >= bBox.x) && (aBox.x + aBox.width <= bBox.x + bBox.width))) &&
-      (aBox.y <= bBox.y + bBox.height);
   }
 
   detectShootingEnemy(): void {
@@ -350,7 +353,7 @@ export class ShooterComponent implements OnInit {
           this.app.stage.removeChild(this.enemies[i]);
         }
         this.enemies = [];
-
+        // reactivating player
         this.player.visible = true;
         this.player.anchor.set(0.5);
         this.player.x = this.app.screen.width / 2;
