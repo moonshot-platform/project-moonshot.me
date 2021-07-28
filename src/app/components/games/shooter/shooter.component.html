@@ -1,7 +1,20 @@
 <section class="shooter flex">
     <div class="inner">
-        <div id="pixi-container">
+        <div class="overview">
             <p id="scoreTable"></p>
+            <p id="playerPosition"></p>
+        </div>
+        <div id="pixi-container">
+            <div *ngIf="!this.isGameStarted" class="start-container">
+                <h2>Moonshooter</h2>
+                <div class="mt30"></div>
+                <ul>
+                    <li>Use the <span class="key key--arrow">&#8592;</span> and <span class="key key--arrow">&#8594;</span> keys to move.</li>
+                    <li>Use <span class="key">spacebar</span> to fire lasers.</li>
+                </ul>
+                <div class="mt20"></div>
+                <div class="start-button" (click)="startGame()">Start</div>
+            </div>
         </div>
     </div>
     <app-sidebar></app-sidebar>
