@@ -92,11 +92,13 @@ export class ShooterComponent implements OnInit {
       this.app.loader.onComplete.add((e) => this.doneLoading(e));
       this.app.loader.onError.add((e) => this.reportError(e));
 
+
       this.app.loader.load();
 
       document.getElementById('pixi-container').appendChild(this.app.view);
       this.scoreTable = document.querySelector("#scoreTable");
       this.scoreTable.textContent = 'Score : ' + this.score;
+
 
 
     });
@@ -112,6 +114,9 @@ export class ShooterComponent implements OnInit {
         this.hasFocused = true;
       }
     }, false);
+    // Detecting device motion
+    window.addEventListener("devicemotion", this.onDeviceMotion.bind(this));
+    document.addEventListener("touchend", this.fireBulletMobile.bind(this));
 
   }
 
@@ -146,6 +151,37 @@ export class ShooterComponent implements OnInit {
     this.app.view.style.height = `100%`;
 
     this.repositionAssets();
+  }
+
+  onDeviceMotion(event: DeviceMotionEvent) {
+    /* let ax;
+    let ay; */
+    switch (screen.orientation.type) {
+      case "portrait-primary":
+        if (this.player.visible && (this.player.x >= this.player.width / 2))
+          this.player.x -= event.accelerationIncludingGravity.x;
+
+        //ay = event.accelerationIncludingGravity.y;
+        break;
+      /*  case "landscape-primary":
+         //ax = event.accelerationIncludingGravity.y;
+         if (this.player.visible && (this.player.x < this.app.screen.width - this.player.width / 2))
+           this.player.x += event.accelerationIncludingGravity.x;
+         break;
+       case "landscape-secondary":
+         //ax = -event.accelerationIncludingGravity.y;
+         if (this.player.visible && (this.player.x >= this.player.width / 2))
+           this.player.x -= event.accelerationIncludingGravity.x;
+         break; */
+      case "portrait-secondary":
+        if (this.player.visible && (this.player.x < this.app.screen.width - this.player.width / 2))
+          this.player.x += event.accelerationIncludingGravity.x;
+        //ay = -event.accelerationIncludingGravity.y;
+        break;
+    }
+
+
+    //this.moveBall(ax, ay);
   }
 
   @HostListener('window:keyup', ['$event'])
@@ -220,6 +256,7 @@ export class ShooterComponent implements OnInit {
       this.bulletTimer = setTimeout(() => { this.fireBullet(); }, 50);
 
     }
+
   }
 
   fireBullet() {
@@ -227,6 +264,11 @@ export class ShooterComponent implements OnInit {
       let tempBullet = this.createBullet();
       this.bullets.push(tempBullet);
     }
+  }
+
+  fireBulletMobile() {
+    clearTimeout(this.bulletTimer);
+    this.bulletTimer = setTimeout(() => { this.fireBullet(); }, 50);
   }
 
   createBullet(): any {
@@ -320,6 +362,7 @@ export class ShooterComponent implements OnInit {
 
             this.app.stage.removeChild(this.bullets[i]);
             this.bullets.splice(i, 1);
+
           } else {
             this.app.stage.removeChild(this.bullets[i]);
             this.bullets.splice(i, 1);
