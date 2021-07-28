@@ -115,13 +115,13 @@ export class ShooterComponent implements OnInit, AfterViewInit {
     });
 
     this.resize();
-    
-    if( this.shouldRender ) this.onRender();
+
+    if (this.shouldRender) this.onRender();
 
     // Checking is the user on current tab or not
-    document.addEventListener( 'visibilitychange', () => {
+    document.addEventListener('visibilitychange', () => {
       this.hasFocused = document.hidden ? false : true;
-    }, false );
+    }, false);
     // Detecting device motion
     window.addEventListener("devicemotion", this.onDeviceTilt.bind(this));
     document.addEventListener("touchend", this.fireBulletMobile.bind(this));
@@ -165,14 +165,16 @@ export class ShooterComponent implements OnInit, AfterViewInit {
 
     switch (screen.orientation.type) {
       case "portrait-primary":
-        if ( this.player.x >= this.player.width / 2 )
+        if (this.player.x >= this.player.width / 2 && ((this.player.x + this.player.width / 2) <= this.app.screen.width)) {
           this.player.x -= event.accelerationIncludingGravity.x;
-        else if ( (this.player.x + this.player.width / 2 ) <= 100 )
-          this.player.x += event.accelerationIncludingGravity.x;
+          if (this.player.x < this.player.width / 2 || ((this.player.x + this.player.width / 2) > this.app.screen.width)) {
+            this.player.x += event.accelerationIncludingGravity.x;
+          }
+        }
         break;
     }
 
-    this.playerPosition.textContent = `Player Pos X : ${(this.player.x + this.player.width / 2 )}`;
+    this.playerPosition.textContent = `Player Pos X : ${(this.player.x + this.player.width / 2)}`;
   }
 
   isPlayerAvailable() {
@@ -204,7 +206,7 @@ export class ShooterComponent implements OnInit, AfterViewInit {
 
   reportError(e: any): void {
     console.log(typeof e);
-    
+
     console.log("ERROR : " + e.message);
   }
 
@@ -220,7 +222,7 @@ export class ShooterComponent implements OnInit, AfterViewInit {
 
   gameLoop() {
     // ignore when player is not visible
-    if ( !this.isPlayerAvailable() ) return;
+    if (!this.isPlayerAvailable()) return;
 
     // Detecting key press
     this.detectMovement();
@@ -241,11 +243,11 @@ export class ShooterComponent implements OnInit, AfterViewInit {
   detectMovement() {
 
     if (this.keys[KEY_CODE.LEFT_ARROW] && (this.player.x > this.player.width / 2)) {
-        this.player.x -= 5;
+      this.player.x -= 5;
     }
 
     if (this.keys[KEY_CODE.RIGHT_ARROW] && (this.player.x < this.app.screen.width - this.player.width / 2)) {
-        this.player.x += 5;
+      this.player.x += 5;
     }
 
     if (this.keys[KEY_CODE.SPACE]) {
