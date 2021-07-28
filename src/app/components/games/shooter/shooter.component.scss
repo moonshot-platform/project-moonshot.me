@@ -60,6 +60,12 @@ section.shooter {
 }
 
 @media only screen and (max-width: $sm) {
+    section.shooter {
+        >.inner {
+            position: relative;
+            width: 100%;
+        }
+    }
     #pixi-container {
         p {
             font-size: 16px;
