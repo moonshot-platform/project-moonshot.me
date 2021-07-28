@@ -25,5 +25,22 @@ section.shooter {
 @media only screen and (max-width: $md) {
     section.shooter > .inner {
         width: 100%;
+        
+        p {
+            margin-bottom: -40px;
+            margin-left: 20px;
+            color: $primary;
+            z-index: 99;
+            position: relative;
+            font-size: 20px;
+        }
+    }
+}
+
+@media only screen and (max-width: $sm) {
+    #pixi-container {
+        p {
+            font-size: 16px;
+        }
     }
 }
