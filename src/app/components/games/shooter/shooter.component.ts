@@ -36,11 +36,8 @@ export class ShooterComponent implements OnInit, AfterViewInit {
   private scoreTable: any;
   private score = 0;
 
-  private playerPosition: any;
-
   private isGameOver = false;
 
-  private hasFocused = true;
 
   private shouldRender = true;
 
@@ -110,18 +107,13 @@ export class ShooterComponent implements OnInit, AfterViewInit {
       this.scoreTable = document.querySelector("#scoreTable");
       this.scoreTable.textContent = 'Score : ' + this.score;
 
-      this.playerPosition = document.querySelector("#playerPosition");
-      this.playerPosition.textContent = `Player Pos X : 0`;
+
     });
 
     this.resize();
 
     if (this.shouldRender) this.onRender();
 
-    // Checking is the user on current tab or not
-    document.addEventListener('visibilitychange', () => {
-      this.hasFocused = document.hidden ? false : true;
-    }, false);
     // Detecting device motion
     window.addEventListener("devicemotion", this.onDeviceTilt.bind(this));
     document.addEventListener("touchend", this.fireBulletMobile.bind(this));
@@ -174,7 +166,6 @@ export class ShooterComponent implements OnInit, AfterViewInit {
         break;
     }
 
-    this.playerPosition.textContent = `Player Pos X : ${(this.player.x + this.player.width / 2)}`;
   }
 
   isPlayerAvailable() {
@@ -255,7 +246,6 @@ export class ShooterComponent implements OnInit, AfterViewInit {
       this.bulletTimer = setTimeout(() => { this.fireBullet(); }, 50);
     }
 
-    this.playerPosition.textContent = `Player Pos X : ${this.player.x}`;
   }
 
   fireBullet() {
@@ -310,9 +300,8 @@ export class ShooterComponent implements OnInit, AfterViewInit {
   }
 
   generateEnemy(): void {
-    if (this.hasFocused) {
-      this.enemies.push(this.createEnemy());
-    }
+    this.enemies.push(this.createEnemy());
+
     setTimeout(() => { this.generateEnemy() }, this.generateEnemySpeed);
     clearTimeout();
 
@@ -320,15 +309,14 @@ export class ShooterComponent implements OnInit, AfterViewInit {
   }
 
   updateEnemy() {
-    if (this.hasFocused)
-      for (let index = 0; index < this.enemies.length; index++) {
-        // if the browser tab isn't focussed, then ignore this part
-        this.enemies[index].position.y += this.enemies[index].speed;
-        if (this.enemies[index].position.y > this.app.screen.height + 30) {
-          this.app.stage.removeChild(this.enemies[index]);
-          this.enemies.splice(index, 1);
-        }
+    for (let index = 0; index < this.enemies.length; index++) {
+      // if the browser tab isn't focussed, then ignore this part
+      this.enemies[index].position.y += this.enemies[index].speed;
+      if (this.enemies[index].position.y > this.app.screen.height + 30) {
+        this.app.stage.removeChild(this.enemies[index]);
+        this.enemies.splice(index, 1);
       }
+    }
   }
 
   collision(a: any, b: any) {
