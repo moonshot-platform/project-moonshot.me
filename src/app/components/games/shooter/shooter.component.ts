@@ -63,6 +63,15 @@ export class ShooterComponent implements OnInit, AfterViewInit {
     this.alien_r_dip, this.alien_y_dip, this.alien_g_dip, this.alien_b_dip
   ];
 
+  //Sounds 
+  private laserSound = "assets/sounds/games/shooter/matrixxx__retro-laser-shot-04.mp3";
+  private explosionSound = "assets/sounds/games/shooter/matrixxx__retro-explosion-07.mp3";
+  private boomSound = "assets/sounds/games/shooter/cabled-mess__boom-c-06.mp3";
+  private boomSound2 = "assets/sounds/games/shooter/owlstorm__retro-video-game-sfx-explode-3.mp3";
+  private levelUpSound = "assets/sounds/games/shooter/noisecollector__level2.mp3";
+  private spawnSound = "assets/sounds/games/shooter/owlstorm__retro-video-game-sfx-blast-off.mp3";
+  private gameMusic = "assets/sounds/games/shooter/sawsquarenoise-stage-3.mp3";
+
   @Input()
   public devicePixelRatio = window.devicePixelRatio || 1;
 
@@ -252,6 +261,7 @@ export class ShooterComponent implements OnInit, AfterViewInit {
     if (this.player.visible) {
       let tempBullet = this.createBullet();
       this.bullets.push(tempBullet);
+      this.playAudio(this.laserSound, false);
     }
   }
 
@@ -304,8 +314,6 @@ export class ShooterComponent implements OnInit, AfterViewInit {
 
     setTimeout(() => { this.generateEnemy() }, this.generateEnemySpeed);
     clearTimeout();
-
-
   }
 
   updateEnemy() {
@@ -339,6 +347,7 @@ export class ShooterComponent implements OnInit, AfterViewInit {
         if (this.collision(this.bullets[i], this.enemies[j])) {
 
           this.enemies[j].live--;
+          this.playAudio(this.boomSound, false);
 
           if (this.enemies[j].live <= 0) {
 
@@ -350,6 +359,8 @@ export class ShooterComponent implements OnInit, AfterViewInit {
 
             this.app.stage.removeChild(this.bullets[i]);
             this.bullets.splice(i, 1);
+
+            this.playAudio(this.boomSound2, false);
 
           } else {
             this.app.stage.removeChild(this.bullets[i]);
@@ -367,6 +378,7 @@ export class ShooterComponent implements OnInit, AfterViewInit {
     } else if (this.score >= 500) {
       this.enemySpeed = 2;
       this.generateEnemySpeed = 800;
+      //this.playAudio(this.levelUpSound);
     }
   }
 
@@ -375,6 +387,7 @@ export class ShooterComponent implements OnInit, AfterViewInit {
       if (this.collision(this.player, this.enemies[i]) && this.player.visible) {
         this.player.visible = false;
         this.isGameOver = true;
+        this.playAudio(this.explosionSound, false);
       }
     }
   }
@@ -395,6 +408,8 @@ export class ShooterComponent implements OnInit, AfterViewInit {
         this.player.anchor.set(0.5);
         this.player.x = this.app.screen.width / 2;
         this.player.y = this.app.screen.height - this.player.height;
+
+        this.playAudio(this.spawnSound, false);
       }, 2000);
     }
   }
@@ -417,6 +432,15 @@ export class ShooterComponent implements OnInit, AfterViewInit {
     this.player.speed = this.playerSpeed;
     this.player.visible = false;
     this.app.stage.addChild(this.player);
+    this.playAudio(this.gameMusic, true);
+  }
+
+  playAudio(sound: string, hasLoop: boolean) {
+    let audio = new Audio();
+    audio.src = sound;
+    audio.loop = hasLoop;
+    audio.load();
+    audio.play();
   }
 
 }
