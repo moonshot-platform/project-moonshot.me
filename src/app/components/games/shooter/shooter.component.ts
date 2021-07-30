@@ -116,7 +116,6 @@ export class ShooterComponent implements OnInit, AfterViewInit {
       this.scoreTable = document.querySelector("#scoreTable");
       this.scoreTable.textContent = 'Score : ' + this.score;
 
-
     });
 
     this.resize();
@@ -131,7 +130,7 @@ export class ShooterComponent implements OnInit, AfterViewInit {
 
   onRender(): void {
     this.app.view.style.transformOrigin = `top left`;
-
+    this.playAudio(this.gameMusic, true);
     this.generateEnemy();
     this.repositionAssets();
     this.app.ticker.add(() => this.gameLoop());
@@ -432,7 +431,6 @@ export class ShooterComponent implements OnInit, AfterViewInit {
     this.player.speed = this.playerSpeed;
     this.player.visible = false;
     this.app.stage.addChild(this.player);
-    this.playAudio(this.gameMusic, true);
   }
 
   playAudio(sound: string, hasLoop: boolean) {
