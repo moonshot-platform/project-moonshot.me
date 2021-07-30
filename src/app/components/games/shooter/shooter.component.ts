@@ -64,13 +64,13 @@ export class ShooterComponent implements OnInit, AfterViewInit {
   ];
 
   //Sounds 
-  private laserSound = "assets/sounds/games/shooter/matrixxx__retro-laser-shot-04.mp3";
-  private explosionSound = "assets/sounds/games/shooter/matrixxx__retro-explosion-07.mp3";
-  private boomSound = "assets/sounds/games/shooter/cabled-mess__boom-c-06.mp3";
-  private boomSound2 = "assets/sounds/games/shooter/owlstorm__retro-video-game-sfx-explode-3.mp3";
-  private levelUpSound = "assets/sounds/games/shooter/noisecollector__level2.mp3";
-  private spawnSound = "assets/sounds/games/shooter/owlstorm__retro-video-game-sfx-blast-off.mp3";
-  private gameMusic = "assets/sounds/games/shooter/sawsquarenoise-stage-3.mp3";
+  private laserSound = "assets/media/sounds/games/shooter/matrixxx__retro-laser-shot-04.mp3";
+  private explosionSound = "assets/media/sounds/games/shooter/matrixxx__retro-explosion-07.mp3";
+  private boomSound = "assets/media/sounds/games/shooter/cabled-mess__boom-c-06.mp3";
+  private boomSound2 = "assets/media/sounds/games/shooter/owlstorm__retro-video-game-sfx-explode-3.mp3";
+  private levelUpSound = "assets/media/sounds/games/shooter/noisecollector__level2.mp3";
+  private spawnSound = "assets/media/sounds/games/shooter/owlstorm__retro-video-game-sfx-blast-off.mp3";
+  private gameMusic = "assets/media/sounds/games/shooter/sawsquarenoise-stage-3.mp3";
 
   @Input()
   public devicePixelRatio = window.devicePixelRatio || 1;
