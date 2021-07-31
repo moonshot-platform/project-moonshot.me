@@ -59,6 +59,12 @@ section.shooter {
         h2 {
             z-index: 100;
         }
+        .game-detail-desktop {
+            display: table-column;
+        }
+        .game-detail-mobile {
+            display: none;
+        }
     }
 }
 
@@ -72,6 +78,14 @@ section.shooter {
     #pixi-container {
         p {
             font-size: 16px;
+        }
+        .start-container {
+            .game-detail-desktop {
+                display: none;
+            }
+            .game-detail-mobile {
+                display: table-column;
+            }
         }
     }
 }

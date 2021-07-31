@@ -7,9 +7,13 @@
             <div *ngIf="!this.isGameStarted" class="start-container">
                 <h2>Moonshooter</h2>
                 <div class="mt30"></div>
-                <ul>
+                <ul class="game-detail-desktop">
                     <li>Use the <span class="key key--arrow">&#8592;</span> and <span class="key key--arrow">&#8594;</span> keys to move.</li>
                     <li>Use <span class="key">spacebar</span> to fire lasers.</li>
+                </ul>
+                <ul class="game-detail-mobile">
+                    <li>Tilt the phone to move.</li>
+                    <li>Touch the <span class="key">screen</span> to fire lasers.</li>
                 </ul>
                 <div class="mt20"></div>
                 <div class="start-button" (click)="startGame()">Start</div>
