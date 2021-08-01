@@ -138,6 +138,11 @@ export class NavigationComponent implements OnInit {
     this.tokenomicsService.onToggle(false);
   }
 
+  liveChart() {
+    this.open = false;
+    this.tokenomicsService.onToggle(false);
+  }
+
   isSamePath( path: string ): boolean {
     if( path != undefined ) {
       return location.pathname === path;
