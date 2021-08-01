@@ -3,27 +3,89 @@ section.shooter {
     z-index: 2;
     position: relative;
     overflow: hidden;
-    > .inner {
+    >.inner {
         position: relative;
-        width: calc(100% - 64px);
+        width: calc(100%);
         height: 100vh;
-        padding: 20px;
         box-sizing: border-box;
         background-color: transparent;
     }
 }
 
+.overview {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+
 #pixi-container {
     height: 100%;
     background-color: transparent; //rgba(0, 0, 0, 0.5);
-    > canvas {
+    z-index: 1;
+    >canvas {
         width: 100%;
         height: 100%;
+        z-index: 1;
+    }
+    p {
+        margin-left: 20px;
+        color: $primary;
+        z-index: 99;
+        position: relative;
+        font-size: 20px;
+    }
+    .start-container {
+        height: 100vh;
+        width: 100%;
+        z-index: 100;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        .start-button {
+            height: 40px;
+            width: 90px;
+            border-radius: 10px;
+            background-color: white;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 100;
+        }
+        ul,
+        h2 {
+            z-index: 100;
+        }
+        .game-detail-desktop {
+            display: table-column;
+        }
+        .game-detail-mobile {
+            display: none;
+        }
     }
 }
 
-@media only screen and (max-width: $md) {
-    section.shooter > .inner {
-        width: 100%;
+@media only screen and (max-width: $sm) {
+    section.shooter {
+        >.inner {
+            position: relative;
+            width: 100%;
+        }
+    }
+    #pixi-container {
+        p {
+            font-size: 16px;
+        }
+        .start-container {
+            .game-detail-desktop {
+                display: none;
+            }
+            .game-detail-mobile {
+                display: table-column;
+            }
+        }
     }
 }
