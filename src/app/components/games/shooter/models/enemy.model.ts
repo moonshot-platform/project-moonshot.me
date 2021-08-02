@@ -25,6 +25,7 @@ export class Enemy {
         this.sampleEnemy.y = 0;
         this.sampleEnemy.speed = this.enemySpeed;
         this.sampleEnemy.point = 50 - this.sampleEnemy.width;
+        this.sampleEnemy.diagonal = Math.random() * 1;
 
         if (this.sampleEnemy.width >= 35) {
             this.sampleEnemy.live = 3;
