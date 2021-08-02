@@ -319,6 +319,22 @@ export class ShooterComponent implements OnInit, AfterViewInit {
     for (let index = 0; index < this.enemies.length; index++) {
       // if the browser tab isn't focussed, then ignore this part
       this.enemies[index].position.y += this.enemies[index].speed;
+
+      //Diagonal movement
+      if (this.score >= 1000) {
+        if (this.enemies[index].diagonal >= 0.5) {
+          if (this.enemies[index].position.y > this.app.screen.height / 2)
+            this.enemies[index].position.x -= 0.5;
+          else
+            this.enemies[index].position.x += 0.5;
+        } else {
+          if (this.enemies[index].position.y > this.app.screen.height / 2)
+            this.enemies[index].position.x += 0.5;
+          else
+            this.enemies[index].position.x -= 0.5;
+        }
+      }
+
       if (this.enemies[index].position.y > this.app.screen.height + 30) {
         this.app.stage.removeChild(this.enemies[index]);
         this.enemies.splice(index, 1);
