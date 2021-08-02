@@ -389,10 +389,10 @@ export class ShooterComponent implements OnInit, AfterViewInit {
   updateLevel() {
     if (this.score >= 1000) {
       this.enemySpeed = 3;
-      this.generateEnemySpeed = 700;
+      this.generateEnemySpeed = 400;
     } else if (this.score >= 500) {
       this.enemySpeed = 2;
-      this.generateEnemySpeed = 800;
+      this.generateEnemySpeed = 700;
       //this.playAudio(this.levelUpSound);
     }
   }
