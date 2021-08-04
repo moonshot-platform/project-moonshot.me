@@ -177,11 +177,6 @@ export class ShooterComponent implements OnInit, AfterViewInit {
     this.app.view.style.height = `100%`;
 
     this.repositionAssets();
-    if (this.deviceService.isMobile()) {
-      this.maxEnemySize = 25;
-      this.bulletSpeed = 5;
-      this.fireSpeed = 1.2;
-    }
   }
 
   onDeviceTilt(event: DeviceMotionEvent) {
@@ -224,12 +219,24 @@ export class ShooterComponent implements OnInit, AfterViewInit {
   doneLoading(): void {
     // * creating player object
     this.createPlayer();
+    // If it is mobile do new prefernces
+    this.IsMobile();
   }
 
   reportError(e: any): void {
     console.log(typeof e);
 
     console.log("ERROR : " + e.message);
+  }
+
+  IsMobile() {
+    if (this.deviceService.isMobile()) {
+      this.maxEnemySize = 25;
+      this.bulletSpeed = 5;
+      this.fireSpeed = 1.2;
+      this.player.height = 20;
+      this.player.width = 20;
+    }
   }
 
   startGame(): void {
