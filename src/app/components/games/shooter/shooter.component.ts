@@ -1,6 +1,7 @@
 import { OnInit, Component, Input, HostListener, NgZone, AfterViewInit } from '@angular/core';
 import * as PIXI from 'pixi.js';
 import { Enemy } from './models/enemy.model';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 export enum KEY_CODE {
   RIGHT_ARROW = "ArrowRight",
@@ -27,11 +28,14 @@ export class ShooterComponent implements OnInit, AfterViewInit {
   private bulletSpeed = 7;
   private bullet: any;
   private bulletTimer;
+  private fireCounter = 0;
+  private fireSpeed = 2;
 
   private enemies = [];
   private enemySpeed = 1;
   private enemy: any;
   private generateEnemySpeed = 1000;
+  private maxEnemySize = 40;
 
   private scoreTable: any;
   private score = 0;
@@ -90,8 +94,7 @@ export class ShooterComponent implements OnInit, AfterViewInit {
     autoDensity: true,
   };
 
-  constructor(private ngZone: NgZone) {
-  }
+  constructor(private ngZone: NgZone, private deviceService: DeviceDetectorService) { }
 
   ngAfterViewInit(): void {
     document.addEventListener("visibilitychange", (e) => {
@@ -116,7 +119,6 @@ export class ShooterComponent implements OnInit, AfterViewInit {
       this.app.loader.onComplete.add(() => this.doneLoading());
       this.app.loader.onError.add((e) => this.reportError(e));
 
-
       this.app.loader.load();
 
       document.getElementById('pixi-container').appendChild(this.app.view);
@@ -124,6 +126,8 @@ export class ShooterComponent implements OnInit, AfterViewInit {
       this.scoreTable.textContent = 'Score : ' + this.score;
 
     });
+
+
 
     this.resize();
 
@@ -173,6 +177,11 @@ export class ShooterComponent implements OnInit, AfterViewInit {
     this.app.view.style.height = `100%`;
 
     this.repositionAssets();
+    if (this.deviceService.isMobile()) {
+      this.maxEnemySize = 25;
+      this.bulletSpeed = 5;
+      this.fireSpeed = 1.2;
+    }
   }
 
   onDeviceTilt(event: DeviceMotionEvent) {
@@ -263,9 +272,11 @@ export class ShooterComponent implements OnInit, AfterViewInit {
       this.player.x += 5;
     }
 
-    if (this.keys[KEY_CODE.SPACE]) {
-      clearTimeout(this.bulletTimer);
-      this.bulletTimer = setTimeout(() => { this.fireBullet(); }, 50);
+    if (this.keys[KEY_CODE.SPACE] && (this.fireCounter / 10 > 2)) {
+      this.fireBullet();
+      this.fireCounter /= 10;
+    } else {
+      this.fireCounter += this.fireSpeed;
     }
 
   }
@@ -279,8 +290,16 @@ export class ShooterComponent implements OnInit, AfterViewInit {
   }
 
   fireBulletMobile() {
-    clearTimeout(this.bulletTimer);
-    this.bulletTimer = setTimeout(() => { this.fireBullet(); }, 50);
+    this.fireCounter += this.fireSpeed;
+    if (this.fireCounter / 10 > 2) {
+      this.fireBullet();
+      this.fireCounter /= 10;
+    }
+    /* 
+     clearTimeout(this.bulletTimer);
+    this.bulletTimer = setTimeout(() => { this.fireBullet(); }, 150);
+    */
+
   }
 
   createBullet(): any {
@@ -315,7 +334,7 @@ export class ShooterComponent implements OnInit, AfterViewInit {
       this.app.screen.width
     );
 
-    this.enemy = enemyModel.createEnemy();
+    this.enemy = enemyModel.createEnemy(this.maxEnemySize);
 
     this.app.stage.addChild(this.enemy);
     randomImageIndex = 0;
