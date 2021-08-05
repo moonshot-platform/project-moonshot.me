@@ -342,7 +342,8 @@ export class ShooterComponent implements OnInit, AfterViewInit {
     let enemyModel = new Enemy(
       this.images[randomImageIndex + 1],
       0.5, this.enemySpeed,
-      this.app.screen.width
+      this.app.screen.width,
+      this.app.screen.height,
     );
 
     this.enemy = enemyModel.createEnemy(this.maxEnemySize);
@@ -367,12 +368,12 @@ export class ShooterComponent implements OnInit, AfterViewInit {
       //Diagonal movement
       if (this.score >= 1000) {
         if (this.enemies[index].diagonal >= 0.5) {
-          if (this.enemies[index].position.y > this.app.screen.height / 2)
+          if (this.enemies[index].position.y >= this.enemies[index].randomMovementY)
             this.enemies[index].position.x -= 0.5;
           else
             this.enemies[index].position.x += 0.5;
         } else {
-          if (this.enemies[index].position.y > this.app.screen.height / 2)
+          if (this.enemies[index].position.y >= this.enemies[index].randomMovementY)
             this.enemies[index].position.x += 0.5;
           else
             this.enemies[index].position.x -= 0.5;
