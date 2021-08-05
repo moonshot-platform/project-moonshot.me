@@ -13,11 +13,11 @@ export class Enemy {
         public anchorSet: number,
         public enemySpeed: number,
         public screenWidth: number,
+        public screenHeight: number,
     ) { }
 
     createEnemy(maxEnemySize: number): any {
         let randomSize = Math.random() * maxEnemySize;
-
         this.sampleEnemy = PIXI.Sprite.from(this.img);
         this.sampleEnemy.anchor.set(this.anchorSet);
         this.sampleEnemy.height = randomSize < 15 ? 15 : randomSize;
@@ -27,6 +27,7 @@ export class Enemy {
         this.sampleEnemy.speed = this.enemySpeed;
         this.sampleEnemy.point = 50 - this.sampleEnemy.width;
         this.sampleEnemy.diagonal = Math.random() * 1;
+        this.sampleEnemy.randomMovementY = Math.random() * this.screenHeight;
 
         if (this.sampleEnemy.width >= 35) {
             this.sampleEnemy.live = 3;
