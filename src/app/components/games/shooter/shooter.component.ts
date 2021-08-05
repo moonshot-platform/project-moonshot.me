@@ -493,9 +493,12 @@ export class ShooterComponent implements OnInit, AfterViewInit {
       this.generateEnemySpeed = 1000;
       this.scoreTable.textContent = 'Score : ' + this.score;
 
+      // removing all enemies from arena
+      this.removeAllEnemies();
+      //removing all bullets from arena
+      this.removeAllBullets();
+
       setTimeout(() => {
-        // removing all enemies
-        this.removeAllEnemies();
         // reactivating player
         this.player.visible = true;
         this.player.anchor.set(0.5);
@@ -506,13 +509,22 @@ export class ShooterComponent implements OnInit, AfterViewInit {
       }, 2000);
     }
   }
-
+  // removing all enemies
   removeAllEnemies(): void {
-    // removing all enemies
+
     for (let i = 0; i < this.enemies.length; i++) {
       this.app.stage.removeChild(this.enemies[i]);
     }
     this.enemies = [];
+  }
+
+  // removing all bullets
+  removeAllBullets(): void {
+
+    for (let i = 0; i < this.bullets.length; i++) {
+      this.app.stage.removeChild(this.bullets[i]);
+    }
+    this.bullets = [];
   }
 
   createPlayer() {
