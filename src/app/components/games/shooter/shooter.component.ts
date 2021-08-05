@@ -260,7 +260,11 @@ export class ShooterComponent implements OnInit, AfterViewInit {
     // Updating enemy position
     this.updateEnemy();
     // Checking score for updating level
-    this.updateLevel();
+    if (this.deviceService.isMobile()) {
+      this.updateLevelForMobile();
+    } else {
+      this.updateLevel();
+    }
     // Checking collision of between enemy and shooter
     this.gameOver();
     // Detecting hitting the enemy
@@ -430,10 +434,43 @@ export class ShooterComponent implements OnInit, AfterViewInit {
     if (this.score >= 1000) {
       this.enemySpeed = 3;
       this.generateEnemySpeed = 400;
+    } else if (this.score >= 900) {
+      this.enemySpeed = 2.7;
+      this.generateEnemySpeed = 500;
+    } else if (this.score >= 800) {
+      this.enemySpeed = 2.4;
+      this.generateEnemySpeed = 550;
+    } else if (this.score >= 700) {
+      this.enemySpeed = 2.1;
+      this.generateEnemySpeed = 600;
+    } else if (this.score >= 600) {
+      this.enemySpeed = 1.8;
+      this.generateEnemySpeed = 650;
     } else if (this.score >= 500) {
-      this.enemySpeed = 2;
+      this.enemySpeed = 1.5;
       this.generateEnemySpeed = 700;
-      //this.playAudio(this.levelUpSound);
+    }
+  }
+
+  updateLevelForMobile() {
+    if (this.score >= 1000) {
+      this.enemySpeed = 2.5;
+      this.generateEnemySpeed = 450;
+    } else if (this.score >= 900) {
+      this.enemySpeed = 2.3;
+      this.generateEnemySpeed = 500;
+    } else if (this.score >= 800) {
+      this.enemySpeed = 2.1;
+      this.generateEnemySpeed = 550;
+    } else if (this.score >= 700) {
+      this.enemySpeed = 1.9;
+      this.generateEnemySpeed = 600;
+    } else if (this.score >= 600) {
+      this.enemySpeed = 1.7;
+      this.generateEnemySpeed = 650;
+    } else if (this.score >= 500) {
+      this.enemySpeed = 1.5;
+      this.generateEnemySpeed = 700;
     }
   }
 
