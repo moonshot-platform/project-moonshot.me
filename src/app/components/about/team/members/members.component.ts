@@ -96,24 +96,6 @@ export class MembersComponent implements OnInit {
 
   otherMembers: any = [
     {
-      name: 'Majestic Drama',
-      image: 'assets/media/images/members/majestic.png',
-      title: 'Community Ambassador',
-      about: 'Music producer & songwriter who has produced tracks for Wale, Kid Ink, Fetty Wap, Twista, and La Fouine.',
-      social: [
-        {
-          link: 'https://twitter.com/MajesticDrama',
-          icon: 'assets/media/icons/social/twitter-yellow-round-icon.svg',
-          alt: 'twitter-icon'
-        },
-        {
-          link: 'https://en.m.wikipedia.org/wiki/Majestic_Drama',
-          icon: 'assets/media/icons/social/world-icon.svg',
-          alt: 'wikipedia-icon'
-        }
-      ]
-    },
-    {
       name: 'Light',
       image: 'assets/media/images/members/light.jpg',
       title: 'Fullstack Developer',
