@@ -16,6 +16,22 @@ section.shooter {
     position: absolute;
     left: 20px;
     top: 20px;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    .mute-button {
+        height: 30px;
+        width: 30px;
+        margin-right: 45px;
+        color: red;
+    }
+    .unmute-button {
+        height: 30px;
+        width: 30px;
+        margin-right: 40px;
+        color: red;
+    }
 }
 
 #pixi-container {
