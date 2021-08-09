@@ -2,6 +2,8 @@
     <div class="inner">
         <div class="overview">
             <p id="scoreTable"></p>
+            <img *ngIf="this.hasSound" class="unmute-button" src={{this.unmute}} (click)="soundOnOff()">
+            <img *ngIf="!this.hasSound" class="mute-button" src={{this.mute}} (click)="soundOnOff()">
         </div>
         <div id="pixi-container">
             <div *ngIf="!this.isGameStarted" class="start-container">

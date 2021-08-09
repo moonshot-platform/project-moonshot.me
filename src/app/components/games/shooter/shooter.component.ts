@@ -1,6 +1,7 @@
 import { OnInit, Component, Input, HostListener, NgZone, AfterViewInit } from '@angular/core';
 import * as PIXI from 'pixi.js';
 import { Enemy } from './models/enemy.model';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 export enum KEY_CODE {
   RIGHT_ARROW = "ArrowRight",
@@ -27,11 +28,14 @@ export class ShooterComponent implements OnInit, AfterViewInit {
   private bulletSpeed = 7;
   private bullet: any;
   private bulletTimer;
+  private fireCounter = 0;
+  private fireSpeed = 2;
 
   private enemies = [];
   private enemySpeed = 1;
   private enemy: any;
   private generateEnemySpeed = 1000;
+  private maxEnemySize = 40;
 
   private scoreTable: any;
   private score = 0;
@@ -40,6 +44,13 @@ export class ShooterComponent implements OnInit, AfterViewInit {
 
 
   private shouldRender = true;
+
+  private gameBgPlayingMusic = new Audio();
+  public hasSound = true;
+
+  // mute and unmute icons
+  public mute = "assets/media/icons/game/mute.png";
+  public unmute = "assets/media/icons/game/volume.png";
 
   // alien images
   private alien_r_fud = "data:image/png;base64,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";
@@ -83,8 +94,7 @@ export class ShooterComponent implements OnInit, AfterViewInit {
     autoDensity: true,
   };
 
-  constructor(private ngZone: NgZone) {
-  }
+  constructor(private ngZone: NgZone, private deviceService: DeviceDetectorService) { }
 
   ngAfterViewInit(): void {
     document.addEventListener("visibilitychange", (e) => {
@@ -109,7 +119,6 @@ export class ShooterComponent implements OnInit, AfterViewInit {
       this.app.loader.onComplete.add(() => this.doneLoading());
       this.app.loader.onError.add((e) => this.reportError(e));
 
-
       this.app.loader.load();
 
       document.getElementById('pixi-container').appendChild(this.app.view);
@@ -117,6 +126,8 @@ export class ShooterComponent implements OnInit, AfterViewInit {
       this.scoreTable.textContent = 'Score : ' + this.score;
 
     });
+
+
 
     this.resize();
 
@@ -130,7 +141,7 @@ export class ShooterComponent implements OnInit, AfterViewInit {
 
   onRender(): void {
     this.app.view.style.transformOrigin = `top left`;
-    this.playAudio(this.gameMusic, true);
+    this.gameBgMusic(this.gameMusic);
     this.generateEnemy();
     this.repositionAssets();
     this.app.ticker.add(() => this.gameLoop());
@@ -142,6 +153,13 @@ export class ShooterComponent implements OnInit, AfterViewInit {
       this.player.x = this.app.screen.width / 2;
       this.player.y = this.app.screen.height - this.player.height;
     }
+  }
+
+  soundOnOff() {
+    this.hasSound = !this.hasSound;
+
+    // Game music
+    this.gameBgMusic(this.gameMusic);
   }
 
   @HostListener('window:resize')
@@ -201,12 +219,24 @@ export class ShooterComponent implements OnInit, AfterViewInit {
   doneLoading(): void {
     // * creating player object
     this.createPlayer();
+    // If it is mobile do new prefernces
+    this.IsMobile();
   }
 
   reportError(e: any): void {
     console.log(typeof e);
 
     console.log("ERROR : " + e.message);
+  }
+
+  IsMobile() {
+    if (this.deviceService.isMobile()) {
+      this.maxEnemySize = 25;
+      this.bulletSpeed = 5;
+      this.fireSpeed = 1.2;
+      this.player.height = 20;
+      this.player.width = 20;
+    }
   }
 
   startGame(): void {
@@ -230,7 +260,11 @@ export class ShooterComponent implements OnInit, AfterViewInit {
     // Updating enemy position
     this.updateEnemy();
     // Checking score for updating level
-    this.updateLevel();
+    if (this.deviceService.isMobile()) {
+      this.updateLevelForMobile();
+    } else {
+      this.updateLevel();
+    }
     // Checking collision of between enemy and shooter
     this.gameOver();
     // Detecting hitting the enemy
@@ -242,16 +276,18 @@ export class ShooterComponent implements OnInit, AfterViewInit {
   detectMovement() {
 
     if (this.keys[KEY_CODE.LEFT_ARROW] && (this.player.x > this.player.width / 2)) {
-      this.player.x -= 5;
+      this.player.x -= 8;
     }
 
     if (this.keys[KEY_CODE.RIGHT_ARROW] && (this.player.x < this.app.screen.width - this.player.width / 2)) {
-      this.player.x += 5;
+      this.player.x += 8;
     }
 
-    if (this.keys[KEY_CODE.SPACE]) {
-      clearTimeout(this.bulletTimer);
-      this.bulletTimer = setTimeout(() => { this.fireBullet(); }, 50);
+    if (this.keys[KEY_CODE.SPACE] && (this.fireCounter / 10 > 2)) {
+      this.fireBullet();
+      this.fireCounter /= 10;
+    } else {
+      this.fireCounter += this.fireSpeed;
     }
 
   }
@@ -260,13 +296,21 @@ export class ShooterComponent implements OnInit, AfterViewInit {
     if (this.player.visible) {
       let tempBullet = this.createBullet();
       this.bullets.push(tempBullet);
-      this.playAudio(this.laserSound, false);
+      this.playAudio(this.laserSound);
     }
   }
 
   fireBulletMobile() {
-    clearTimeout(this.bulletTimer);
-    this.bulletTimer = setTimeout(() => { this.fireBullet(); }, 50);
+    this.fireCounter += this.fireSpeed;
+    if (this.fireCounter / 10 > 2) {
+      this.fireBullet();
+      this.fireCounter /= 10;
+    }
+    /* 
+     clearTimeout(this.bulletTimer);
+    this.bulletTimer = setTimeout(() => { this.fireBullet(); }, 150);
+    */
+
   }
 
   createBullet(): any {
@@ -298,10 +342,11 @@ export class ShooterComponent implements OnInit, AfterViewInit {
     let enemyModel = new Enemy(
       this.images[randomImageIndex + 1],
       0.5, this.enemySpeed,
-      this.app.screen.width
+      this.app.screen.width,
+      this.app.screen.height,
     );
 
-    this.enemy = enemyModel.createEnemy();
+    this.enemy = enemyModel.createEnemy(this.maxEnemySize);
 
     this.app.stage.addChild(this.enemy);
     randomImageIndex = 0;
@@ -319,6 +364,22 @@ export class ShooterComponent implements OnInit, AfterViewInit {
     for (let index = 0; index < this.enemies.length; index++) {
       // if the browser tab isn't focussed, then ignore this part
       this.enemies[index].position.y += this.enemies[index].speed;
+
+      //Diagonal movement
+      if (this.score >= 1000) {
+        if (this.enemies[index].diagonal >= 0.5) {
+          if (this.enemies[index].position.y >= this.enemies[index].randomMovementY)
+            this.enemies[index].position.x -= 0.5;
+          else
+            this.enemies[index].position.x += 0.5;
+        } else {
+          if (this.enemies[index].position.y >= this.enemies[index].randomMovementY)
+            this.enemies[index].position.x += 0.5;
+          else
+            this.enemies[index].position.x -= 0.5;
+        }
+      }
+
       if (this.enemies[index].position.y > this.app.screen.height + 30) {
         this.app.stage.removeChild(this.enemies[index]);
         this.enemies.splice(index, 1);
@@ -346,7 +407,7 @@ export class ShooterComponent implements OnInit, AfterViewInit {
         if (this.collision(this.bullets[i], this.enemies[j])) {
 
           this.enemies[j].live--;
-          this.playAudio(this.boomSound, false);
+          this.playAudio(this.boomSound);
 
           if (this.enemies[j].live <= 0) {
 
@@ -359,7 +420,7 @@ export class ShooterComponent implements OnInit, AfterViewInit {
             this.app.stage.removeChild(this.bullets[i]);
             this.bullets.splice(i, 1);
 
-            this.playAudio(this.boomSound2, false);
+            this.playAudio(this.boomSound2);
 
           } else {
             this.app.stage.removeChild(this.bullets[i]);
@@ -373,11 +434,44 @@ export class ShooterComponent implements OnInit, AfterViewInit {
   updateLevel() {
     if (this.score >= 1000) {
       this.enemySpeed = 3;
-      this.generateEnemySpeed = 700;
+      this.generateEnemySpeed = 400;
+    } else if (this.score >= 900) {
+      this.enemySpeed = 2.7;
+      this.generateEnemySpeed = 500;
+    } else if (this.score >= 800) {
+      this.enemySpeed = 2.4;
+      this.generateEnemySpeed = 550;
+    } else if (this.score >= 700) {
+      this.enemySpeed = 2.1;
+      this.generateEnemySpeed = 600;
+    } else if (this.score >= 600) {
+      this.enemySpeed = 1.8;
+      this.generateEnemySpeed = 650;
     } else if (this.score >= 500) {
-      this.enemySpeed = 2;
-      this.generateEnemySpeed = 800;
-      //this.playAudio(this.levelUpSound);
+      this.enemySpeed = 1.5;
+      this.generateEnemySpeed = 700;
+    }
+  }
+
+  updateLevelForMobile() {
+    if (this.score >= 1000) {
+      this.enemySpeed = 2.5;
+      this.generateEnemySpeed = 450;
+    } else if (this.score >= 900) {
+      this.enemySpeed = 2.3;
+      this.generateEnemySpeed = 500;
+    } else if (this.score >= 800) {
+      this.enemySpeed = 2.1;
+      this.generateEnemySpeed = 550;
+    } else if (this.score >= 700) {
+      this.enemySpeed = 1.9;
+      this.generateEnemySpeed = 600;
+    } else if (this.score >= 600) {
+      this.enemySpeed = 1.7;
+      this.generateEnemySpeed = 650;
+    } else if (this.score >= 500) {
+      this.enemySpeed = 1.5;
+      this.generateEnemySpeed = 700;
     }
   }
 
@@ -386,7 +480,7 @@ export class ShooterComponent implements OnInit, AfterViewInit {
       if (this.collision(this.player, this.enemies[i]) && this.player.visible) {
         this.player.visible = false;
         this.isGameOver = true;
-        this.playAudio(this.explosionSound, false);
+        this.playAudio(this.explosionSound);
       }
     }
   }
@@ -399,26 +493,38 @@ export class ShooterComponent implements OnInit, AfterViewInit {
       this.generateEnemySpeed = 1000;
       this.scoreTable.textContent = 'Score : ' + this.score;
 
+      // removing all enemies from arena
+      this.removeAllEnemies();
+      //removing all bullets from arena
+      this.removeAllBullets();
+
       setTimeout(() => {
-        // removing all enemies
-        this.removeAllEnemies();
         // reactivating player
         this.player.visible = true;
         this.player.anchor.set(0.5);
         this.player.x = this.app.screen.width / 2;
         this.player.y = this.app.screen.height - this.player.height;
 
-        this.playAudio(this.spawnSound, false);
+        this.playAudio(this.spawnSound);
       }, 2000);
     }
   }
-
+  // removing all enemies
   removeAllEnemies(): void {
-    // removing all enemies
+
     for (let i = 0; i < this.enemies.length; i++) {
       this.app.stage.removeChild(this.enemies[i]);
     }
     this.enemies = [];
+  }
+
+  // removing all bullets
+  removeAllBullets(): void {
+
+    for (let i = 0; i < this.bullets.length; i++) {
+      this.app.stage.removeChild(this.bullets[i]);
+    }
+    this.bullets = [];
   }
 
   createPlayer() {
@@ -433,12 +539,25 @@ export class ShooterComponent implements OnInit, AfterViewInit {
     this.app.stage.addChild(this.player);
   }
 
-  playAudio(sound: string, hasLoop: boolean) {
+  playAudio(sound: string) {
     let audio = new Audio();
     audio.src = sound;
-    audio.loop = hasLoop;
-    audio.load();
-    audio.play();
+    audio.loop = false;
+    if (this.hasSound) {
+      audio.load();
+      audio.play();
+    }
+  }
+
+  gameBgMusic(sound: string) {
+    this.gameBgPlayingMusic.src = sound;
+    this.gameBgPlayingMusic.loop = true;
+    this.gameBgPlayingMusic.load();
+    if (this.hasSound) {
+      this.gameBgPlayingMusic.play();
+    } else {
+      this.gameBgPlayingMusic.pause();
+    }
   }
 
 }
