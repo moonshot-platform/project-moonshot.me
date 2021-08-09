@@ -276,11 +276,11 @@ export class ShooterComponent implements OnInit, AfterViewInit {
   detectMovement() {
 
     if (this.keys[KEY_CODE.LEFT_ARROW] && (this.player.x > this.player.width / 2)) {
-      this.player.x -= 5;
+      this.player.x -= 8;
     }
 
     if (this.keys[KEY_CODE.RIGHT_ARROW] && (this.player.x < this.app.screen.width - this.player.width / 2)) {
-      this.player.x += 5;
+      this.player.x += 8;
     }
 
     if (this.keys[KEY_CODE.SPACE] && (this.fireCounter / 10 > 2)) {
