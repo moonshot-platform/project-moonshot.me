@@ -10,7 +10,8 @@
             </div>
         </div>
         <ul class="articles flex3">
-            <li *ngFor="let item of pressList">
+            <li *ngFor="let item of pressList; index as i">
+
                 <div class="press-container" (mouseover)="item.hovered = true" (mouseout)="item.hovered = false">
                     <img [src]="item.hovered ? item.whiteImg : item.img" />
                 </div>
