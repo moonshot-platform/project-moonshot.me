@@ -12,8 +12,7 @@
         <ul class="articles flex3">
             <li *ngFor="let item of pressList">
                 <div class="press-container" (mouseover)="item.hovered = true" (mouseout)="item.hovered = false">
-                    <img *ngIf="!item.hovered" src={{item.img}} />
-                    <img *ngIf="item.hovered" src={{item.whiteImg}} />
+                    <img [src]="item.hovered ? item.whiteImg : item.img" />
                 </div>
                 <p>Read article</p>
             </li>
