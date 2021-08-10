@@ -1,0 +1,112 @@
+@import "includes";
+section.press {
+    position: relative;
+    padding: 20px;
+    margin-top: 340px;
+    margin-bottom: 285px;
+    .inner {
+        @extend %max-width-center;
+        align-items: flex-end;
+    }
+}
+
+.stats {
+    width: 100%;
+    max-width: 75rem;
+    min-width: 270px;
+    margin-right: 100px;
+    margin-bottom: 75px;
+    div {
+        p {
+            color: $secondary;
+            font-size: 20px;
+            &:first-child {
+                color: $primary;
+                margin-bottom: 20px;
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+.stats-btn {
+    min-width: 200px;
+    padding-left: 30px;
+    .futuristic-container>div {
+        float: right;
+    }
+}
+
+ul.articles {
+    color: $primary;
+    display: flex;
+    flex-wrap: wrap;
+    >li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+        margin-bottom: 20px;
+        padding: 10px;
+        box-sizing: border-box;
+        >p {
+            text-align: center;
+            margin-top: 20px;
+            font-family: $primary-font;
+            font-size: 16px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.69;
+            letter-spacing: normal;
+            text-align: center;
+            color: $primary;
+        }
+    }
+}
+
+.press-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 270px;
+    border-bottom: 1px solid $primary;
+    img {
+        width: 80%;
+        cursor: pointer;
+    }
+}
+
+@media only screen and (max-width: $md) {
+    section.press {
+        margin-top: 0px;
+        margin-bottom: 25px;
+        >.inner {
+            flex-direction: column;
+            >.stats {
+                margin-right: 0;
+                >div:nth-child(2) {
+                    border-bottom: 0;
+                }
+            }
+            .stats-btn {
+                margin-top: 10px;
+                margin-bottom: 0;
+                width: 100%;
+                >.futuristic-container {
+                    border-top-width: 1px;
+                    >a {
+                        float: right;
+                    }
+                }
+            }
+        }
+    }
+    ul.articles>li>div {
+        max-width: 200px;
+    }
+}
+
+@media only screen and (max-width: $sm) {}

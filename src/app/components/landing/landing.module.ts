@@ -28,6 +28,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { ClipboardModule } from '@angular/cdk/clipboard';
+import { PressComponent } from './press/press.component';
 
 
 
@@ -42,7 +43,8 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
     ExchangesComponent,
     EconomyComponent,
     InvestmentComponent,
-    TutorialComponent
+    TutorialComponent,
+    PressComponent
   ],
   imports: [
     MatIconModule,
