@@ -48,7 +48,7 @@ ul.articles {
         justify-content: center;
         width: 50%;
         margin-bottom: 20px;
-        padding: 10px;
+        padding: 0px;
         box-sizing: border-box;
         >p {
             text-align: center;
@@ -72,21 +72,22 @@ ul.articles {
     align-items: center;
     justify-content: center;
     min-width: 270px;
-    border-bottom: 1px solid $primary;
     img {
         width: 100%;
         cursor: pointer;
+        border-bottom: 1px solid $primary;
     }
 }
 
 @media only screen and (max-width: $md) {
     section.press {
         margin-top: 0px;
-        margin-bottom: 25px;
+        margin-bottom: 0px;
         >.inner {
             flex-direction: column;
             >.stats {
                 margin-right: 0;
+                margin-bottom: 0px;
                 >div:nth-child(2) {
                     border-bottom: 0;
                 }
@@ -104,8 +105,18 @@ ul.articles {
             }
         }
     }
-    ul.articles>li>div {
-        max-width: 200px;
+    .articles {
+        align-self: center;
+    }
+    .press-container {
+        min-width: 95%;
+        margin-top: 0px;
+        >img {
+            width: 100%;
+            cursor: pointer;
+            margin-right: 1.25rem;
+            margin-left: 1.25rem;
+        }
     }
 }
 
