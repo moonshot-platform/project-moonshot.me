@@ -68,21 +68,6 @@ ul.articles {
     }
 }
 
-
-/* 
-.press-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-width: 270px;
-    border-bottom: 1px solid $primary;
-    img {
-        width: 100%;
-        cursor: pointer;
-    }
-} */
-
 .all-press {
     display: grid;
     max-width: 100%;
@@ -139,16 +124,6 @@ ul.articles {
     .articles {
         align-self: center;
     }
-    /*  .press-container {
-        min-width: 95%;
-        margin-top: 0px;
-        >img {
-            width: 90%;
-            cursor: pointer;
-            margin-right: 1.25rem;
-            margin-left: 1.25rem;
-        }
-    } */
     .all-press {
         max-width: none;
         width: 100%;
