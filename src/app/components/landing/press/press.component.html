@@ -9,7 +9,15 @@
                 <p class="p30">Check out the news outlets that have been writing about Moonshot and its developments.</p>
             </div>
         </div>
-        <ul class="articles flex3">
+        <div class="all-press flex3">
+            <div class="press-container" *ngFor="let item of pressList; index as i">
+                <div class="press-img" (mouseover)="item.hovered = true" (mouseout)="item.hovered = false">
+                    <img [src]="item.hovered ? item.whiteImg : item.img" />
+                </div>
+                <p>Read article</p>
+            </div>
+        </div>
+        <!-- <ul class="articles flex3">
             <li *ngFor="let item of pressList; index as i">
 
                 <div class="press-container" (mouseover)="item.hovered = true" (mouseout)="item.hovered = false">
@@ -17,7 +25,7 @@
                 </div>
                 <p>Read article</p>
             </li>
-        </ul>
+        </ul> -->
         <div class="flex1 mb100">
 
         </div>
