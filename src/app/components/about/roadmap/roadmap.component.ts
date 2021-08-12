@@ -40,7 +40,7 @@ export class RoadmapComponent implements OnInit {
     {
         title: 'Q1 2021',
         span: ' - done',
-        description: '31% of the total supply burned after lunch',
+        description: '31% of the total supply burned after launch',
         icon: Icon.ACCOMPLISHED
     },
     {
