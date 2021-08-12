@@ -38,7 +38,7 @@ section.press {
     justify-content: center;
     grid-gap: 30px;
     .press-container {
-        .press-img {
+        a>.press-img {
             width: 270px;
             display: flex;
             flex-direction: column;
@@ -98,7 +98,7 @@ section.press {
             display: flex;
             flex-direction: column;
             width: 100%;
-            .press-img {
+            a>.press-img {
                 width: 100%;
                 max-width: 270px;
                 align-self: center;
