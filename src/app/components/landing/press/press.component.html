@@ -14,18 +14,13 @@
                 <div class="press-img" (mouseover)="item.hovered = true" (mouseout)="item.hovered = false">
                     <img [src]="item.hovered ? item.whiteImg : item.img" />
                 </div>
-                <p>Read article</p>
+                <a href={{item.link}} routerLinkActive="router-link-active" target="_blank">
+                    <p>
+                        Read article
+                    </p>
+                </a>
             </div>
         </div>
-        <!-- <ul class="articles flex3">
-            <li *ngFor="let item of pressList; index as i">
-
-                <div class="press-container" (mouseover)="item.hovered = true" (mouseout)="item.hovered = false">
-                    <img [src]="item.hovered ? item.whiteImg : item.img" />
-                </div>
-                <p>Read article</p>
-            </li>
-        </ul> -->
         <div class="flex1 mb100">
 
         </div>
