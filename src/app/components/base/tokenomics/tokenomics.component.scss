@@ -1,165 +1,154 @@
 @import "includes";
-
 section.tokenomics {
-  padding: 22px 60px 0px;
-  box-sizing: border-box;
-  background: $primary;
-  position: fixed;
-  right: 0;
-  top: 0;
-  width: 100%;
-  max-width: 700px;
-  z-index: 12000;
-  margin-right: 64px;
-  height: 100vh;
-  max-height: 100vh;
-  overflow: auto;
-  border-right: 1px solid black;
-
-  .inner {
-    @extend %max-width-center;
-
-    border-radius: 160px;
-  }
+    padding: 22px 60px 0px;
+    box-sizing: border-box;
+    background: $primary;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    max-width: 700px;
+    z-index: 12000;
+    margin-right: 64px;
+    height: 100vh;
+    max-height: 100vh;
+    overflow: auto;
+    border-right: 1px solid black;
+    .inner {
+        @extend %max-width-center;
+        border-radius: 160px;
+    }
 }
 
 .pancake-switch-container {
-  > p:first-child {
-    margin-right: 80px;
-  }
-
-  > div {
-    max-width: 150px;
-    width: 100%;
-  }
+    >p:first-child {
+        margin-right: 80px;
+    }
+    >div {
+        max-width: 150px;
+        width: 100%;
+    }
 }
 
 ::ng-deep .switch.switch-medium {
-  min-width: 60px;
+    min-width: 60px;
 }
+
 ::ng-deep .switch.checked {
-  background-color: transparent !important;
+    background-color: transparent !important;
 }
+
 ::ng-deep .switch.switch-medium small {
-  width: 26px;
-  height: 26px;
-  right: calc(100% - 28px);
-  top: 2px;
+    width: 26px;
+    height: 26px;
+    right: calc(100% - 28px);
+    top: 2px;
 }
+
 ::ng-deep .switch.checked small {
-  width: 26px;
-  height: 26px;
-  right: 2px;
-  top: 2px;
+    width: 26px;
+    height: 26px;
+    right: 2px;
+    top: 2px;
 }
 
 .close {
-  display: block;
-  position: absolute;
-  right: 15px;
-  top: 15px;
-  cursor: pointer;
+    display: block;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    cursor: pointer;
 }
 
 p {
-  color: black;
-  line-break: anywhere;
+    color: black;
+    line-break: anywhere;
 }
 
 .my-3 {
-  margin: 1rem 0;
+    margin: 1rem 0;
 }
+
 .deeper {
-  @include paddings(60px, 0px);
-  align-items: flex-start;
-
-  li p {
-    margin-bottom: 1rem;
-  }
-  .right div {
-    padding-left: 20px;
-  }
-  .left div {
-    padding-right: 20px;
-  }
-
-  .left,
-  .right {
-    flex: 1;
-  }
-  .right {
-    border-left: 2px solid #7e6328;
-
-    ul > li:last-child {
-      border-bottom: 0;
+    padding: 60px 0px 10px 0px;
+    align-items: flex-start;
+    li p {
+        margin-bottom: 1rem;
     }
-  }
+    .right div {
+        padding-left: 20px;
+    }
+    .left div {
+        padding-right: 20px;
+    }
+    .left,
+    .right {
+        flex: 1;
+    }
+    .right {
+        border-left: 2px solid #7e6328;
+        ul>li:last-child {
+            border-bottom: 0;
+        }
+    }
 }
 
 .invisible-md {
-  min-height: 15px;
+    min-height: 15px;
 }
-li {
-  border-bottom: 1px solid black;
-  margin-bottom: 1rem;
-  min-height: 101px;
 
-  &:last-child {
-    margin-bottom: 0;
-  }
+li {
+    border-bottom: 1px solid black;
+    margin-bottom: 1rem;
+    min-height: 101px;
+    &:last-child {
+        margin-bottom: 0;
+    }
 }
 
 @media only screen and (max-width: $md) {
-  section.tokenomics {
-    width: 100%;
-    margin-right: 0;
-    padding: 30px 20px 0px;
-  }
-
-  .pancake-switch-container {
-    > p:first-child {
-      margin-right: 20px;
+    section.tokenomics {
+        width: 100%;
+        margin-right: 0;
+        padding: 30px 20px 0px;
     }
-
-    > div {
-      max-width: 120px;
-    }
-  }
-
-  .block p {
-    font-size: 16px;
-  }
-
-  .li {
-    min-height: auto;
-  }
-
-  .deeper {
-    flex-direction: column;
-    padding-bottom: 0;
-
-    .left {
-      li {
-        > div {
-          padding-right: 0;
+    .pancake-switch-container {
+        >p:first-child {
+            margin-right: 20px;
         }
-        &:last-child {
-          border-bottom: 1px solid black;
-          margin-bottom: 1rem;
+        >div {
+            max-width: 120px;
         }
-      }
     }
-
-    .right {
-      border-left: 0;
-      li:last-child {
-        border-bottom: 0;
-      }
+    .block p {
+        font-size: 16px;
     }
-
-    .left,
-    .right {
-      width: 100%;
+    .li {
+        min-height: auto;
     }
-  }
+    .deeper {
+        flex-direction: column;
+        padding-bottom: 0;
+        .left {
+            li {
+                >div {
+                    padding-right: 0;
+                }
+                &:last-child {
+                    border-bottom: 1px solid black;
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+        .right {
+            border-left: 0;
+            li:last-child {
+                border-bottom: 0;
+            }
+        }
+        .left,
+        .right {
+            width: 100%;
+        }
+    }
 }
