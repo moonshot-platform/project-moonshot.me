@@ -23,7 +23,7 @@ export class SidebarComponent implements OnInit {
     });
 
     this.moonbaseService.whenToggled().subscribe((state: boolean) => {
-      this.toggleTokenomicsView(state);
+      this.toggleMoonbaseView(state);
     });
   }
 
