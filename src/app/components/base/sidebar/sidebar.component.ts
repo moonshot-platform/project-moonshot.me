@@ -29,9 +29,15 @@ export class SidebarComponent implements OnInit {
 
   toggleTokenomicsView(active: boolean = null) {
     this.active = active || !this.active;
+    if (this.moonbaseActive && this.active) {
+      this.toggleMoonbaseView(false);
+    }
   }
 
   toggleMoonbaseView(moonbaseActive: boolean = null) {
     this.moonbaseActive = moonbaseActive || !this.moonbaseActive;
+    if (this.moonbaseActive && this.active) {
+      this.toggleTokenomicsView(false);
+    }
   }
 }
