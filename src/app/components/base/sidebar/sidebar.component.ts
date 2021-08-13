@@ -31,7 +31,7 @@ export class SidebarComponent implements OnInit {
     this.active = active || !this.active;
   }
 
-  toggleMoonbaseService(moonbaseActive: boolean = null) {
+  toggleMoonbaseView(moonbaseActive: boolean = null) {
     this.moonbaseActive = moonbaseActive || !this.moonbaseActive;
   }
 }
