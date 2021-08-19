@@ -16,10 +16,10 @@
     </a>
 </section>
 
-<section class="tokenomics" *ngIf="active">
-    <app-tokenomics></app-tokenomics>
+<section id="tokenomics-bar" class="tokenomics">
+    <app-tokenomics *ngIf="active"></app-tokenomics>
 </section>
 
-<section class="moonbase-bar" *ngIf="moonbaseActive">
-    <app-moonbase-bar></app-moonbase-bar>
+<section id="moonbase-bar" class="moonbase-bar">
+    <app-moonbase-bar *ngIf="moonbaseActive"></app-moonbase-bar>
 </section>
