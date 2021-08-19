@@ -6,11 +6,13 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { MatIconModule } from '@angular/material/icon';
 import { TokenomicsComponent } from '../tokenomics/tokenomics.component';
 import { UiSwitchModule } from 'ngx-ui-switch';
+import { MoonbaseBarComponent } from '../moonbase-bar/moonbase-bar.component';
 
 @NgModule({
   declarations: [
     SidebarComponent,
-    TokenomicsComponent
+    TokenomicsComponent,
+    MoonbaseBarComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,7 @@ import { UiSwitchModule } from 'ngx-ui-switch';
       color: 'rgb(0, 189, 99)',
       switchColor: 'black',
       defaultBgColor: 'transparent',
-      defaultBoColor : 'black',
+      defaultBoColor: 'black',
     }),
   ],
   exports: [
