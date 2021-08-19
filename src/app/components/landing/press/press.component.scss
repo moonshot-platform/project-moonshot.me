@@ -1,0 +1,110 @@
+@import "includes";
+section.press {
+    position: relative;
+    padding: 20px;
+    margin-top: 140px;
+    margin-bottom: 160px;
+    .inner {
+        @extend %max-width-center;
+        align-items: flex-end;
+    }
+}
+
+.stats {
+    width: 100%;
+    max-width: 75rem;
+    min-width: 270px;
+    margin-right: 100px;
+    margin-bottom: 50px;
+    div {
+        p {
+            color: $secondary;
+            font-size: 20px;
+            &:first-child {
+                color: $primary;
+                margin-bottom: 20px;
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+.all-press {
+    display: grid;
+    max-width: 100%;
+    grid-template-rows: repeat(2, 175px);
+    grid-template-columns: repeat(2, 0fr);
+    align-items: center;
+    justify-content: center;
+    grid-gap: 30px;
+    .press-container {
+        a>.press-img {
+            width: 270px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            align-self: center;
+            img {
+                width: 100%;
+                cursor: pointer;
+                border-bottom: 1px solid $primary;
+            }
+        }
+        a>p {
+            text-align: center;
+            margin-top: 20px;
+            font-family: $primary-font;
+            font-size: 16px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.69;
+            letter-spacing: normal;
+            text-align: center;
+            color: $primary;
+            cursor: pointer;
+        }
+    }
+}
+
+@media only screen and (max-width: $md) {
+    section.press {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        >.inner {
+            flex-direction: column;
+            >.stats {
+                margin-right: 0;
+                margin-bottom: 0px;
+                >div:nth-child(2) {
+                    border-bottom: 0;
+                }
+            }
+        }
+    }
+    .articles {
+        align-self: center;
+    }
+    .all-press {
+        max-width: none;
+        width: 100%;
+        grid-template-rows: repeat(2, 150px);
+        grid-template-columns: repeat(2, 1fr);
+        align-self: center;
+        padding-right: 1.25rem;
+        padding-left: 1.25rem;
+        .press-container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            a>.press-img {
+                width: 100%;
+                max-width: 270px;
+                align-self: center;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: $sm) {}
