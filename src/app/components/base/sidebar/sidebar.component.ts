@@ -48,10 +48,19 @@ export class SidebarComponent implements OnInit {
     // where the event is originally invoked.     
     if (!document.getElementById('sidebar').contains(event.target)) {
       // Clicked outside the box
-      this.moonbaseActive = false;
-      this.active = false;
-    } else {
-      // Clicked inside the box
+
+      //console.log("Outside of Sidebar!!");
+      if (!document.getElementById('tokenomics-bar').contains(event.target)) {
+        // Clicked outside the box
+        this.active = false;
+        console.log("Outside of TokenomicsBar!!");
+      }
+      if (!document.getElementById('moonbase-bar').contains(event.target)) {
+        // Clicked outside the box
+        this.moonbaseActive = false;
+        console.log("Outside of MoonbaseBar!!");
+      }
+
     }
   }
 
