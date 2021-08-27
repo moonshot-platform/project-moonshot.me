@@ -27,9 +27,9 @@ export class PressComponent implements OnInit {
       hovered: false
     },
     {
-      'img': 'assets/media/images/press/Einpresswire_yellow.svg',
-      'whiteImg': 'assets/media/images/press/Einpresswire_white.svg',
-      'link': 'https://www.einnews.com/pr_news/544177272/space-themed-nft-platform-moonshot-revamps-website-with-a-fresh-look',
+      'img': 'assets/media/images/press/Coinspeaker_yellow.svg',
+      'whiteImg': 'assets/media/images/press/Coinspeaker_white.svg',
+      'link': 'https://www.coinspeaker.com/nft-loot-boxes-called-moonboxes-are-launching-soon-for-creators/',
       hovered: false
 
     }
