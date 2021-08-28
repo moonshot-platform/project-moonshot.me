@@ -38,6 +38,11 @@ section.press {
     justify-content: center;
     grid-gap: 30px;
     .press-container {
+        a {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
         a>.press-img {
             width: 270px;
             display: flex;

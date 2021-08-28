@@ -14,11 +14,12 @@
                 <a href={{item.link}} target="_blank">
                     <div class="press-img" (mouseover)="item.hovered = true" (mouseout)="item.hovered = false">
                         <img [src]="!item.hovered ? item.whiteImg : item.img" />
+                        <a href={{item.link}} target="_blank">
+                            <p>Read article</p>
+                        </a>
                     </div>
                 </a>
-                <a href={{item.link}} target="_blank">
-                    <p>Read article</p>
-                </a>
+
             </div>
         </div>
         <div class="flex1 mb100">
