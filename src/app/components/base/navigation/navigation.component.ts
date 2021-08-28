@@ -25,7 +25,7 @@ export class NavigationComponent implements OnInit {
     },
     {
       'name': 'MoonPaper',
-      'externalPath': '/assets/files/Moonpaper-27-08-2021.pdf'
+      'externalPath': '/assets/files/moonpaper.pdf'
     },
     {
       'name': 'Community',
