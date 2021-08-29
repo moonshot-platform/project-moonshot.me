@@ -16,7 +16,7 @@ export class NavigationComponent implements OnInit {
 
   isMobile = this.deviceService.isMobile();
   isTablet = this.deviceService.isTablet();
-  
+
   public navItems: any[] = [
     {
       'name': 'How to buy',
@@ -83,11 +83,11 @@ export class NavigationComponent implements OnInit {
     }
   ];
 
-  @HostListener('window:scroll', ['$event']) onScrollEvent($event){
+  @HostListener('window:scroll', ['$event']) onScrollEvent($event) {
     this.atTop = (window.pageYOffset == 0) ? true : false;
-  } 
+  }
 
-  scrollToElement(page: string, fragment: string = null,item:any = null): void {
+  scrollToElement(page: string, fragment: string = null, item: any = null): void {
     /* if(item !== null && (this.deviceService.isMobile || this.deviceService.isTablet())){
       
       this.navItems.filter((navItem)=>(navItem.name != item.name ? navItem.onHover = false : null ));
@@ -98,39 +98,39 @@ export class NavigationComponent implements OnInit {
       item.onHover = !item.onHover;
       return;
     }  */
-    this.jumpThere(page,fragment);
-    
+    this.jumpThere(page, fragment);
+
   }
 
-  jumpThere(page: string, fragment: string = null){
-    if( fragment === null) {
-      if( location.pathname === page ) {
+  jumpThere(page: string, fragment: string = null) {
+    if (fragment === null) {
+      if (location.pathname === page) {
         const element = document.querySelector(`#${page.substr(1)}-page`)
         element.scrollIntoView({ behavior: 'smooth', block: 'start' })
         this.open = false;
       } else {
-        this._router.navigate( [page] );
+        this._router.navigate([page]);
       }
-      
+
     } else {
       const element = document.querySelector(`#${fragment}`)
-      if (element)  {
+      if (element) {
         element.scrollIntoView({ behavior: 'smooth', block: 'start' })
         this.open = false;
       } else
-        this._router.navigate( [page], {fragment: fragment});
+        this._router.navigate([page], { fragment: fragment });
     }
   }
 
   constructor(
-    private _router: Router, 
+    private _router: Router,
     private location: Location,
-    private tokenomicsService: TokenomicsService, 
+    private tokenomicsService: TokenomicsService,
     private deviceService: DeviceDetectorService
   ) { }
 
   ngOnInit(): void {
-    
+
   }
 
   toggleTokenomics() {
@@ -143,8 +143,8 @@ export class NavigationComponent implements OnInit {
     this.tokenomicsService.onToggle(false);
   }
 
-  isSamePath( path: string ): boolean {
-    if( path != undefined ) {
+  isSamePath(path: string): boolean {
+    if (path != undefined) {
       return location.pathname === path;
     }
 
