@@ -67,7 +67,7 @@ nav {
   @extend %max-width-center;
   align-items: initial;
 
-  nav>ul>li {
+  nav>ul>li:not(.clean) {
     border-top: 3px solid $primary;
     margin: 0 toEm(12.5px);
     width: 25%;
@@ -83,6 +83,16 @@ nav {
     &:nth-child(4) {
       margin-right: 0;
     }
+  }
+
+  nav>ul>li.clean {
+      padding: 0 20px 10px;
+      box-sizing: border-box;
+      padding-top: 0;
+
+      > a {
+        color: black !important;
+      }
   }
 
   ul.fragments {
