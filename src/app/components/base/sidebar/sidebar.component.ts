@@ -10,7 +10,7 @@ import { MoonbaseService } from 'src/app/services/moonbase.service';
 export class SidebarComponent implements OnInit {
 
   active = false;
-  moonbaseActive = false;
+  moonbaseActive = true;
 
   constructor(
     private tokenomicsService: TokenomicsService,
@@ -45,8 +45,11 @@ export class SidebarComponent implements OnInit {
 
   @HostListener('document:click', ['$event'])
   onMouseEnter(event: any) {
-    // where the event is originally invoked.     
-    if (!document.getElementById('sidebar').contains(event.target) && !document.getElementById('footer-tokenomics-text').contains(event.target) && !document.getElementById('nav-bar-tokenomics-text').contains(event.target)) {
+    // where the event is originally invoked.   
+    let footerMobileMenuTokenomicsItem = document.getElementById('footer-mobile-menu-tokenomics-item');
+    let isFooterMenuTokenomicsButtonVisible = footerMobileMenuTokenomicsItem != null && footerMobileMenuTokenomicsItem.contains(event.target);
+
+    if (!document.getElementById('sidebar').contains(event.target) && !document.getElementById('footer-tokenomics-text').contains(event.target) && !document.getElementById('nav-bar-tokenomics-text').contains(event.target) && !isFooterMenuTokenomicsButtonVisible) {
       // Clicked outside the box
       if (!document.getElementById('tokenomics-bar').contains(event.target)) {
         // Clicked outside the box
