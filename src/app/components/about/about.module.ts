@@ -17,6 +17,7 @@ import { NavigationModule } from '../base/navigation/navigation.module';
 import { DisclaimerComponent } from './disclaimer/disclaimer.component';
 import { TeamComponent } from './team/team.component';
 import { MembersComponent } from './team/members/members.component';
+import { FooterMobileModule } from '../base/footer-mobile/footer-mobile.module';
 
 
 
@@ -30,7 +31,7 @@ import { MembersComponent } from './team/members/members.component';
     MechanicsComponent,
     DisclaimerComponent,
     TeamComponent,
-    MembersComponent
+    MembersComponent,
   ],
   imports: [
     MatIconModule,
@@ -41,7 +42,8 @@ import { MembersComponent } from './team/members/members.component';
     AppRoutingModule,
     RoadmapModule,
     SidebarModule,
-    NavigationModule
+    NavigationModule,
+    FooterMobileModule
   ]
 })
 export class AboutModule { }
