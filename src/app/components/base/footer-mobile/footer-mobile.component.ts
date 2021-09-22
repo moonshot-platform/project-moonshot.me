@@ -21,7 +21,9 @@ export class FooterMobileComponent implements OnInit {
   }
   toggleTokenomics() {
     this.tokenomicsService.onToggle(true);
-    this.closeMenu();
+    setTimeout(() => {
+      this.closeMenu();
+    }, 50)
   }
 
 
