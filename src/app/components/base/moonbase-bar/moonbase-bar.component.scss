@@ -1,5 +1,6 @@
 @import "includes";
 section.moonbase-bar {
+    display: block;
     padding: 22px 70px 0px 60px;
     box-sizing: border-box;
     background: $primary;
@@ -42,8 +43,13 @@ section.moonbase-bar {
                 color: #000;
                 word-wrap: break-word;
             }
+            .moonbase-note-text {
+                font-size: 20px;
+                font-weight: 500;
+                text-align: right;
+            }
             .buttons-section {
-                margin-top: 55px;
+                margin-top: 35px;
                 display: flex;
                 flex-direction: row;
                 width: 100%;
@@ -167,9 +173,7 @@ li {
 
 @media only screen and (max-width: $md) {
     section.moonbase-bar {
-        width: 100%;
-        margin-right: 0;
-        padding: 30px 20px 0px;
+        display: none;
     }
     .block p {
         font-size: 16px;

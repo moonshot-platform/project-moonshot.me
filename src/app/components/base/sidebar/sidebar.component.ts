@@ -10,7 +10,7 @@ import { MoonbaseService } from 'src/app/services/moonbase.service';
 export class SidebarComponent implements OnInit {
 
   active = false;
-  moonbaseActive = false;
+  moonbaseActive = true;
 
   constructor(
     private tokenomicsService: TokenomicsService,

@@ -17,6 +17,11 @@ section.mobile-footer {
         align-items: center;
         li {
             margin-top: 5px;
+            svg {
+                path {
+                    fill: #000;
+                }
+            }
         }
     }
 }
