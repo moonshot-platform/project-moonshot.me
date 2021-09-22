@@ -17,6 +17,7 @@ import { NavigationModule } from '../base/navigation/navigation.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DonateDialogComponent } from './donate-dialog/donate-dialog.component';
 import { WalletconnectComponent } from './donate-dialog/walletconnect/walletconnect.component';
+import { FooterMobileModule } from '../base/footer-mobile/footer-mobile.module';
 
 
 
@@ -42,7 +43,8 @@ import { WalletconnectComponent } from './donate-dialog/walletconnect/walletconn
     NavigationModule,
     FormsModule,
     ReactiveFormsModule,
-    MerchandiseModule
+    MerchandiseModule,
+    FooterMobileModule
   ]
 })
 export class CommunityModule { }

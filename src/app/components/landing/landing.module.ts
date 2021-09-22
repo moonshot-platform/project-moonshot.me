@@ -17,6 +17,7 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { NavigationModule } from '../base/navigation/navigation.module';
 import { SidebarModule } from '../base/sidebar/sidebar.module';
 
+
 import { CarouselModule } from 'ng-carousel-cdk';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
@@ -29,6 +30,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { PressComponent } from './press/press.component';
+import { FooterMobileModule } from '../base/footer-mobile/footer-mobile.module';
 
 
 
@@ -44,7 +46,7 @@ import { PressComponent } from './press/press.component';
     EconomyComponent,
     InvestmentComponent,
     TutorialComponent,
-    PressComponent
+    PressComponent,
   ],
   imports: [
     MatIconModule,
@@ -65,6 +67,7 @@ import { PressComponent } from './press/press.component';
     ReactiveFormsModule,
     CarouselModule,
     ClipboardModule,
+    FooterMobileModule,
   ]
 })
 export class LandingModule { }
