@@ -15,6 +15,9 @@ section.mobile-footer {
         flex-direction: row;
         justify-content: flex-start;
         align-items: center;
+        li {
+            margin-top: 5px;
+        }
     }
 }
 
@@ -44,6 +47,12 @@ section.mobile-footer-menu {
     flex-flow: column;
     align-items: center;
     justify-content: flex-end;
+    font-family: $primary-font;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: center;
+    font-weight: 700;
     a {
         color: black;
         width: 100%;
