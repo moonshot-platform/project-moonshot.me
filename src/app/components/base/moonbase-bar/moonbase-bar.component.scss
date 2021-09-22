@@ -1,7 +1,7 @@
 @import "includes";
 section.moonbase-bar {
     display: block;
-    padding: 22px 70px 0px 60px;
+    padding: 1.5vh 70px 0px 60px; //22px 70px 0px 60px;
     box-sizing: border-box;
     background: $primary;
     position: fixed;
@@ -15,12 +15,22 @@ section.moonbase-bar {
     max-height: 100vh;
     overflow: auto;
     border-right: 1px solid black;
+    -ms-overflow-style: none;
+    /* for Internet Explorer, Edge */
+    scrollbar-width: none;
+    /* for Firefox */
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+    scrollbar-width: none;
+    /* Firefox */
     .inner {
+        margin-bottom: 20px !important;
         @extend %max-width-center;
         border-radius: 160px;
         .content {
             .moonboxes {
-                margin-top: 42px;
+                margin-top: 3.6vh; //42px
                 max-width: 370px;
                 min-height: 395px;
                 width: 100%;
@@ -30,7 +40,7 @@ section.moonbase-bar {
                 z-index: 12001;
             }
             p {
-                margin-top: 42px;
+                margin-top: 3.6vh; //42px
                 padding-right: 40px;
                 font-family: $primary-font;
                 font-size: 30px;
@@ -46,10 +56,11 @@ section.moonbase-bar {
             .moonbase-note-text {
                 font-size: 20px;
                 font-weight: 500;
-                text-align: right;
+                text-align: left;
             }
             .buttons-section {
-                margin-top: 35px;
+                margin-top: 3.3vh; //36px
+                ;
                 display: flex;
                 flex-direction: row;
                 width: 100%;
