@@ -25,7 +25,7 @@ import { ShooterModule } from './components/games/shooter/shooter.module';
 import { SpaceInvaderComponent } from './components/games/space-invader/space-invader.component';
 import { GtagModule } from 'angular-gtag';
 import { MoonbaseModule } from './components/moonbase/moonbase.module';
-
+import { FooterMobileModule } from './components/base/footer-mobile/footer-mobile.module';
 @Injectable()
 export class HammerConfig extends HammerGestureConfig {
   overrides = <any>{
@@ -64,6 +64,7 @@ export class HammerConfig extends HammerGestureConfig {
   bootstrap: [AppComponent],
   exports: [
     FooterModule,
+    FooterMobileModule,
     AppRoutingModule
   ]
 })

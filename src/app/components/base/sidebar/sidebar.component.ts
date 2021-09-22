@@ -46,7 +46,7 @@ export class SidebarComponent implements OnInit {
   @HostListener('document:click', ['$event'])
   onMouseEnter(event: any) {
     // where the event is originally invoked.     
-    if (!document.getElementById('sidebar').contains(event.target) && !document.getElementById('footer-tokenomics-text').contains(event.target) && !document.getElementById('nav-bar-tokenomics-text').contains(event.target)) {
+    if (!document.getElementById('sidebar').contains(event.target) && !document.getElementById('footer-tokenomics-text').contains(event.target) && !document.getElementById('nav-bar-tokenomics-text').contains(event.target) && !document.getElementById('footer-mobile-menu-tokenomics-item').contains(event.target)) {
       // Clicked outside the box
       if (!document.getElementById('tokenomics-bar').contains(event.target)) {
         // Clicked outside the box
