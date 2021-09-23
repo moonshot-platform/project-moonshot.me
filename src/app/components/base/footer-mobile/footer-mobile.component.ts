@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MoonbaseService } from 'src/app/services/moonbase.service';
 import { TokenomicsService } from 'src/app/services/tokenomics.service';
 
 @Component({
@@ -8,7 +9,11 @@ import { TokenomicsService } from 'src/app/services/tokenomics.service';
 })
 export class FooterMobileComponent implements OnInit {
   menuItem = false;
-  constructor(private tokenomicsService: TokenomicsService) { }
+  isMoonbasebarOpenAtLaunch = true;
+  constructor(
+    private tokenomicsService: TokenomicsService,
+    private moonbaseService: MoonbaseService,
+  ) { }
 
   ngOnInit(): void {
   }
@@ -17,13 +22,22 @@ export class FooterMobileComponent implements OnInit {
     this.menuItem = true;
   }
   closeMenu() {
-    this.menuItem = false;
+    if (this.isMoonbasebarOpenAtLaunch) {
+      this.isMoonbasebarOpenAtLaunch = false;
+      this.toggleMoonbaseBar();
+    } else {
+      this.menuItem = false;
+    }
+
   }
   toggleTokenomics() {
     this.tokenomicsService.onToggle(true);
     setTimeout(() => {
       this.closeMenu();
     }, 50)
+  }
+  toggleMoonbaseBar() {
+    this.moonbaseService.onToggle(false);
   }
 
 
