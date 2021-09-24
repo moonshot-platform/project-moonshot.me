@@ -29,6 +29,10 @@ section.tokenomics {
     }
 }
 
+.tokenomics::-webkit-scrollbar {
+    display: none;
+}
+
 .pancake-switch-container {
     >p:first-child {
         margin-right: 80px;
