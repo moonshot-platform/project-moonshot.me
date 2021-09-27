@@ -33,10 +33,8 @@ section.moonbase-bar {
         .content {
             .moonboxes {
                 margin-top: 36px;
-                max-width: 370px;
-                max-height: 370px;
-                width: 100%;
-                height: 100%;
+                width: 370px;
+                height: 370px;
                 clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 15% 100%, 0 85%);
                 background: black;
                 z-index: 12001;
@@ -201,8 +199,8 @@ li {
                 .moonboxes {
                     margin-top: 16px;
                     max-width: 330px;
-                    min-height: 300px;
-                    max-height: 300px;
+                    width: 100%;
+                    height: 100%;
                 }
                 .buttons-section {
                     max-width: 320px;
