@@ -1,0 +1,30 @@
+<section class="mobile-only mobile-footer-menu" *ngIf="menuItem">
+    <div class="inner menu-item">
+        <a class="p17 mb20" href="https://moonboxes.io/">MoonBase</a>
+        <div class="divider mb20"></div>
+        <a id="footer-mobile-menu-tokenomics-item" class="p17 mb20" (click)="toggleTokenomics()">Tokenomics</a>
+    </div>
+</section>
+
+<section class="mobile-footer">
+    <ul>
+        <ng-container *ngIf="menuItem || isMoonbasebarOpenAtLaunch ; then doNotShowMenuIcon else showMenuIcon">
+        </ng-container>
+        <ng-template #doNotShowMenuIcon>
+            <li>
+                <img src="assets/media/icons/close_bottom-menu_mobile.svg" (click)="closeMenu()">
+            </li>
+        </ng-template>
+        <ng-template #showMenuIcon>
+            <li (click)="menuopen()">
+                <svg width="26px" height="20px" viewBox="0 0 32 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+                    
+                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <path d="M0,0 L32,0 L32,3 L0,3 L0,0 Z M0,11 L32,11 L32,14 L0,14 L0,11 Z M0,22 L32,22 L32,25 L0,25 L0,22 Z" id="Combined-Shape" fill="#D5A642"></path>
+                    </g>
+                </svg>
+            </li>
+        </ng-template>
+    </ul>
+</section>
