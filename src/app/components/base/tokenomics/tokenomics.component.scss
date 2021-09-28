@@ -14,10 +14,23 @@ section.tokenomics {
     max-height: 100vh;
     overflow: auto;
     border-right: 1px solid black;
+    -ms-overflow-style: none;
+    /* for Internet Explorer, Edge */
+    scrollbar-width: none;
+    /* for Firefox */
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+    scrollbar-width: none;
+    /* Firefox */
     .inner {
         @extend %max-width-center;
         border-radius: 160px;
     }
+}
+
+.tokenomics::-webkit-scrollbar {
+    display: none;
 }
 
 .pancake-switch-container {
