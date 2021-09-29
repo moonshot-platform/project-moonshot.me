@@ -27,13 +27,13 @@ export class LandingComponent implements OnInit {
       { name: 'twitter:card', content: 'summary' },
       { name: 'twitter:description', content: 'Moonshot is a deflationary, frictionless yield and liquidity generation protocol.' },
       { name: 'twitter:title', content: 'MoonTV' },
-      { name: 'twitter:image', content: 'src/assets/media/images/moonshot-logo.png' },
+      { name: 'twitter:image', content: 'https://i.ibb.co/g9JHhdK/moonshot-logo.png' },
       { name: 'twitter:site', content: '@RS25Moonshot' },
 
       { property: 'og:title', content: 'Project Moonshot' },
       { property: 'og:site_name', content: 'Moonshot' },
       { property: 'og:description', content: 'Moonshot is a deflationary, frictionless yield and liquidity generation protocol.' },
-      { property: 'og:image', itemprop: 'image', content: 'src/assets/media/images/moonshot-logo.png' },
+      { property: 'og:image', itemprop: 'image', content: 'https://i.ibb.co/g9JHhdK/moonshot-logo.png' },
 
     ]);
     this.setTitle('Moonshot');
