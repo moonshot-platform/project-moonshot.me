@@ -144,7 +144,7 @@ export class MoonticketComponent implements OnInit {
         link.click();
       }
     };
-    img.src = 'assets/media/images/community/moon-ticket.png';
+    img.src = 'assets/media/images/community/moon-ticket.webp';
   }
 
   downloadTicket(): void {

@@ -14,9 +14,9 @@ export class MerchandiseComponent implements OnInit {
   current = 0;
 
   public shirts: any = [
-    'assets/media/images/community/shop-bear.png',
-    'assets/media/images/community/shop-bull.png',
-    'assets/media/images/community/shop-moonbirb.png'
+    'assets/media/images/community/shop-bear.webp',
+    'assets/media/images/community/shop-bull.webp',
+    'assets/media/images/community/shop-moonbirb.webp'
   ]
 
   constructor(private dialog: MatDialog) { }
