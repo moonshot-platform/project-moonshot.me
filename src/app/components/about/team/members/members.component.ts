@@ -11,13 +11,13 @@ export class MembersComponent implements OnInit {
   members: any = [
     {
       name: 'c0ntrol zer0',
-      image: 'assets/media/images/members/c0ntrolzer0.png',
+      image: 'assets/media/images/members/c0ntrolzer0.webp',
       title: 'Main Developer',
       about: 'Software Engineer, SCRUM master and guardian of the keys.'
     },
     {
       name: 'luisqsm',
-      image: 'assets/media/images/members/luisqsm.jpg',
+      image: 'assets/media/images/members/luisqsm.webp',
       title: 'Design & Brand Manager',
       about: 'Architect, 3D artist, digital designer & crypto enthusiast.',
       social: [
@@ -30,7 +30,7 @@ export class MembersComponent implements OnInit {
     },
     {
       name: 'Smack',
-      image: 'assets/media/images/members/smack.jpg',
+      image: 'assets/media/images/members/smack.webp',
       title: 'Positivity Guru',
       about: 'Connecting the people, the dots, to one piece of art.',
       social: [
@@ -48,13 +48,13 @@ export class MembersComponent implements OnInit {
     },
     {
       name: 'Winnie',
-      image: 'assets/media/images/members/winnie.jpg',
+      image: 'assets/media/images/members/winnie.webp',
       title: 'Moderator/Contributor',
       about: 'Running MoonSquad merchandise.'
     },
     {
       name: 'CryptoSeas',
-      image: 'assets/media/images/members/cryptoseas.jpg',
+      image: 'assets/media/images/members/cryptoseas.webp',
       title: 'Moderator/Contributor',
       about: 'The voice of Moonshot.<br>Legacy Mod since day 1.',
       social: [
@@ -67,13 +67,13 @@ export class MembersComponent implements OnInit {
     },
     {
       name: 'CryptoKam',
-      image: 'assets/media/images/members/cryptokam.jpeg',
+      image: 'assets/media/images/members/cryptokam.webp',
       title: 'Moderator/Contributor',
       about: 'Marketing advisor.<br>Creative ideas support.<br>Shill trooper.<br>'
     },
     {
       name: 'CryptoHunter',
-      image: 'assets/media/images/members/cryptohunter.jpg',
+      image: 'assets/media/images/members/cryptohunter.webp',
       title: 'Moderator/Marketeer', //'CryptoHunter, [Moderator/Marketeer]',
       about: 'Digital Marketing SMO (Youtube, Instagram).',
       social: [
@@ -86,7 +86,7 @@ export class MembersComponent implements OnInit {
     },
     {
       name: 'Sonic',
-      image: 'assets/media/images/members/sonic.jpg',
+      image: 'assets/media/images/members/sonic.webp',
       title: 'Solidity Developer',
       about: 'Experienced backend engineer turned solidity developer. Enthusiast of blockchain and smart contract.'
 
@@ -97,21 +97,21 @@ export class MembersComponent implements OnInit {
   otherMembers: any = [
     {
       name: 'Light',
-      image: 'assets/media/images/members/light.jpg',
+      image: 'assets/media/images/members/light.webp',
       title: 'Fullstack Developer',
       about: 'Panda on steroids with over 16 years experience in developing modern apps & Pro Google & Bio hacker.'
 
     },
     {
       name: 'Furkan',
-      image: 'assets/media/images/members/furkan.png',
+      image: 'assets/media/images/members/furkan.webp',
       title: 'Mobile Developer',
       about: 'A person who likes to produce something and learn quickly.'
 
     },
     {
       name: 'Moon Squad',
-      image: 'assets/media/images/members/moonsquad.jpg',
+      image: 'assets/media/images/members/moonsquad.webp',
       title: 'Moderator/Marketeer ',
       about: 'Social Media Director & Digital Marketing - SMO.',
       social: [
@@ -124,27 +124,27 @@ export class MembersComponent implements OnInit {
     },
     {
       name: 'Clover',
-      image: 'assets/media/images/members/clover.jpg',
+      image: 'assets/media/images/members/clover.webp',
       title: 'Full stack expert',
       about: 'Passionate and experienced frontend/backend/blockchain developer.'
     },
     {
       name: 'Rick',
-      image: 'assets/media/images/members/rick.jpeg',
+      image: 'assets/media/images/members/rick.webp',
       title: 'Moderator & Discord Guru',
       about: 'Marketing & hype contributor.<br>Moonshot lover since day 1.'
 
     },
     {
       name: 'Chocoboknight1',
-      image: 'assets/media/images/members/chocoboknight1.png',
+      image: 'assets/media/images/members/chocoboknight1.webp',
       title: 'Community Manager',
       about: 'With 10 years of team leading experience, working to grow the project\'s presence on Reddit and other media platforms.',
 
     },
     {
       name: 'Meenu',
-      image: 'assets/media/images/members/shef.jpg',
+      image: 'assets/media/images/members/shef.webp',
       title: 'Moderator/Contributor',
       about: 'Monitoring, tracking and engaging with contents in the community and responding their queries in a timely manner.',
       social: [
@@ -157,7 +157,7 @@ export class MembersComponent implements OnInit {
     },
     {
       name: 'Ironlionzion',
-      image: 'assets/media/images/members/ironlionzion.jpg',
+      image: 'assets/media/images/members/ironlionzion.webp',
       title: 'Moderator/Contributor',
       about: 'Professional shiller.<br>Marketing ideas contributor.<br>'
     }
