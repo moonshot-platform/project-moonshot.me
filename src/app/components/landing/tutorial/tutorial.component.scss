@@ -18,7 +18,6 @@ section.tutorial {
   padding: 0;
 
   > p {
-    line-break: anywhere;
     padding: 10px 20px;
 
     box-sizing: border-box;
@@ -162,10 +161,6 @@ section.tutorial {
 
       > .description {
         line-height: 30px;
-
-        > span {
-          line-break: anywhere;
-        }
       }
     }
   }
