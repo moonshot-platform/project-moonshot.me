@@ -125,7 +125,7 @@ export class RoadmapComponent implements OnInit {
         title: 'Q3 2021',
         span: '',
         description: 'MoonBoxes',
-        icon: Icon.UPCOMING
+        icon: Icon.ACCOMPLISHED
     },
     
     {
