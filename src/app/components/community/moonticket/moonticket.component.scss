@@ -4,7 +4,7 @@ section.moonticket {
   @include paddingsInside(0px, 20px);
   padding-top: 200px;
 
-  background: url("/assets/media/images/galaxy03_homepage.png") no-repeat right;
+  background: url("/assets/media/images/galaxy03_homepage.webp") no-repeat right;
 
   > .inner {
     @extend %max-width-center;

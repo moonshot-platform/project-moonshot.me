@@ -13,7 +13,7 @@
         <div class="video-player flex3">
             <div class="video" [class.toFront]="isPlaying == true" (click)="toggleVideo()" (mouseenter) ="onShow(true)"  (mouseleave)="onShow(false)">
                 <img class="playbtn" [class.show]="show" [class.fadeAway]="fadeOut" *ngIf="show" src="assets/media/images/{{!isPlaying ? 'play-button.svg': 'pause-button.svg'}}" />
-                <video width="100%" height="auto" #videoPlayer>
+                <video width="100%" height="auto" #videoPlayer playsinline>
                     <source src="{{videoSource}}" type="video/mp4" />
                     Browser not supported
                 </video>
