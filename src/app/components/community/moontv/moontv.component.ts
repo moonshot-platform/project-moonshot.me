@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
+import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-moontv',
@@ -49,11 +49,25 @@ export class MoontvComponent implements OnInit {
       src: this.transform("https://www.youtube.com/embed/u5vn5c2lja0"),
       thumb: ""
     },
+    ///
+    {
+      src: this.transform("https://www.youtube.com/embed/gKEUMxwbmfg"),
+      thumb: ""
+    },
+    {
+      src: this.transform("https://www.youtube.com/embed/5WaTUWeeDxE"),
+      thumb: ""
+    },
+    {
+      src: this.transform("https://www.youtube.com/embed/EzoCAroGtxw"),
+      thumb: ""
+    },
+
   ];
 
   constructor(private sanitizer: DomSanitizer) { }
 
-  transform( url: string ) {
+  transform(url: string) {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
