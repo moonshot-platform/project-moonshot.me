@@ -6,149 +6,149 @@ import { map, startWith, takeUntil } from 'rxjs/operators';
 import { CarouselAlignMode, CarouselComponent, CarouselConfig, CarouselWidthMode } from 'ng-carousel-cdk';
 
 @Component({
-  selector: 'app-roadmap',
-  templateUrl: './roadmap.component.html',
-  styleUrls: ['./roadmap.component.scss']
+    selector: 'app-roadmap',
+    templateUrl: './roadmap.component.html',
+    styleUrls: ['./roadmap.component.scss']
 })
 export class RoadmapComponent implements OnInit {
 
-  items: CarouselItem[] = [
-    {
-        title: 'Q1 2021',
-        span: ' - done',
-        description: 'Initiate Moonshot',
-        icon: Icon.ACCOMPLISHED,
-    },
-    {
-        title: 'Q1 2021',
-        span: ' - done',
-        description: 'Building social media presence',
-        icon: Icon.ACCOMPLISHED,
-    },
-    {
-        title: 'Q1 2021',
-        span: ' - done',
-        description: 'Presale',
-        icon: Icon.ACCOMPLISHED,
-    },
-    {
-        title: 'Q1 2021',
-        span: ' - done',
-        description: 'Listing at PancakeSwap',
-        icon: Icon.ACCOMPLISHED,
-    },
-    {
-        title: 'Q1 2021',
-        span: ' - done',
-        description: '31% of the total supply burned after launch',
-        icon: Icon.ACCOMPLISHED
-    },
-    {
-        title: 'Q1 2021',
-        span: ' - done',
-        description: 'Delta listing',
-        icon: Icon.ACCOMPLISHED
-    },
-    {
-        title: 'Q1 2021',
-        span: ' - done',
-        description: 'Blockfolio listing',
-        icon: Icon.ACCOMPLISHED
-    },
-    {
-        title: 'Q1 2021',
-        span: ' - done',
-        description: 'Coinmarketcap tracking',
-        icon: Icon.ACCOMPLISHED
-    },
-    {
-        title: 'Q1 2021',
-        span: ' - done',
-        description: 'Manual burning of tokens',
-        icon: Icon.ACCOMPLISHED
-    },
-    {
-        title: 'Q2 2021',
-        span: ' - done',
-        description: 'Listed at P2PB2B exchange',
-        icon: Icon.ACCOMPLISHED
-    },
-    {
-        title: 'Q2 2021',
-        span: ' - done',
-        description: 'Listed at BitMart exchange',
-        icon: Icon.ACCOMPLISHED
-    },
-    {
-        title: 'Q2 2021',
-        span: ' - done',
-        description: 'Merchandise store at TeePublic',
-        icon: Icon.ACCOMPLISHED
-    },
-    {
-        title: 'Q2 2021',
-        span: ' - done',
-        description: 'Coingecko tracking',
-        icon: Icon.ACCOMPLISHED
-    },
-    {
-        title: 'Q2 2021',
-        span: ' - done',
-        description: 'Listed at Hotbit exchange',
-        icon: Icon.ACCOMPLISHED
-    },
-    {
-        title: 'Q2 2021',
-        span: ' - done',
-        description: 'New website launch',
-        icon: Icon.ACCOMPLISHED
-    },
-    {
-        title: 'Q2 2021',
-        span: ' - ongoing',
-        description: 'Conceptual Storyboard for MoonShooters series created (MoonBoxes)',
-        icon: Icon.ONGOING
-    },
-    {
-        title: 'Q2 2021',
-        span: ' - ongoing',
-        description: 'Conceptual Artwork for 1,000 NFTs created (MoonBoxes)',
-        icon: Icon.UPCOMING
-    },
-    {
-        title: 'Q2 2021',
-        span: ' - done',
-        description: 'LATOKEN exchange listing',
-        icon: Icon.ACCOMPLISHED
-    },
-    {
-        title: 'Q3 2021',
-        span: '',
-        description: 'MoonBoxes',
-        icon: Icon.ACCOMPLISHED
-    },
-    
-    {
-        title: 'Q3 2021',
-        span: '',
-        description: 'Security Audit by a well respected Audit firm',
-        icon: Icon.UPCOMING
-    },
-    {
-        title: 'Q3 2021',
-        span: '',
-        description: 'Arcade style games',
-        icon: Icon.UPCOMING
-    },
-    {
-        title: 'Q4 2021',
-        span: '',
-        description: 'Lottery Pools',
-        icon: Icon.UPCOMING
-    },
-  ]
+    items: CarouselItem[] = [
+        {
+            title: 'Q1 2021',
+            span: ' - done',
+            description: 'Initiate Moonshot',
+            icon: Icon.ACCOMPLISHED,
+        },
+        {
+            title: 'Q1 2021',
+            span: ' - done',
+            description: 'Building social media presence',
+            icon: Icon.ACCOMPLISHED,
+        },
+        {
+            title: 'Q1 2021',
+            span: ' - done',
+            description: 'Presale',
+            icon: Icon.ACCOMPLISHED,
+        },
+        {
+            title: 'Q1 2021',
+            span: ' - done',
+            description: 'Listing at PancakeSwap',
+            icon: Icon.ACCOMPLISHED,
+        },
+        {
+            title: 'Q1 2021',
+            span: ' - done',
+            description: '31% of the total supply burned after launch',
+            icon: Icon.ACCOMPLISHED
+        },
+        {
+            title: 'Q1 2021',
+            span: ' - done',
+            description: 'Delta listing',
+            icon: Icon.ACCOMPLISHED
+        },
+        {
+            title: 'Q1 2021',
+            span: ' - done',
+            description: 'Blockfolio listing',
+            icon: Icon.ACCOMPLISHED
+        },
+        {
+            title: 'Q1 2021',
+            span: ' - done',
+            description: 'Coinmarketcap tracking',
+            icon: Icon.ACCOMPLISHED
+        },
+        {
+            title: 'Q1 2021',
+            span: ' - done',
+            description: 'Manual burning of tokens',
+            icon: Icon.ACCOMPLISHED
+        },
+        {
+            title: 'Q2 2021',
+            span: ' - done',
+            description: 'Listed at P2PB2B exchange',
+            icon: Icon.ACCOMPLISHED
+        },
+        {
+            title: 'Q2 2021',
+            span: ' - done',
+            description: 'Listed at BitMart exchange',
+            icon: Icon.ACCOMPLISHED
+        },
+        {
+            title: 'Q2 2021',
+            span: ' - done',
+            description: 'Merchandise store at TeePublic',
+            icon: Icon.ACCOMPLISHED
+        },
+        {
+            title: 'Q2 2021',
+            span: ' - done',
+            description: 'Coingecko tracking',
+            icon: Icon.ACCOMPLISHED
+        },
+        {
+            title: 'Q2 2021',
+            span: ' - done',
+            description: 'Listed at Hotbit exchange',
+            icon: Icon.ACCOMPLISHED
+        },
+        {
+            title: 'Q2 2021',
+            span: ' - done',
+            description: 'New website launch',
+            icon: Icon.ACCOMPLISHED
+        },
+        {
+            title: 'Q2 2021',
+            span: ' - ongoing',
+            description: 'Conceptual Storyboard for MoonShooters series created (MoonBoxes)',
+            icon: Icon.ONGOING
+        },
+        {
+            title: 'Q2 2021',
+            span: ' - done',
+            description: 'Conceptual Artwork for 1,000 NFTs created (MoonBoxes)',
+            icon: Icon.ACCOMPLISHED
+        },
+        {
+            title: 'Q2 2021',
+            span: ' - done',
+            description: 'LATOKEN exchange listing',
+            icon: Icon.ACCOMPLISHED
+        },
+        {
+            title: 'Q3 2021',
+            span: ' - done',
+            description: 'MoonBoxes',
+            icon: Icon.ACCOMPLISHED
+        },
 
-  @ViewChild(CarouselComponent, {static: true}) carouselRef?: CarouselComponent;
+        {
+            title: 'Q3 2021',
+            span: ' - done',
+            description: 'Security Audit by a well respected Audit firm',
+            icon: Icon.ACCOMPLISHED
+        },
+        {
+            title: 'Q3 2021',
+            span: '',
+            description: 'Arcade style games',
+            icon: Icon.UPCOMING
+        },
+        {
+            title: 'Q4 2021',
+            span: '',
+            description: 'Lottery Pools',
+            icon: Icon.UPCOMING
+        },
+    ]
+
+    @ViewChild(CarouselComponent, { static: true }) carouselRef?: CarouselComponent;
 
     config: CarouselConfig<CarouselItem> = {
         widthMode: CarouselWidthMode.PX,
@@ -211,7 +211,7 @@ export class RoadmapComponent implements OnInit {
     private slideWidthChanges(): Observable<number> {
         return this.configForm.valueChanges
             .pipe(
-                map((form: {slideWidth: number}) => form.slideWidth),
+                map((form: { slideWidth: number }) => form.slideWidth),
                 startWith(this.configForm.controls.slideWidth.value),
             );
     }
@@ -219,7 +219,7 @@ export class RoadmapComponent implements OnInit {
     private widthModeChanges(): Observable<CarouselWidthMode> {
         return this.configForm.valueChanges
             .pipe(
-                map((form: {widthMode: CarouselWidthMode}) => form.widthMode),
+                map((form: { widthMode: CarouselWidthMode }) => form.widthMode),
                 startWith(this.configForm.controls.widthMode.value),
             );
     }
@@ -227,7 +227,7 @@ export class RoadmapComponent implements OnInit {
     private transitionDurationChanges(): Observable<number> {
         return this.configForm.valueChanges
             .pipe(
-                map((form: {transitionDuration: number}) => form.transitionDuration),
+                map((form: { transitionDuration: number }) => form.transitionDuration),
                 startWith(this.configForm.controls.transitionDuration.value),
             );
     }
@@ -235,7 +235,7 @@ export class RoadmapComponent implements OnInit {
     private slidesQuantityChanges(): Observable<number> {
         return this.configForm.valueChanges
             .pipe(
-                map((form: {slidesQuantity: number}) => form.slidesQuantity),
+                map((form: { slidesQuantity: number }) => form.slidesQuantity),
                 startWith(this.configForm.controls.slidesQuantity.value),
             );
     }
@@ -243,7 +243,7 @@ export class RoadmapComponent implements OnInit {
     private recalculateDebounceChanges(): Observable<number> {
         return this.configForm.valueChanges
             .pipe(
-                map((form: {recalculateDebounce: number}) => form.recalculateDebounce),
+                map((form: { recalculateDebounce: number }) => form.recalculateDebounce),
                 startWith(this.configForm.controls.recalculateDebounce.value),
             );
     }
@@ -253,13 +253,13 @@ export class RoadmapComponent implements OnInit {
             .pipe(
                 takeUntil(this.destroyed$),
             )
-            .subscribe((value: CarouselConfig & {slidesQuantity: number}) => {
+            .subscribe((value: CarouselConfig & { slidesQuantity: number }) => {
                 const maxWidthNew = this.getMaxWidth(value.widthMode);
                 const widthPercentage = 100 * (value?.slideWidth ?? 1) / this.maxWidth;
                 value.slideWidth = Math.floor(maxWidthNew * widthPercentage / 100);
                 this.maxWidth = maxWidthNew;
                 this.config = value;
-                this.configForm.controls.slideWidth.setValue(value.slideWidth, {emitEvent: false});
+                this.configForm.controls.slideWidth.setValue(value.slideWidth, { emitEvent: false });
                 this.config.items = this.items;
                 this.cdr.markForCheck();
             });
@@ -274,10 +274,10 @@ export class RoadmapComponent implements OnInit {
 }
 
 export interface CarouselItem {
-  title: string;
-  span: string;
-  description: string;
-  icon: string
+    title: string;
+    span: string;
+    description: string;
+    icon: string
 }
 
 enum Icon {
