@@ -68,18 +68,6 @@ export class RoadmapComponent implements OnInit {
             icon: Icon.ACCOMPLISHED
         },
         {
-            title: 'Q1 2021',
-            span: '',
-            description: 'Arcade style games',
-            icon: Icon.UPCOMING
-        },
-        {
-            title: 'Q1 2021',
-            span: '',
-            description: 'Lottery Pools',
-            icon: Icon.UPCOMING
-        },
-        {
             title: 'Q2 2021',
             span: ' - done',
             description: 'Listed at P2PB2B exchange',
@@ -150,6 +138,18 @@ export class RoadmapComponent implements OnInit {
             span: ' - done',
             description: 'Moonshooter NFT series launched\nRa8bits NFT series launched MoonSea',
             icon: Icon.ACCOMPLISHED
+        },
+        {
+            title: 'Q1 2022',
+            span: '',
+            description: 'Arcade style games',
+            icon: Icon.UPCOMING
+        },
+        {
+            title: 'Q1 2022',
+            span: '',
+            description: 'Lottery Pools',
+            icon: Icon.UPCOMING
         },
     ]
 
