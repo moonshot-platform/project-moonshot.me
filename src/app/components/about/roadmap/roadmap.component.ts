@@ -136,8 +136,14 @@ export class RoadmapComponent implements OnInit {
         {
             title: 'Q4 2021',
             span: ' - done',
-            description: 'Moonshooter NFT series launched\nRa8bits NFT series launched MoonSea',
+            description: 'Moonshooter NFT series launched\nRa8bits NFT series launched',
             icon: Icon.ACCOMPLISHED
+        },
+        {
+            title: 'Q4 2021',
+            span: '',
+            description: 'MoonSea',
+            icon: Icon.UPCOMING
         },
         {
             title: 'Q1 2022',
