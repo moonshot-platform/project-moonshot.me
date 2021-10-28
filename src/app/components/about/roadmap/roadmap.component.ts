@@ -105,14 +105,14 @@ export class RoadmapComponent implements OnInit {
         },
         {
             title: 'Q2 2021',
-            span: ' - ongoing',
-            description: 'Conceptual Storyboard for MoonShooters series created (MoonBoxes)',
-            icon: Icon.ONGOING
+            span: ' - done',
+            description: 'Storyboard for The Moonshooter Series - "First Landing"',
+            icon: Icon.ACCOMPLISHED
         },
         {
             title: 'Q2 2021',
             span: ' - done',
-            description: 'Conceptual Artwork for 1,000 NFTs created (MoonBoxes)',
+            description: 'The Moonshooter Series - Development of the NFT collection (MoonBoxes)',
             icon: Icon.ACCOMPLISHED
         },
         {
@@ -124,37 +124,37 @@ export class RoadmapComponent implements OnInit {
         {
             title: 'Q3 2021',
             span: ' - done',
-            description: 'MoonBoxes',
+            description: 'MoonBoxes launch - Initial NFT Offerings Platform',
             icon: Icon.ACCOMPLISHED
         },
         {
             title: 'Q3 2021',
             span: ' - done',
-            description: 'Moonboxes audited by Solidity Finance',
+            description: 'MoonBoxes audited by Solidity Finance',
             icon: Icon.ACCOMPLISHED
         },
         {
             title: 'Q4 2021',
             span: ' - done',
-            description: 'Moonshooter NFT series launched\nRa8bits NFT series launched',
+            description: 'The Moonshooter Series - NFT collection launch (MoonBoxes)',
             icon: Icon.ACCOMPLISHED
         },
         {
             title: 'Q4 2021',
             span: '',
-            description: 'MoonSea',
+            description: 'MoonSea launch - NFT marketplace',
             icon: Icon.UPCOMING
         },
         {
             title: 'Q1 2022',
             span: '',
-            description: 'Arcade style games',
+            description: 'MoonArcade - Arcade style games',
             icon: Icon.UPCOMING
         },
         {
             title: 'Q1 2022',
             span: '',
-            description: 'Lottery Pools',
+            description: 'MoonLottery - Lottery Pools',
             icon: Icon.UPCOMING
         },
     ]
