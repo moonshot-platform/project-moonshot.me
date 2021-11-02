@@ -23,6 +23,7 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
+                        "allowedCommonJsDependencies":["url", "web3", "hash.js"],
                         "outputPath": "dist/moonshot-web",
                         "index": "src/index.html",
                         "main": "src/main.ts",

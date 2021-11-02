@@ -1,7 +1,9 @@
+@use 'sass:math';
+
 @function toRem( $size ) {
-    @return $size / 16px * 1rem;
+    @return math.div($size, 16px) * 1rem;
 }
 
 @function toEm( $size ) {
-    @return $size / 16px * 1em;
+    @return math.div($size, 16px) * 1em;
 }
