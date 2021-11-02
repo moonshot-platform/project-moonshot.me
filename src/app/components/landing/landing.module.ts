@@ -6,7 +6,6 @@ import { CountdownModule } from 'ngx-countdown';
 import { IntroComponent } from './intro/intro.component';
 import { AboutComponent } from './about/about.component';
 import { VideoComponent } from './video/video.component';
-import { NgParticlesModule } from 'ng-particles';
 import { PartnersComponent } from './partners/partners.component';
 import { NewsComponent } from './news/news.component';
 import { ExchangesComponent } from './exchanges/exchanges.component';
@@ -54,7 +53,6 @@ import { FooterMobileModule } from '../base/footer-mobile/footer-mobile.module';
     NavigationModule,
     FooterModule,
     CountdownModule,
-    NgParticlesModule,
     AppRoutingModule,
     SidebarModule,
     MatToolbarModule,
