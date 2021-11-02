@@ -4,7 +4,6 @@ import { TokenLockComponent } from './token-lock.component';
 import { FooterModule } from '../base/footer/footer.module';
 import { CountdownModule } from 'ngx-countdown';
 import { IntroComponent } from './intro/intro.component';
-import { NgParticlesModule } from 'ng-particles';
 import { MoonlpComponent } from './moonlp/moonlp.component';
 import { SidebarModule } from '../base/sidebar/sidebar.module';
 import { MatIconModule } from '@angular/material/icon';
@@ -26,7 +25,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     FooterModule,
     CountdownModule,
-    NgParticlesModule,
     AppRoutingModule,
     SidebarModule,
     RoadmapModule,
