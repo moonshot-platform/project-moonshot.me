@@ -151,7 +151,7 @@ section.moonbase-bar {
     max-width: 370px;
     display: flex;
     flex-direction: row;
-    justify-content: end;
+    justify-content: flex-end;
     margin-top: 20px;
     .close {
         height: 36px;
