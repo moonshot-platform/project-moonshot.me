@@ -4,7 +4,6 @@ import { AboutComponent } from './about.component';
 import { FooterModule } from '../base/footer/footer.module';
 import { CountdownModule } from 'ngx-countdown';
 import { IntroComponent } from './intro/intro.component';
-import { NgParticlesModule } from 'ng-particles';
 import { NextComponent } from './next/next.component';
 import { SecurityComponent } from './security/security.component';
 import { MissionComponent } from './mission/mission.component';
@@ -38,7 +37,6 @@ import { FooterMobileModule } from '../base/footer-mobile/footer-mobile.module';
     CommonModule,
     FooterModule,
     CountdownModule,
-    NgParticlesModule,
     AppRoutingModule,
     RoadmapModule,
     SidebarModule,
