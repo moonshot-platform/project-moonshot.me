@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MoonbaseService } from 'src/app/services/moonbase.service';
 import { TokenomicsService } from 'src/app/services/tokenomics.service';
 
@@ -13,7 +14,11 @@ export class FooterMobileComponent implements OnInit {
   constructor(
     private tokenomicsService: TokenomicsService,
     private moonbaseService: MoonbaseService,
-  ) { }
+    private router: Router) {
+    if (router.url !== '/') {
+      this.isMoonbasebarOpenAtLaunch = false;
+    }
+  }
 
   ngOnInit(): void {
   }
