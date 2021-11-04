@@ -1,28 +1,40 @@
 @import "includes";
-
 section.news {
-  z-index: 2;
-  position: relative;
-
-  > .inner {
+    z-index: 2;
     position: relative;
-    width: calc(100% - 64px);
-  }
+    .satellite-bg {
+        position: absolute;
+        width: 70%;
+        height: 70%;
+        //left: 0;
+        right: 0;
+        top: 120px;
+        bottom: 0;
+        z-index: -1;
+    }
+    .satellite-bg {
+        background: url("/assets/media/images/news/satellite.png") top right no-repeat;
+        background-size: 59%;
+    }
+    >.inner {
+        position: relative;
+        width: calc(100% - 64px);
+    }
 }
 
 app-header {
-  display: block;
-  width: calc(100% - 64px);
+    display: block;
+    width: calc(100% - 64px);
 }
 
-.hole-bg > img {
-  height: 100%;
-  width: 100%;
-  transform: translate(-15%, -65%);
+.hole-bg>img {
+    height: 100%;
+    width: 100%;
+    transform: translate(-15%, -65%);
 }
 
 @media only screen and (max-width: $md) {
-  section.news > .inner {
-    width: 100%;
-  }
+    section.news>.inner {
+        width: 100%;
+    }
 }
