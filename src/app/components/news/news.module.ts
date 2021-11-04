@@ -1,19 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NewsComponent } from './news.component';
-import { DetailComponent } from './detail/detail.component';
 import { NavigationModule } from '../base/navigation/navigation.module';
 import { SidebarModule } from '../base/sidebar/sidebar.module';
 import { FooterMobileModule } from '../base/footer-mobile/footer-mobile.module';
 import { FooterModule } from '../base/footer/footer.module';
 import { ArticleListComponent } from './article-list/article-list.component';
-
-
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
     NewsComponent,
-    DetailComponent,
     ArticleListComponent
   ],
   imports: [
@@ -21,7 +18,8 @@ import { ArticleListComponent } from './article-list/article-list.component';
     NavigationModule,
     SidebarModule,
     FooterMobileModule,
-    FooterModule
+    FooterModule,
+    MatIconModule,
   ]
 })
 export class NewsModule { }
