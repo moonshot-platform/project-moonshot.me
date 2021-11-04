@@ -567,6 +567,10 @@ ul {
   text-align: right;
 }
 
+.container-with-padding {
+  @include paddingsInside(20px, 0px);
+}
+
 .futuristic-container {
   @include paddingsInside(20px, 0px);
   border-top: 3px solid $primary;
@@ -582,6 +586,10 @@ ul {
 
   &.top-only {
     border-bottom: 0;
+  }
+
+  &.top-slim {
+    border-top: 1px solid $primary;
   }
 
   &.no-padding-top {
