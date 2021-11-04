@@ -1,0 +1,24 @@
+<section id="article-list" class="article-list flex-center pb200">
+  <div class="inner flex-space-between align-start">
+    <div class="side flex1">
+      <div class="futuristic-container p30d24m">
+        <p class="mb30">PRESS RELEASE</p>
+        <span class="p-white-span-primary orbitron">Hot off<br>the press</span>
+      </div>
+      <div class="futuristic-container bottom-only">
+        <p class="p30">Check out the news outlets that have been writing about Moonshot and its developments.</p>
+      </div>
+    </div>
+    <div class="list flex3 flex">
+      <div class="article mb10" *ngFor="let article of articleList; index as i">
+        <div class="thumb flex1">
+            <img [src]="article.img" (click)=showDetail(article) />
+        </div>
+        <div class="inner flex2 flex-row">
+            <p class="title">{{article.title}}</p>
+            <p>Read article</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
