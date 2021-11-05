@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ShareModalComponent } from '../share-modal/share-modal.component';
 
 @Component({
   selector: 'app-article-list',
@@ -176,7 +178,7 @@ export class ArticleListComponent implements OnInit {
 
   ]
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -186,7 +188,6 @@ export class ArticleListComponent implements OnInit {
   }
 
   onLoadMoreClick() {
-    //this.loadMoreCount = this.members.length;
     this.articleList.push(...this.restOfArticleList);
   }
 
@@ -195,6 +196,13 @@ export class ArticleListComponent implements OnInit {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' })
     }
+  }
+
+  openShareDialog(data: any) {
+    let dialogRef = this.dialog.open(ShareModalComponent, {
+      width: 'auto',
+      data: { title: data.title, url: data.link }
+    });
   }
 
 }
