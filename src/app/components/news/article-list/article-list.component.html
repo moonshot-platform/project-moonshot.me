@@ -1,0 +1,57 @@
+<section id="article-list" class="article-list flex-center pb100">
+    <div class="inner">
+        <div class="flex-space-between align-start">
+            <div class="info-container-title-section flex1">
+                <div class="futuristic-container p30d24m">
+                    <p>MOONNEWS</p>
+                    <p class="color-white orbitron ">Hot off<br>the press</p>
+                </div>
+            </div>
+            <div class="info-container flex3">
+                <div class="bottom flex border-top-full-width">
+                    <div class="flex futuristic-info-container bottom-only">
+                        <p class="explanation color-primary">
+                            Want to stay up-to-date about Moonshot media?<br>We created an overview for you.<br>Check out the news outlets that have been writing about our project and the developments here.
+                        </p>
+                    </div>
+                    <div class="flex1 flex justify-end mt20">
+                        <div class="round-mini-button" (click)="scrollToElement('', 'all-list')">
+                            <mat-icon fontSet="material-icons" class="color-primary">arrow_downward</mat-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="all-list" class="all-list">
+    <div class="all-news inner">
+        <div class="news-container" *ngFor="let article of articleList; index as i">
+            <div class="news-card">
+                <!-- <div class="rounded-container">
+                    <img class="rounded-image" src={{article.img}}>
+                </div> -->
+                <div class="title">
+                    <p class="news-title"><a href="{{article.link}}" target="__blank">{{article.title}}</a></p>
+
+                </div>
+
+                <p class="news-date">PUBLISHED ON {{article.date}}</p>
+                <div class="teaser">
+                    <a href="{{article.link}}" target="__blank">
+                        <p>{{article.teaser}}...</p>
+                    </a>
+                </div>
+                <div class="detail-and-share">
+                    <p>ARTICLE FROM {{article.from}}</p>
+                    <img src="assets/media/icons/news/share-icon.svg" (click)="openShareDialog(article)" alt="share-article">
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div *ngIf="articleList.length == 6" class="load-more-button" (click)="onLoadMoreClick()">
+        <a class="outlined-button">Load more</a>
+    </div>
+</section>

@@ -10,10 +10,17 @@ section.moontv {
   }
 }
 
+.moontv > .inner > .main {
+  display: flex;
+  align-items: stretch;
+}
+
 .stats {
   width: 100%;
   max-width: 270px;
   margin-right: 20px;
+  display: flex;
+  flex-direction: column;
 
   div > p {
     font-weight: bold;
@@ -30,9 +37,15 @@ section.moontv {
     font-weight: normal;
   }
   .more {
-    width: 80%;
+    width: 100%;
     text-align: center;
     padding-top: 20px;
+    margin-top: auto;
+    margin-bottom: 10px;
+
+    > a {
+      width: 200px;
+    }
   }
 }
 
