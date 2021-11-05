@@ -164,8 +164,10 @@ section.all-list {
     max-width: 370px;
     height: 100%;
     .title {
+        max-height: 280px;
+        height: 100%;
         display: flex;
-        justify-content: flex-start;
+        justify-content: space-between;
         align-content: center;
         flex-direction: column;
         align-items: center;
@@ -313,13 +315,14 @@ section.all-list {
     .news-card {
         max-width: 100%;
         padding-top: 40px;
+        max-height: none;
         .title {
             .news-title {
                 font-size: 30px;
             }
         }
         .teaser {
-            height: auto;
+            height: 100%;
         }
     }
 }
