@@ -9,7 +9,7 @@ export class ArticleListComponent implements OnInit {
 
   articleList: any[] = [
     {
-      "title": "MoonSea a Decentralized NFT Marketplace With Revenue..",
+      "title": "MoonSea a Decentralized NFT Marketplace With Revenue Sharing Among Top MOONSHOT Holders",
       "teaser": 'Just like the crypto you are familiar with, the value of an NFT can also be determined by offering them on the open market. On a so-called NFT marketplace, collectors can place bids or purchase NFT',
       "link": "https://moonshotproject.substack.com/p/moonsea-a-decentralized-nft-marketplace",
       "date": "OCT 26, 2021",
@@ -25,7 +25,7 @@ export class ArticleListComponent implements OnInit {
       "from": "SUBSTACK"
     },
     {
-      "title": "Moonshot Integrates With Cryptocurrency Checkout Enab...",
+      "title": "Moonshot Integrates With Cryptocurrency Checkout Enabling Twitch, WordPress, Shopify and More for Payments and Donations",
       "teaser": 'Moonshot is integrating with Cryptocurrency Checkout service. Everyone can accept payments and donations in Moonshot tokens on websites and social media for free! This integration brings more utili',
       "link": "https://moonshotproject.substack.com/p/moonshot-integrates-with-cryptocurrency",
       "date": "SEP 28, 2021",
@@ -50,7 +50,7 @@ export class ArticleListComponent implements OnInit {
     },
     {
       "title": "Meet The Moonshot Mascot!",
-      "teaser": 'Since the beginning of the Moon mission, we have wanted a mascot that compliments the overall Moonshot brand by adding a bit of personality and something that can resonate with Moonshot supporters.',
+      "teaser": 'Since the beginning of the Moon mission, we have wanted a mascot that compliments the overall Moonshot brand by adding a bit of personality and something that',
       "link": "https://moonshotproject.substack.com/p/meet-the-moonshot-mascot",
       "date": "SEP 6, 2021",
       "img": "https://cdn.substack.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F55491086-b167-4b9e-a5b3-d2126fe7b622_2040x2040.png",
@@ -62,7 +62,7 @@ export class ArticleListComponent implements OnInit {
 
   restOfArticleList: any[] = [
     {
-      "title": "MoonShooter Premiere, Farming Shibance...",
+      "title": "MoonShooter Premiere, Farming Shibance NFTs , MoonBoxes Ecosystem .",
       "teaser": 'Hello MoonShooters, what a busy but exciting time for us all on this Moon mission. The team is hard at work and soon you’ll be able to open MoonBoxes with limited edition astronaut NFTs. A lot is',
       "link": "https://moonshotproject.substack.com/p/moonshooter-premiere-farming-shibance",
       "date": "SEP 1, 2021",
@@ -70,7 +70,7 @@ export class ArticleListComponent implements OnInit {
       "from": "SUBSTACK"
     },
     {
-      "title": "The First MoonShooter Episode is Premiering...",
+      "title": "The First MoonShooter Episode is Premiering this Weekend!!",
       "teaser": "You don't want to miss this! 🤩'\nSet your reminder on YouTube and watch the big reveal live with us all!\nGet your popcorn ready MoonShooter!",
       "link": "https://moonshotproject.substack.com/p/the-first-moonshooter-episode-is",
       "date": "AUG 27, 2021",
@@ -86,7 +86,7 @@ export class ArticleListComponent implements OnInit {
       "from": "COINSPEAKER"
     },
     {
-      "title": "NFT Loot Boxes Called MoonBoxes Are Launching...",
+      "title": "NFT Loot Boxes Called MoonBoxes Are Launching Soon for Creators and Collectors",
       "teaser": "Among the things that give non-fungible tokens (NFTs) their value is their built-in scarcity. Unlike a dollar bill, which is fungible and can be exchanged one for another, NFTs are unique, giving",
       "link": "https://www.coinspeaker.com/nft-loot-boxes-called-moonboxes-are-launching-soon-for-creators/",
       "date": "AUG 25, 2021",
@@ -94,7 +94,7 @@ export class ArticleListComponent implements OnInit {
       "from": "INFLUENCIVE"
     },
     {
-      "title": "Moonshot Introduces an NFT Launchpad for Initial...",
+      "title": "Moonshot Introduces an NFT Launchpad for Initial NFT Offerings",
       "teaser": "In summary, a platform that raises funds for NFT projects/artists by allowing you to buy NFTs before they're publicly released. By doing this, The Moonshot Project is the first to introduce INO's",
       "link": "https://moonshotproject.substack.com/p/moonshot-introduces-an-nft-launchpad",
       "date": "AUG 24, 2021",
@@ -102,7 +102,7 @@ export class ArticleListComponent implements OnInit {
       "from": "SUBSTACK"
     },
     {
-      "title": "Guide for Providing Liquidity (farming)...",
+      "title": "Guide for Providing Liquidity (farming) Moonshot on Shibance",
       "teaser": "We’ve put together this little guide to help everyone who wants to farm Moonshot on the Shibance platform since we are now partnered with them.Our community manager Chocoboknight1 took a day to sit",
       "link": "https://moonshotproject.substack.com/p/guide-for-farming-moonshot-woof",
       "date": "AUG 4, 2021",
@@ -158,7 +158,7 @@ export class ArticleListComponent implements OnInit {
       "from": "MEDIUM"
     },
     {
-      "title": "Development and progress updates from the Moonshot BSC...",
+      "title": "Development and progress updates from the Moonshot BSC token project",
       "teaser": "Welcome to Moonshot Mission Updates by me, Moonshot BSC Token Project. Deflationary, frictionless yield and liquidity generation protocol! #MSHOT imminent",
       "link": "https://moonshotproject.substack.com/p/coming-soon",
       "date": "JUL 9, 2021",
@@ -166,7 +166,7 @@ export class ArticleListComponent implements OnInit {
       "from": "SUBSTACK"
     },
     {
-      "title": "Moonshot Crypto: 11 Things to Know About the New Token Driving...",
+      "title": "Moonshot Crypto: 11 Things to Know About the New Token Driving Social Media Chatter",
       "teaser": "Interest in cryptocurrencies is rapidly growing. With this growing interest comes a new frontier, a Wild West of new crypto coins and tokens popping up",
       "link": "https://investorplace.com/2021/05/moonshot-crypto-11-things-to-know-about-the-new-token-driving-social-media-chatter/",
       "date": "JUL 9, 2021",
