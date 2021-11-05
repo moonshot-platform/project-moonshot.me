@@ -201,6 +201,7 @@ export class ArticleListComponent implements OnInit {
   openShareDialog(data: any) {
     let dialogRef = this.dialog.open(ShareModalComponent, {
       width: 'auto',
+      closeOnNavigation: true,
       data: { title: data.title, url: data.link }
     });
   }
