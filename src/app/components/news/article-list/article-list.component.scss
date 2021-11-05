@@ -140,7 +140,7 @@ section.all-list {
     display: grid;
     max-width: 100%;
     grid-template-columns: repeat(auto-fill, minmax(48%, 0fr));
-    padding-top: 40px;
+    padding-top: 100px;
     align-items: flex-start;
     justify-content: center;
     grid-gap: 30px;
@@ -234,16 +234,17 @@ section.all-list {
         flex-direction: row;
         justify-content: space-between;
         width: 100%;
-        margin-top: 10px;
         p {
             font-weight: 300;
             color: $primary;
             font-size: 12px;
             align-self: flex-start;
+            margin-top: 15px;
         }
         img {
             height: 25px;
             width: 25px;
+            margin-top: 10px;
         }
         img:hover {
             filter: brightness(0) invert(1);
@@ -307,6 +308,7 @@ section.all-list {
         margin-right: 0px;
     }
     .all-news {
+        padding-top: 0px;
         grid-template-columns: repeat(auto-fill, minmax(100%, 0fr));
     }
 }
