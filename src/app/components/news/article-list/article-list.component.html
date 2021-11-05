@@ -23,19 +23,6 @@
             </div>
         </div>
     </div>
-
-    <!-- <div class="list flex3 flex">
-      <div class="article mb10" *ngFor="let article of articleList; index as i">
-        <div class="thumb flex1">
-            <img [src]="article.img" (click)=showDetail(article) />
-        </div>
-        <div class="inner flex2 flex-row">
-            <p class="title">{{article.title}}</p>
-            <p>Read article</p>
-        </div>
-      </div>
-    </div> -->
-
 </section>
 
 <section id="all-list" class="all-list">
@@ -47,8 +34,10 @@
                 </div> -->
                 <div class="title">
                     <p class="news-title"><a href="{{article.link}}" target="__blank">{{article.title}}</a></p>
-                    <p class="news-date">PUBLISHED ON {{article.date}}</p>
+
                 </div>
+
+                <p class="news-date">PUBLISHED ON {{article.date}}</p>
                 <div class="teaser">
                     <a href="{{article.link}}" target="__blank">
                         <p>{{article.teaser}}...</p>
@@ -56,13 +45,13 @@
                 </div>
                 <div class="detail-and-share">
                     <p>ARTICLE FROM {{article.from}}</p>
-                    <img src="assets/media/icons/news/share-icon.svg" alt="share-article">
+                    <img src="assets/media/icons/news/share-icon.svg" (click)="openShareDialog(article)" alt="share-article">
                 </div>
 
             </div>
         </div>
     </div>
-    <div *ngIf="articleList.length <= 6" class="load-more-button" (click)="onLoadMoreClick()">
+    <div *ngIf="articleList.length == 6" class="load-more-button" (click)="onLoadMoreClick()">
         <a class="outlined-button">Load more</a>
     </div>
 </section>
