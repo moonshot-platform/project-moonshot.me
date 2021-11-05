@@ -49,7 +49,7 @@
             </div>
         </div>
     </div>
-    <div *ngIf="articleList.length <= 6" class="load-more-button" (click)="onLoadMoreClick()">
+    <div *ngIf="articleList.length == 6" class="load-more-button" (click)="onLoadMoreClick()">
         <a class="outlined-button">Load more</a>
     </div>
 </section>
