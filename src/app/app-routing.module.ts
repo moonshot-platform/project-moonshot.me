@@ -5,6 +5,7 @@ import { AboutComponent } from './components/about/about.component';
 import { TokenLockComponent } from './components/token-lock/token-lock.component';
 import { CommunityComponent } from './components/community/community.component';
 import { ShooterComponent } from './components/games/shooter/shooter.component';
+import { NewsComponent } from './components/news/news.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: CommunityComponent.routeName,
     component: CommunityComponent
+  },
+  {
+    path: NewsComponent.routeName,
+    component: NewsComponent
   },
   {
     path: ShooterComponent.routeName,
