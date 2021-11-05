@@ -138,12 +138,13 @@ section.all-list {
 
 .all-news {
     display: grid;
-    max-width: 75rem;
-    grid-template-columns: repeat(auto-fill, minmax(370px, 0fr));
-    padding-top: 40px;
+    max-width: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(48%, 0fr));
+    padding-top: 100px;
     align-items: flex-start;
     justify-content: center;
-    grid-gap: 40px;
+    grid-gap: 48px;
+    grid-row-gap: 100px;
     .news-container {
         width: 100%;
         height: 100%;
@@ -159,13 +160,13 @@ section.all-list {
     flex-direction: column;
     justify-content: center;
     align-content: center;
-    align-items: center;
-    padding-top: 100px;
-    max-width: 370px;
+    align-items: flex-start;
+    max-width: 100%;
     height: 100%;
     .title {
+        height: 100%;
         display: flex;
-        justify-content: flex-start;
+        justify-content: space-between;
         align-content: center;
         flex-direction: column;
         align-items: center;
@@ -183,20 +184,22 @@ section.all-list {
         .news-title {
             font-weight: 600;
             color: #ffffff;
-            font-size: 40px;
+            font-size: 35px;
             text-align: left;
         }
-        .news-date {
-            margin-top: 30px;
-            margin-bottom: 15px;
-            font-weight: 300;
-            color: $primary;
-            font-size: 12px;
-            align-self: flex-start;
-        }
+    }
+    .news-date {
+        margin-top: 30px;
+        margin-bottom: 15px;
+        font-weight: 300;
+        color: $primary;
+        font-size: 12px;
+        align-self: flex-start;
     }
     .teaser {
-        height: 140px;
+        min-height: 110px;
+        max-height: 20%;
+        height: 100%;
         padding: 15px 0px 15px 0px;
         border-top: 1px solid $primary;
         border-bottom: 1px solid $primary;
@@ -231,17 +234,18 @@ section.all-list {
         flex-direction: row;
         justify-content: space-between;
         width: 100%;
-        margin-top: 10px;
         p {
             font-weight: 300;
             color: $primary;
             font-size: 12px;
             align-self: flex-start;
+            margin-top: 15px;
         }
         img {
             height: 25px;
             width: 25px;
-            margin-right: 10px;
+            margin-top: 10px;
+            cursor: pointer;
         }
         img:hover {
             filter: brightness(0) invert(1);
@@ -304,6 +308,10 @@ section.all-list {
         border-bottom: none;
         margin-right: 0px;
     }
+    .all-news {
+        padding-top: 0px;
+        grid-template-columns: repeat(auto-fill, minmax(100%, 0fr));
+    }
 }
 
 @media only screen and (max-width: $sm) {
@@ -313,13 +321,15 @@ section.all-list {
     .news-card {
         max-width: 100%;
         padding-top: 40px;
+        max-height: none;
         .title {
             .news-title {
                 font-size: 30px;
             }
         }
         .teaser {
-            height: auto;
+            height: 100%;
+            max-height: 100%;
         }
     }
 }

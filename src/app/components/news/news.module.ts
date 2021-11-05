@@ -7,11 +7,14 @@ import { FooterMobileModule } from '../base/footer-mobile/footer-mobile.module';
 import { FooterModule } from '../base/footer/footer.module';
 import { ArticleListComponent } from './article-list/article-list.component';
 import { MatIconModule } from '@angular/material/icon';
-
+import { ShareModalComponent } from './share-modal/share-modal.component';
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
+import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 @NgModule({
   declarations: [
     NewsComponent,
-    ArticleListComponent
+    ArticleListComponent,
+    ShareModalComponent
   ],
   imports: [
     CommonModule,
@@ -19,6 +22,8 @@ import { MatIconModule } from '@angular/material/icon';
     SidebarModule,
     FooterMobileModule,
     FooterModule,
+    ShareButtonsModule,
+    ShareIconsModule,
     MatIconModule,
   ]
 })
