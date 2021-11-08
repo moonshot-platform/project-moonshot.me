@@ -6,6 +6,7 @@ import { TokenLockComponent } from './components/token-lock/token-lock.component
 import { CommunityComponent } from './components/community/community.component';
 import { ShooterComponent } from './components/games/shooter/shooter.component';
 import { NewsComponent } from './components/news/news.component';
+import { MoonticketPromoComponent } from './components/moonticket-promo/moonticket-promo.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: ShooterComponent.routeName,
     component: ShooterComponent
+  },
+  {
+    path: MoonticketPromoComponent.routeName,
+    component: MoonticketPromoComponent
   },
   { path: '**', redirectTo: LandingComponent.routeName }
 ];
