@@ -140,12 +140,12 @@ export class MoonticketPromoComponent implements OnInit {
 
       if (shouldDownload) {
         let link = document.createElement('a');
-        link.download = 'moonshot-ticket.png';
+        link.download = 'moonshot-ticket-sharpei.png';
         link.href = this.ticketCanvas.nativeElement.toDataURL();
         link.click();
       }
     };
-    img.src = 'assets/media/images/community/moon-ticket.webp';
+    img.src = 'assets/media/images/community/moon-ticket-sharpei.webp';
   }
 
   downloadTicket(): void {
