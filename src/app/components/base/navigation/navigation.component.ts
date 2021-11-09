@@ -33,6 +33,10 @@ export class NavigationComponent implements OnInit {
       'onHover': false,
       'frags': [
         {
+          'name': 'MoonNews',
+          'path': 'news'
+        },
+        {
           'name': 'MoonTV',
           'path': 'moon-tv'
         },
@@ -98,8 +102,11 @@ export class NavigationComponent implements OnInit {
       item.onHover = !item.onHover;
       return;
     }  */
-    this.jumpThere(page, fragment);
-
+    if (fragment === "news") {
+      this.jumpThere('/news', null);
+    } else {
+      this.jumpThere(page, fragment);
+    }
   }
 
   jumpThere(page: string, fragment: string = null) {
