@@ -25,6 +25,9 @@ import { SpaceInvaderComponent } from './components/games/space-invader/space-in
 import { GtagModule } from 'angular-gtag';
 import { FooterMobileModule } from './components/base/footer-mobile/footer-mobile.module';
 import { NewsModule } from './components/news/news.module';
+import { MoonticketPromoComponent } from './components/moonticket-promo/moonticket-promo.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 @Injectable()
 export class HammerConfig extends HammerGestureConfig {
   overrides = <any>{
@@ -36,6 +39,7 @@ export class HammerConfig extends HammerGestureConfig {
   declarations: [
     AppComponent,
     SpaceInvaderComponent,
+    MoonticketPromoComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,6 +50,8 @@ export class HammerConfig extends HammerGestureConfig {
     AboutModule,
     NewsModule,
     TokenLockModule,
+    FormsModule,
+    ReactiveFormsModule,
     CommunityModule,
     FooterModule,
     CountdownModule,
