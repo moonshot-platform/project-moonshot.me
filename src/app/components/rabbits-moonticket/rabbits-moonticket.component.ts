@@ -144,7 +144,7 @@ export class RabbitsMoonticketComponent implements OnInit {
         link.click();
       }
     };
-    img.src = 'assets/media/images/community/moon-ticket-sharpei.webp';
+    img.src = 'assets/media/images/community/moon-ticket-ra8bits.webp';
   }
 
   downloadTicket(): void {
