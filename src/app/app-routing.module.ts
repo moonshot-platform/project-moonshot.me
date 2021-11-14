@@ -43,7 +43,6 @@ const routes: Routes = [
     path: NightSkyComponent.routeName,
     component: NightSkyComponent
   },
-
   {
     path: RabbitsMoonticketComponent.routeName,
     component: RabbitsMoonticketComponent
