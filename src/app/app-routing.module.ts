@@ -8,6 +8,7 @@ import { ShooterComponent } from './components/games/shooter/shooter.component';
 import { NewsComponent } from './components/news/news.component';
 import { MoonticketPromoComponent } from './components/moonticket-promo/moonticket-promo.component';
 import { NightSkyComponent } from './components/night-sky/night-sky.component';
+import { RabbitsMoonticketComponent } from './components/rabbits-moonticket/rabbits-moonticket.component';
 
 const routes: Routes = [
   {
@@ -41,6 +42,11 @@ const routes: Routes = [
   {
     path: NightSkyComponent.routeName,
     component: NightSkyComponent
+  },
+
+  {
+    path: RabbitsMoonticketComponent.routeName,
+    component: RabbitsMoonticketComponent
   },
   { path: '**', redirectTo: LandingComponent.routeName }
 ];
