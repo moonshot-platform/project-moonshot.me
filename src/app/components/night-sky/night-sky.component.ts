@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./night-sky.component.scss']
 })
 export class NightSkyComponent implements OnInit {
+  static readonly routeName: string = 'night-sky';
 
   constructor() { }
 
