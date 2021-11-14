@@ -28,6 +28,7 @@ import { NewsModule } from './components/news/news.module';
 import { MoonticketPromoComponent } from './components/moonticket-promo/moonticket-promo.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NightSkyComponent } from './components/night-sky/night-sky.component';
+import { RabbitsMoonticketComponent } from './components/rabbits-moonticket/rabbits-moonticket.component';
 
 @Injectable()
 export class HammerConfig extends HammerGestureConfig {
@@ -42,6 +43,7 @@ export class HammerConfig extends HammerGestureConfig {
     SpaceInvaderComponent,
     MoonticketPromoComponent,
     NightSkyComponent,
+    RabbitsMoonticketComponent,
   ],
   imports: [
     BrowserModule,
