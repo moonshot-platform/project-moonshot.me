@@ -139,7 +139,7 @@ export class RabbitsMoonticketComponent implements OnInit {
 
       if (shouldDownload) {
         let link = document.createElement('a');
-        link.download = 'moonshot-ticket-sharpei.png';
+        link.download = 'moonshot-ticket-rabbits.png';
         link.href = this.ticketCanvas.nativeElement.toDataURL();
         link.click();
       }
