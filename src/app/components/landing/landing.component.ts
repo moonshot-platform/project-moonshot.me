@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { Meta, Title } from '@angular/platform-browser';
 
@@ -14,11 +14,14 @@ export class LandingComponent implements OnInit {
 
   private fragment: string;
 
+  private anchor: string;
+
   constructor(
     private route: ActivatedRoute,
     private location: Location,
     private meta: Meta,
     private title: Title,
+    private router: Router,
   ) {
     this.meta.addTags([
       { name: 'description', content: 'Moonshot is a deflationary, frictionless yield and Liquidity protocol. Read more about Moonshot or start buying!' },
@@ -38,6 +41,7 @@ export class LandingComponent implements OnInit {
     ]);
     this.setTitle('Moonshot');
   }
+
   public setTitle(newTitle: string) {
     this.title.setTitle(newTitle);
   }
@@ -47,12 +51,23 @@ export class LandingComponent implements OnInit {
       this.fragment = fragment;
       this.location.replaceState('/');
     });
+
+    this.route.data.subscribe(data => {
+      this.anchor = data.anchor.toString();
+      if (this.anchor !== undefined) {
+        this.scrollToElement(this.anchor);
+      }
+    });
   }
 
   ngAfterViewInit(): void {
     try {
       document.querySelector('#' + this.fragment).scrollIntoView();
     } catch (e) { }
+  }
+
+  scrollToElement(anchor: string): void {
+    this.router.navigate(['/'], { fragment: anchor })
   }
 
 }

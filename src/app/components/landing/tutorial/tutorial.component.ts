@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tutorial.component.scss']
 })
 export class TutorialComponent implements OnInit {
+  static readonly anchorName: string = 'how-to-buy';
 
   visibleStep = 1;
 
