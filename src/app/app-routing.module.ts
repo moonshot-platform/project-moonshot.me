@@ -9,11 +9,12 @@ import { NewsComponent } from './components/news/news.component';
 import { MoonticketPromoComponent } from './components/moonticket-promo/moonticket-promo.component';
 import { NightSkyComponent } from './components/night-sky/night-sky.component';
 import { RabbitsMoonticketComponent } from './components/rabbits-moonticket/rabbits-moonticket.component';
+import { TutorialComponent } from './components/landing/tutorial/tutorial.component';
 
 const routes: Routes = [
   {
     path: LandingComponent.routeName,
-    component: LandingComponent
+    component: LandingComponent,
   },
   {
     path: AboutComponent.routeName,
@@ -46,6 +47,11 @@ const routes: Routes = [
   {
     path: RabbitsMoonticketComponent.routeName,
     component: RabbitsMoonticketComponent
+  },
+  {
+    path: TutorialComponent.anchorName,
+    component: LandingComponent,
+    data: { anchor: TutorialComponent.anchorName }
   },
   { path: '**', redirectTo: LandingComponent.routeName }
 ];
