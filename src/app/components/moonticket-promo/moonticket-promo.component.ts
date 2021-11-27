@@ -34,7 +34,10 @@ export class MoonticketPromoComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder
-  ) { }
+  ) {
+    //console.log(typeof window.screen.width);
+
+  }
 
   ngAfterViewInit(): void {
     this.context = this.ticketCanvas.nativeElement.getContext('2d');
@@ -134,10 +137,14 @@ export class MoonticketPromoComponent implements OnInit {
 
 
       this.drawDate("ARRIVAL SOON", 12, "#4b4b4b", 1020, 130);
-
-      this.drawDate(today, 12, "#4b4b4b", 1020, 245);
-      this.drawDate(this.formatAMPM(hour), 12, "#4b4b4b", 1020, 265);
-
+      if (window.screen.availWidth <= 500) {
+        this.drawDate(month + " " + day + "", 12, "#4b4b4b", 1020, 245);
+        this.drawDate(year + ", " + this.formatAMPM(hour), 12, "#4b4b4b", 1020, 265);
+        // this.drawDate(this.formatAMPM(hour), 12, "#4b4b4b", 1020, 285);
+      } else {
+        this.drawDate(today, 12, "#4b4b4b", 1020, 245);
+        this.drawDate(this.formatAMPM(hour), 12, "#4b4b4b", 1020, 265);
+      }
       if (shouldDownload) {
         let link = document.createElement('a');
         link.download = 'moonshot-ticket-sharpei.png';
