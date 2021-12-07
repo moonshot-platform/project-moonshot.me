@@ -113,7 +113,7 @@ export class NavigationComponent implements OnInit {
     if (fragment === null) {
       if (location.pathname === page) {
         const element = document.querySelector(`#${page.substr(1)}-page`)
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        setTimeout(() => element.scrollIntoView({ behavior: 'smooth', block: 'start' }), 500);
         this.open = false;
       } else {
         this._router.navigate([page]);
@@ -122,7 +122,7 @@ export class NavigationComponent implements OnInit {
     } else {
       const element = document.querySelector(`#${fragment}`)
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        setTimeout(() => element.scrollIntoView({ behavior: 'smooth', block: 'start' }), 500);
         this.open = false;
       } else
         this._router.navigate([page], { fragment: fragment });

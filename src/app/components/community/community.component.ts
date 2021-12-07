@@ -52,7 +52,7 @@ export class CommunityComponent {
 
   ngAfterViewInit(): void {
     try {
-      document.querySelector('#' + this.fragment).scrollIntoView();
+      setTimeout(() => document.querySelector('#' + this.fragment).scrollIntoView({ behavior: 'smooth', block: 'start' }), 500);
     } catch (e) { }
   }
 

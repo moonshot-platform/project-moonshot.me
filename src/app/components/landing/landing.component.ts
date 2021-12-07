@@ -53,16 +53,16 @@ export class LandingComponent implements OnInit {
     });
 
     this.route.data.subscribe(data => {
-      this.anchor = data.anchor.toString();
-      if (this.anchor !== undefined) {
-        this.scrollToElement(this.anchor);
+      const element = data.anchor.toString();
+      if ( element !== undefined ) {
+        if (element) setTimeout(() => element.scrollIntoView({ behavior: 'smooth', block: 'start' }), 500);
       }
     });
   }
 
   ngAfterViewInit(): void {
     try {
-      document.querySelector('#' + this.fragment).scrollIntoView();
+      setTimeout(() => document.querySelector('#' + this.fragment).scrollIntoView({ behavior: 'smooth', block: 'start' }), 500);
     } catch (e) { }
   }
 
