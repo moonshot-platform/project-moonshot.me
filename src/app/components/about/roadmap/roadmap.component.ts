@@ -140,7 +140,7 @@ export class RoadmapComponent implements OnInit {
             icon: Icon.ACCOMPLISHED
         },
         {
-            title: 'Q4 2021',
+            title: 'Q1 2022',
             span: '',
             description: 'MoonSea launch - NFT marketplace',
             icon: Icon.UPCOMING
