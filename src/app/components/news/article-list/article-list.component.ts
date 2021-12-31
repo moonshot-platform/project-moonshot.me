@@ -11,6 +11,14 @@ export class ArticleListComponent implements OnInit {
 
   articleList: any[] = [
     {
+      "title": "2021 A Year That Brought Us Closer To Our Goal",
+      "teaser": 'Dear Moonshooters, First of all, thank you for this epic year. Since the start of this project, the community has been amazing and very supportive.',
+      "link": "https://moonshotproject.substack.com/p/2021-a-year-that-brought-us-closer",
+      "date": "DEC 31, 2021",
+      "img": "https://cdn.substack.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F2b140b2a-2b11-4650-a66b-4d5ae2b4af9f_1200x675.jpeg",
+      "from": "SUBSTACK"
+    },
+    {
       "title": "MoonSea a Decentralized NFT Marketplace With Revenue Sharing Among Top MOONSHOT Holders",
       "teaser": 'Just like the crypto you are familiar with, the value of an NFT can also be determined by offering them on the open market. On a so-called NFT marketplace, collectors can place bids or purchase NFT',
       "link": "https://moonshotproject.substack.com/p/moonsea-a-decentralized-nft-marketplace",
