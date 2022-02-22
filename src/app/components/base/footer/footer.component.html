@@ -1,42 +1,40 @@
 <footer>
-    <div class="inner pv100 flex">
-        <div class="left flex flex1">
-            <div class="main-box">
-                <p>Main</p>
-                <ul class="mt30">
-                    <li class="mb20">
-                        <p class="main-box-col-title" (click)="scrollToElement('', 'how-to-buy')">How to buy</p>
-                    </li>
-                    <li class="mb20"><a class="main-box-col-title" href="/assets/files/moonpaper.pdf" target="_blank">MoonPaper</a></li>
-                    <li class="mb20">
-                        <p id="footer-tokenomics-text" class="main-box-col-title" (click)="toggleTokenomics()">Tokenomics</p>
-                    </li>
-                    <li>
-                        <p class="main-box-col-title" (click)="scrollToElement('/about', 'about-page')">About Moonshot</p>
-                    </li>
-                </ul>
-            </div>
-            <div class="community-box">
-                <p>Community</p>
-                <ul class="mt30">
-                    <li class="mb20">
-                        <p class="main-box-col-title" (click)="scrollToElement('/community', 'moon-tv')">MoonTV</p>
-                    </li>
-                    <li class="mb20">
-                        <p class="main-box-col-title" (click)="scrollToElement('/community', 'merchandise')">Fuel the rocket</p>
-                    </li>
-                    <li class="mb20">
-                        <p class="main-box-col-title" (click)="scrollToElement('/community', 'merchandise')">Merchandise</p>
-                    </li>
-                    <li class="mb20">
-                        <p class="main-box-col-title" (click)="scrollToElement('/community', 'ticket')">MoonTicket</p>
-                    </li>
-                    <li>
-                        <p class="main-box-col-title" (click)="scrollToElement('/community', 'gallery')">MoonGallery</p>
-                    </li>
-                </ul>
-            </div>
-            <!-- <div class="moonbase-box">
+  <div class="inner pv100 flex">
+    <div class="left flex flex1">
+      <div class="main-box">
+        <p>Main</p>
+        <ul class="mt30">
+          <li class="mb20"><a class="main-box-col-title" href="/assets/files/moonpaper.pdf"
+              target="_blank">MoonPaper</a></li>
+          <li class="mb20">
+            <p id="footer-tokenomics-text" class="main-box-col-title" (click)="toggleTokenomics()">Tokenomics</p>
+          </li>
+          <li>
+            <p class="main-box-col-title" (click)="scrollToElement('/about', 'about-page')">About Moonshot</p>
+          </li>
+        </ul>
+      </div>
+      <div class="community-box">
+        <p>Community</p>
+        <ul class="mt30">
+          <li class="mb20">
+            <p class="main-box-col-title" (click)="scrollToElement('/community', 'moon-tv')">MoonTV</p>
+          </li>
+          <li class="mb20">
+            <p class="main-box-col-title" (click)="scrollToElement('/community', 'merchandise')">Fuel the rocket</p>
+          </li>
+          <li class="mb20">
+            <p class="main-box-col-title" (click)="scrollToElement('/community', 'merchandise')">Merchandise</p>
+          </li>
+          <li class="mb20">
+            <p class="main-box-col-title" (click)="scrollToElement('/community', 'ticket')">MoonTicket</p>
+          </li>
+          <li>
+            <p class="main-box-col-title" (click)="scrollToElement('/community', 'gallery')">MoonGallery</p>
+          </li>
+        </ul>
+      </div>
+      <!-- <div class="moonbase-box">
                 <p>MoonBase</p>
                 <ul class="mt30">
                     <li class="mb20"><a href="#">MoonBoxes</a></li>
@@ -44,21 +42,22 @@
                     <li class="mb20"><a href="#">MoonArcade</a></li>
                 </ul>
             </div> -->
-        </div>
-        <div class="right flex1 flex-col-align-end">
-            <div class="social-icon-links">
-                <p>Links</p>
-                <ul class="mt30">
-                    <li *ngFor="let item of icons" class="flex-center">
-                        <a target="_blank" class="icon" href="{{item.link}}">
-                            <!-- <img src="assets/media/icons/social/{{item.icon}}" alt="{{item.alt}}"> -->
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" [attr.viewBox]=item.viewBox xml:space="preserve">
-                                <path *ngFor="let p of item.paths" attr.opacity={{p[1]}} attr.d={{p[0]}} />
-                            </svg>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
     </div>
+    <div class="right flex1 flex-col-align-end">
+      <div class="social-icon-links">
+        <p>Links</p>
+        <ul class="mt30">
+          <li *ngFor="let item of icons" class="flex-center">
+            <a target="_blank" class="icon" href="{{item.link}}">
+              <!-- <img src="assets/media/icons/social/{{item.icon}}" alt="{{item.alt}}"> -->
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" [attr.viewBox]=item.viewBox
+                xml:space="preserve">
+                <path *ngFor="let p of item.paths" attr.opacity={{p[1]}} attr.d={{p[0]}} />
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </footer>

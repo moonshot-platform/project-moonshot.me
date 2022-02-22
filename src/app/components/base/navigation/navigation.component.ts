@@ -19,11 +19,6 @@ export class NavigationComponent implements OnInit {
 
   public navItems: any[] = [
     {
-      'name': 'How to buy',
-      'path': '',
-      'fragment': 'how-to-buy'
-    },
-    {
       'name': 'MoonPaper',
       'externalPath': '/assets/files/moonpaper.pdf'
     },
