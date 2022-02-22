@@ -52,7 +52,7 @@ section.intro {
     }
   }
 
-  .bottom > div:first-child > p {
+  .bottom>div:first-child>p {
     line-height: 30px;
   }
 }
@@ -71,19 +71,19 @@ section.intro {
         margin-top: 100px;
         max-width: initial;
 
-        > .timer {
+        >.timer {
           p:first-child {
             margin-bottom: 20px;
           }
         }
 
-        > .price {
+        >.price {
           display: none;
         }
       }
 
       .info {
-        > .top > p {
+        >.top>p {
           font-size: 27px;
         }
 
@@ -92,11 +92,6 @@ section.intro {
 
           .futuristic-container {
             border-bottom: 0;
-          }
-
-          .buttons-container {
-            margin-top: 0px;
-            margin-bottom: 0px;
           }
 
           .round-mini-button {
@@ -108,5 +103,15 @@ section.intro {
   }
 }
 
-@media only screen and (max-width: $sm) {
+.buttons-container {
+  margin-top: auto !important;
+  margin-bottom: 30px;
+  margin-left: 30px;
+}
+
+@media only screen and (max-width: $md) {
+
+  .buttons-container {
+    margin-left: 0px;
+  }
 }
