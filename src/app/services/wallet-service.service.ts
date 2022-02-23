@@ -1,0 +1,224 @@
+import { Injectable, Provider } from '@angular/core';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { ethers } from 'ethers';
+import WalletConnectProvider from '@walletconnect/web3-provider';
+import { environment } from 'src/environments/environment';
+import { ToastrService } from 'ngx-toastr';
+import { WindowRefService } from './window-ref.service';
+import { LocalStorageService } from './local.storage.service';
+
+import silverTokenAbi from './../../assets/abis/silver.token.abi.json';
+import mshotTokenAbi from './../../assets/abis/mshot.token.abi.json';
+import Web3 from 'web3';
+
+export const SilverAddress = environment.silverAddress;
+
+const providerMainNetURL = environment.providerMainNetURL;
+const providerTestNetURL = environment.providerTestNetURL;
+const providerChainID = environment.chainId;
+const NETWORK = 'binance';
+
+
+//  Create WlletConnect Provider
+const providerOptions = {
+  package: WalletConnectProvider,
+  rpc: {
+    56: providerMainNetURL,
+    97: providerTestNetURL,
+  },
+  network: NETWORK,
+  chainId: providerChainID,
+};
+
+const provider = new WalletConnectProvider(providerOptions);
+
+@Injectable({
+  providedIn: 'root'
+})
+export class WalletService {
+  private readonly ACCOUNTS_CHANGED: string = 'accountsChanged';
+  private readonly CHAIN_CHANGED: string = 'chainChanged';
+  private readonly DISCONNECT: string = 'disconnect';
+  private readonly ETH_REQUEST_ACCOUNTS: string = 'eth_requestAccounts';
+
+  public data = new Subject<any>();
+  private connectedStateSubject = new Subject<boolean>();
+
+  provider: ethers.providers.Web3Provider;
+  signer: ethers.providers.JsonRpcSigner;
+  silverContract: any;
+
+  private isConnected = false;
+  private account = '';
+
+  constructor(
+    private windowRef: WindowRefService,
+    private toastrService: ToastrService,
+    private localStorageService: LocalStorageService,
+  ) { }
+
+  convertBalance(balance: number): string {
+    balance = balance / 1e9;
+    balance = Math.trunc(balance);
+
+    return balance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
+  async connectToWallet(origin = 0) {
+    const window = this.windowRef.nativeWindow.ethereum;
+
+    try {
+      if (typeof window !== 'undefined' && typeof window !== undefined) {
+        await this.windowRef.nativeWindow.ethereum.request({ method: this.ETH_REQUEST_ACCOUNTS });
+        this.provider = new ethers.providers.Web3Provider(this.windowRef.nativeWindow.ethereum);
+
+        let currentNetwork = await this.provider.getNetwork();
+        if (currentNetwork.chainId != providerChainID) {
+          this.toastrService.error('You are on the wrong network');
+          throw 'Wrong network';
+        }
+
+        await this.getAccountAddress();
+        this.localStorageService.setWallet(1);
+        // Subscribe to accounts change
+
+        this.windowRef.nativeWindow.ethereum.on(this.ACCOUNTS_CHANGED, async (accounts: string[]) => {
+          if (accounts.length == 0) {
+            // MetaMask is locked or the user has not connected any accounts
+            this.setWalletDisconnected();
+          } else {
+            await this.connectToWallet();
+          }
+        });
+
+        // Subscribe to session disconnection
+        this.windowRef.nativeWindow.ethereum.on(this.CHAIN_CHANGED, async (code: number, reason: string) => {
+          await this.connectToWallet();
+          this.setWalletState(true);
+        });
+
+        // Subscribe to session disconnection
+        this.windowRef.nativeWindow.ethereum.on(this.DISCONNECT, (code: number, reason: string) => {
+          if (provider.close) provider.close();
+          this.setWalletDisconnected();
+        });
+
+        this.setWalletState(true);
+
+        if (origin == 0) location.reload();
+      }
+    } catch (e) {
+      this.setWalletDisconnected();
+    }
+  }
+
+  async connectToWalletConnect(origin = 0) {
+
+    try {
+      this.provider = new ethers.providers.Web3Provider(provider);
+      await provider.enable();
+
+      await this.getAccountAddress();
+      this.localStorageService.setWallet(2);
+
+      // Subscribe to accounts change
+      provider.on(this.ACCOUNTS_CHANGED, (accounts: string[]) => this.connectToWalletConnect());
+
+      // Subscribe to session disconnect
+      provider.on(this.DISCONNECT, (code: number, reason: string) => this.setWalletDisconnected());
+
+      // Subscribe to session disconnection
+      provider.on(this.CHAIN_CHANGED, (code: number, reason: string) => {
+        this.connectToWalletConnect();
+        this.setWalletDisconnected();
+      });
+
+      this.setWalletState(true);
+
+      if (origin === 0) location.reload();
+    }
+
+    catch (e) {
+      this.setWalletDisconnected();
+      location.reload(); // FIXME: Without reloading the page, the WalletConnect modal does not open again after closing it
+    }
+  }
+
+  async getAccountAddress() {
+    this.signer = this.provider.getSigner();
+    const address = await this.signer.getAddress();
+    const network = await this.provider.getNetwork();
+
+    if (network.chainId == environment.chainId) {
+      this.silverContract = new ethers.Contract(SilverAddress, silverTokenAbi, this.signer);
+    }
+
+    const data = {
+      'provider': this.provider,
+      'signer': this.signer,
+      'address': address,
+      'networkId': network
+    }
+
+    this.account = address;
+    this.updateData(data);
+  }
+
+  setWalletDisconnected() {
+    this.isConnected = false;
+    this.account = '';
+    this.setWalletState(this.isConnected);
+    this.localStorageService.removeWallet();
+  }
+
+  updateData(state: any) {
+    this.data.next(state);
+  }
+
+  getData(): Observable<any> {
+    return this.data.asObservable();
+  }
+
+  setWalletState(connected: boolean) {
+    this.connectedStateSubject.next(connected);
+    return this.isConnected;
+  }
+
+  onWalletStateChanged() {
+    return this.connectedStateSubject.asObservable();
+  }
+
+  async init(): Promise<string> {
+    const wallet = this.localStorageService.getWallet();
+
+    switch (wallet) {
+      case 1:
+        await this.connectToWallet(wallet);
+        break;
+      case 2:
+        await this.connectToWalletConnect(wallet);
+        break;
+    }
+
+    return wallet == undefined ? null : this.localStorageService.getAddress();
+  }
+
+  async getUserBalance(userAddress: string): Promise<number> {
+    return Number(await this.silverContract.balanceOf(userAddress));
+  }
+
+  async claimMSHOT() {
+    let web3 = new Web3(<any>provider);
+    const claimContract = new web3.eth.Contract(
+      mshotTokenAbi as any,
+      "0xF683a2eC04A493Fc4e0FD7C3e4178fB9cef7508e"
+    );
+
+    await claimContract.methods.claim()
+      .send({ from: this.account }).
+      then((tx: any) => {
+        console.log("transaction: ", tx)
+      });
+
+  }
+}
