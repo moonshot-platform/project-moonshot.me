@@ -17,15 +17,15 @@
           <div class="detail-form">
             <div class="wallet-address centered-row mb20">
               <p class="desc-title">Wallet address:</p>
-              <p class="address"></p>
+              <p class="address">{{shortTheWalletAddress()}}</p>
             </div>
             <div class="current-balance centered-row mb20">
-              <p class="desc-title">Current balance :</p>
+              <p class="desc-title">Current balance:</p>
 
             </div>
             <div class="moonshot-v1 centered-row mb20">
               <p class="desc-title-light">MOONSHOT (V1)</p>
-              <p class="value">-</p>
+              <p class="value">{{moonshotBalanceText}}</p>
             </div>
             <div class="mshot-v2 centered-row">
               <p class="desc-title-light">MSHOT (V2)</p>
@@ -34,7 +34,7 @@
           </div>
 
           <div class="buttons-container flex1">
-            <a target="_blank" class="button">Connect Wallet</a>
+            <a class="button" (click)="claimMSHOT()">{{buttonName}}</a>
           </div>
         </div>
         <div class="white-space flex justify-end">
