@@ -29,6 +29,9 @@ import { MoonticketPromoComponent } from './components/moonticket-promo/moontick
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NightSkyComponent } from './components/night-sky/night-sky.component';
 import { RabbitsMoonticketComponent } from './components/rabbits-moonticket/rabbits-moonticket.component';
+import { WalletConnectComponent } from './components/base/wallet-connect/wallet-connect.component';
+import { ToastrModule } from 'ngx-toastr';
+import { LocalStorageService } from './services/local.storage.service';
 
 @Injectable()
 export class HammerConfig extends HammerGestureConfig {
@@ -44,6 +47,7 @@ export class HammerConfig extends HammerGestureConfig {
     MoonticketPromoComponent,
     NightSkyComponent,
     RabbitsMoonticketComponent,
+    WalletConnectComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,13 +66,17 @@ export class HammerConfig extends HammerGestureConfig {
     BrowserAnimationsModule,
     ShooterModule,
     MatDialogModule,
+    ToastrModule.forRoot(),
     GtagModule.forRoot({ trackingId: 'G-5Q9LF9T9Q6', trackPageviews: true }),
   ],
   providers: [{ provide: CountdownGlobalConfig, useFactory: countdownConfigFactory },
   {
     provide: HAMMER_GESTURE_CONFIG,
     useClass: HammerConfig
-  }],
+  },
+
+    LocalStorageService
+  ],
   bootstrap: [AppComponent],
   exports: [
     FooterModule,
