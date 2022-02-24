@@ -4,7 +4,7 @@ import { WalletService } from 'src/app/services/wallet-service.service';
 import { environment } from 'src/environments/environment';
 import Web3 from 'web3';
 import { WalletConnectComponent } from '../../base/wallet-connect/wallet-connect.component';
-
+import { CLAIM_CASES } from 'src/app/services/wallet-service.service';
 @Component({
   selector: 'app-moon-swap',
   templateUrl: './moon-swap.component.html',
@@ -14,14 +14,15 @@ export class MoonSwapComponent implements OnInit {
   static readonly anchorName: string = 'moonswap';
 
   isConnected: boolean = false;
-  buttonName: string = '';
+  buttonName: string = CLAIM_CASES.CONNECT_WALLET;
   connectedAddress: string = '';
   moonshotBalanceText: string = '-';
   userData: any;
+  isButtonActive: boolean = true;
 
   constructor(
     public dialog: MatDialog,
-    private walletConnectService: WalletService,
+    private walletConnectService: WalletService
   ) { }
 
   ngOnInit(): void {
@@ -52,9 +53,9 @@ export class MoonSwapComponent implements OnInit {
 
   controlButtonName(): void {
     if (this.isConnected) {
-      this.buttonName = 'Claim MSHOT';
+      this.buttonName = CLAIM_CASES.CLAIM;
     } else {
-      this.buttonName = 'Connect wallet'
+      this.buttonName = CLAIM_CASES.CONNECT_WALLET
       this.moonshotBalanceText = '-';
       this.connectedAddress = '';
     }
@@ -65,8 +66,9 @@ export class MoonSwapComponent implements OnInit {
       this.openWalletConnectDialog();
     }
 
-    if (this.isConnected) {
-      this.walletConnectService.claimMSHOT();
+    if (this.isConnected && this.buttonName !== CLAIM_CASES.CLAIMED) {
+      this.buttonName = CLAIM_CASES.CLAIMING;
+      this.buttonName = await this.walletConnectService.claimMSHOT();
     }
 
   }
@@ -93,5 +95,9 @@ export class MoonSwapComponent implements OnInit {
     else {
       return '';
     }
+  }
+
+  checkButtonActivity(): boolean {
+    return (this.buttonName === CLAIM_CASES.CLAIMED || this.buttonName === CLAIM_CASES.CLAIMING);
   }
 }

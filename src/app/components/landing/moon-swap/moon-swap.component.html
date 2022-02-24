@@ -34,7 +34,8 @@
           </div>
 
           <div class="buttons-container flex1">
-            <a class="button" (click)="claimMSHOT()">{{buttonName}}</a>
+            <a class="button" (click)="claimMSHOT()"
+              [ngClass]="{'deactivate': checkButtonActivity()}">{{buttonName}}</a>
           </div>
         </div>
         <div class="white-space flex justify-end">

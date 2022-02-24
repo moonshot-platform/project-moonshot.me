@@ -10,8 +10,17 @@ import { LocalStorageService } from './local.storage.service';
 import silverTokenAbi from './../../assets/abis/silver.token.abi.json';
 import mshotTokenAbi from './../../assets/abis/mshot.token.abi.json';
 import Web3 from 'web3';
+import Web3Modal from "web3modal";
 
 export const SilverAddress = environment.silverAddress;
+
+export enum CLAIM_CASES {
+  CONNECT_WALLET = 'Connect Wallet',
+  CLAIM = 'Claim MSHOT',
+  CLAIMING = 'Claiming...',
+  CLAIMED = 'Claimed',
+  FAILED = 'Failed!'
+}
 
 const providerMainNetURL = environment.providerMainNetURL;
 const providerTestNetURL = environment.providerTestNetURL;
@@ -21,16 +30,36 @@ const NETWORK = 'binance';
 
 //  Create WlletConnect Provider
 const providerOptions = {
+  walletconnect: {
+    package: WalletConnectProvider,
+    rpc: {
+      1: providerMainNetURL,
+      56: providerMainNetURL,
+      97: providerTestNetURL,
+    },
+    network: NETWORK,
+    chainId: providerChainID,
+  }
+};
+
+
+const web3Modal = new Web3Modal({
+  theme: "dark",
+  cacheProvider: false, // optional
+  providerOptions, // required
+  disableInjectedProvider: false
+});
+
+const provider = new WalletConnectProvider(<any>{
   package: WalletConnectProvider,
   rpc: {
+    1: providerMainNetURL,
     56: providerMainNetURL,
     97: providerTestNetURL,
   },
   network: NETWORK,
   chainId: providerChainID,
-};
-
-const provider = new WalletConnectProvider(providerOptions);
+});
 
 @Injectable({
   providedIn: 'root'
@@ -207,18 +236,24 @@ export class WalletService {
     return Number(await this.silverContract.balanceOf(userAddress));
   }
 
-  async claimMSHOT() {
-    let web3 = new Web3(<any>provider);
+  async claimMSHOT(): Promise<any> {
+
+    let web3 = new Web3(await web3Modal.connect());
+
     const claimContract = new web3.eth.Contract(
       mshotTokenAbi as any,
       "0xF683a2eC04A493Fc4e0FD7C3e4178fB9cef7508e"
     );
 
-    await claimContract.methods.claim()
-      .send({ from: this.account }).
-      then((tx: any) => {
-        console.log("transaction: ", tx)
-      });
+    try {
+      const claimOperation = await claimContract.methods.claim();
+      let tx = await claimOperation.send({ from: this.account });
 
+      console.log("transaction: ", tx)
+
+      return tx === undefined ? CLAIM_CASES.FAILED : CLAIM_CASES.CLAIMED;
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
