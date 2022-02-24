@@ -19,7 +19,8 @@ export enum CLAIM_CASES {
   CLAIM = 'Claim MSHOT',
   CLAIMING = 'Claiming...',
   CLAIMED = 'Claimed',
-  FAILED = 'Failed!'
+  FAILED = 'Failed!',
+  REJECTED = 'Rejected!',
 }
 
 const providerMainNetURL = environment.providerMainNetURL;
@@ -254,6 +255,8 @@ export class WalletService {
       return tx === undefined ? CLAIM_CASES.FAILED : CLAIM_CASES.CLAIMED;
     } catch (error) {
       console.log(error);
+      if (error.code === 4001)
+        return CLAIM_CASES.REJECTED;
     }
   }
 }
