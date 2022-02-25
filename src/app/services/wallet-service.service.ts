@@ -100,11 +100,15 @@ export class WalletService {
     try {
       if (typeof window !== 'undefined' && typeof window !== undefined) {
         await this.windowRef.nativeWindow.ethereum.request({ method: this.ETH_REQUEST_ACCOUNTS });
+
+
         this.provider = new ethers.providers.Web3Provider(this.windowRef.nativeWindow.ethereum);
 
         let currentNetwork = await this.provider.getNetwork();
         if (currentNetwork.chainId != providerChainID) {
           this.toastrService.error('You are on the wrong network');
+          console.log("You are on wrong network!!");
+          this.setWalletState(false);
           throw 'Wrong network';
         }
 
@@ -116,6 +120,7 @@ export class WalletService {
           if (accounts.length == 0) {
             // MetaMask is locked or the user has not connected any accounts
             this.setWalletDisconnected();
+            this.toastrService.info('Wallet disconnected!');
           } else {
             await this.connectToWallet();
           }
@@ -124,7 +129,10 @@ export class WalletService {
         // Subscribe to session disconnection
         this.windowRef.nativeWindow.ethereum.on(this.CHAIN_CHANGED, async (code: number, reason: string) => {
           await this.connectToWallet();
+          this.toastrService.info('You have changed the chain!');
           this.setWalletState(true);
+
+          // location.reload();
         });
 
         // Subscribe to session disconnection
@@ -159,8 +167,13 @@ export class WalletService {
 
       // Subscribe to session disconnection
       provider.on(this.CHAIN_CHANGED, (code: number, reason: string) => {
+
         this.connectToWalletConnect();
         this.setWalletDisconnected();
+
+        location.reload();
+
+
       });
 
       this.setWalletState(true);
