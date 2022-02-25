@@ -22,7 +22,7 @@ section.landing {
   }
 
   .rocket-bg {
-    background: url("/assets/media/images/illustration_1.webp") 0 140vh no-repeat;
+    background: url("/assets/media/images/illustration_1.webp") 0 90vh no-repeat;
     background-size: 46%;
   }
 
@@ -52,6 +52,14 @@ section.landing {
 app-header {
   display: block;
   width: calc(100% - 64px);
+}
+
+app-news {
+  background: url("/assets/media/images/illustration_1.webp") no-repeat;
+  background-size: auto;
+  background-size: 45%;
+  position: relative;
+  display: flex;
 }
 
 @media only screen and (max-width: $md) {
