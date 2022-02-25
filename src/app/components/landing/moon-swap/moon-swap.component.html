@@ -9,37 +9,45 @@
         <p class="p30">You can easily swap your old MOONSHOT (V1) tokens for MSHOT (V2).<br><br>Just connect your
           wallet and claim MSHOT now!</p>
       </div>
+      <a class="outlined-button ">Read more</a>
     </div>
 
     <div class="info flex3">
       <div class="flex">
-        <div class="flex2 futuristic-container pv20 moonswap-operation-container">
-          <div class="detail-form">
-            <div class="wallet-address centered-row mb20">
-              <p class="desc-title">Wallet address:</p>
-              <p class="address">{{shortTheWalletAddress()}}</p>
-            </div>
-            <div class="current-balance centered-row mb20">
-              <p class="desc-title">Current balance:</p>
+        <div class="flex2 futuristic-container top-only pv20 moonswap-operation-container">
+          <p class="explanation">The Moonshot token is migrating to V2. A new & improved audited contract which enhances
+            security and allows
+            for more autonomy over the liquidity pool</p>
 
+          <div class="row">
+            <div class="detail-form">
+              <div class="wallet-address centered-row mb20">
+                <p class="desc-title">Wallet address:</p>
+                <p class="address">{{shortTheWalletAddress()}}</p>
+              </div>
+              <div class="current-balance centered-row mb20">
+                <p class="desc-title">Current balance:</p>
+
+              </div>
+              <div class="moonshot-v1 centered-row mb20">
+                <p class="desc-title-light">MOONSHOT (V1)</p>
+                <p class="value">{{moonshotBalanceText}}</p>
+              </div>
+              <div class="mshot-v2 centered-row">
+                <p class="desc-title-light">MSHOT (V2)</p>
+                <p class="value">-</p>
+              </div>
             </div>
-            <div class="moonshot-v1 centered-row mb20">
-              <p class="desc-title-light">MOONSHOT (V1)</p>
-              <p class="value">{{moonshotBalanceText}}</p>
-            </div>
-            <div class="mshot-v2 centered-row">
-              <p class="desc-title-light">MSHOT (V2)</p>
-              <p class="value">-</p>
+
+            <div class="buttons-container flex1">
+              <a class="button" (click)="claimMSHOT()"
+                [ngClass]="{'deactivate': checkButtonActivity()}">{{buttonName}}</a>
             </div>
           </div>
 
-          <div class="buttons-container flex1">
-            <a class="button" (click)="claimMSHOT()"
-              [ngClass]="{'deactivate': checkButtonActivity()}">{{buttonName}}</a>
-          </div>
         </div>
-        <div class="white-space flex justify-end">
-        </div>
+
+        <div class="white-space flex justify-end"></div>
       </div>
     </div>
   </div>

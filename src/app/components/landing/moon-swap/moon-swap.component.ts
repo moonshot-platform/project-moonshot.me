@@ -23,13 +23,18 @@ export class MoonSwapComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     private walletConnectService: WalletService
-  ) { }
-
-  ngOnInit(): void {
+  ) {
     this.walletConnectService.init().then((data: string) => {
       this.isConnected = data !== null;
       this.controlButtonName();
     });
+  }
+
+  ngOnInit(): void {
+    // this.walletConnectService.init().then((data: string) => {
+    //   this.isConnected = data !== null;
+    //   this.controlButtonName();
+    // });
 
     this.walletConnectService.getData().subscribe((data: any) => {
       this.userData = data;
@@ -42,6 +47,7 @@ export class MoonSwapComponent implements OnInit {
       }
       else {
         this.moonshotBalanceText = "-";
+        this.connectedAddress = "";
       }
     });
 
