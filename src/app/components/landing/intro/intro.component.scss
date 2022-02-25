@@ -29,7 +29,7 @@ section.intro {
 
       &:first-child {
         color: $primary;
-        margin-bottom: 50px;
+        margin-bottom: 62px;
         font-size: 12px;
       }
     }
@@ -40,6 +40,10 @@ section.intro {
   width: 100%;
   max-width: 770px;
   color: $primary;
+
+  .outlined-button {
+    max-width: 160px !important;
+  }
 
   .line-container {
     .line {
@@ -87,6 +91,10 @@ section.intro {
           font-size: 27px;
         }
 
+        .outlined-button {
+          max-width: 100% !important;
+        }
+
         .bottom {
           flex-direction: column;
 
@@ -109,9 +117,28 @@ section.intro {
   margin-left: 30px;
 }
 
+.no-border {
+  border: none !important;
+}
+
+.space-between-titles {
+  margin-bottom: 62px;
+}
+
+.warning-title {
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 @media only screen and (max-width: $md) {
 
   .buttons-container {
     margin-left: 0px;
+  }
+
+  .warning-title {
+    height: 100%;
   }
 }

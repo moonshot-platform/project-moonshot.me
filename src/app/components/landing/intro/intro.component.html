@@ -16,25 +16,25 @@
         <div class="empty flex1"></div>
       </div>
       <div class="top futuristic-container bottom-only">
-        <p class="p-white-span-primary p34 orbitron">
-          ⚠️ Moonshot Token Migration <br class="mb30">
+        <p class="p-white-span-primary p34 orbitron warning-title">
+          ⚠️ Moonshot Token Migration
           <span>Trading is temporarily halted.</span>
         </p>
       </div>
       <div class="bottom flex pv20">
-        <div class="flex2 futuristic-container bottom-only no-padding">
-          <p class="mb20">The Moonshot token is migrating to V2. A new & improved audited contract which enhances
-            security and allows for more autonomy over the liquidity pool.</p>
+        <div class="flex2 futuristic-container no-border no-padding">
+          <p class="">Moonshot is a deflationary, frictionless yield and liquidity
+            generation protocol. Read more about Moonshot or start buying!</p>
         </div>
-        <div class="buttons-container flex1">
-          <a target="_blank" class="button">Read More</a>
-        </div>
-        <div class="flex1 flex justify-end">
+        <div class="flex justify-end" style="flex: 0.6;">
           <div class="round-mini-button" (click)="scrollToElement('', 'moonswap')">
             <mat-icon fontSet="material-icons" class="color-primary">arrow_downward</mat-icon>
           </div>
         </div>
       </div>
+
+      <a [routerLink]="['/about']" routerLinkActive="router-link-active" class="outlined-button">Read
+        More</a>
     </div>
   </div>
 </section>
