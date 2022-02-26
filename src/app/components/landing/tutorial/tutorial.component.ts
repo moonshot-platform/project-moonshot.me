@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { WalletService } from 'src/app/services/wallet-service.service';
+import { WalletConnectComponent } from '../../base/wallet-connect/wallet-connect.component';
 
 @Component({
   selector: 'app-tutorial',
@@ -8,8 +11,13 @@ import { Component, OnInit } from '@angular/core';
 export class TutorialComponent implements OnInit {
   static readonly anchorName: string = 'how-to-buy';
 
-  visibleStep = 1;
+  private userData: any;
 
+  bnbCountFromInput: number = 1;
+  isConnected: boolean;
+
+  buttonName = '';
+  visibleStep = 1;
   address = '0xd27d3f7f329d93d897612e413f207a4dbe8bf799';
 
   steps: any = [
@@ -49,9 +57,62 @@ export class TutorialComponent implements OnInit {
     }
   ]
 
-  constructor() { }
+  constructor(
+    private walletConnectService: WalletService,
+    private dialog: MatDialog
+  ) {
+    this.walletConnectService.init().then((data: string) => {
+      this.isConnected = data !== null;
+      this.walletConnectService.setWalletState(this.isConnected);
+      // console.log('CONSTRUCTOR: ' + this.isConnected);
 
-  ngOnInit(): void {
+      this.updateButtonName();
+    });
   }
 
+  ngOnInit(): void {
+    this.walletConnectService.onWalletStateChanged().subscribe((state: boolean) => {
+      this.isConnected = state;
+      this.updateButtonName();
+      // console.log('ON WALLET STATE CHANGED: ' + this.isConnected);
+
+    });
+
+    this.walletConnectService.getData().subscribe((data: any) => {
+      this.userData = data;
+      if (data !== undefined && data.address != undefined) {
+        this.isConnected = true;
+        this.walletConnectService.setWalletState(true);
+        // console.log('ON GET DATA: ' + this.isConnected);
+      }
+      this.updateButtonName();
+    });
+  }
+
+  updateButtonName() {
+    if (!this.isConnected) {
+      this.buttonName = 'Connect Wallet';
+    } else {
+      this.buttonName = 'Buy MSHOT';
+    }
+  }
+
+  openWalletConnectionDialog(): void {
+    let dialogRef = this.dialog.open(
+      WalletConnectComponent,
+      { width: 'auto' }
+    );
+
+    dialogRef.afterClosed().subscribe(result => { });
+  }
+
+  async buyMSHOTWithBNB() {
+    if (this.isConnected) {
+      await this.walletConnectService.buyMSHOT(
+        Number(this.bnbCountFromInput) <= 0 ? 0.001 : Number(this.bnbCountFromInput)
+      );
+    } else {
+      this.openWalletConnectionDialog();
+    }
+  }
 }

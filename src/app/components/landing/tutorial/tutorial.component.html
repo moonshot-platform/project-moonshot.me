@@ -37,8 +37,8 @@
           </g>
         </svg>
         <p>BNB:</p>
-        <input type="number" name="buy" id="buy">
-        <a href="" class="button">Buy MSHOT</a>
+        <input type="number" name="buy" id="buy" [(ngModel)]="bnbCountFromInput">
+        <a (click)="buyMSHOTWithBNB()" class="button">{{buttonName}}</a>
       </div>
 
     </div>
