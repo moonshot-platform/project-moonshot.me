@@ -97,18 +97,18 @@ export class WalletService {
 
   async connectToWallet(origin = 0) {
     const window = this.windowRef.nativeWindow.ethereum;
-
+    if (origin == 1) {
+      this.setWalletState(true);
+    }
     try {
       if (typeof window !== 'undefined' && typeof window !== undefined) {
         await this.windowRef.nativeWindow.ethereum.request({ method: this.ETH_REQUEST_ACCOUNTS });
-
 
         this.provider = new ethers.providers.Web3Provider(this.windowRef.nativeWindow.ethereum);
 
         let currentNetwork = await this.provider.getNetwork();
         if (currentNetwork.chainId != providerChainID) {
           this.toastrService.error('You are on the wrong network');
-          console.log("You are on wrong network!!");
           this.setWalletState(false);
           throw 'Wrong network';
         }
@@ -144,7 +144,7 @@ export class WalletService {
 
         this.setWalletState(true);
 
-        if (origin == 0) location.reload();
+        // if (origin == 0) location.reload();
       }
     } catch (e) {
       this.setWalletDisconnected();
@@ -205,6 +205,9 @@ export class WalletService {
     }
 
     this.account = address;
+    if (data.address !== undefined) {
+      this.setWalletState(true);
+    }
     this.updateData(data);
   }
 
@@ -234,6 +237,7 @@ export class WalletService {
 
   async init(): Promise<string> {
     const wallet = this.localStorageService.getWallet();
+    console.log('WALLET => ' + wallet);
 
     switch (wallet) {
       case 1:
@@ -242,9 +246,12 @@ export class WalletService {
       case 2:
         await this.connectToWalletConnect(wallet);
         break;
+      default:
+        this.setWalletState(false);
+        break;
     }
 
-    return wallet == undefined ? null : this.localStorageService.getAddress();
+    return wallet == undefined ? null : this.account;
   }
 
   async getUserBalance(userAddress: string): Promise<number> {
