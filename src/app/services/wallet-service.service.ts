@@ -9,6 +9,7 @@ import { LocalStorageService } from './local.storage.service';
 
 import silverTokenAbi from './../../assets/abis/silver.token.abi.json';
 import mshotTokenAbi from './../../assets/abis/mshot.token.abi.json';
+import buyMshotTokenAbi from './../../assets/abis/buy-moonshot-token.abi.json';
 import Web3 from 'web3';
 import Web3Modal from "web3modal";
 
@@ -271,5 +272,19 @@ export class WalletService {
       if (error.code === 4001)
         return CLAIM_CASES.REJECTED;
     }
+  }
+
+  async buyMSHOT(bnbValue: number) {
+
+    let web3 = new Web3(await web3Modal.connect());
+    const buyContract = new web3.eth.Contract(
+      buyMshotTokenAbi as any,
+      "0x040236b8dBa062915BD792277141dAA714814551");
+
+    const buyOperation = await buyContract.methods.buyTokenWithBNB();
+    let tx = await buyOperation.send({ from: this.account, value: web3.utils.toWei(`${bnbValue}`, "ether") });
+
+    console.log("transaction: ", tx);
+
   }
 }
