@@ -24,8 +24,8 @@ export class MoonSwapComponent implements OnInit {
     public dialog: MatDialog,
     private walletConnectService: WalletService
   ) {
-    this.walletConnectService.init().then((data: string) => {
-      this.isConnected = data !== null;
+    this.walletConnectService.init().then((data: boolean) => {
+      this.isConnected = data;
       this.controlButtonName();
     });
   }

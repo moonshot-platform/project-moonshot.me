@@ -209,6 +209,8 @@ export class WalletService {
       this.setWalletState(true);
     }
     this.updateData(data);
+    console.log('GET ACCOUNT ADDRESS : ' + address);
+
   }
 
   setWalletDisconnected() {
@@ -235,7 +237,7 @@ export class WalletService {
     return this.connectedStateSubject.asObservable();
   }
 
-  async init(): Promise<string> {
+  async init(): Promise<boolean> {
     const wallet = this.localStorageService.getWallet();
     console.log('WALLET => ' + wallet);
 
@@ -246,12 +248,11 @@ export class WalletService {
       case 2:
         await this.connectToWalletConnect(wallet);
         break;
-      default:
-        this.setWalletState(false);
-        break;
     }
 
-    return wallet == undefined ? null : this.account;
+    await this.getAccountAddress();
+
+    return wallet != undefined || this.account != undefined;
   }
 
   async getUserBalance(userAddress: string): Promise<number> {
@@ -282,16 +283,25 @@ export class WalletService {
   }
 
   async buyMSHOT(bnbValue: number) {
+    try {
+      let web3 = new Web3(await web3Modal.connect());
+      const buyContract = new web3.eth.Contract(
+        buyMshotTokenAbi as any,
+        "0x040236b8dBa062915BD792277141dAA714814551"
+      );
 
-    let web3 = new Web3(await web3Modal.connect());
-    const buyContract = new web3.eth.Contract(
-      buyMshotTokenAbi as any,
-      "0x040236b8dBa062915BD792277141dAA714814551");
-
-    const buyOperation = await buyContract.methods.buyTokenWithBNB();
-    let tx = await buyOperation.send({ from: this.account, value: web3.utils.toWei(`${bnbValue}`, "ether") });
-
-    console.log("transaction: ", tx);
+      const buyOperation = await buyContract.methods.buyTokenWithBNB();
+      let tx = await buyOperation.send(
+        {
+          from: this.account,
+          value: web3.utils.toWei(`${bnbValue}`, "ether")
+        }
+      );
+      // console.log("transaction: ", tx);
+      this.toastrService.success('You bought MSHOT successfully!');
+    } catch (error) {
+      this.toastrService.error('Operation Failed!')
+    }
 
   }
 }
