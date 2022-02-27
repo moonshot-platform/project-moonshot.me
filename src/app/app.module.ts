@@ -66,7 +66,9 @@ export class HammerConfig extends HammerGestureConfig {
     BrowserAnimationsModule,
     ShooterModule,
     MatDialogModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot(
+      { positionClass: 'toast-bottom-right' }
+    ),
     GtagModule.forRoot({ trackingId: 'G-5Q9LF9T9Q6', trackPageviews: true }),
   ],
   providers: [{ provide: CountdownGlobalConfig, useFactory: countdownConfigFactory },
