@@ -38,7 +38,9 @@
         </svg>
         <p>BNB:</p>
         <input type="number" name="buy" id="buy" [(ngModel)]="bnbCountFromInput">
-        <a (click)="buyMSHOTWithBNB()" class="button">{{buttonName}}</a>
+        <a *ngIf="!isInProcess" (click)="buyMSHOTWithBNB()" class="button">{{buttonName}}</a>
+
+        <img *ngIf="isInProcess" src="assets/media/videos/Loading.gif" class="loader-img">
       </div>
 
     </div>

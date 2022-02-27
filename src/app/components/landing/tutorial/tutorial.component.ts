@@ -14,7 +14,8 @@ export class TutorialComponent implements OnInit {
   private userData: any;
 
   bnbCountFromInput: number = 1;
-  isConnected: boolean;
+  isConnected: boolean = false;
+  isInProcess: boolean = false;
 
   buttonName = '';
   visibleStep = 1;
@@ -61,13 +62,15 @@ export class TutorialComponent implements OnInit {
     private walletConnectService: WalletService,
     private dialog: MatDialog
   ) {
-    this.walletConnectService.init().then((data: string) => {
-      this.isConnected = data !== null;
+    this.walletConnectService.init().then((data: boolean) => {
+      this.isConnected = data;
       this.walletConnectService.setWalletState(this.isConnected);
-      // console.log('CONSTRUCTOR: ' + this.isConnected);
+      console.log('CONSTRUCTOR: ' + this.isConnected);
 
       this.updateButtonName();
     });
+
+    this.updateButtonName();
   }
 
   ngOnInit(): void {
@@ -108,9 +111,13 @@ export class TutorialComponent implements OnInit {
 
   async buyMSHOTWithBNB() {
     if (this.isConnected) {
+      this.isInProcess = true;
+
       await this.walletConnectService.buyMSHOT(
         Number(this.bnbCountFromInput) <= 0 ? 0.001 : Number(this.bnbCountFromInput)
       );
+
+      this.isInProcess = false;
     } else {
       this.openWalletConnectionDialog();
     }
