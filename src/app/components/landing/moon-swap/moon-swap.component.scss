@@ -25,6 +25,7 @@ section.moonswap {
   .outlined-button {
     margin: 20px 0px;
     max-width: 160px !important;
+    justify-content: center;
   }
 
   div {
@@ -178,6 +179,31 @@ section.moonswap {
   }
 }
 
+.only-mobile {
+  display: none;
+  width: 100%;
+  justify-content: center;
+}
+
+.only-desktop {
+  display: flex;
+}
+
+.loader-img {
+  width: 35px;
+}
+
+.loading {
+  padding: 5.5px 0 !important;
+
+  &:hover {
+    background-color: $primary !important;
+  }
+
+  cursor: text !important;
+}
+
+
 @media only screen and (max-width: $md-header) {
 
 
@@ -193,8 +219,16 @@ section.moonswap {
     max-width: 100%;
   }
 
+  .only-mobile {
+    display: flex;
+  }
+
+  .only-desktop {
+    display: none;
+  }
+
   section.moonswap {
-    margin-top: 80px;
+    margin-top: 0px;
 
     >.inner {
       flex-direction: column;

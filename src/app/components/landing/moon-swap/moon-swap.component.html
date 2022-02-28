@@ -6,18 +6,19 @@
         <span class="p-white-span-primary orbitron">MoonSwap</span>
       </div>
       <div class="futuristic-container bottom-only">
-        <p class="p30">You can easily swap your old MOONSHOT (V1) tokens for MSHOT (V2).<br><br>Just connect your
-          wallet and claim MSHOT now!</p>
+        <p class="p30">The Moonshot token migrated to V2.
+          <br><br>A new & improved audited contract which enhances security and allows for more autonomy over the
+          liquidity pool.</p>
       </div>
-      <a class="outlined-button ">Read more</a>
+      <a class="outlined-button only-desktop">Read more</a>
     </div>
 
     <div class="info flex3">
       <div class="flex">
         <div class="flex2 futuristic-container top-only pv20 moonswap-operation-container">
-          <p class="explanation">The Moonshot token is migrating to V2. A new & improved audited contract which enhances
-            security and allows
-            for more autonomy over the liquidity pool</p>
+          <p class="explanation">With MoonSwap, you can easily swap your MOONSHOT (V1) tokens for MSHOT (V2). Just
+            connect your wallet and claim MSHOT now!
+          </p>
 
           <div class="row">
             <div class="detail-form">
@@ -40,14 +41,16 @@
             </div>
 
             <div class="buttons-container flex1">
-              <a class="button" (click)="claimMSHOT()"
-                [ngClass]="{'deactivate': checkButtonActivity()}">{{buttonName}}</a>
+
+              <a class="button" [ngClass]="{'loading': isInProcess}"
+                (click)="!isInProcess ? claimMSHOT() : null">{{isInProcess ? '' :buttonName}}
+                <img *ngIf="isInProcess" src="assets/media/videos/Loading_yellowBG.gif" class="loader-img"></a>
             </div>
+
+            <a class="outlined-button only-mobile">Read more</a>
           </div>
 
         </div>
-
-        <div class="white-space flex justify-end"></div>
       </div>
     </div>
   </div>

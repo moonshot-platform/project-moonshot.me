@@ -19,6 +19,7 @@ export class MoonSwapComponent implements OnInit {
   moonshotBalanceText: string = '-';
   userData: any;
   isButtonActive: boolean = true;
+  isInProcess: boolean = false;
 
   constructor(
     public dialog: MatDialog,
@@ -68,21 +69,24 @@ export class MoonSwapComponent implements OnInit {
   }
 
   async claimMSHOT() {
+    this.isInProcess = true;
+
     if (!this.isConnected) {
       this.openWalletConnectDialog();
-    }
-
-    if (this.isConnected && this.buttonName !== CLAIM_CASES.CLAIMED) {
-      this.buttonName = CLAIM_CASES.CLAIMING;
+    } else {
       this.buttonName = await this.walletConnectService.claimMSHOT();
     }
 
+    this.isInProcess = false;
   }
 
   openWalletConnectDialog(): void {
-    let dialogRef = this.dialog.open(WalletConnectComponent, {
-      width: 'auto',
-    });
+    let dialogRef = this.dialog.open(
+      WalletConnectComponent,
+      {
+        width: 'auto',
+      }
+    );
 
     dialogRef.afterClosed().subscribe(result => {
       // this.animal = result;
