@@ -216,8 +216,16 @@ input[type=number] {
 
 .loader-img {
   width: 35px;
-  border-radius: 50px;
-  padding: 10px;
+}
+
+.loading {
+  padding: 5.5px 0 !important;
+
+  &:hover {
+    background-color: $primary !important;
+  }
+
+  cursor: text !important;
 }
 
 @media only screen and (max-width: $sm) {
