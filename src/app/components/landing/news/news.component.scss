@@ -1,13 +1,14 @@
 @import "includes";
 
 section.news {
-  position: relative;
+  // position: relative;
   background-size: 50%;
-  z-index: 2;
+  // z-index: 2;
   padding: 0 20px;
   padding-top: 200px;
   margin-bottom: 350px;
-  margin-left: auto;
+  display: flex;
+  width: 100%;
 
   .inner {
     @extend %max-width-center;
