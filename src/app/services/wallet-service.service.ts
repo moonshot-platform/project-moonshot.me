@@ -97,9 +97,11 @@ export class WalletService {
 
   async connectToWallet(origin = 0) {
     const window = this.windowRef.nativeWindow.ethereum;
+
     if (origin == 1) {
       this.setWalletState(true);
     }
+
     try {
       if (typeof window !== 'undefined' && typeof window !== undefined) {
         await this.windowRef.nativeWindow.ethereum.request({ method: this.ETH_REQUEST_ACCOUNTS });
@@ -239,7 +241,6 @@ export class WalletService {
 
   async init(): Promise<boolean> {
     const wallet = this.localStorageService.getWallet();
-    console.log('WALLET => ' + wallet);
 
     switch (wallet) {
       case 1:
@@ -301,6 +302,37 @@ export class WalletService {
       this.toastrService.success('You bought MSHOT successfully!');
     } catch (error) {
       this.toastrService.error('Operation Failed!')
+    }
+  }
+
+  async addMoonshotTokentToWalletAsset() {
+    const tokenAddress = '0x040236b8dBa062915BD792277141dAA714814551';
+    const tokenSymbol = 'MSHOT';
+    const tokenDecimals = 18;
+    const tokenImage = 'https://project-moonshot.me/assets/media/images/logo.png';
+
+    try {
+      // wasAdded is a boolean. Like any RPC method, an error may be thrown.
+      const wasAdded = await this.windowRef.nativeWindow.ethereum.request({
+        method: 'wallet_watchAsset',
+        params: {
+          type: 'ERC20', // Initially only supports ERC20, but eventually more!
+          options: {
+            address: tokenAddress, // The address that the token is at.
+            symbol: tokenSymbol, // A ticker symbol or shorthand, up to 5 chars.
+            decimals: tokenDecimals, // The number of decimals in the token
+            image: tokenImage, // A string url of the token logo
+          },
+        },
+      });
+
+      if (wasAdded) {
+        console.log('Thanks for your interest!');
+      } else {
+        console.log('Your loss!');
+      }
+    } catch (error) {
+      console.log(error);
     }
 
   }
