@@ -98,16 +98,7 @@ export class MoonSwapComponent implements OnInit {
     this.moonshotBalanceText = this.walletConnectService.convertBalance(balance);
   }
 
-  shortTheWalletAddress(): string {
-    if (this.isConnected) {
-      return this.connectedAddress.slice(0, 8) + '......' + this.connectedAddress.slice(-9);
-    }
-    else {
-      return '';
-    }
-  }
+  returnBeginingOfAddress = (): string => this.isConnected ? this.connectedAddress.slice(0, 12) : '';
 
-  checkButtonActivity(): boolean {
-    return (this.buttonName === CLAIM_CASES.CLAIMED || this.buttonName === CLAIM_CASES.CLAIMING);
-  }
+  returnEndOfAddress = (): string => this.isConnected ? this.connectedAddress.slice(12, this.connectedAddress.length) : '';
 }

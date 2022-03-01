@@ -24,7 +24,21 @@
             <div class="detail-form">
               <div class="wallet-address centered-row mb20">
                 <p class="desc-title">Wallet address:</p>
-                <p class="address">{{shortTheWalletAddress()}}</p>
+
+                <div class="address">
+                  <!-- <span [attr.data-content-start]='returnBeginingOfAddress()'
+                    [attr.data-content-end]='returnEndOfAddress()'></span> -->
+                  <!-- <span>{{connectedAddress}}</span> -->
+                  <!-- <span>{{connectedAddress}}</span> -->
+                  <!-- <span>{{connectedAddress.slice(0,16)}}</span>
+
+                  <span> {{connectedAddress.slice(16)}}</span> -->
+                  <!-- <p>{{connectedAddress.slice(0,-4)}}</p>
+                  <p>{{connectedAddress.slice(-4)}}</p>  -->
+                  <div class="truncate-middle" [attr.data-truncate]='connectedAddress.slice(-4)'>
+                    <p>{{connectedAddress.slice(0,-4)}}</p>
+                  </div>
+                </div>
               </div>
               <div class="current-balance centered-row mb20">
                 <p class="desc-title">Current balance:</p>

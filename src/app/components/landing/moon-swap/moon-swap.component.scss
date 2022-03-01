@@ -106,6 +106,8 @@ section.moonswap {
   .wallet-address {
 
     .address {
+      // display: flex;
+      display: inline-block;
       margin-left: 10px;
       font-weight: 500;
       font-size: 16px;
@@ -114,6 +116,65 @@ section.moonswap {
       flex: 1;
       text-align: end;
       margin-top: auto;
+      max-width: 100%;
+
+      // flex-direction: row;
+      // align-content: center;
+      // justify-content: end;
+
+      // :first-child {
+
+      //   white-space: nowrap;
+      //   overflow: hidden;
+      //   display: inline-block;
+      //   width: 100%;
+      //   text-overflow: ellipsis;
+      // }
+
+      // text-overflow: ellipsis;
+      // overflow: hidden;
+      // word-wrap: unset;
+      // white-space: nowrap;
+
+      // span {
+      //   white-space: nowrap;
+      //   overflow: hidden;
+      //   display: inline-block;
+      // }
+
+      // span:first-child {
+      //   text-overflow: ellipsis;
+      // }
+
+      // span:nth-child(2n) {
+
+      //   // margin-left: -8px;
+      //   text-overflow: ellipsis;
+      //   direction: rtl;
+      // }
+
+      // span+span {
+      //   direction: rtl;
+      // }
+
+      // span::before,
+      // span::after {
+      //   display: table-cell;
+      //   overflow: hidden;
+      //   white-space: pre;
+      //   max-width: 200px;
+      // }
+
+      // span::before {
+      //   content: attr(data-content-start);
+      //   text-overflow: ellipsis;
+      // }
+
+      // span::after {
+      //   content: attr(data-content-end);
+      //   text-overflow: '';
+      //   direction: rtl;
+      // }
     }
   }
 
@@ -133,6 +194,8 @@ section.moonswap {
     font-weight: 600;
     font-size: 16px;
     color: $primary;
+    // flex: 1;
+    display: ruby;
   }
 
   .desc-title-light {
@@ -204,12 +267,66 @@ section.moonswap {
 }
 
 
+
+
+
+.truncate-middle {
+  position: relative;
+  width: 18vw;
+  max-width: 340px;
+  justify-self: flex-end;
+  display: inline-flex;
+  padding-right: 40px;
+}
+
+.truncate-middle>p {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.truncate-middle:after {
+  content: attr(data-truncate);
+  position: absolute;
+  left: calc(100% - 40px);
+  top: 0;
+  white-space: nowrap;
+}
+
+
+
+
+
 @media only screen and (max-width: $md-header) {
 
 
   .white-space {
     display: none;
     visibility: hidden;
+  }
+}
+
+@media only screen and (max-width: 826px) {
+  .truncate-middle {
+    width: 100% !important;
+    max-width: calc(100% - 50px) !important;
+    text-align: end;
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 673px) {
+  .truncate-middle {
+    width: 100% !important;
+    max-width: 200px !important;
+    margin-left: auto;
+  }
+}
+
+@media only screen and (max-width: 458px) {
+  .truncate-middle {
+    max-width: 100px !important;
+    margin-left: auto;
   }
 }
 
@@ -225,6 +342,13 @@ section.moonswap {
 
   .only-desktop {
     display: none;
+  }
+
+  .truncate-middle {
+    width: 100%;
+    max-width: 94%;
+    text-align: end;
+    display: block;
   }
 
   section.moonswap {
