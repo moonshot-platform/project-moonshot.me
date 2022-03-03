@@ -198,6 +198,103 @@ input[type=number] {
   cursor: text !important;
 }
 
+.tooltip .bottom {
+  width: 240px;
+  transform: translate(2%, -155%) scaleY(1);
+  padding: 20px 20px;
+  color: white;
+  background-color: black;
+  font-weight: normal;
+  font-size: 13px;
+  border-radius: 8px;
+  position: absolute;
+  z-index: 99999999;
+  box-sizing: border-box;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+  visibility: visible;
+  opacity: 0;
+  transition: opacity 0.8s;
+  font-family: $primary-font;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.69;
+  text-align: left;
+  -webkit-transition: .3s all;
+  -webkit-transition-delay: .3s;
+  -moz-transition: .3s all;
+  -moz-transition-delay: .3s;
+  -ms-transition: .3s all;
+  -ms-transition-delay: .3s;
+  -o-transition: .3s all;
+  -o-transition-delay: .3s;
+  transition: .3s all;
+  transition-delay: .3s;
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    .close-button {
+      cursor: pointer;
+      display: flex;
+      height: 24px;
+      width: 24px;
+      align-self: flex-start;
+      margin-top: 10px;
+      filter: brightness(0) invert(1);
+      margin-right: 20px;
+
+      &:hover {
+        filter: brightness(0) invert(1);
+      }
+    }
+  }
+}
+
+.close-tooltip {
+  visibility: hidden !important;
+  //opacity: 0 !important;
+  -webkit-transition-delay: -0.3s !important;
+  -moz-transition-delay: -0.3s !important;
+  -ms-transition-delay: -0.3s !important;
+  -o-transition-delay: -0.3s !important;
+  transition-delay: -0.3s !important;
+}
+
+.tooltip:hover .bottom {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition-delay: 0s;
+  -moz-transition-delay: 0s;
+  -ms-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  transition-delay: 0s;
+}
+
+.tooltip .bottom i {
+  position: absolute;
+  bottom: -10px;
+  left: 42.5%;
+  margin-left: -52px;
+  width: 24px;
+  height: 12px;
+  overflow: hidden;
+  transform: scaleY(1);
+}
+
+.tooltip .bottom i::after {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg) scaleY(-1);
+  background-color: black;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+}
+
 @media only screen and (max-width: $md) {
 
   .buttons-container {
@@ -218,6 +315,16 @@ input[type=number] {
 
   .buy-section {
     margin-left: 0px;
+
+    .tooltip {
+      .bottom {
+        transform: translate(-30%, -155%) scaleY(1);
+
+        i {
+          left: 72.5%;
+        }
+      }
+    }
   }
 
   .centered-row {

@@ -29,7 +29,6 @@ const providerTestNetURL = environment.providerTestNetURL;
 const providerChainID = environment.chainId;
 const NETWORK = 'binance';
 
-
 //  Create WlletConnect Provider
 const providerOptions = {
   walletconnect: {
@@ -78,6 +77,7 @@ export class WalletService {
   provider: ethers.providers.Web3Provider;
   signer: ethers.providers.JsonRpcSigner;
   silverContract: any;
+  mshotBalanceContract: any;
 
   private isConnected = false;
   private account = '';
@@ -197,6 +197,9 @@ export class WalletService {
 
     if (network.chainId == environment.chainId) {
       this.silverContract = new ethers.Contract(SilverAddress, silverTokenAbi, this.signer);
+      // this.mshotBalanceContract = new ethers.Contract("0x040236b8dBa062915BD792277141dAA714814551", mshotTokenAbi, this.signer);
+      // console.log('Setting contacts');
+
     }
 
     const data = {
@@ -211,7 +214,7 @@ export class WalletService {
       this.setWalletState(true);
     }
     this.updateData(data);
-    console.log('GET ACCOUNT ADDRESS : ' + address);
+    // console.log('GET ACCOUNT ADDRESS : ' + address);
 
   }
 
@@ -260,6 +263,20 @@ export class WalletService {
     return Number(await this.silverContract.balanceOf(userAddress));
   }
 
+  async getUserMSHOTBalance(userAddress: string): Promise<Number> {
+
+    // let web3 = new Web3(await web3Modal.connect());
+    // this.mshotBalanceContract = new web3.eth.Contract(mshotTokenAbi as any, "0xF683a2eC04A493Fc4e0FD7C3e4178fB9cef7508e");
+
+    // // console.log(Number(
+    // //   await this.mshotBalanceContract.balanceOf("0xF683a2eC04A493Fc4e0FD7C3e4178fB9cef7508e")
+    // // ));
+    return Number(
+      await this.mshotBalanceContract.balanceOf(userAddress)
+      // 0
+    );
+  }
+
   async claimMSHOT(): Promise<any> {
 
     let web3 = new Web3(await web3Modal.connect());
@@ -273,9 +290,16 @@ export class WalletService {
       const claimOperation = await claimContract.methods.claim();
       let tx = await claimOperation.send({ from: this.account });
 
-      console.log("transaction: ", tx)
+      // console.log("transaction: ", tx)
+
+      tx === undefined ?
+        this.toastrService.error('Operation Failed!')
+        :
+        this.toastrService.success('You claimed MSHOT successfully!');
+
 
       return tx === undefined ? CLAIM_CASES.FAILED : CLAIM_CASES.CLAIMED;
+
     } catch (error) {
       console.log(error);
       if (error.code === 4001)
@@ -285,10 +309,16 @@ export class WalletService {
 
   async buyMSHOT(bnbValue: number) {
     try {
+
+      // if (this.localStorageService.getTokenAdding() === false) {
+      //   let hasAdded = await this.addTokenMSHOTv2ToWalletAsset();
+      //   console.log(hasAdded);
+      // }
+
       let web3 = new Web3(await web3Modal.connect());
       const buyContract = new web3.eth.Contract(
         buyMshotTokenAbi as any,
-        "0x040236b8dBa062915BD792277141dAA714814551"
+        "0xF683a2eC04A493Fc4e0FD7C3e4178fB9cef7508e"
       );
 
       const buyOperation = await buyContract.methods.buyTokenWithBNB();
@@ -305,15 +335,15 @@ export class WalletService {
     }
   }
 
-  async addMoonshotTokentToWalletAsset() {
-    const tokenAddress = '0x040236b8dBa062915BD792277141dAA714814551';
-    const tokenSymbol = 'MSHOT';
+  async addTokenMSHOTv2ToWalletAsset(): Promise<any> {
+    const tokenAddress = '0xF683a2eC04A493Fc4e0FD7C3e4178fB9cef7508e';
+    const tokenSymbol = 'TUT';
     const tokenDecimals = 18;
-    const tokenImage = 'https://project-moonshot.me/assets/media/images/logo.png';
+    const tokenImage = 'http://placekitten.com/200/300';
 
     try {
       // wasAdded is a boolean. Like any RPC method, an error may be thrown.
-      const wasAdded = await this.windowRef.nativeWindow.ethereum.request({
+      const wasAdded = await this.windowRef.nativeWindow.ethers.request({
         method: 'wallet_watchAsset',
         params: {
           type: 'ERC20', // Initially only supports ERC20, but eventually more!
@@ -334,6 +364,5 @@ export class WalletService {
     } catch (error) {
       console.log(error);
     }
-
   }
 }

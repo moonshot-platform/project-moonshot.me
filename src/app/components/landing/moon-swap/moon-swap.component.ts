@@ -17,6 +17,7 @@ export class MoonSwapComponent implements OnInit {
   buttonName: string = CLAIM_CASES.CONNECT_WALLET;
   connectedAddress: string = '';
   moonshotBalanceText: string = '-';
+  mshotV2BalanceText: string = '-';
   userData: any;
   isButtonActive: boolean = true;
   isInProcess: boolean = false;
@@ -43,12 +44,15 @@ export class MoonSwapComponent implements OnInit {
       if (data !== undefined && data.address != undefined) {
         this.isConnected = true;
         if (this.userData.networkId.chainId == environment.chainId) {
-          this.getMoonShootBalance();
+          this.getMoonShotBalances();
+          // console.log('Getting balances');
+
         }
       }
       else {
         this.moonshotBalanceText = "-";
         this.connectedAddress = "";
+        this.mshotV2BalanceText = "-";
       }
     });
 
@@ -65,6 +69,7 @@ export class MoonSwapComponent implements OnInit {
       this.buttonName = CLAIM_CASES.CONNECT_WALLET
       this.moonshotBalanceText = '-';
       this.connectedAddress = '';
+      this.mshotV2BalanceText = "-";
     }
   }
 
@@ -88,17 +93,18 @@ export class MoonSwapComponent implements OnInit {
       }
     );
 
-    dialogRef.afterClosed().subscribe(result => {
-      // this.animal = result;
-    });
+    dialogRef.afterClosed().subscribe(result => { });
   }
 
-  async getMoonShootBalance() {
-    const balance = Number(await this.walletConnectService.getUserBalance(this.userData.address));
+  async getMoonShotBalances() {
+    const [balance, /* mshotV2Balance */] = await Promise.all(
+      [
+        Number(await this.walletConnectService.getUserBalance(this.userData.address)),
+        // Number(await this.walletConnectService.getUserMSHOTBalance(this.userData.address))
+      ]
+    )
+
     this.moonshotBalanceText = this.walletConnectService.convertBalance(balance);
+    /* this.mshotV2BalanceText = this.walletConnectService.convertBalance(mshotV2Balance);*/
   }
-
-  returnBeginingOfAddress = (): string => this.isConnected ? this.connectedAddress.slice(0, 12) : '';
-
-  returnEndOfAddress = (): string => this.isConnected ? this.connectedAddress.slice(12, this.connectedAddress.length) : '';
 }

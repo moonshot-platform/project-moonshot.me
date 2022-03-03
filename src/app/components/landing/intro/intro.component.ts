@@ -32,7 +32,7 @@ export class IntroComponent implements OnInit, OnDestroy {
     this.walletConnectService.init().then((data: boolean) => {
       this.isConnected = data;
       this.walletConnectService.setWalletState(this.isConnected);
-      console.log('CONSTRUCTOR: ' + this.isConnected);
+      // console.log('CONSTRUCTOR: ' + this.isConnected);
 
       this.updateButtonName();
     });

@@ -26,15 +26,6 @@
                 <p class="desc-title">Wallet address:</p>
 
                 <div class="address">
-                  <!-- <span [attr.data-content-start]='returnBeginingOfAddress()'
-                    [attr.data-content-end]='returnEndOfAddress()'></span> -->
-                  <!-- <span>{{connectedAddress}}</span> -->
-                  <!-- <span>{{connectedAddress}}</span> -->
-                  <!-- <span>{{connectedAddress.slice(0,16)}}</span>
-
-                  <span> {{connectedAddress.slice(16)}}</span> -->
-                  <!-- <p>{{connectedAddress.slice(0,-4)}}</p>
-                  <p>{{connectedAddress.slice(-4)}}</p>  -->
                   <div class="truncate-middle" [attr.data-truncate]='connectedAddress.slice(-4)'>
                     <p>{{connectedAddress.slice(0,-4)}}</p>
                   </div>
@@ -50,7 +41,7 @@
               </div>
               <div class="mshot-v2 centered-row">
                 <p class="desc-title-light">MSHOT (V2)</p>
-                <p class="value">-</p>
+                <p class="value">{{mshotV2BalanceText}}</p>
               </div>
             </div>
 
@@ -58,7 +49,9 @@
 
               <a class="button" [ngClass]="{'loading': isInProcess}"
                 (click)="!isInProcess ? claimMSHOT() : null">{{isInProcess ? '' :buttonName}}
-                <img *ngIf="isInProcess" src="assets/media/videos/Loading_yellowBG.gif" class="loader-img"></a>
+                <img *ngIf="isInProcess" src="assets/media/videos/Loading_yellowBG.gif" class="loader-img">
+              </a>
+
             </div>
 
             <a class="outlined-button only-mobile">Read more</a>

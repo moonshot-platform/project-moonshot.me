@@ -58,10 +58,20 @@
           </svg>
           <p>BNB:</p>
           <input type="number" name="buy" id="buy" [(ngModel)]="bnbCountFromInput">
-          <a [ngClass]="{'loading': isInProcess}" (click)="!isInProcess ? buyMSHOTWithBNB() : null" class="button">
-            {{isInProcess ? '' :buttonName}}
-            <img *ngIf="isInProcess" src="assets/media/videos/Loading_yellowBG.gif" class="loader-img">
-          </a>
+
+          <div class="tooltip">
+            <a [ngClass]="{'loading': isInProcess}" (click)="!isInProcess ? buyMSHOTWithBNB() : null" class="button">
+              {{isInProcess ? '' :buttonName}}
+              <img *ngIf="isInProcess" src="assets/media/videos/Loading_yellowBG.gif" class="loader-img">
+            </a>
+            <div class="bottom">
+              <div class="row">
+                <p>MSHOT Market Price at PancakeSwap</p>
+              </div>
+              <i></i>
+            </div>
+          </div>
+
         </div>
       </div>
 

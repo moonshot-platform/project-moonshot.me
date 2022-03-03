@@ -5,6 +5,7 @@ export class LocalStorageService {
     public readonly NSFW_KEY: string = 'nsfw';
     public readonly WALLET_KEY: string = 'wallet';
     public readonly ADDRESS_KEY: string = 'address';
+    public readonly TOKEN_ADDING_KEY: string = 'token_added';
 
     private subjectNSFW = new Subject<boolean>();
 
@@ -18,6 +19,18 @@ export class LocalStorageService {
 
     remove(key: string): void {
         localStorage.removeItem(key);
+    }
+
+    setTokenAdding(val: any): void {
+        localStorage.setItem(this.TOKEN_ADDING_KEY, val);
+    }
+
+    getTokenAdding(): any {
+        return localStorage.getItem(this.TOKEN_ADDING_KEY) ?? false;
+    }
+
+    removeTokenAdding(): void {
+        localStorage.removeItem(this.TOKEN_ADDING_KEY);
     }
 
     setNSFW(state: boolean): void {
