@@ -200,7 +200,7 @@ input[type=number] {
 
 .tooltip .bottom {
   width: 240px;
-  transform: translate(2%, -155%) scaleY(1);
+  transform: translate(-8.4%, 0%) scaleY(1);
   padding: 20px 20px;
   color: white;
   background-color: black;
@@ -275,8 +275,8 @@ input[type=number] {
 
 .tooltip .bottom i {
   position: absolute;
-  bottom: -10px;
-  left: 42.5%;
+  top: -10px;
+  left: 65%;
   margin-left: -52px;
   width: 24px;
   height: 12px;
@@ -285,12 +285,12 @@ input[type=number] {
 }
 
 .tooltip .bottom i::after {
-  content: '';
+  content: "";
   position: absolute;
-  width: 15px;
+  width: 20px;
   height: 15px;
   left: 50%;
-  transform: translate(-50%, -50%) rotate(45deg) scaleY(-1);
+  transform: translate(-50%, 50%) rotate(45deg) scaleY(-1);
   background-color: black;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
 }
@@ -318,10 +318,10 @@ input[type=number] {
 
     .tooltip {
       .bottom {
-        transform: translate(-30%, -155%) scaleY(1);
+        transform: translate(-33.4%, 0%) scaleY(1);
 
         i {
-          left: 72.5%;
+          left: 80%;
         }
       }
     }
