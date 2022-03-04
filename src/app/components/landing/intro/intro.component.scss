@@ -198,6 +198,13 @@ input[type=number] {
   cursor: text !important;
 }
 
+.tooltip {
+  .button {
+    margin-bottom: -1px !important;
+    margin-right: -1px !important;
+  }
+}
+
 .tooltip .bottom {
   width: 240px;
   transform: translate(-8.4%, 0%) scaleY(1);
