@@ -25,7 +25,8 @@ export class IntroComponent implements OnInit, OnDestroy {
 
   buttonName = '';
 
-  constructor(tokenomicsService: TokenomicsService,
+  constructor(
+    tokenomicsService: TokenomicsService,
     private walletConnectService: WalletService,
     private dialog: MatDialog
   ) {
