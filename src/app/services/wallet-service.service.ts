@@ -12,6 +12,7 @@ import mshotTokenAbi from './../../assets/abis/mshot.token.abi.json';
 import buyMshotTokenAbi from './../../assets/abis/buy-moonshot-token.abi.json';
 import Web3 from 'web3';
 import Web3Modal from "web3modal";
+import { setInterval } from 'timers';
 
 export const SilverAddress = environment.silverAddress;
 
@@ -192,7 +193,7 @@ export class WalletService {
 
   async getAccountAddress() {
     this.signer = this.provider.getSigner();
-    const address = await this.signer.getAddress();
+    const address = await this.signer?.getAddress();
     const network = await this.provider.getNetwork();
 
     if (network.chainId == environment.chainId) {
@@ -268,23 +269,20 @@ export class WalletService {
     // let web3 = new Web3(await web3Modal.connect());
     // this.mshotBalanceContract = new web3.eth.Contract(mshotTokenAbi as any, "0xF683a2eC04A493Fc4e0FD7C3e4178fB9cef7508e");
 
-    // // console.log(Number(
-    // //   await this.mshotBalanceContract.balanceOf("0xF683a2eC04A493Fc4e0FD7C3e4178fB9cef7508e")
-    // // ));
     return Number(
       await this.mshotBalanceContract.balanceOf(userAddress)
-      // 0
     );
   }
 
   async claimMSHOT(): Promise<any> {
-
     let web3 = new Web3(await web3Modal.connect());
 
     const claimContract = new web3.eth.Contract(
       mshotTokenAbi as any,
       "0xF683a2eC04A493Fc4e0FD7C3e4178fB9cef7508e"
     );
+
+    const hasTokenImported = await this.localStorageService.getTokenAdding();
 
     try {
       const claimOperation = await claimContract.methods.claim();
@@ -297,6 +295,9 @@ export class WalletService {
         :
         this.toastrService.success('You claimed MSHOT successfully!');
 
+      if (!hasTokenImported) {
+        this.addTokenMSHOTv2ToWalletAsset();
+      }
 
       return tx === undefined ? CLAIM_CASES.FAILED : CLAIM_CASES.CLAIMED;
 
@@ -308,13 +309,9 @@ export class WalletService {
   }
 
   async buyMSHOT(bnbValue: number) {
+    const hasTokenImported = await this.localStorageService.getTokenAdding();
+
     try {
-
-      // if (this.localStorageService.getTokenAdding() === false) {
-      //   let hasAdded = await this.addTokenMSHOTv2ToWalletAsset();
-      //   console.log(hasAdded);
-      // }
-
       let web3 = new Web3(await web3Modal.connect());
       const buyContract = new web3.eth.Contract(
         buyMshotTokenAbi as any,
@@ -322,6 +319,7 @@ export class WalletService {
       );
 
       const buyOperation = await buyContract.methods.buyTokenWithBNB();
+
       let tx = await buyOperation.send(
         {
           from: this.account,
@@ -330,39 +328,43 @@ export class WalletService {
       );
       // console.log("transaction: ", tx);
       this.toastrService.success('You bought MSHOT successfully!');
+
+      if (!hasTokenImported) {
+        await this.addTokenMSHOTv2ToWalletAsset();
+        // this.toastrService.success('You imported MSHOT token to your wallet successfully!');
+      }
+
     } catch (error) {
       this.toastrService.error('Operation Failed!')
     }
   }
 
-  async addTokenMSHOTv2ToWalletAsset(): Promise<any> {
+  async addTokenMSHOTv2ToWalletAsset() {
     const tokenAddress = '0xF683a2eC04A493Fc4e0FD7C3e4178fB9cef7508e';
-    const tokenSymbol = 'TUT';
+    const tokenSymbol = 'MSHOT';
     const tokenDecimals = 18;
-    const tokenImage = 'http://placekitten.com/200/300';
+    const tokenImage = 'http://localhost:4200/assets/media/images/logo.png';
 
-    try {
-      // wasAdded is a boolean. Like any RPC method, an error may be thrown.
-      const wasAdded = await this.windowRef.nativeWindow.ethers.request({
-        method: 'wallet_watchAsset',
-        params: {
-          type: 'ERC20', // Initially only supports ERC20, but eventually more!
-          options: {
-            address: tokenAddress, // The address that the token is at.
-            symbol: tokenSymbol, // A ticker symbol or shorthand, up to 5 chars.
-            decimals: tokenDecimals, // The number of decimals in the token
-            image: tokenImage, // A string url of the token logo
+    if (typeof window.ethereum !== 'undefined' || (typeof window.web3 !== 'undefined')) {
+      try {
+        // wasAdded is a boolean. Like any RPC method, an error may be thrown.
+        this.windowRef.nativeWindow.ethereum.request({
+          method: 'wallet_watchAsset',
+          params:
+          {
+            type: 'ERC20', // Initially only supports ERC20, but eventually more!
+            options: {
+              address: tokenAddress, // The address that the token is at.
+              symbol: tokenSymbol, // A ticker symbol or shorthand, up to 5 chars.
+              decimals: tokenDecimals, // The number of decimals in the token
+              image: tokenImage // A string url of the token logo
+            }
           },
-        },
-      });
-
-      if (wasAdded) {
-        console.log('Thanks for your interest!');
-      } else {
-        console.log('Your loss!');
+        });
+        this.localStorageService.setTokenAdding(true);
+      } catch (error) {
+        console.log(error);
       }
-    } catch (error) {
-      console.log(error);
     }
   }
 }

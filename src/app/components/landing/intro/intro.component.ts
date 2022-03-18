@@ -118,8 +118,6 @@ export class IntroComponent implements OnInit, OnDestroy {
     if (this.isConnected) {
       this.isInProcess = true;
 
-      // await this.walletConnectService.addMoonshotTokentToWalletAsset();
-
       await this.walletConnectService.buyMSHOT(
         Number(this.bnbCountFromInput) <= 0 ? 0.001 : Number(this.bnbCountFromInput)
       );

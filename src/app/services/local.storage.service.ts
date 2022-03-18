@@ -21,12 +21,12 @@ export class LocalStorageService {
         localStorage.removeItem(key);
     }
 
-    setTokenAdding(val: any): void {
-        localStorage.setItem(this.TOKEN_ADDING_KEY, val);
+    setTokenAdding(val: boolean): void {
+        localStorage.setItem(this.TOKEN_ADDING_KEY, JSON.stringify(val));
     }
 
-    getTokenAdding(): any {
-        return localStorage.getItem(this.TOKEN_ADDING_KEY) ?? false;
+    async getTokenAdding(): Promise<boolean> {
+        return await JSON.parse(localStorage.getItem(this.TOKEN_ADDING_KEY)) ?? false;
     }
 
     removeTokenAdding(): void {
