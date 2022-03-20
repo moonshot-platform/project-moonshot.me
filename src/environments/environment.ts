@@ -8,6 +8,9 @@ export const environment = {
   providerTestNetURL: "https://data-seed-prebsc-1-s1.binance.org:8545/",
   providerMainNetURL: "https://bsc-dataseed.binance.org",
   silverAddress: "0x46192Bd44C9066D425375326808109C7d97a2181",
+  buyContractAddress: "0xF683a2eC04A493Fc4e0FD7C3e4178fB9cef7508e",
+  tokenContractAddress: "0xF683a2eC04A493Fc4e0FD7C3e4178fB9cef7508e",
+  claimContractAddress: "0xF683a2eC04A493Fc4e0FD7C3e4178fB9cef7508e",
 };
 
 /*
