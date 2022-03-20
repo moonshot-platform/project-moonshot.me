@@ -30,6 +30,10 @@ const providerTestNetURL = environment.providerTestNetURL;
 const providerChainID = environment.chainId;
 const NETWORK = 'binance';
 
+const buyContractAddress = environment.buyContractAddress;
+const tokenContractAddress = environment.tokenContractAddress;
+const claimContractAddress = environment.claimContractAddress;
+
 //  Create WlletConnect Provider
 const providerOptions = {
   walletconnect: {
@@ -279,10 +283,8 @@ export class WalletService {
 
     const claimContract = new web3.eth.Contract(
       mshotTokenAbi as any,
-      "0xF683a2eC04A493Fc4e0FD7C3e4178fB9cef7508e"
+      claimContractAddress
     );
-
-    const hasTokenImported = await this.localStorageService.getTokenAdding();
 
     try {
       const claimOperation = await claimContract.methods.claim();
@@ -295,10 +297,6 @@ export class WalletService {
         :
         this.toastrService.success('You claimed MSHOT successfully!');
 
-      if (!hasTokenImported) {
-        this.addTokenMSHOTv2ToWalletAsset();
-      }
-
       return tx === undefined ? CLAIM_CASES.FAILED : CLAIM_CASES.CLAIMED;
 
     } catch (error) {
@@ -309,13 +307,12 @@ export class WalletService {
   }
 
   async buyMSHOT(bnbValue: number) {
-    const hasTokenImported = await this.localStorageService.getTokenAdding();
 
     try {
       let web3 = new Web3(await web3Modal.connect());
       const buyContract = new web3.eth.Contract(
         buyMshotTokenAbi as any,
-        "0xF683a2eC04A493Fc4e0FD7C3e4178fB9cef7508e"
+        buyContractAddress
       );
 
       const buyOperation = await buyContract.methods.buyTokenWithBNB();
@@ -329,42 +326,8 @@ export class WalletService {
       // console.log("transaction: ", tx);
       this.toastrService.success('You bought MSHOT successfully!');
 
-      if (!hasTokenImported) {
-        await this.addTokenMSHOTv2ToWalletAsset();
-        // this.toastrService.success('You imported MSHOT token to your wallet successfully!');
-      }
-
     } catch (error) {
       this.toastrService.error('Operation Failed!')
-    }
-  }
-
-  async addTokenMSHOTv2ToWalletAsset() {
-    const tokenAddress = '0xF683a2eC04A493Fc4e0FD7C3e4178fB9cef7508e';
-    const tokenSymbol = 'MSHOT';
-    const tokenDecimals = 18;
-    const tokenImage = 'http://localhost:4200/assets/media/images/logo.png';
-
-    if (typeof window.ethereum !== 'undefined' || (typeof window.web3 !== 'undefined')) {
-      try {
-        // wasAdded is a boolean. Like any RPC method, an error may be thrown.
-        this.windowRef.nativeWindow.ethereum.request({
-          method: 'wallet_watchAsset',
-          params:
-          {
-            type: 'ERC20', // Initially only supports ERC20, but eventually more!
-            options: {
-              address: tokenAddress, // The address that the token is at.
-              symbol: tokenSymbol, // A ticker symbol or shorthand, up to 5 chars.
-              decimals: tokenDecimals, // The number of decimals in the token
-              image: tokenImage // A string url of the token logo
-            }
-          },
-        });
-        this.localStorageService.setTokenAdding(true);
-      } catch (error) {
-        console.log(error);
-      }
     }
   }
 }
