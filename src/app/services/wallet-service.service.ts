@@ -10,6 +10,7 @@ import { LocalStorageService } from './local.storage.service';
 import silverTokenAbi from './../../assets/abis/silver.token.abi.json';
 import mshotTokenAbi from './../../assets/abis/mshot.token.abi.json';
 import buyMshotTokenAbi from './../../assets/abis/buy-moonshot-token.abi.json';
+import claimMshotToken from './../../assets/abis/claim-mshot-token-abi.json';
 import Web3 from 'web3';
 import Web3Modal from "web3modal";
 import { setInterval } from 'timers';
@@ -202,7 +203,7 @@ export class WalletService {
 
     if (network.chainId == environment.chainId) {
       this.silverContract = new ethers.Contract(SilverAddress, silverTokenAbi, this.signer);
-      // this.mshotBalanceContract = new ethers.Contract("0x040236b8dBa062915BD792277141dAA714814551", mshotTokenAbi, this.signer);
+      this.mshotBalanceContract = new ethers.Contract(tokenContractAddress, mshotTokenAbi, this.signer);
       // console.log('Setting contacts');
 
     }
@@ -269,10 +270,6 @@ export class WalletService {
   }
 
   async getUserMSHOTBalance(userAddress: string): Promise<Number> {
-
-    // let web3 = new Web3(await web3Modal.connect());
-    // this.mshotBalanceContract = new web3.eth.Contract(mshotTokenAbi as any, "0xF683a2eC04A493Fc4e0FD7C3e4178fB9cef7508e");
-
     return Number(
       await this.mshotBalanceContract.balanceOf(userAddress)
     );
@@ -282,7 +279,7 @@ export class WalletService {
     let web3 = new Web3(await web3Modal.connect());
 
     const claimContract = new web3.eth.Contract(
-      mshotTokenAbi as any,
+      claimMshotToken as any,
       claimContractAddress
     );
 

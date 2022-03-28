@@ -97,14 +97,14 @@ export class MoonSwapComponent implements OnInit {
   }
 
   async getMoonShotBalances() {
-    const [balance, /* mshotV2Balance */] = await Promise.all(
+    const [balance, mshotV2Balance] = await Promise.all(
       [
         Number(await this.walletConnectService.getUserBalance(this.userData.address)),
-        // Number(await this.walletConnectService.getUserMSHOTBalance(this.userData.address))
+        Number(await this.walletConnectService.getUserMSHOTBalance(this.userData.address))
       ]
     )
 
     this.moonshotBalanceText = this.walletConnectService.convertBalance(balance);
-    /* this.mshotV2BalanceText = this.walletConnectService.convertBalance(mshotV2Balance);*/
+    this.mshotV2BalanceText = this.walletConnectService.convertBalance(mshotV2Balance);
   }
 }
