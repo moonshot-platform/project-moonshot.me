@@ -101,6 +101,7 @@ section.moonswap {
     justify-content: space-between;
     align-items: flex-start;
     width: 100%;
+    row-gap: 20px;
   }
 
   .wallet-address {
@@ -226,6 +227,23 @@ section.moonswap {
 
 .buttons-container {
   max-width: 200px;
+  row-gap: 20px;
+  display: flex;
+  flex-direction: column;
+
+  .add-mshot-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+    height: 51px;
+
+    img {
+      //height: 30px;
+      width: 30px;
+    }
+  }
 }
 
 
@@ -266,10 +284,6 @@ section.moonswap {
   cursor: text !important;
 }
 
-
-
-
-
 .truncate-middle {
   position: relative;
   width: 18vw;
@@ -292,10 +306,6 @@ section.moonswap {
   top: 0;
   white-space: nowrap;
 }
-
-
-
-
 
 @media only screen and (max-width: $md-header) {
 

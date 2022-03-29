@@ -107,4 +107,6 @@ export class MoonSwapComponent implements OnInit {
     this.moonshotBalanceText = this.walletConnectService.convertBalance(balance);
     this.mshotV2BalanceText = this.walletConnectService.convertBalance(mshotV2Balance);
   }
+
+  addMshotToMetaMaskWallet = () => this.walletConnectService.addTokenMshotToMetaMaskWallet();
 }
