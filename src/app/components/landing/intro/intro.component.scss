@@ -133,10 +133,14 @@ section.intro {
 }
 
 .warning-title {
-  height: 110px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  cursor: pointer;
+
+  &:hover {
+    color: $primary;
+  }
 }
 
 .buy-section {
