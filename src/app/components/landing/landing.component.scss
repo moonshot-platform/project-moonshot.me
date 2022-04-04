@@ -57,7 +57,6 @@ app-header {
 app-news {
   background: url("/assets/media/images/illustration_1.webp") no-repeat;
   background-size: auto;
-  background-size: 45%;
   position: relative;
   display: flex;
 }
@@ -72,6 +71,10 @@ app-news {
     .milkyway-bg {
       background: none;
     }
+  }
+
+  app-news {
+    background-size: 45%;
   }
 }
 
