@@ -197,6 +197,7 @@ export class WalletService {
   }
 
   async getAccountAddress() {
+    // this.provider = new ethers.providers.Web3Provider(provider);
     this.signer = this.provider.getSigner();
     const address = await this.signer?.getAddress();
     const network = await this.provider.getNetwork();
