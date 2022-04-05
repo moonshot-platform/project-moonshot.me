@@ -333,7 +333,7 @@ export class WalletService {
   addTokenMshotToMetaMaskWallet() {
     const tokenAddress = tokenContractAddress;
     const tokenSymbol = 'MSHOT';
-    const tokenDecimals = 18;
+    const tokenDecimals = 9;
     const tokenImage = 'https://project-moonshot.me/assets/media/images/logo.png';
 
     if (typeof window.ethereum !== 'undefined' || (typeof window.web3 !== 'undefined')) {
