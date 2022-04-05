@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import Web3 from 'web3';
 import { WalletConnectComponent } from '../../base/wallet-connect/wallet-connect.component';
 import { CLAIM_CASES } from 'src/app/services/wallet-service.service';
+import { id } from 'ethers/lib/utils';
 @Component({
   selector: 'app-moon-swap',
   templateUrl: './moon-swap.component.html',
@@ -45,8 +46,6 @@ export class MoonSwapComponent implements OnInit {
         this.isConnected = true;
         if (this.userData.networkId.chainId == environment.chainId) {
           this.getMoonShotBalances();
-          // console.log('Getting balances');
-
         }
       }
       else {
@@ -78,7 +77,7 @@ export class MoonSwapComponent implements OnInit {
 
     if (!this.isConnected) {
       this.openWalletConnectDialog();
-    } else {
+    } else if (this.moonshotBalanceText != '0' && this.moonshotBalanceText != '-') {
       this.buttonName = await this.walletConnectService.claimMSHOT();
     }
 
@@ -104,7 +103,7 @@ export class MoonSwapComponent implements OnInit {
       ]
     )
 
-    this.moonshotBalanceText = this.walletConnectService.convertBalance(balance);
+    this.moonshotBalanceText = "444"; //this.walletConnectService.convertBalance(balance);
     this.mshotV2BalanceText = this.walletConnectService.convertBalance(mshotV2Balance);
   }
 

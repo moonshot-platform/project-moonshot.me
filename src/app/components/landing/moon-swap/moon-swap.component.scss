@@ -244,6 +244,11 @@ section.moonswap {
       width: 30px;
     }
   }
+
+  .disable {
+    background-color: gray !important;
+    cursor: not-allowed;
+  }
 }
 
 

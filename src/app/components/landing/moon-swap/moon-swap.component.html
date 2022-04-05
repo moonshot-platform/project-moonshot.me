@@ -47,7 +47,9 @@
 
             <div class="buttons-container flex1">
 
-              <a class="button" [ngClass]="{'loading': isInProcess}"
+              <a class="button"
+                [class.disable]="(moonshotBalanceText == '0' || moonshotBalanceText == '-') && isConnected"
+                [ngClass]="{'loading': isInProcess}"
                 (click)="!isInProcess ? claimMSHOT() : null">{{isInProcess ? '' :buttonName}}
                 <img *ngIf="isInProcess" src="assets/media/videos/Loading_yellowBG.gif" class="loader-img">
               </a>
