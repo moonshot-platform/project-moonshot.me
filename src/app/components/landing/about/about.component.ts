@@ -62,4 +62,11 @@ export class AboutComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  scrollToElement(page: string, fragment: string): void {
+    const element = document.querySelector(`#${fragment}`)
+    if (element) {
+      setTimeout(() => element.scrollIntoView({ behavior: 'smooth', block: 'start' }), 500);
+    }
+  }
+
 }
