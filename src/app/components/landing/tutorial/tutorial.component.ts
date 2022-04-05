@@ -19,7 +19,7 @@ export class TutorialComponent implements OnInit {
 
   buttonName = '';
   visibleStep = 1;
-  address = '0xd27d3f7f329d93d897612e413f207a4dbe8bf799';
+  address = '0x5298AD82dD7C83eEaA31DDa9DEB4307664C60534';
 
   steps: any = [
     {
