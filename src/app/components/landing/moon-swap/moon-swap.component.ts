@@ -103,7 +103,7 @@ export class MoonSwapComponent implements OnInit {
       ]
     )
 
-    this.moonshotBalanceText = "444"; //this.walletConnectService.convertBalance(balance);
+    this.moonshotBalanceText = this.walletConnectService.convertBalance(balance);
     this.mshotV2BalanceText = this.walletConnectService.convertBalance(mshotV2Balance);
   }
 
