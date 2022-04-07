@@ -1,12 +1,14 @@
 @import "includes";
 
 section.news {
-  position: relative;
+  // position: relative;
   background-size: 50%;
-  z-index: 2;
+  // z-index: 2;
   padding: 0 20px;
   padding-top: 200px;
   margin-bottom: 350px;
+  display: flex;
+  width: 100%;
 
   .inner {
     @extend %max-width-center;
@@ -20,6 +22,7 @@ section.news {
   .left {
     float: left;
     width: fit-content;
+
     .futuristic-container {
       height: 136px;
     }
@@ -37,7 +40,7 @@ section.news {
     .inner {
       @extend %max-width-center;
 
-      > .round-large-button {
+      >.round-large-button {
         width: 20%;
         height: auto;
         border-radius: 50%;
@@ -75,6 +78,7 @@ section.news {
     .top {
       order: 2;
       padding-bottom: 30px;
+
       .inner {
         flex-wrap: wrap;
         justify-content: flex-start;
@@ -97,7 +101,7 @@ section.news {
       border-bottom: 0;
       border-top: 3px solid $primary;
 
-      > .futuristic-container {
+      >.futuristic-container {
         border-bottom: 0;
       }
     }

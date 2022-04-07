@@ -10,6 +10,7 @@ import { MoonticketPromoComponent } from './components/moonticket-promo/moontick
 import { NightSkyComponent } from './components/night-sky/night-sky.component';
 import { RabbitsMoonticketComponent } from './components/rabbits-moonticket/rabbits-moonticket.component';
 import { TutorialComponent } from './components/landing/tutorial/tutorial.component';
+import { MoonSwapComponent } from './components/landing/moon-swap/moon-swap.component';
 
 const routes: Routes = [
   {
@@ -52,6 +53,11 @@ const routes: Routes = [
     path: TutorialComponent.anchorName,
     component: LandingComponent,
     data: { anchor: TutorialComponent.anchorName }
+  },
+  {
+    path: MoonSwapComponent.anchorName,
+    component: LandingComponent,
+    data: { anchor: MoonSwapComponent.anchorName }
   },
   { path: '**', redirectTo: LandingComponent.routeName }
 ];

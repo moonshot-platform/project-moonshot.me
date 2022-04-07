@@ -1,49 +1,49 @@
 <section class="tokenomics">
-    <img class="close" (click)="toggleTokenomics()" src="assets/media/icons/close.svg" alt="close">
-    
-    <div class="inner balloon">
-        <p class="p30 w900 white my-3">Tokenomics</p>
-        <div class="block">
-            <p class="p17 mb10">
-                Staking: For every transaction, 4% is distributed to holders.
-            </p>
-            <p class="p17 mb10">
-                Liquidity: For every transaction, 6% is auto-added to PancakeSwap v1 liquidity pool.
-            </p>
-            <div class="pancake-switch-container flex align-center">
-                <p class="p17">Pancakeswap:</p>
-                <div class="flex-space-between align-center">
+  <img class="close" (click)="toggleTokenomics()" src="assets/media/icons/close.svg" alt="close">
+
+  <div class="inner balloon">
+    <p class="p30 w900 white my-3">Tokenomics</p>
+    <div class="block">
+      <p class="p17 mb10">
+        Staking: For every transaction, 4% is distributed to holders.
+      </p>
+      <p class="p17 mb10">
+        Liquidity: For every transaction, 6% is auto-added to PancakeSwap v1 liquidity pool.
+      </p>
+      <div class="pancake-switch-container flex align-center">
+        <p class="p17">Pancakeswap V2:</p>
+        <!-- <div class="flex-space-between align-center">
                     <p class="p17">V1</p>
                     <ui-switch defaultBgColor="transparent" (click)="doChangePancakeRouter()" [checked]="!isOldPancakeRouter"></ui-switch>
                     <p class="p17">V2</p>
-                </div>
-            </div>
-        </div>
-        <div class="deeper flex-space-between">
-            <div class="left">
-                <ul>
-                    <li *ngFor="let item of list[0]">
-                        <div>
-                            <p class="white p12 uppercase mb-3">{{item.key}}</p>
-                            <p class="w700 white p18 text-right">{{item.val}}
-                            </p>
-                            <p class="w300 p12 text-right invisible-md">{{item.shortVal}}</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div class="right">
-                <ul>
-                    <li *ngFor="let item of list[1]">
-                        <div>
-                            <p class="white p12 uppercase">{{item.key}}</p>
-                            <p class="w700 white p18 text-right">{{item.val}}
-                            </p>
-                            <p class="w300 p12 text-right invisible-md">{{item.shortVal}}</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
+                </div> -->
+      </div>
     </div>
+    <div class="deeper flex-space-between">
+      <div class="left">
+        <ul>
+          <li *ngFor="let item of list[0]">
+            <div>
+              <p class="white p12 uppercase mb-3">{{item.key}}</p>
+              <p class="w700 white p18 text-right">{{item.val}}
+              </p>
+              <p class="w300 p12 text-right invisible-md">{{item.shortVal}}</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="right">
+        <ul>
+          <li *ngFor="let item of list[1]">
+            <div>
+              <p class="white p12 uppercase">{{item.key}}</p>
+              <p class="w700 white p18 text-right">{{item.val}}
+              </p>
+              <p class="w300 p12 text-right invisible-md">{{item.shortVal}}</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </section>

@@ -1,70 +1,109 @@
 <section class="tutorial">
-    <div class="inner">
-        <div class="header text-center mb50">
-            <div class="title color-primary mb20">7 EASY STEPS</div>
-            <div class="sub-title color-white p30d24m orbitron">How to buy Moonshot!</div>
-        </div>
-        <div class="quick-buy-container flex-center mv70">
-            <p class="color-primary mr30 p18 bold">Quickest way to buy:</p>
-            <ul class="flex">
-                <li><a href="https://pancakeswap.finance/swap?inputCurrency=BNB&outputCurrency=0xd27D3F7f329D93d897612E413F207A4dbe8bF799" target="_blank" class="outlined-button mr30">Pancakeswap</a></li>
-            </ul>
-        </div>
-        <div class="address-container flex-center mv70">
-            <p class="color-primary mr30 p18 bold">Token address:</p>
-            <ul class="flex">
-                <li class="flex" [cdkCopyToClipboard]=address>
-                    <p class="clipboard break-chars color-primary">0xd27d3f7f329d93d897612e413f207a4dbe8bf799</p>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115.8 128.8" class="copy-icon">
-                        <path
-                          d="M89.6 14v13.6h12.2c3.8 0 7.3 1.6 9.9 4.1 2.5 2.5 4.1 6 4.1 9.8v73.3c0 3.8-1.6 7.3-4.1 9.9-2.5 2.5-6 4.1-9.8 4.1H40.1c-3.8 0-7.3-1.6-9.9-4.1-2.5-2.5-4.1-6-4.1-9.8V98.4H14c-3.8 0-7.3-1.6-9.9-4.1-2.5-2.5-4.1-6-4.1-9.8V14c0-3.8 1.6-7.3 4.1-9.9 2.5-2.5 6-4.1 9.8-4.1h61.7c3.8 0 7.3 1.6 9.9 4.1 2.5 2.5 4.1 6 4.1 9.9zM79 27.6V14c0-.9-.4-1.8-1-2.4-.6-.6-1.5-1-2.4-1H14c-.9 0-1.8.4-2.4 1-.6.6-1 1.5-1 2.4v70.5c0 .9.4 1.8 1 2.4.6.6 1.5 1 2.4 1h12.2V41.5c0-3.8 1.6-7.3 4.1-9.9 2.5-2.5 6-4.1 9.8-4.1l38.9.1zm26.2 87.2V41.5c0-.9-.4-1.8-1-2.4-.6-.6-1.5-1-2.4-1H40.1c-.9 0-1.8.4-2.4 1-.6.6-1 1.5-1 2.4v73.3c0 .9.4 1.8 1 2.4.6.6 1.5 1 2.4 1h61.7c.9 0 1.8-.4 2.4-1 .6-.6 1-1.5 1-2.4z"
-                          fill-rule="evenodd" clip-rule="evenodd" fill="#d5a642" />
-                    </svg>
-                </li>
-            </ul>
-        </div>
-        <ul class="how-to-buy-flow">
-            <li *ngFor="let step of steps; let i = index" (click)="visibleStep == i ? visibleStep = -1 : visibleStep = i">
-                <ng-container *ngIf="i == 0 || i == steps.length - 1; then link else chain"></ng-container>
-
-                <!-- link = start & end -->
-                <ng-template #link>
-                    <p>{{step.indicator}}</p>
-                </ng-template>
-
-                <!-- chain -->
-                <ng-template #chain id="chain">
-                    <div class="left">
-                        <div class="step">
-                            <p>{{ i }}</p>
-                        </div>
-                        <div class="title p24d18m">
-                            <p>{{ step.title }}</p>
-                        </div>
-                    </div>
-                    <div class="indicator">
-                        <div class="line"></div>
-                        <div class="point">
-                            <div class="line"></div>
-                            <div class="dot"></div>
-                            <div class="line"></div>
-                        </div>
-                        <div class="line"></div>
-                    </div>
-                    <div class="right">
-                        <p class="description p16d14m" [class.visible]="visibleStep === i">{{ step.description }}<span>{{ step.span }}</span></p>
-                    </div>
-                </ng-template>
-            </li>
-        </ul>
-        <div class="buttons-container flex-center mt70">
-            <p class="color-primary mr30 p18 bold">Also traded on:</p>
-            <ul class="flex">
-                <li><a href="https://www.bitmart.com/trade/en?symbol=MOONSHOT_USDT" target="_blank" class="outlined-button mr30">BitMart</a></li>
-                <li><a href="https://p2pb2b.io/trade/MNSHT_USDP/" target="_blank" class="outlined-button mr30">P2PB2B</a></li>
-                <li><a href="https://www.hotbit.io/exchange?symbol=MOONSHOT_nUSD" target="_blank" class="outlined-button mr30">HotBit</a></li>
-                <li><a href="https://latoken.com/exchange/MOONSHOT_USDT" target="_blank" class="outlined-button">Latoken</a></li>
-            </ul>
-        </div>
+  <div class="inner">
+    <div class="header text-center mb50">
+      <div class="title color-primary mb20">7 EASY STEPS</div>
+      <div class="sub-title color-white p30d24m orbitron">How to buy Moonshot?</div>
     </div>
+    <div class="quick-buy-container flex-center mv70">
+      <p class="color-primary mr30 p18 bold">Main trading platform:</p>
+      <ul class="flex">
+        <li><a
+            href="https://pancakeswap.finance/swap?inputCurrency=BNB&outputCurrency=0x5298AD82dD7C83eEaA31DDa9DEB4307664C60534"
+            target="_blank" class="outlined-button mr30">Pancakeswap</a></li>
+      </ul>
+    </div>
+    <div class="buy-at-market-price centered-row">
+
+      <p>Buy at Market Price:</p>
+
+      <div class="buy-section centered-row">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2500.01 2500">
+          <defs>
+            <style>
+              .cls-1 {
+                fill: #f3ba2f;
+              }
+
+            </style>
+          </defs>
+          <title>bi</title>
+          <g id="Layer_2" data-name="Layer 2">
+            <g id="Layer_1-2" data-name="Layer 1">
+              <path class="cls-1"
+                d="M764.48,1050.52,1250,565l485.75,485.73,282.5-282.5L1250,0,482,768l282.49,282.5M0,1250,282.51,967.45,565,1249.94,282.49,1532.45Zm764.48,199.51L1250,1935l485.74-485.72,282.65,282.35-.14.15L1250,2500,482,1732l-.4-.4,282.91-282.12M1935,1250.12l282.51-282.51L2500,1250.1,2217.5,1532.61Z" />
+              <path class="cls-1"
+                d="M1536.52,1249.85h.12L1250,963.19,1038.13,1175h0l-24.34,24.35-50.2,50.21-.4.39.4.41L1250,1536.81l286.66-286.66.14-.16-.26-.14" />
+            </g>
+          </g>
+        </svg>
+        <p>BNB:</p>
+        <input type="number" name="buy" id="buy" [(ngModel)]="bnbCountFromInput">
+        <a [ngClass]="{'loading': isInProcess}" (click)="!isInProcess ? buyMSHOTWithBNB() : null" class="button">
+          {{isInProcess ? '' :buttonName}}
+          <img *ngIf="isInProcess" src="assets/media/videos/Loading_yellowBG.gif" class="loader-img">
+        </a>
+      </div>
+
+    </div>
+    <div class="address-container flex-center mv70">
+      <p class="color-primary mr30 p18 bold">Token address:</p>
+      <ul class="flex">
+        <li class="flex" [cdkCopyToClipboard]=address>
+          <p class="clipboard break-chars color-primary">0x5298AD82dD7C83eEaA31DDa9DEB4307664C60534</p>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115.8 128.8" class="copy-icon">
+            <path
+              d="M89.6 14v13.6h12.2c3.8 0 7.3 1.6 9.9 4.1 2.5 2.5 4.1 6 4.1 9.8v73.3c0 3.8-1.6 7.3-4.1 9.9-2.5 2.5-6 4.1-9.8 4.1H40.1c-3.8 0-7.3-1.6-9.9-4.1-2.5-2.5-4.1-6-4.1-9.8V98.4H14c-3.8 0-7.3-1.6-9.9-4.1-2.5-2.5-4.1-6-4.1-9.8V14c0-3.8 1.6-7.3 4.1-9.9 2.5-2.5 6-4.1 9.8-4.1h61.7c3.8 0 7.3 1.6 9.9 4.1 2.5 2.5 4.1 6 4.1 9.9zM79 27.6V14c0-.9-.4-1.8-1-2.4-.6-.6-1.5-1-2.4-1H14c-.9 0-1.8.4-2.4 1-.6.6-1 1.5-1 2.4v70.5c0 .9.4 1.8 1 2.4.6.6 1.5 1 2.4 1h12.2V41.5c0-3.8 1.6-7.3 4.1-9.9 2.5-2.5 6-4.1 9.8-4.1l38.9.1zm26.2 87.2V41.5c0-.9-.4-1.8-1-2.4-.6-.6-1.5-1-2.4-1H40.1c-.9 0-1.8.4-2.4 1-.6.6-1 1.5-1 2.4v73.3c0 .9.4 1.8 1 2.4.6.6 1.5 1 2.4 1h61.7c.9 0 1.8-.4 2.4-1 .6-.6 1-1.5 1-2.4z"
+              fill-rule="evenodd" clip-rule="evenodd" fill="#d5a642" />
+          </svg>
+        </li>
+      </ul>
+    </div>
+    <ul class="how-to-buy-flow">
+      <li *ngFor="let step of steps; let i = index" (click)="visibleStep == i ? visibleStep = -1 : visibleStep = i">
+        <ng-container *ngIf="i == 0 || i == steps.length - 1; then link else chain"></ng-container>
+
+        <!-- link = start & end -->
+        <ng-template #link>
+          <p>{{step.indicator}}</p>
+        </ng-template>
+
+        <!-- chain -->
+        <ng-template #chain id="chain">
+          <div class="left">
+            <div class="step">
+              <p>{{ i }}</p>
+            </div>
+            <div class="title p24d18m">
+              <p>{{ step.title }}</p>
+            </div>
+          </div>
+          <div class="indicator">
+            <div class="line"></div>
+            <div class="point">
+              <div class="line"></div>
+              <div class="dot"></div>
+              <div class="line"></div>
+            </div>
+            <div class="line"></div>
+          </div>
+          <div class="right">
+            <p class="description p16d14m" [class.visible]="visibleStep === i">
+              {{ step.description }}<span>{{ step.span }}</span></p>
+          </div>
+        </ng-template>
+      </li>
+    </ul>
+    <div class="buttons-container flex-center mt70">
+      <p class="color-primary mr30 p18 bold">Also traded on:</p>
+      <ul class="flex">
+        <li><a href="https://www.bitmart.com/trade/en?symbol=MOONSHOT_USDT" target="_blank"
+            class="outlined-button mr30">BitMart</a></li>
+        <li><a href="https://p2pb2b.io/trade/MNSHT_USDP/" target="_blank" class="outlined-button mr30">P2PB2B</a></li>
+        <li><a href="https://www.hotbit.io/exchange?symbol=MOONSHOT_nUSD" target="_blank"
+            class="outlined-button mr30">HotBit</a></li>
+        <li><a href="https://latoken.com/exchange/MOONSHOT_USDT" target="_blank" class="outlined-button">Latoken</a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </section>
