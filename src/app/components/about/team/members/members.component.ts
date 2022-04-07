@@ -53,17 +53,11 @@ export class MembersComponent implements OnInit {
       about: 'Running MoonSquad merchandise.'
     },
     {
-      name: 'CryptoSeas',
-      image: 'assets/media/images/members/cryptoseas.webp',
-      title: 'Moderator/Contributor',
-      about: 'The voice of Moonshot.<br>Legacy Mod since day 1.',
-      social: [
-        {
-          link: 'https://twitter.com/TheVoiceOfCryp1',
-          icon: 'assets/media/icons/social/twitter-yellow-round-icon.svg',
-          alt: 'twitter-icon'
-        }
-      ]
+      name: 'Furkan',
+      image: 'assets/media/images/members/furkan.webp',
+      title: 'Frontend Developer',
+      about: 'A person who likes to produce something and learn quickly.'
+
     },
     {
       name: 'CryptoKam',
@@ -95,19 +89,19 @@ export class MembersComponent implements OnInit {
 
 
   otherMembers: any = [
-    {
-      name: 'Light',
-      image: 'assets/media/images/members/light.webp',
-      title: 'Fullstack Developer',
-      about: 'Panda on steroids with over 16 years experience in developing modern apps & Pro Google & Bio hacker.'
 
-    },
     {
-      name: 'Furkan',
-      image: 'assets/media/images/members/furkan.webp',
-      title: 'Mobile Developer',
-      about: 'A person who likes to produce something and learn quickly.'
-
+      name: 'CryptoSeas',
+      image: 'assets/media/images/members/cryptoseas.webp',
+      title: 'Moderator/Contributor',
+      about: 'The voice of Moonshot.<br>Legacy Mod since day 1.',
+      social: [
+        {
+          link: 'https://twitter.com/TheVoiceOfCryp1',
+          icon: 'assets/media/icons/social/twitter-yellow-round-icon.svg',
+          alt: 'twitter-icon'
+        }
+      ]
     },
     {
       name: 'Moon Squad',
