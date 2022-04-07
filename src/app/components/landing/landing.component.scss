@@ -1,68 +1,88 @@
 @import "includes";
+
 section.landing {
-    z-index: 2;
+  z-index: 2;
+  position: relative;
+
+  .rocket-bg,
+  .moon-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+
+  .moon-bg {
+    background: url("/assets/media/images/moon-shadow.webp") top right no-repeat;
+    background-size: 59%;
+  }
+
+  .rocket-bg {
+    background: url("/assets/media/images/illustration_1.webp") 0 90vh no-repeat;
+    background-size: 46%;
+  }
+
+  .milkyway-bg>img {
+    height: 100%;
+    width: 100%;
+  }
+
+  .galaxy2-bg>img {
+    height: 100%;
+    width: 70%;
+    transform: translate(35%, -120%);
+  }
+
+  .galaxy3-bg>img {
+    height: 50%;
+    width: 50%;
+    transform: translate(80%, -60%);
+  }
+
+  >.inner {
     position: relative;
-    .rocket-bg,
-    .moon-bg {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        z-index: -1;
-    }
-    .moon-bg {
-        background: url("/assets/media/images/moon-shadow.webp") top right no-repeat;
-        background-size: 59%;
-    }
-    .rocket-bg {
-        background: url("/assets/media/images/illustration_1.webp") 0 90vh no-repeat;
-        background-size: 46%;
-    }
-    .milkyway-bg>img {
-        height: 100%;
-        width: 100%;
-    }
-    .galaxy2-bg>img {
-        height: 100%;
-        width: 70%;
-        transform: translate(35%, -120%);
-    }
-    .galaxy3-bg>img {
-        height: 50%;
-        width: 50%;
-        transform: translate(80%, -60%);
-    }
-    >.inner {
-        position: relative;
-        width: calc(100% - 64px);
-    }
+    width: calc(100% - 64px);
+  }
 }
 
 app-header {
-    display: block;
-    width: calc(100% - 64px);
+  display: block;
+  width: calc(100% - 64px);
+}
+
+app-news {
+  background: url("/assets/media/images/illustration_1.webp") no-repeat;
+  background-size: auto;
+  position: relative;
+  display: flex;
 }
 
 @media only screen and (max-width: $md) {
-    section.landing {
-        >.inner {
-            width: 100%;
-        }
-        .rocket-bg,
-        .milkyway-bg {
-            background: none;
-        }
+  section.landing {
+    >.inner {
+      width: 100%;
     }
+
+    .rocket-bg,
+    .milkyway-bg {
+      background: none;
+    }
+  }
+
+  app-news {
+    background-size: 45%;
+  }
 }
 
 @media only screen and (max-width: $sm) {
-    section.landing {
-        .moon-bg {
-            background-position-x: left;
-            background-size: 130%;
-        }
+  section.landing {
+    .moon-bg {
+      background-position-x: left;
+      background-size: 130%;
     }
+  }
 }

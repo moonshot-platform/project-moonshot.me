@@ -7,7 +7,7 @@ section.tutorial {
   position: relative;
   z-index: 2;
 
-  > .inner {
+  >.inner {
     @extend %max-width-center;
   }
 }
@@ -17,7 +17,7 @@ section.tutorial {
   box-sizing: border-box;
   padding: 0;
 
-  > p {
+  >p {
     padding: 10px 20px;
 
     box-sizing: border-box;
@@ -25,21 +25,21 @@ section.tutorial {
   }
 
   &:hover {
-    > p {
+    >p {
       color: white;
     }
 
-    .copy-icon > path {
+    .copy-icon>path {
       fill: white;
     }
   }
 
   &:active {
-    > p {
+    >p {
       color: $primary;
     }
 
-    .copy-icon > path {
+    .copy-icon>path {
       fill: $primary;
     }
   }
@@ -67,7 +67,7 @@ section.tutorial {
     }
 
     &:hover:not(:first-child, :last-child) {
-      .indicator > .point {
+      .indicator>.point {
         .line:first-child {
           height: 3px;
         }
@@ -92,7 +92,7 @@ section.tutorial {
       align-items: center;
       text-align: center;
 
-      > p {
+      >p {
         font-size: 14px;
       }
     }
@@ -103,7 +103,7 @@ section.tutorial {
       align-items: center;
       justify-content: flex-start;
 
-      > .step {
+      >.step {
         width: 70px;
         min-width: 70px;
         height: 70px;
@@ -115,7 +115,7 @@ section.tutorial {
         text-align: center;
         margin-right: 30px;
 
-        > p {
+        >p {
           font-size: 32px;
         }
       }
@@ -128,17 +128,17 @@ section.tutorial {
       align-items: center;
       flex-direction: column;
 
-      > .line {
+      >.line {
         width: 2px;
         height: 100%;
         background-color: $primary;
       }
 
-      > .point {
+      >.point {
         display: flex;
         align-items: center;
 
-        > .line {
+        >.line {
           width: 70px;
           height: 1px;
           background-color: $primary;
@@ -159,11 +159,77 @@ section.tutorial {
       align-items: center;
       justify-content: flex-start;
 
-      > .description {
+      >.description {
         line-height: 30px;
       }
     }
   }
+}
+
+.buy-at-market-price {
+  p {
+    font-weight: 700 !important;
+    font-size: 18px;
+  }
+
+  .buy-section {
+    margin-left: 30px;
+    border-radius: 27px;
+    border: 1px solid $primary;
+    padding-left: 20px;
+
+    svg {
+      height: 20px;
+    }
+
+    p {
+      margin-left: 10px;
+    }
+
+    input {
+      background-color: transparent;
+      border-color: transparent;
+      border-bottom-color: transparent;
+      border-bottom: 1px solid $primary;
+      max-width: 50px;
+      margin: 0px 10px;
+      color: $primary;
+      text-align: end;
+      font-size: 16px;
+    }
+  }
+}
+
+.centered-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.loader-img {
+  width: 35px;
+}
+
+.loading {
+  padding: 5.5px 0 !important;
+
+  &:hover {
+    background-color: $primary !important;
+  }
+
+  cursor: text !important;
 }
 
 @media only screen and (max-width: $sm) {
@@ -175,6 +241,15 @@ section.tutorial {
 @media only screen and (max-width: $md) {
   section.tutorial {
     padding-top: 100px;
+  }
+
+  .buy-at-market-price {
+    flex-direction: column !important;
+
+    .buy-section {
+      margin-left: 0px;
+      margin-top: 20px;
+    }
   }
 
   .buttons-container,
@@ -198,6 +273,7 @@ section.tutorial {
   .address-container {
     li {
       padding: 20px 0;
+
       p {
         text-align: center;
       }
@@ -234,7 +310,7 @@ section.tutorial {
         }
       }
 
-      .right > .description {
+      .right>.description {
         margin-top: 20px;
         padding-left: 82px;
         display: none;

@@ -2,6 +2,8 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { TokenomicsService } from 'src/app/services/tokenomics.service';
 import { MoonbaseService } from 'src/app/services/moonbase.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { WalletConnectComponent } from '../wallet-connect/wallet-connect.component';
 
 @Component({
   selector: 'app-sidebar',
@@ -16,14 +18,15 @@ export class SidebarComponent implements OnInit {
   constructor(
     private tokenomicsService: TokenomicsService,
     private moonbaseService: MoonbaseService,
-    private router:Router) {
-      if(router.url !== '/') {
-        this.moonbaseActive = false;
-      }
+    public dialog: MatDialog,
+    private router: Router,
+  ) {
+    if (router.url !== '/') {
+      this.moonbaseActive = false;
     }
+  }
 
   ngOnInit(): void {
-
     this.tokenomicsService.whenToggled().subscribe((state: boolean) => {
       this.toggleTokenomicsView(state);
     });
@@ -68,4 +71,12 @@ export class SidebarComponent implements OnInit {
     }
   }
 
+  connectWallet() {
+    let dialogRef = this.dialog.open(WalletConnectComponent, {
+      width: 'auto',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+    });
+  }
 }
