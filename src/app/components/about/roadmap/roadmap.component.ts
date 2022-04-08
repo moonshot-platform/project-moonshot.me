@@ -151,12 +151,12 @@ export class RoadmapComponent implements OnInit {
             description: 'MoonArcade - Arcade style games',
             icon: Icon.UPCOMING
         },
-        {
-            title: 'Q1 2022',
-            span: '',
-            description: 'MoonLottery - Lottery Pools',
-            icon: Icon.UPCOMING
-        },
+        // {
+        //     title: 'Q1 2022',
+        //     span: '',
+        //     description: 'MoonLottery - Lottery Pools',
+        //     icon: Icon.UPCOMING
+        // },
     ]
 
     @ViewChild(CarouselComponent, { static: true }) carouselRef?: CarouselComponent;
