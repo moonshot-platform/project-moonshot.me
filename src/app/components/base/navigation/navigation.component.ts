@@ -23,10 +23,10 @@ export class NavigationComponent implements OnInit {
       'path': '',
       'fragment': 'how-to-buy'
     },
-    {
-      'name': 'MoonPaper',
-      'externalPath': '/assets/files/moonpaper.pdf'
-    },
+    // {
+    //   'name': 'MoonPaper',
+    //   'externalPath': '/assets/files/moonpaper.pdf'
+    // },
     {
       'name': 'Community',
       'path': '/community',
