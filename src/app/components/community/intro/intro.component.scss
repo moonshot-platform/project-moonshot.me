@@ -6,6 +6,9 @@ section.intro {
   min-height: 100vh;
   position: relative;
   background: url("/assets/media/images/moon-community.webp") top no-repeat;
+  background-position: center center;
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
 
   .inner {
     @extend %max-width-center;
@@ -51,7 +54,7 @@ section.intro {
   .bottom {
     border-top: 1px solid $primary;
 
-    div:first-child > p {
+    div:first-child>p {
       line-height: 30px;
     }
   }
@@ -62,7 +65,7 @@ section.intro {
     padding-top: 200px;
     background-size: 190%;
 
-    > .inner {
+    >.inner {
       display: flex;
       flex-direction: column;
       margin-bottom: 0;
@@ -74,7 +77,7 @@ section.intro {
   }
 
   .info {
-    .top > p {
+    .top>p {
       font-size: 27px;
     }
 
@@ -88,5 +91,4 @@ section.intro {
   }
 }
 
-@media only screen and (max-width: $sm) {
-}
+@media only screen and (max-width: $sm) {}
