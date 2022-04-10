@@ -26,7 +26,7 @@ export class MoontvComponent implements OnInit {
       thumb: ""
     },
     {
-      src: this.transform("https://www.youtube.com/embed/KzSIDJf3Dgs"),
+      src: this.transform("https://youtu.be/embed/F9mD_QNwx4o"),
       thumb: ""
     },
     {

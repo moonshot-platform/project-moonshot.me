@@ -13,7 +13,7 @@ export class MembersComponent implements OnInit {
       name: 'c0ntrol zer0',
       image: 'assets/media/images/members/c0ntrolzer0.webp',
       title: 'Main Developer',
-      about: 'Software Engineer, SCRUM master and guardian of the keys.'
+      about: 'Software Engineer and guardian of the keys.'
     },
     {
       name: 'luisqsm',
