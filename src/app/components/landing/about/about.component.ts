@@ -53,7 +53,7 @@ export class AboutComponent implements OnInit {
       fillColor: "#D5A642",
       focusColor: "#FFFFFF",
       hovered: false,
-      text: "NFTs, Gamification and Lottery"
+      text: "NFTs and Gamification"
     },
   ]
 

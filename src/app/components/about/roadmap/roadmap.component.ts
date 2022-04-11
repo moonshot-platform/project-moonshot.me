@@ -140,21 +140,33 @@ export class RoadmapComponent implements OnInit {
             icon: Icon.ACCOMPLISHED
         },
         {
-            title: 'Q1 2022',
+            title: 'Q1 2021',
+            span: ' - done',
+            description: 'Moonshot V2 smart contract',
+            icon: Icon.ACCOMPLISHED
+        },
+        {
+            title: 'Q1 2021',
+            span: ' - done',
+            description: 'Moonshot V2 audited by Solidity Finance',
+            icon: Icon.ACCOMPLISHED
+        },
+        {
+            title: 'Q1 2021',
+            span: ' - ongoing',
+            description: 'Moonshot V2 migration',
+            icon: Icon.ONGOING
+        },
+        {
+            title: 'Q2 2022',
             span: '',
             description: 'MoonSea launch - NFT marketplace',
             icon: Icon.UPCOMING
         },
         {
-            title: 'Q1 2022',
+            title: 'Q4 2022',
             span: '',
             description: 'MoonArcade - Arcade style games',
-            icon: Icon.UPCOMING
-        },
-        {
-            title: 'Q1 2022',
-            span: '',
-            description: 'MoonLottery - Lottery Pools',
             icon: Icon.UPCOMING
         },
     ]
