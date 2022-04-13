@@ -27,7 +27,6 @@ export class IntroComponent implements OnInit, OnDestroy {
   isInProcess: boolean = false;
   hasClaimed: boolean; //! Do not forget here set to uninitilized
   isClaiming: boolean = false;
-  hasClaimStarted: boolean = false;
 
   moonshotBalance: string = '-'; //! Do not forget here set to '-'
   mshotV2Balance: string = '-';
@@ -94,8 +93,10 @@ export class IntroComponent implements OnInit, OnDestroy {
       this.updateButtonName();
       if (state) {
         this.hasClaimed = await this.walletConnectService.hasClaimed();
-
-        console.log("hasClaimed : " + this.hasClaimed);
+        if (this.hasClaimed)
+          this.isClaiming = true;
+      } else {
+        this.walletConnectService.updateIsClaiming(false);
       }
     });
 
@@ -113,9 +114,9 @@ export class IntroComponent implements OnInit, OnDestroy {
       this.updateButtonName();
     });
 
-    this.walletConnectService.getIsClaiming().subscribe((state: boolean) => {
-      this.isClaiming = state;
-    });
+    // this.walletConnectService.getIsClaiming().subscribe((state: boolean) => {
+    //   this.isClaiming = state;
+    // });
 
   }
 
@@ -132,8 +133,6 @@ export class IntroComponent implements OnInit, OnDestroy {
       WalletConnectComponent,
       { width: 'auto' }
     );
-
-    dialogRef.afterClosed().subscribe(result => { });
   }
 
   async connectWalletAndRevealClaimSection() {
@@ -142,14 +141,26 @@ export class IntroComponent implements OnInit, OnDestroy {
       this.isInProcess = true;
       this.openWalletConnectionDialog();
       this.isInProcess = false;
+    } else {
+      this.isClaiming = true;
+      this.revealMoonSwapSection()
     }
 
-    if (!this.hasClaimed && !(this.moonshotBalance == '0' || this.moonshotBalance == '-')) {
+    this.walletConnectService.onWalletStateChanged().subscribe((state: boolean) => {
+      if (state) {
+        this.isClaiming = true;
+        this.revealMoonSwapSection()
+      }
+    });
+
+  }
+
+  revealMoonSwapSection() {
+    if (this.isConnected && !this.hasClaimed && (this.moonshotBalance != '0' && this.moonshotBalance != '-')) {
       this.walletConnectService.updateIsClaiming(true);
+      this.isClaiming = true;
       this.scrollToElement('', 'moonswap');
     }
-
-    this.isClaiming = true;
   }
 
   scrollToElement(page: string, fragment: string): void {
