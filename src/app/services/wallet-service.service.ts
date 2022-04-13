@@ -291,7 +291,12 @@ export class WalletService {
   }
 
   async hasClaimed(): Promise<boolean> {
-    return await this.hasClaimedContract.hasClaimed() as boolean;
+    let result = await this.hasClaimedContract.hasClaimed();
+    console.log("Current Address ->" + this.account);
+
+    console.log("HAS CLAIMED RESULT -> " + result + " type ->" + typeof result);
+
+    return result;
   }
 
   async claimMSHOT(): Promise<any> {
