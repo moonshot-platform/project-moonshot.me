@@ -25,7 +25,7 @@ export class IntroComponent implements OnInit, OnDestroy {
 
   isConnected: boolean = false;
   isInProcess: boolean = false;
-  hasClaimed: boolean = true;
+  hasClaimed: boolean;
   isClaiming: boolean = false;
 
   moonshotBalanceText: string = '-';
@@ -162,7 +162,7 @@ export class IntroComponent implements OnInit, OnDestroy {
       this.openWalletConnectionDialog();
       this.isInProcess = false;
     }
-    if (!this.hasClaimed) {
+    if (!this.hasClaimed ?? false) {
       this.walletConnectService.updateIsClaiming(true);
       this.isClaiming = true;
       this.scrollToElement('', 'moonswap');
