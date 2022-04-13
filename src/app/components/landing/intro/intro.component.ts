@@ -25,11 +25,12 @@ export class IntroComponent implements OnInit, OnDestroy {
 
   isConnected: boolean = false;
   isInProcess: boolean = false;
-  hasClaimed: boolean;
+  hasClaimed: boolean; //! Do not forget here set to uninitilized
   isClaiming: boolean = false;
+  hasClaimStarted: boolean = false;
 
-  moonshotBalanceText: string = '-';
-  mshotV2BalanceText: string = '-';
+  moonshotBalance: string = '-'; //! Do not forget here set to '-'
+  mshotV2Balance: string = '-';
 
   buttonName = '';
 
@@ -91,16 +92,11 @@ export class IntroComponent implements OnInit, OnDestroy {
     this.walletConnectService.onWalletStateChanged().subscribe(async (state: boolean) => {
       this.isConnected = state;
       this.updateButtonName();
+      if (state) {
+        this.hasClaimed = await this.walletConnectService.hasClaimed();
 
-      this.walletConnectService.hasClaimed().then((value: boolean) => {
-        this.hasClaimed = value ?? false;
-
-        console.log("claimed : " + this.hasClaimed);
-      });
-      // console.log('ON WALLET STATE CHANGED: ' + this.isConnected);
-      // if (this.isConnected) {
-      //   console.log("Answer : ", await this.walletConnectService.hasClaimed());
-      // }
+        console.log("hasClaimed : " + this.hasClaimed);
+      }
     });
 
     this.walletConnectService.getData().subscribe((data: any) => {
@@ -112,7 +108,6 @@ export class IntroComponent implements OnInit, OnDestroy {
         if (this.userData.networkId.chainId == environment.chainId) {
           this.getMoonShotBalances();
         }
-        // console.log('ON GET DATA: ' + this.isConnected);
       }
 
       this.updateButtonName();
@@ -141,40 +136,26 @@ export class IntroComponent implements OnInit, OnDestroy {
     dialogRef.afterClosed().subscribe(result => { });
   }
 
-  async buyMSHOTWithBNB() {
-    if (this.isConnected) {
-      this.isInProcess = true;
-
-      await this.walletConnectService.buyMSHOT(
-        Number(this.bnbCountFromInput) <= 0 ? 0.001 : Number(this.bnbCountFromInput)
-      );
-
-      this.isInProcess = false;
-    } else {
-      this.openWalletConnectionDialog();
-    }
-  }
-
-
   async connectWalletAndRevealClaimSection() {
+
     if (!this.isConnected) {
       this.isInProcess = true;
       this.openWalletConnectionDialog();
       this.isInProcess = false;
     }
-    if (!this.hasClaimed ?? false) {
+
+    if (!this.hasClaimed && !(this.moonshotBalance == '0' || this.moonshotBalance == '-')) {
       this.walletConnectService.updateIsClaiming(true);
-      this.isClaiming = true;
       this.scrollToElement('', 'moonswap');
     }
-    console.log('hasClaimed :' + this.hasClaimed);
 
+    this.isClaiming = true;
   }
 
   scrollToElement(page: string, fragment: string): void {
     const element = document.querySelector(`#${fragment}`)
     if (element) {
-      setTimeout(() => element.scrollIntoView({ behavior: 'smooth', block: 'start' }), 500);
+      setTimeout(() => element.scrollIntoView({ behavior: 'smooth', block: 'start' }), 300);
     }
   }
 
@@ -186,8 +167,8 @@ export class IntroComponent implements OnInit, OnDestroy {
       ]
     )
 
-    this.moonshotBalanceText = this.walletConnectService.convertBalance(balance);
-    this.mshotV2BalanceText = this.walletConnectService.convertBalance(mshotV2Balance);
+    this.moonshotBalance = this.walletConnectService.convertBalance(balance);
+    this.mshotV2Balance = this.walletConnectService.convertBalance(mshotV2Balance);
   }
 
   addMshotToMetaMaskWallet = () => this.walletConnectService.addTokenMshotToMetaMaskWallet();

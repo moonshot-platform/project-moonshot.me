@@ -27,12 +27,12 @@
             allows for more autonomy over the liquidity pool, now upgraded
             to PancakeSwap V2.<br><br>
           </p>
-          <p *ngIf="!hasClaimed && !(moonshotBalanceText == '0' || moonshotBalanceText == '-')">
+          <p *ngIf="!isClaiming && (!hasClaimed ?? true)">
             If you haven't claimed your MSHOT (yet), connect your wallet and,
             click the Claim button to receive your balance in MSHOT.
           </p>
 
-          <p *ngIf="hasClaimed && !(moonshotBalanceText == '0' || moonshotBalanceText == '-')" class="claimed-text">
+          <p *ngIf="hasClaimed ?? false" class="claimed-text">
             Congratulations, you have successfully claimed your
             MSHOT (V2).<br> To
             view your
@@ -40,7 +40,7 @@
             <span (click)="addMshotToMetaMaskWallet()">here</span> for your Metamask.
           </p>
 
-          <p *ngIf="((moonshotBalanceText == '0' || moonshotBalanceText == '-') )">
+          <p *ngIf="isClaiming && (moonshotBalance == '0' || moonshotBalance == '-')">
             No MOONSHOT (V1) balance was detected in your wallet.<br>
             This address is not eligible for claiming MSHOT v2 tokens.
           </p>
@@ -55,14 +55,11 @@
         <a href="https://moonshotproject.substack.com/p/new-shuttle-moonshot-token-migration?s=r" target="__blank"
           class="outlined-button">Read
           More</a>
-        <a class="button"
-          *ngIf="(!hasClaimed && !(moonshotBalanceText == '0' || moonshotBalanceText == '-'))  && !isClaiming "
-          (click)="connectWalletAndRevealClaimSection()">
+        <a class="button" *ngIf="!isClaiming && (!hasClaimed ?? true)" (click)="connectWalletAndRevealClaimSection()">
           Connect Wallet
         </a>
 
-        <a class="disabled-button button"
-          *ngIf="hasClaimed && !(moonshotBalanceText == '0' || moonshotBalanceText == '-')">
+        <a class="disabled-button button" *ngIf="hasClaimed ?? false">
           MSHOT Claimed
           <img src="assets/media/icons/intro/Check_green.svg" alt="">
         </a>

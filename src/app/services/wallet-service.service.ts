@@ -209,8 +209,10 @@ export class WalletService {
     if (network.chainId == environment.chainId) {
       this.silverContract = new ethers.Contract(SilverAddress, silverTokenAbi, this.signer);
       this.mshotBalanceContract = new ethers.Contract(tokenContractAddress, mshotTokenAbi, this.signer);
-      this.hasClaimedContract = new ethers.Contract(claimContractAddress, claimMshotTokenAbi, this.signer,);
+      this.hasClaimedContract = new ethers.Contract(claimContractAddress, claimMshotTokenAbi, this.signer);
       // console.log('Setting contacts');
+    } else {
+
     }
 
     const data = {

@@ -88,6 +88,7 @@ export class MoonSwapComponent implements OnInit {
     } else /* if (this.moonshotBalanceText != '0' && this.moonshotBalanceText != '-')  */ {
       if (this.buttonName != CLAIM_CASES.CLAIMED)
         this.buttonName = await this.walletConnectService.claimMSHOT();
+      // this.walletConnectService.updateIsClaiming(false);
     }
 
     this.isInProcess = false;
