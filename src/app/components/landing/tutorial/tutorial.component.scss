@@ -251,6 +251,12 @@ input[type=number] {
   .copy-icon {
     display: none;
   }
+
+  .buy-section {
+    .button {
+      min-width: 160px !important;
+    }
+  }
 }
 
 @media only screen and (max-width: $md) {
