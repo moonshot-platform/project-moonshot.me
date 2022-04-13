@@ -10,7 +10,7 @@ import { LocalStorageService } from './local.storage.service';
 import silverTokenAbi from './../../assets/abis/silver.token.abi.json';
 import mshotTokenAbi from './../../assets/abis/mshot.token.abi.json';
 import buyMshotTokenAbi from './../../assets/abis/buy-moonshot-token.abi.json';
-import claimMshotToken from './../../assets/abis/claim-mshot-token-abi.json';
+import claimMshotTokenAbi from './../../assets/abis/claim-mshot-token-abi.json';
 import Web3 from 'web3';
 import Web3Modal from "web3modal";
 import { setInterval } from 'timers';
@@ -21,7 +21,7 @@ export enum CLAIM_CASES {
   CONNECT_WALLET = 'Connect Wallet',
   CLAIM = 'Claim MSHOT',
   CLAIMING = 'Claiming...',
-  CLAIMED = 'Claimed',
+  CLAIMED = 'MSHOT Claimed',
   FAILED = 'Failed!',
   REJECTED = 'Rejected!',
 }
@@ -78,12 +78,14 @@ export class WalletService {
   private readonly ETH_REQUEST_ACCOUNTS: string = 'eth_requestAccounts';
 
   public data = new Subject<any>();
+  public isClaiming = new Subject<boolean>();
   private connectedStateSubject = new Subject<boolean>();
 
   provider: ethers.providers.Web3Provider;
   signer: ethers.providers.JsonRpcSigner;
   silverContract: any;
   mshotBalanceContract: any;
+  hasClaimedContract: any;
 
   private isConnected = false;
   private account = '';
@@ -92,7 +94,9 @@ export class WalletService {
     private windowRef: WindowRefService,
     private toastrService: ToastrService,
     private localStorageService: LocalStorageService,
-  ) { }
+  ) {
+    this.updateIsClaiming(false);
+  }
 
   convertBalance(balance: number): string {
     balance = balance / 1e9;
@@ -205,8 +209,8 @@ export class WalletService {
     if (network.chainId == environment.chainId) {
       this.silverContract = new ethers.Contract(SilverAddress, silverTokenAbi, this.signer);
       this.mshotBalanceContract = new ethers.Contract(tokenContractAddress, mshotTokenAbi, this.signer);
+      this.hasClaimedContract = new ethers.Contract(claimContractAddress, claimMshotTokenAbi, this.signer,);
       // console.log('Setting contacts');
-
     }
 
     const data = {
@@ -238,6 +242,14 @@ export class WalletService {
 
   getData(): Observable<any> {
     return this.data.asObservable();
+  }
+
+  updateIsClaiming(state: boolean) {
+    this.isClaiming.next(state);
+  }
+
+  getIsClaiming(): Observable<boolean> {
+    return this.isClaiming.asObservable();
   }
 
   setWalletState(connected: boolean) {
@@ -276,11 +288,15 @@ export class WalletService {
     );
   }
 
+  async hasClaimed(): Promise<boolean> {
+    return await this.hasClaimedContract.hasClaimed() as boolean;
+  }
+
   async claimMSHOT(): Promise<any> {
     let web3 = new Web3(await web3Modal.connect());
 
     const claimContract = new web3.eth.Contract(
-      claimMshotToken as any,
+      claimMshotTokenAbi as any,
       claimContractAddress
     );
 
