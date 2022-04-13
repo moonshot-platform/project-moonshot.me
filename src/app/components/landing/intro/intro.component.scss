@@ -36,6 +36,13 @@ section.intro {
   }
 }
 
+.claimed-text {
+  span {
+    color: white;
+    cursor: pointer;
+  }
+}
+
 .info {
   width: 100%;
   max-width: 770px;
@@ -122,6 +129,27 @@ section.intro {
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  column-gap: 30px;
+
+  .button,
+  .outlined-button {
+    height: 53px !important;
+  }
+
+  .disabled-button {
+    min-width: 235px !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: gray !important;
+    cursor: not-allowed !important;
+    column-gap: 10px;
+
+    img {
+      height: 30px;
+    }
+  }
 }
 
 .no-border {

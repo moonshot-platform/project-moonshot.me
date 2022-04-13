@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { TokenomicsService } from 'src/app/services/tokenomics.service';
 import { WalletService } from 'src/app/services/wallet-service.service';
+import { environment } from 'src/environments/environment';
 import { WalletConnectComponent } from '../../base/wallet-connect/wallet-connect.component';
 
 @Component({
@@ -15,13 +16,20 @@ export class IntroComponent implements OnInit, OnDestroy {
   countDown: string = '29 March 2021 6:00:00 UTC';
   interval: any;
   priceForOneMillion: string = '---';
+  address = '0x5298AD82dD7C83eEaA31DDa9DEB4307664C60534';
 
 
   private userData: any;
 
   bnbCountFromInput: number = 1;
+
   isConnected: boolean = false;
   isInProcess: boolean = false;
+  hasClaimed: boolean = true;
+  isClaiming: boolean = false;
+
+  moonshotBalanceText: string = '-';
+  mshotV2BalanceText: string = '-';
 
   buttonName = '';
 
@@ -30,7 +38,7 @@ export class IntroComponent implements OnInit, OnDestroy {
     private walletConnectService: WalletService,
     private dialog: MatDialog
   ) {
-    this.walletConnectService.init().then((data: boolean) => {
+    this.walletConnectService.init().then(async (data: boolean) => {
       this.isConnected = data;
       this.walletConnectService.setWalletState(this.isConnected);
       // console.log('CONSTRUCTOR: ' + this.isConnected);
@@ -79,22 +87,41 @@ export class IntroComponent implements OnInit, OnDestroy {
       }
 
     }, 1000);
-    this.walletConnectService.onWalletStateChanged().subscribe((state: boolean) => {
+
+    this.walletConnectService.onWalletStateChanged().subscribe(async (state: boolean) => {
       this.isConnected = state;
       this.updateButtonName();
-      // console.log('ON WALLET STATE CHANGED: ' + this.isConnected);
 
+      this.walletConnectService.hasClaimed().then((value: boolean) => {
+        this.hasClaimed = value ?? false;
+
+        console.log("claimed : " + this.hasClaimed);
+      });
+      // console.log('ON WALLET STATE CHANGED: ' + this.isConnected);
+      // if (this.isConnected) {
+      //   console.log("Answer : ", await this.walletConnectService.hasClaimed());
+      // }
     });
 
     this.walletConnectService.getData().subscribe((data: any) => {
       this.userData = data;
+
       if (data !== undefined && data.address != undefined) {
         this.isConnected = true;
         this.walletConnectService.setWalletState(true);
+        if (this.userData.networkId.chainId == environment.chainId) {
+          this.getMoonShotBalances();
+        }
         // console.log('ON GET DATA: ' + this.isConnected);
       }
+
       this.updateButtonName();
     });
+
+    this.walletConnectService.getIsClaiming().subscribe((state: boolean) => {
+      this.isClaiming = state;
+    });
+
   }
 
   updateButtonName() {
@@ -128,10 +155,41 @@ export class IntroComponent implements OnInit, OnDestroy {
     }
   }
 
+
+  async connectWalletAndRevealClaimSection() {
+    if (!this.isConnected) {
+      this.isInProcess = true;
+      this.openWalletConnectionDialog();
+      this.isInProcess = false;
+    }
+    if (!this.hasClaimed) {
+      this.walletConnectService.updateIsClaiming(true);
+      this.isClaiming = true;
+      this.scrollToElement('', 'moonswap');
+    }
+    console.log('hasClaimed :' + this.hasClaimed);
+
+  }
+
   scrollToElement(page: string, fragment: string): void {
     const element = document.querySelector(`#${fragment}`)
     if (element) {
       setTimeout(() => element.scrollIntoView({ behavior: 'smooth', block: 'start' }), 500);
     }
   }
+
+  async getMoonShotBalances() {
+    const [balance, mshotV2Balance] = await Promise.all(
+      [
+        Number(await this.walletConnectService.getUserBalance(this.userData.address)),
+        Number(await this.walletConnectService.getUserMSHOTBalance(this.userData.address))
+      ]
+    )
+
+    this.moonshotBalanceText = this.walletConnectService.convertBalance(balance);
+    this.mshotV2BalanceText = this.walletConnectService.convertBalance(mshotV2Balance);
+  }
+
+  addMshotToMetaMaskWallet = () => this.walletConnectService.addTokenMshotToMetaMaskWallet();
+
 }
