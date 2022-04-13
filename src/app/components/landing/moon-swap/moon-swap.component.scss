@@ -95,6 +95,13 @@ section.moonswap {
     margin-bottom: 20px;
   }
 
+  p.claimed-text {
+    border-bottom: 1px solid $primary;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+  }
+
+
   .row {
     display: flex;
     flex-direction: row;
@@ -227,7 +234,7 @@ section.moonswap {
 }
 
 .buttons-container {
-  max-width: 200px;
+  max-width: 235px;
   row-gap: 20px;
   display: flex;
   flex-direction: column;
@@ -249,6 +256,19 @@ section.moonswap {
   .disable {
     background-color: gray !important;
     cursor: not-allowed;
+  }
+
+  .claim-button {
+    min-width: 235px !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+
+    img.check {
+      height: 20px;
+    }
   }
 }
 

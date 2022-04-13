@@ -14,6 +14,8 @@ import { id } from 'ethers/lib/utils';
 export class MoonSwapComponent implements OnInit {
   static readonly anchorName: string = 'moonswap';
 
+  address = '0x5298AD82dD7C83eEaA31DDa9DEB4307664C60534';
+
   isConnected: boolean = false;
   buttonName: string = CLAIM_CASES.CONNECT_WALLET;
   connectedAddress: string = '';
@@ -22,6 +24,8 @@ export class MoonSwapComponent implements OnInit {
   userData: any;
   isButtonActive: boolean = true;
   isInProcess: boolean = false;
+
+  isClaming: boolean = false;
 
   constructor(
     public dialog: MatDialog,
@@ -59,6 +63,10 @@ export class MoonSwapComponent implements OnInit {
       this.isConnected = state
       this.controlButtonName();
     });
+
+    this.walletConnectService.getIsClaiming().subscribe((state: boolean) => {
+      this.isClaming = state;
+    });
   }
 
   controlButtonName(): void {
@@ -77,8 +85,9 @@ export class MoonSwapComponent implements OnInit {
 
     if (!this.isConnected) {
       this.openWalletConnectDialog();
-    } else if (this.moonshotBalanceText != '0' && this.moonshotBalanceText != '-') {
-      this.buttonName = await this.walletConnectService.claimMSHOT();
+    } else /* if (this.moonshotBalanceText != '0' && this.moonshotBalanceText != '-')  */ {
+      if (this.buttonName != CLAIM_CASES.CLAIMED)
+        this.buttonName = await this.walletConnectService.claimMSHOT();
     }
 
     this.isInProcess = false;
