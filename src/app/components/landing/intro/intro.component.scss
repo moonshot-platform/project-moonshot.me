@@ -147,7 +147,7 @@ section.intro {
     column-gap: 10px;
 
     img {
-      height: 30px;
+      height: 25px;
     }
   }
 }
@@ -350,6 +350,10 @@ input[type=number] {
     width: 100%;
     row-gap: 30px;
     align-items: stretch;
+
+    .button {
+      min-width: 100% !important;
+    }
   }
 
   .buy-section {

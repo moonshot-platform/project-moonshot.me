@@ -437,15 +437,16 @@ section.moonswap {
     flex-direction: column;
     align-items: center;
     flex: 1;
+
+    .row {
+      padding-bottom: 30px;
+    }
   }
 }
 
 @media only screen and (max-width: $sm) {
-
-
   .detail-form {
     margin-bottom: 30px;
     padding-right: 0px;
   }
-
 }
