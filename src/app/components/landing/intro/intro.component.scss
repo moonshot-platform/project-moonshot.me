@@ -36,6 +36,49 @@ section.intro {
   }
 }
 
+.buy-mshot {
+  display: flex;
+  flex-direction: column;
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 20px;
+
+    svg {
+      height: 20px;
+    }
+
+    p {
+      font-size: 16px;
+      font-weight: 700;
+      margin-left: 10px;
+    }
+
+    input {
+      background-color: transparent;
+      border-color: transparent;
+      border-bottom-color: transparent;
+      border-bottom: 1px solid $primary;
+      max-width: 50px;
+      margin: 0px 10px;
+      color: $primary;
+      text-align: end;
+      font-size: 16px;
+    }
+  }
+
+  .tooltip {
+    .bottom {
+      height: 80px;
+      color: white !important;
+    }
+  }
+}
+
 .claimed-text {
   span {
     color: white;
@@ -200,6 +243,7 @@ section.intro {
     color: $primary;
     text-align: end;
     font-size: 16px;
+    font-weight: 500;
   }
 }
 
@@ -244,7 +288,7 @@ input[type=number] {
 
 .tooltip .bottom {
   width: 240px;
-  transform: translate(-8.4%, 0%) scaleY(1);
+  transform: translate(6%, 0%) scaleY(1);
   padding: 20px 20px;
   color: white;
   background-color: black;
@@ -255,7 +299,7 @@ input[type=number] {
   z-index: 99999999;
   box-sizing: border-box;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
-  visibility: visible;
+  visibility: hidden;
   opacity: 0;
   transition: opacity 0.8s;
   font-family: $primary-font;
@@ -279,6 +323,7 @@ input[type=number] {
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
+    height: 80px;
 
     .close-button {
       cursor: pointer;
@@ -293,6 +338,10 @@ input[type=number] {
       &:hover {
         filter: brightness(0) invert(1);
       }
+    }
+
+    p {
+      color: white;
     }
   }
 }
@@ -389,5 +438,14 @@ input[type=number] {
     min-width: 150px !important;
     max-width: 170px;
     width: 100%;
+  }
+
+  .buy-mshot {
+    .tooltip {
+      .button {
+        width: 100%;
+        min-width: 100% !important;
+      }
+    }
   }
 }

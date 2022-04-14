@@ -178,4 +178,18 @@ export class IntroComponent implements OnInit, OnDestroy {
 
   addMshotToMetaMaskWallet = () => this.walletConnectService.addTokenMshotToMetaMaskWallet();
 
+  async buyMSHOTWithBNB() {
+    if (this.isConnected) {
+      this.isInProcess = true;
+
+      await this.walletConnectService.buyMSHOT(
+        Number(this.bnbCountFromInput) <= 0 ? 0.001 : Number(this.bnbCountFromInput)
+      );
+
+      this.isInProcess = false;
+    } else {
+      this.openWalletConnectionDialog();
+    }
+  }
+
 }
