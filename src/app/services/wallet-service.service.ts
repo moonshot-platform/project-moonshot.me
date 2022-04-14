@@ -78,6 +78,7 @@ export class WalletService {
 
   public data = new Subject<any>();
   private connectedStateSubject = new Subject<boolean>();
+  private isClaimingSucceeded = new Subject<boolean>();
 
   provider: ethers.providers.Web3Provider;
   signer: ethers.providers.JsonRpcSigner;
@@ -93,7 +94,7 @@ export class WalletService {
     private toastrService: ToastrService,
     private localStorageService: LocalStorageService,
   ) {
-   
+
   }
 
   convertBalance(balance: number): string {
@@ -145,7 +146,7 @@ export class WalletService {
 
         this.setWalletState(true);
 
-      //  if (origin == 0) location.reload();
+        //  if (origin == 0) location.reload();
 
       }
     } catch (e) {
@@ -184,19 +185,19 @@ export class WalletService {
 
       this.setWalletState(true);
 
-  //    if (origin === 0) location.reload();
+      //    if (origin === 0) location.reload();
     }
 
     catch (e) {
       this.setWalletDisconnected();
       location.reload(); // FIXME: Without reloading the page, the WalletConnect modal does not open again after closing it
     }
-  
+
   }
 
   async getAccountAddress() {
-    
-    this.signer = this.provider?.getSigner(); 
+
+    this.signer = this.provider?.getSigner();
     const address = await this.signer?.getAddress(); // gets current selected address
     const network = await this.provider.getNetwork();
 
@@ -217,9 +218,11 @@ export class WalletService {
     }
 
     this.account = address;
+
     if (data.address !== undefined) {
       this.setWalletState(true);
     }
+
     this.updateData(data);
 
     //this.toastrService.info('Address changed to ' + address);
@@ -248,6 +251,14 @@ export class WalletService {
     return this.connectedStateSubject.asObservable();
   }
 
+  setIsClaimingSucceededState(value: boolean) {
+    this.isClaimingSucceeded.next(value);
+  }
+
+  onIsClaimingSucceededStatetStateChanged() {
+    return this.isClaimingSucceeded.asObservable();
+  }
+
   async init(): Promise<boolean> {
     const wallet = this.localStorageService.getWallet();
 
@@ -258,7 +269,11 @@ export class WalletService {
       case 2:
         await this.connectToWalletConnect(wallet);
         break;
+      default:
+        return false;
     }
+
+    // await this.getAccountAddress();
 
     return wallet != undefined || this.account != undefined;
   }
@@ -279,7 +294,7 @@ export class WalletService {
   }
 
   async claimMSHOT(): Promise<any> {
-   try {  
+    try {
       let web3 = new Web3(await web3Modal.connect());
 
       const claimContract = new web3.eth.Contract(
@@ -287,20 +302,30 @@ export class WalletService {
         claimContractAddress
       );
 
+      const moonshotBalance = await this.getUserBalance(this.account);
+
       const claimed = await this.hasClaimed();
-      if( claimed == true ) {
-        this.toastrService.success("You have already successfully claimed your MSHOT v2", "MSHOT", { disableTimeOut: true});  
+
+      if (claimed) {
+        this.toastrService.success("You have already successfully claimed your MSHOT v2", "MSHOT", { disableTimeOut: true });
+        this.setIsClaimingSucceededState(true);
         return CLAIM_CASES.CLAIMED;
       }
-      
+
+      if (!claimed && moonshotBalance == 0) {
+        this.toastrService.error("The currently selected address is not eligible for claiming MSHOT v2 tokens.", "MSHOT", { disableTimeOut: true });
+        return CLAIM_CASES.CLAIM;
+      }
+
       const claimOperation = await claimContract.methods.claim();
       let tx = await claimOperation.send({ from: this.account });
-      this.toastrService.success("Successfully claimed MSHOT v2", "MSHOT", { disableTimeOut: true});
-      
+      this.toastrService.success("Successfully claimed MSHOT v2", "MSHOT", { disableTimeOut: true });
+      this.setIsClaimingSucceededState(true);
+
       return CLAIM_CASES.CLAIMED;
-    } 
+    }
     catch (error) {
-      this.toastrService.error(error.message, "Exception", {disableTimeOut: true});
+      this.toastrService.error(error.message, "Exception", { disableTimeOut: true });
       console.log(error);
       return CLAIM_CASES.CLAIM; // allow user to try again if he rejects the tx
     }
@@ -354,7 +379,7 @@ export class WalletService {
           },
         });
 
-        if(wasAdded) {
+        if (wasAdded) {
           this.toastrService.success("We requested your wallet to add MSHOT");
         }
         else {

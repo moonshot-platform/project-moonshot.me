@@ -15,7 +15,7 @@ export class MoonSwapComponent implements OnInit {
   static readonly anchorName: string = 'moonswap';
 
   address = environment.tokenContractAddress;
-  
+
   isConnected: boolean = false;
   buttonName: string = CLAIM_CASES.CONNECT_WALLET;
   connectedAddress: string = '';
@@ -72,23 +72,24 @@ export class MoonSwapComponent implements OnInit {
   }
 
   async claimMSHOT() {
-    
+
     if (!this.isConnected) {
       this.openWalletConnectDialog();
-    } 
+    }
     else {
 
-        this.isInProcess = true;
+      this.isInProcess = true;
 
-        this.buttonName = await this.walletConnectService.claimMSHOT();
-        if(this.buttonName == "Connect Wallet") { //FIXME no hardcoded identifiers
-          this.openWalletConnectDialog(); 
-        }
+      this.buttonName = await this.walletConnectService.claimMSHOT();
 
-        this.isInProcess = false;
+      if (this.buttonName == "Connect Wallet") { //FIXME no hardcoded identifiers
+        this.openWalletConnectDialog();
+      }
+
+      this.isInProcess = false;
     }
 
-   
+
   }
 
   openWalletConnectDialog(): void {

@@ -18,13 +18,13 @@
     <div class="info flex3">
       <div class="flex">
         <div class="flex2 futuristic-container top-only pv30 moonswap-operation-container">
-          <p *ngIf="'MSHOT Claimed' == buttonName" class="claimed-text">Congratulations, you have successfully claimed
+          <!-- <p *ngIf="'MSHOT Claimed' == buttonName" class="claimed-text">Congratulations, you have successfully claimed
             your
             MSHOT (v2).<br> To
             view your
             MSHOT, add our <span [cdkCopyToClipboard]=address>token address</span> to your wallet or press
             <span (click)="addMshotToMetaMaskWallet()">here</span> for your Metamask.
-          </p>
+          </p> -->
 
           <div class="row">
             <div class="detail-form">
@@ -53,8 +53,7 @@
 
             <div class="buttons-container flex1">
 
-              <a class="button claim-button"
-                [class.disable]="'MSHOT Claimed' == buttonName"
+              <a class="button claim-button" [class.disable]="'MSHOT Claimed' == buttonName"
                 [ngClass]="{'loading': isInProcess}"
                 (click)="!isInProcess ? claimMSHOT() : null">{{isInProcess ? '' :buttonName}}
                 <img *ngIf="isInProcess" src="assets/media/videos/Loading_yellowBG.gif" class="loader-img">

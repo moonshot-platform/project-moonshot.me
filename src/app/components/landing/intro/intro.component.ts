@@ -26,7 +26,7 @@ export class IntroComponent implements OnInit, OnDestroy {
   isInProcess: boolean = false;
   hasClaimed: boolean = false;
 
-  moonshotBalance: string = '-'; 
+  moonshotBalance: string = '-';
   mshotV2Balance: string = '-';
 
   buttonName = '';
@@ -38,6 +38,10 @@ export class IntroComponent implements OnInit, OnDestroy {
   ) {
     this.walletConnectService.init().then(async (data: boolean) => {
       this.isConnected = data;
+      if (data) {
+        console.log("Wallet is Connected");
+
+      }
       this.walletConnectService.setWalletState(this.isConnected);
       this.updateButtonName();
     });
@@ -95,7 +99,7 @@ export class IntroComponent implements OnInit, OnDestroy {
     this.walletConnectService.getData().subscribe((data: any) => {
       this.userData = data;
 
-      if (data !== undefined && data.address != undefined) {
+      if (data !== undefined && data.address !== undefined) {
         this.isConnected = true;
         this.walletConnectService.setWalletState(true);
         if (this.userData.networkId.chainId == environment.chainId) {
@@ -104,6 +108,12 @@ export class IntroComponent implements OnInit, OnDestroy {
       }
 
       this.updateButtonName();
+    });
+
+    this.walletConnectService.onIsClaimingSucceededStatetStateChanged().subscribe((value: boolean) => {
+      if (value) {
+        this.hasClaimed = true;
+      }
     });
 
   }
@@ -142,7 +152,7 @@ export class IntroComponent implements OnInit, OnDestroy {
   }
 
   revealMoonSwapSection() {
-    if (this.isConnected && !this.hasClaimed ) {
+    if (this.isConnected && !this.hasClaimed) {
       this.scrollToElement('', 'moonswap');
     }
   }
