@@ -355,10 +355,10 @@ export class WalletService {
         });
 
         if(wasAdded) {
-          this.toastrService.success("We requested your wallet to add MSHOT")
+          this.toastrService.success("We requested your wallet to add MSHOT");
         }
         else {
-          this.toastrService.warning("The MSHOT token was not added")
+          this.toastrService.warning("The MSHOT token was not added");
         }
 
       } catch (error) {
