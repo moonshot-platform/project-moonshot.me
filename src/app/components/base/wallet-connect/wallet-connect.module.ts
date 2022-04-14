@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { WalletConnectComponent } from './wallet-connect.component';
-
+import { ClipboardModule } from '@angular/cdk/clipboard';
 @NgModule({
   declarations: [
     WalletConnectComponent
   ],
   imports: [
-    CommonModule,
+    ClipboardModule
   ],
   exports: [
     WalletConnectComponent
