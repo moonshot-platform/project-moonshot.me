@@ -39,7 +39,7 @@
 
         <div class="tooltip">
           <a [ngClass]="{'loading': isInProcess}" (click)="!isInProcess ? buyMSHOTWithBNB() : null" class="button">
-            {{isInProcess ? '' :buttonName}}
+            {{isInProcess ? '' :'Buy MSHOT'}}
             <img *ngIf="isInProcess" src="assets/media/videos/Loading_yellowBG.gif" class="loader-img">
           </a>
           <div class="bottom">
