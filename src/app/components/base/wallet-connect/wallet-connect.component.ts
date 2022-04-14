@@ -26,7 +26,7 @@ export class WalletConnectComponent implements OnInit, OnDestroy {
     });
     this.walletAddress = this.walletConnectService.account;
     this.shortenedWalletAddress = this.walletAddress.slice(0, 5) + '...' + this.walletAddress.slice(-4)
-    console.log(this.shortenedWalletAddress);
+    // console.log(this.shortenedWalletAddress);
   }
 
   ngOnInit(): void {
