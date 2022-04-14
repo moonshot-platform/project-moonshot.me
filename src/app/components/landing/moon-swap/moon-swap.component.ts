@@ -14,8 +14,8 @@ import { id } from 'ethers/lib/utils';
 export class MoonSwapComponent implements OnInit {
   static readonly anchorName: string = 'moonswap';
 
-  address = '0x5298AD82dD7C83eEaA31DDa9DEB4307664C60534';
-
+  address = environment.tokenContractAddress;
+  
   isConnected: boolean = false;
   buttonName: string = CLAIM_CASES.CONNECT_WALLET;
   connectedAddress: string = '';
@@ -24,8 +24,6 @@ export class MoonSwapComponent implements OnInit {
   userData: any;
   isButtonActive: boolean = true;
   isInProcess: boolean = false;
-
-  isClaming: boolean = false;
 
   constructor(
     public dialog: MatDialog,
@@ -38,17 +36,12 @@ export class MoonSwapComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.walletConnectService.init().then((data: string) => {
-    //   this.isConnected = data !== null;
-    //   this.controlButtonName();
-    // });
-
     this.walletConnectService.getData().subscribe((data: any) => {
       this.userData = data;
       this.connectedAddress = data.address;
       if (data !== undefined && data.address != undefined) {
-        this.isConnected = true;
         if (this.userData.networkId.chainId == environment.chainId) {
+          this.isConnected = true;
           this.getMoonShotBalances();
         }
       }
@@ -57,6 +50,7 @@ export class MoonSwapComponent implements OnInit {
         this.connectedAddress = "";
         this.mshotV2BalanceText = "-";
       }
+      this.controlButtonName();
     });
 
     this.walletConnectService.onWalletStateChanged().subscribe((state: boolean) => {
@@ -64,9 +58,6 @@ export class MoonSwapComponent implements OnInit {
       this.controlButtonName();
     });
 
-    this.walletConnectService.getIsClaiming().subscribe((state: boolean) => {
-      this.isClaming = state;
-    });
   }
 
   controlButtonName(): void {
@@ -81,17 +72,23 @@ export class MoonSwapComponent implements OnInit {
   }
 
   async claimMSHOT() {
-    this.isInProcess = true;
-
+    
     if (!this.isConnected) {
       this.openWalletConnectDialog();
-    } else /* if (this.moonshotBalanceText != '0' && this.moonshotBalanceText != '-')  */ {
-      if (this.buttonName != CLAIM_CASES.CLAIMED)
+    } 
+    else {
+
+        this.isInProcess = true;
+
         this.buttonName = await this.walletConnectService.claimMSHOT();
-      // this.walletConnectService.updateIsClaiming(false);
+        if(this.buttonName == "Connect Wallet") { //FIXME no hardcoded identifiers
+          this.openWalletConnectDialog(); 
+        }
+
+        this.isInProcess = false;
     }
 
-    this.isInProcess = false;
+   
   }
 
   openWalletConnectDialog(): void {

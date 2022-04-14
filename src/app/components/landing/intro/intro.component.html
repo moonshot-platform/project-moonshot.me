@@ -28,22 +28,22 @@
             to PancakeSwap V2.<br><br>
           </p>
           <p
-            *ngIf="!isClaiming || (isConnected ? !hasClaimed && (moonshotBalance != '0' && moonshotBalance != '-') : true )">
-            If you haven't claimed your MSHOT (yet), connect your wallet and,
+            *ngIf="isConnected && !hasClaimed">
+            If you haven't claimed your MSHOT (yet), connect your wallet and
             click the Claim button to receive your balance in MSHOT.
           </p>
 
           <p *ngIf="isConnected && hasClaimed" class="claimed-text">
-            Congratulations, you have successfully claimed your
+            You have successfully claimed your
             MSHOT (V2).<br> To
             view your
             MSHOT, add our <span [cdkCopyToClipboard]=address>token address</span> to your wallet or press
             <span (click)="addMshotToMetaMaskWallet()">here</span> for your Metamask.
           </p>
 
-          <p *ngIf="isConnected && (moonshotBalance == '0' || moonshotBalance == '-') && isClaiming">
-            No MOONSHOT (V1) balance was detected in your wallet.<br>
-            This address is not eligible for claiming MSHOT v2 tokens.
+          <p *ngIf="isConnected && hasClaimed || (!hasClaimed && moonshotBalance == '0')">
+            <br>
+            The currently selected address is not eligible for claiming MSHOT v2 tokens.
           </p>
         </div>
         <div class="flex justify-end" style="flex: 0.6;">
@@ -56,10 +56,10 @@
         <a href="https://moonshotproject.substack.com/p/new-shuttle-moonshot-token-migration?s=r" target="__blank"
           class="outlined-button">Read
           More</a>
-        <a class="button" *ngIf="!isClaiming || !isConnected" (click)="connectWalletAndRevealClaimSection()">
+        <a class="button" *ngIf="!isConnected" (click)="connectWalletAndRevealClaimSection()">
           Connect Wallet
         </a>
-
+       
         <a class="disabled-button button" *ngIf="isConnected && hasClaimed">
           MSHOT Claimed
           <img src="assets/media/icons/intro/Check_green.svg" alt="">

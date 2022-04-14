@@ -16,8 +16,7 @@ export class IntroComponent implements OnInit, OnDestroy {
   countDown: string = '29 March 2021 6:00:00 UTC';
   interval: any;
   priceForOneMillion: string = '---';
-  address = '0x5298AD82dD7C83eEaA31DDa9DEB4307664C60534';
-
+  address = environment.tokenContractAddress;
 
   private userData: any;
 
@@ -25,10 +24,9 @@ export class IntroComponent implements OnInit, OnDestroy {
 
   isConnected: boolean = false;
   isInProcess: boolean = false;
-  hasClaimed: boolean; //! Do not forget here set to uninitilized
-  isClaiming: boolean = false;
+  hasClaimed: boolean = false;
 
-  moonshotBalance: string = '-'; //! Do not forget here set to '-'
+  moonshotBalance: string = '-'; 
   mshotV2Balance: string = '-';
 
   buttonName = '';
@@ -41,8 +39,6 @@ export class IntroComponent implements OnInit, OnDestroy {
     this.walletConnectService.init().then(async (data: boolean) => {
       this.isConnected = data;
       this.walletConnectService.setWalletState(this.isConnected);
-      // console.log('CONSTRUCTOR: ' + this.isConnected);
-
       this.updateButtonName();
     });
 
@@ -93,10 +89,6 @@ export class IntroComponent implements OnInit, OnDestroy {
       this.updateButtonName();
       if (state) {
         this.hasClaimed = await this.walletConnectService.hasClaimed();
-        if (this.hasClaimed)
-          this.isClaiming = true;
-      } else {
-        this.walletConnectService.updateIsClaiming(false);
       }
     });
 
@@ -113,10 +105,6 @@ export class IntroComponent implements OnInit, OnDestroy {
 
       this.updateButtonName();
     });
-
-    // this.walletConnectService.getIsClaiming().subscribe((state: boolean) => {
-    //   this.isClaiming = state;
-    // });
 
   }
 
@@ -142,13 +130,11 @@ export class IntroComponent implements OnInit, OnDestroy {
       this.openWalletConnectionDialog();
       this.isInProcess = false;
     } else {
-      this.isClaiming = true;
       this.revealMoonSwapSection()
     }
 
     this.walletConnectService.onWalletStateChanged().subscribe((state: boolean) => {
       if (state) {
-        this.isClaiming = true;
         this.revealMoonSwapSection()
       }
     });
@@ -156,9 +142,7 @@ export class IntroComponent implements OnInit, OnDestroy {
   }
 
   revealMoonSwapSection() {
-    if (this.isConnected && !this.hasClaimed && (this.moonshotBalance != '0' && this.moonshotBalance != '-')) {
-      this.walletConnectService.updateIsClaiming(true);
-      this.isClaiming = true;
+    if (this.isConnected && !this.hasClaimed ) {
       this.scrollToElement('', 'moonswap');
     }
   }
