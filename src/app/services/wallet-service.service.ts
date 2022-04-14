@@ -85,6 +85,8 @@ export class WalletService {
   moonshotV1TokenContract: any;
   moonshotV2TokenContract: any;
   moonshotV2ClaimContract: any;
+  moonshotV2BuyContract: any;
+
 
   private isConnected = false;
   private account = '';
@@ -205,6 +207,7 @@ export class WalletService {
       this.moonshotV1TokenContract = new ethers.Contract(moonshotV1TokenAddress, silverTokenAbi, this.signer);
       this.moonshotV2TokenContract = new ethers.Contract(moonshotV2TokenAddress, mshotTokenAbi, this.signer);
       this.moonshotV2ClaimContract = new ethers.Contract(claimContractAddress, claimMshotTokenAbi, this.signer);
+      this.moonshotV2BuyContract = new ethers.Contract(buyContractAddress, buyMshotTokenAbi, this.signer);
     } else {
       this.toastrService.error('Please connect your wallet to the Binance Smart Chain');
       console.log("Wrong network");
@@ -295,20 +298,13 @@ export class WalletService {
 
   async claimMSHOT(): Promise<any> {
     try {
-      let web3 = new Web3(await web3Modal.connect());
-
-      const claimContract = new web3.eth.Contract(
-        claimMshotTokenAbi as any,
-        claimContractAddress
-      );
-
       const moonshotBalance = await this.getUserBalance(this.account);
 
       const claimed = await this.hasClaimed();
 
       if (claimed) {
         this.toastrService.success("You have already successfully claimed your MSHOT v2", "MSHOT", { disableTimeOut: true });
-        this.setIsClaimingSucceededState(true);
+        this.setIsClaimingSucceededState(claimed);
         return CLAIM_CASES.CLAIMED;
       }
 
@@ -317,10 +313,12 @@ export class WalletService {
         return CLAIM_CASES.CLAIM;
       }
 
-      const claimOperation = await claimContract.methods.claim();
-      let tx = await claimOperation.send({ from: this.account });
+      const claimOperation = await this.moonshotV2ClaimContract.claim({ from: this.account.toString() });
+      console.log("this.account : " + this.account);
+
+      // let tx = await claimOperation.send({ from: this.account.toString() });
       this.toastrService.success("Successfully claimed MSHOT v2", "MSHOT", { disableTimeOut: true });
-      this.setIsClaimingSucceededState(true);
+      this.setIsClaimingSucceededState(await this.hasClaimed());
 
       return CLAIM_CASES.CLAIMED;
     }
@@ -334,24 +332,29 @@ export class WalletService {
   async buyMSHOT(bnbValue: number) {
 
     try {
-      let web3 = new Web3(await web3Modal.connect());
-      const buyContract = new web3.eth.Contract(
-        buyMshotTokenAbi as any,
-        buyContractAddress
-      );
+      // let web3 = new Web3(await web3Modal.connect());
+      // const buyContract = new web3.eth.Contract(
+      //   buyMshotTokenAbi as any,
+      //   buyContractAddress
+      // );
 
-      const buyOperation = await buyContract.methods.buyTokenWithBNB();
+      const buyOperation = await this.moonshotV2BuyContract.buyTokenWithBNB({
+        from: this.account,
+        value: ethers.utils.parseEther(`${bnbValue}`),
+      });
 
-      let tx = await buyOperation.send(
-        {
-          from: this.account,
-          value: web3.utils.toWei(`${bnbValue}`, "ether")
-        }
-      );
+      // let tx = await buyOperation.send(
+      //   {
+      //     from: this.account,
+      //     value: ethers.utils.parseEther(`${bnbValue}`),
+      //   }
+      // );
 
       this.toastrService.success('Successfully bought MSHOT v2');
 
     } catch (error) {
+      console.log(error);
+
       this.toastrService.error(error.message)
     }
   }
