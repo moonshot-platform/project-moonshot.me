@@ -89,7 +89,7 @@ export class WalletService {
 
 
   private isConnected = false;
-  private account = '';
+  public account = '';
 
   constructor(
     private windowRef: WindowRefService,
