@@ -1,44 +1,83 @@
 <section class="merchandise flex-end pt200">
-    <div class="inner flex-space-between">
-        <div class="info">
-            <div class="bottom flex">
-                <div class="flex-col flex1">
-                    <div class="inner-container">
-                        <div class="flex group-img justify-center">
-                            <img src="assets/media/images/community/rocket.svg" alt="moonticket" />
-                        </div>
-                        <div>
-                            <p class="title">Fuel the rocket</p>
-                            <p class="description mv30">
-                                To reach the moon, we need to fuel our rocket. To pay for that fuel, we need your help. You can help by donating BNB to accelerate the project and to fund our mission to the moon. Our funding address is:
-                            </p>
-                            <p class="address break-chars">0x9d8a5d6B405c2Eb7cee724F4B2F67a902F0f0864</p>
-                        </div>
-                    </div>
-                    <!-- <a class="outlined-button" (click)="openDialog()">Donate</a> -->
-                </div>
-
-                <div class="flex-col flex1">
-                    <div class="inner-container">
-                        <div class="shirts-carousel flex group-img justify-center">
-                            <div class="round-mini-button" (click)="prev()">
-                                <mat-icon fontSet="material-icons" class="color-primary">arrow_back</mat-icon>
-                            </div>
-                            <img src={{shirts[current]}} alt="moonticket" />
-                            <div class="round-mini-button" (click)="next()">
-                                <mat-icon fontSet="material-icons" class="color-primary">arrow_forward</mat-icon>
-                            </div>
-                        </div>
-                        <div>
-                            <p class="title pb30">Get your Moonshot apparel</p>
-                            <p class="description pt30">
-                                At »»TeePublic«« you can buy MOONSHOT branded merchandise like T-Shirts, Hoodies, Tank Tops, Wall Art, Mugs, Pillows, Pins and much more.
-                            </p>
-                        </div>
-                    </div>
-                    <a href="https://www.teepublic.com/user/moonshot" target="_blank" class="outlined-button">Order now</a>
-                </div>
+  <div class="inner flex-space-between">
+    <div class="info">
+      <div class="bottom flex">
+        <div class="flex-col flex1">
+          <div class="inner-container">
+            <div class="flex group-img justify-center">
+              <img src="assets/media/images/community/rocket.svg" alt="moonticket" />
             </div>
+            <div>
+              <p class="title">Fuel the rocket</p>
+              <p class="description mv30">
+                To reach the moon, we need to fuel our rocket. To pay for that fuel, we need your help. You can help by
+                donating BNB to accelerate the project and to fund our mission to the moon.
+              </p>
+            </div>
+          </div>
+          <div class="buy-at-market-price centered-row">
+
+            <div class="buy-section centered-row">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2500.01 2500">
+                <defs>
+                  <style>
+                    .cls-1 {
+                      fill: #f3ba2f;
+                    }
+
+                  </style>
+                </defs>
+                <title>bi</title>
+                <g id="Layer_2" data-name="Layer 2">
+                  <g id="Layer_1-2" data-name="Layer 1">
+                    <path class="cls-1"
+                      d="M764.48,1050.52,1250,565l485.75,485.73,282.5-282.5L1250,0,482,768l282.49,282.5M0,1250,282.51,967.45,565,1249.94,282.49,1532.45Zm764.48,199.51L1250,1935l485.74-485.72,282.65,282.35-.14.15L1250,2500,482,1732l-.4-.4,282.91-282.12M1935,1250.12l282.51-282.51L2500,1250.1,2217.5,1532.61Z" />
+                    <path class="cls-1"
+                      d="M1536.52,1249.85h.12L1250,963.19,1038.13,1175h0l-24.34,24.35-50.2,50.21-.4.39.4.41L1250,1536.81l286.66-286.66.14-.16-.26-.14" />
+                  </g>
+                </g>
+              </svg>
+              <p>BNB:</p>
+              <input type="number" name="buy" id="buy" [(ngModel)]="bnbCountFromInput">
+              <a [ngClass]="{'loading': isProcessing}" (click)="!isProcessing ? donate() : null" class="button">
+                {{isProcessing ? '' : 'Donate'}}
+                <img *ngIf="isProcessing" src="assets/media/videos/Loading_yellowBG.gif" class="loader-img">
+              </a>
+            </div>
+
+          </div>
+          <!-- <a class="outlined-button" (click)="openDialog()">Donate</a> -->
         </div>
+
+        <div class="flex-col flex1">
+          <div class="inner-container">
+            <div class="shirts-carousel flex group-img justify-center">
+              <div class="round-mini-button" (click)="prev()">
+                <mat-icon fontSet="material-icons" class="color-primary">arrow_back</mat-icon>
+              </div>
+              <img src={{shirts[current]}} alt="moonticket" />
+              <div class="round-mini-button" (click)="next()">
+                <mat-icon fontSet="material-icons" class="color-primary">arrow_forward</mat-icon>
+              </div>
+            </div>
+            <div>
+              <p class="title pb30">Get your Moonshot apparel</p>
+              <p class="description pt30">
+                At »»TeePublic«« you can buy MOONSHOT branded merchandise like T-Shirts, Hoodies, Tank Tops, Wall Art,
+                Mugs, Pillows, Pins and much more.
+              </p>
+            </div>
+          </div>
+          <a href="https://www.teepublic.com/user/moonshot" target="_blank" class="outlined-button">Order now</a>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
+
+<audio id="rocket" style="display: none;">
+  <source src="assets/media/sounds/audio_99970__raelwissdorf__v-start.mp3" type="audio/mp3">
+</audio>
+<audio id="fail" style="display: none;">
+  <source src="assets/media/sounds/audio_558735__samsterbirdies__8-bit-fail.mp3" type="audio/mp3">
+</audio>
