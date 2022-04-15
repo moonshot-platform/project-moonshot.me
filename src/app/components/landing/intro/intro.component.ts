@@ -21,6 +21,7 @@ export class IntroComponent implements OnInit, OnDestroy {
   private userData: any;
 
   bnbCountFromInput: number = 1;
+  releasableAmount: number = 0;
 
   isConnected: boolean = false;
   isInProcess: boolean = false;
@@ -39,9 +40,10 @@ export class IntroComponent implements OnInit, OnDestroy {
     this.walletConnectService.init().then(async (data: boolean) => {
       this.isConnected = data;
       if (data) {
-        console.log("Wallet is Connected");
-
+        // console.log("Wallet is Connected");
       }
+
+      this.computeReleasableAmount();
       this.walletConnectService.setWalletState(this.isConnected);
       this.updateButtonName();
     });
@@ -115,7 +117,6 @@ export class IntroComponent implements OnInit, OnDestroy {
         this.hasClaimed = true;
       }
     });
-
   }
 
   updateButtonName() {
@@ -190,6 +191,11 @@ export class IntroComponent implements OnInit, OnDestroy {
     } else {
       this.openWalletConnectionDialog();
     }
+  }
+
+  async computeReleasableAmount() {
+    this.releasableAmount = await this.walletConnectService.computeReleasableAmount();
+    console.log("releasbleAmount : " + this.releasableAmount);
   }
 
 }
