@@ -29,6 +29,10 @@ section.sidebar {
 .wallet-icon {
   filter: opacity(1);
   cursor: pointer;
+
+  :hover {
+    filter: invert(1);
+  }
 }
 
 .close {

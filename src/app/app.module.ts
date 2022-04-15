@@ -32,6 +32,7 @@ import { RabbitsMoonticketComponent } from './components/rabbits-moonticket/rabb
 import { WalletConnectComponent } from './components/base/wallet-connect/wallet-connect.component';
 import { ToastrModule } from 'ngx-toastr';
 import { LocalStorageService } from './services/local.storage.service';
+import { WalletConnectModule } from './components/base/wallet-connect/wallet-connect.module';
 
 @Injectable()
 export class HammerConfig extends HammerGestureConfig {
@@ -47,7 +48,6 @@ export class HammerConfig extends HammerGestureConfig {
     MoonticketPromoComponent,
     NightSkyComponent,
     RabbitsMoonticketComponent,
-    WalletConnectComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,6 +66,7 @@ export class HammerConfig extends HammerGestureConfig {
     BrowserAnimationsModule,
     ShooterModule,
     MatDialogModule,
+    WalletConnectModule,
     ToastrModule.forRoot(
       { positionClass: 'toast-bottom-right' }
     ),
@@ -83,7 +84,7 @@ export class HammerConfig extends HammerGestureConfig {
   exports: [
     FooterModule,
     FooterMobileModule,
-    AppRoutingModule
+    AppRoutingModule,
   ]
 })
 export class AppModule { }

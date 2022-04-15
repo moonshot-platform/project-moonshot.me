@@ -1,37 +1,39 @@
-<section class="scroller">
-  <div class="pt-5 h-100 justify-center align-items-center flex-xs-col px-3">
-    <div class="empty flex1"></div>
-    <div class="connect_popup info flex2">
-      <div class="line-container flex">
-        <div class="line flex2"></div>
-        <div class="empty flex1"></div>
-      </div>
-      <div class="info">
-        <div class="bottom flex justify-center">
-          <div class="flex flex-xs-col align-center">
-            <div class="metamask inner-container border-thick pl20 pr20 pb40 pt40" (click)="connectToMetamask()">
-              <div class="mb30 flex group-img justify-center"><img src="assets/media/icons/wallet/Metamask_icon.svg"
-                  alt="Metamask" class="img-small"></div>
-              <div class="text-center">
-                <p class="p-white-span-primary p24 orbitron">MetaMask</p>
-                <p class="description mt10 text-primary">Please connect your Metamask wallet</p>
-              </div>
-            </div>
-
-            <div class="wallet inner-container border-thick pl20 pr20 pb40 pt40" (click)="connectToWalletConnect()">
-              <div class="mb30 flex group-img justify-center"><img
-                  src="assets/media/icons/wallet/walletconnect-circle-blue.svg" alt="WalletConnect" class="img-small">
-              </div>
-              <div class="text-center">
-                <p class="p-white-span-primary p24 orbitron">WalletConnect</p>
-                <p class="description mt10 text-primary">Please scan with WalletConnect to connect</p>
-              </div>
-            </div>
-          </div>
-          <div class="empty flex1"></div>
-        </div>
-      </div>
+<section>
+  <div class="connect_popup">
+    <div class="line-container flex">
+      <div class="line flex2"></div>
+      <div class="empty flex1"></div>
     </div>
-    <div class="empty flex1"></div>
+    <div class="wallets p30 align-center">
+      <div class="detail">
+        <div class="row">
+          <p class="title">{{isConnected ? 'Connected:' : 'Connect Wallet:'}}</p>
+          <p class="address" [cdkCopyToClipboard]=walletAddress>{{shortenedWalletAddress}}</p>
+        </div>
+        <svg (click)="closeDialog()" width="28px" height="29px" viewBox="0 0 28 29" version="1.1"
+          xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+          <title>Combined Shape Copy</title>
+          <desc>Created with Sketch.</desc>
+          <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <path
+              d="M14,12.3786797 L25.6672619,0.711417767 L27.7885822,2.83273811 L16.1213203,14.5 L27.7885822,26.1672619 L25.6672619,28.2885822 L14,16.6213203 L2.33273811,28.2885822 L0.211417767,26.1672619 L11.8786797,14.5 L0.211417767,2.83273811 L2.33273811,0.711417767 L14,12.3786797 Z"
+              id="Combined-Shape-Copy" fill="#D5A642"></path>
+          </g>
+        </svg>
+      </div>
+      <div class="metamask inner-container border-thick" (click)="connectToMetamask()">
+        <img src="assets/media/icons/wallet/Metamask_icon.svg" alt="Metamask" class="img-small">
+        <p>MetaMask</p>
+      </div>
+
+      <div class="wallet inner-container" (click)="connectToWalletConnect()">
+        <img src="assets/media/icons/wallet/walletconnect-circle-blue.svg" alt="WalletConnect" class="img-small">
+        <p>WalletConnect</p>
+      </div>
+
+      <a class="outlined-button" [class.disabled]="!isConnected"
+        (click)="isConnected ? disconnnect() : null">Disconnect</a>
+    </div>
   </div>
 </section>

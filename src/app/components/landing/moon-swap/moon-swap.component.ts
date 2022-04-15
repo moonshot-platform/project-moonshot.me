@@ -14,6 +14,8 @@ import { id } from 'ethers/lib/utils';
 export class MoonSwapComponent implements OnInit {
   static readonly anchorName: string = 'moonswap';
 
+  address = environment.tokenContractAddress;
+
   isConnected: boolean = false;
   buttonName: string = CLAIM_CASES.CONNECT_WALLET;
   connectedAddress: string = '';
@@ -34,17 +36,12 @@ export class MoonSwapComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.walletConnectService.init().then((data: string) => {
-    //   this.isConnected = data !== null;
-    //   this.controlButtonName();
-    // });
-
     this.walletConnectService.getData().subscribe((data: any) => {
       this.userData = data;
       this.connectedAddress = data.address;
       if (data !== undefined && data.address != undefined) {
-        this.isConnected = true;
         if (this.userData.networkId.chainId == environment.chainId) {
+          this.isConnected = true;
           this.getMoonShotBalances();
         }
       }
@@ -53,12 +50,14 @@ export class MoonSwapComponent implements OnInit {
         this.connectedAddress = "";
         this.mshotV2BalanceText = "-";
       }
+      this.controlButtonName();
     });
 
     this.walletConnectService.onWalletStateChanged().subscribe((state: boolean) => {
       this.isConnected = state
       this.controlButtonName();
     });
+
   }
 
   controlButtonName(): void {
@@ -73,15 +72,24 @@ export class MoonSwapComponent implements OnInit {
   }
 
   async claimMSHOT() {
-    this.isInProcess = true;
 
     if (!this.isConnected) {
       this.openWalletConnectDialog();
-    } else if (this.moonshotBalanceText != '0' && this.moonshotBalanceText != '-') {
+    }
+    else {
+
+      this.isInProcess = true;
+
       this.buttonName = await this.walletConnectService.claimMSHOT();
+
+      if (this.buttonName == "Connect Wallet") { //FIXME no hardcoded identifiers
+        this.openWalletConnectDialog();
+      }
+
+      this.isInProcess = false;
     }
 
-    this.isInProcess = false;
+
   }
 
   openWalletConnectDialog(): void {

@@ -9,6 +9,47 @@
         <p>PRICE FOR ONE MILLION MOONSHOT</p>
         <p>{{priceForOneMillion}}</p>
       </div>
+      <div class="buy-mshot futuristic-container">
+        <p>MARKET BUY AT PANCAKESWAP</p>
+        <div class="row">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2500.01 2500">
+            <defs>
+              <style>
+                .cls-1 {
+                  fill: #f3ba2f;
+                }
+
+              </style>
+            </defs>
+            <title>bi</title>
+            <g id="Layer_2" data-name="Layer 2">
+              <g id="Layer_1-2" data-name="Layer 1">
+                <path class="cls-1"
+                  d="M764.48,1050.52,1250,565l485.75,485.73,282.5-282.5L1250,0,482,768l282.49,282.5M0,1250,282.51,967.45,565,1249.94,282.49,1532.45Zm764.48,199.51L1250,1935l485.74-485.72,282.65,282.35-.14.15L1250,2500,482,1732l-.4-.4,282.91-282.12M1935,1250.12l282.51-282.51L2500,1250.1,2217.5,1532.61Z" />
+                <path class="cls-1"
+                  d="M1536.52,1249.85h.12L1250,963.19,1038.13,1175h0l-24.34,24.35-50.2,50.21-.4.39.4.41L1250,1536.81l286.66-286.66.14-.16-.26-.14" />
+              </g>
+            </g>
+          </svg>
+
+          <p>BNB:</p>
+
+          <input type="number" name="buy" id="buy" [(ngModel)]="bnbCountFromInput">
+        </div>
+
+        <div class="tooltip">
+          <a [ngClass]="{'loading': isInProcess}" (click)="!isInProcess ? buyMSHOTWithBNB() : null" class="button">
+            {{isInProcess ? '' :'Buy MSHOT'}}
+            <img *ngIf="isInProcess" src="assets/media/videos/Loading_yellowBG.gif" class="loader-img">
+          </a>
+          <div class="bottom">
+            <div class="row">
+              <p>MSHOT Market Price at PancakeSwap</p>
+            </div>
+            <i></i>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="info flex3">
       <div class="line-container flex">
@@ -16,16 +57,33 @@
         <div class="empty flex1"></div>
       </div>
       <div class="top futuristic-container bottom-only">
-        <a href="https://t.me/MoonShotChat" target="_blank" class="p-white-span-primary p34 orbitron warning-title">
-          ⚠️ Moonshot Token Migration
-        </a>
+        <p class="p-white-span-primary p34 orbitron">
+          Moonshot <span class="v2 orbitron">V2</span><br><span>Token Migration</span>
+        </p>
       </div>
       <div class="bottom flex pv20">
         <div class="flex2 futuristic-container no-border no-padding">
-          <p class="">The MOONSHOT token migrated to an updated
-            MSHOT (V2).
-            A new & improved audited contract which enhances security and
-            allows for more autonomy over the liguidity pool.
+          <p class="">The MOONSHOT token migrated to MSHOT (V2).<br>A new & improved audited contract that enhances
+            security and
+            allows for more autonomy over the liquidity pool, now upgraded
+            to PancakeSwap V2.<br><br>
+          </p>
+          <p *ngIf="!hasClaimed">
+            If you haven't claimed your MSHOT (yet), connect your wallet and
+            click the Claim button to receive your balance in MSHOT.
+          </p>
+
+          <p *ngIf="isConnected && hasClaimed" class="claimed-text">
+            You have successfully claimed your
+            MSHOT (V2).<br> To
+            view your
+            MSHOT, add our <span [cdkCopyToClipboard]=address>token address</span> to your wallet or press
+            <span (click)="addMshotToMetaMaskWallet()">here</span> for your Metamask.
+          </p>
+
+          <p *ngIf="isConnected && !hasClaimed && moonshotBalance == '0'">
+            <br>
+            The currently selected address is not eligible for claiming MSHOT v2 tokens.
           </p>
         </div>
         <div class="flex justify-end" style="flex: 0.6;">
@@ -38,8 +96,16 @@
         <a href="https://moonshotproject.substack.com/p/new-shuttle-moonshot-token-migration?s=r" target="__blank"
           class="outlined-button">Read
           More</a>
+        <a class="button" *ngIf="!isConnected" (click)="connectWalletAndRevealClaimSection()">
+          Connect Wallet
+        </a>
 
-        <div class="buy-section centered-row">
+        <a class="disabled-button button" *ngIf="isConnected && hasClaimed">
+          MSHOT Claimed
+          <img src="assets/media/icons/intro/Check_green.svg" alt="">
+        </a>
+
+        <!-- <div class="buy-section centered-row">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2500.01 2500">
             <defs>
               <style>
@@ -76,7 +142,7 @@
               <i></i>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
 
     </div>

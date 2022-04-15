@@ -101,7 +101,7 @@ export class TokenomicsService {
         this.onShare(data);
 
       }).catch(function (e) {
-        console.log("HATAAAA");
+        // console.log("HATAAAA");
 
         console.log(e);
         this.serverError = true;

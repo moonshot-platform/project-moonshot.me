@@ -5,6 +5,7 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 
 import { CarouselModule } from 'ng-carousel-cdk';
 import { MatIconModule } from '@angular/material/icon';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { MatIconModule } from '@angular/material/icon';
     CommonModule,
     AppRoutingModule,
     MatIconModule,
-    CarouselModule
+    CarouselModule,
+    FormsModule
   ],
   exports: [
     MerchandiseComponent
