@@ -96,8 +96,6 @@ export class MerchandiseComponent implements OnInit {
       }
     }
 
-
-
     this.isProcessing = false;
   }
 
