@@ -414,9 +414,13 @@ export class WalletService {
     return await this.moonshotV2VestingContract.getVestingSchedulesCountByBeneficiary(this.account);
   }
 
+  async getVestingScheduleId() {
+    return await this.moonshotV2VestingContract.computeVestingScheduleIdForAddressAndIndex(this.account, 0);
+  }
+
   async computeReleasableAmount() {
     try {
-      let scheduleId = await this.moonshotV2VestingContract.getVestingScheduleByAddressAndIndex(this.account, 0);
+      let scheduleId: string = await this.getVestingScheduleId();
       console.log("scheduleId :" + scheduleId);
 
       return await this.moonshotV2VestingContract.computeReleasableAmount(scheduleId);
@@ -430,19 +434,46 @@ export class WalletService {
     let vestableAmount = await this.computeReleasableAmount();
 
     try {
-      await this.moonshotV2VestingContract.createVestingSchedule({
-        beneficiary: this.account,
-        start: Date.now(),
-        cliff: 86400,// 1 day in unix timestamp
-        duration: 604800,// 1 week in unix timestamp
-        slicePeriodSeconds: 3600,
-        revocable: true,
-        amount: vestableAmount,
-      });
+      await this.moonshotV2VestingContract.createVestingSchedule(
+        this.account,
+        Date.now(),
+        86400,// 1 day in unix timestamp
+        604800,// 1 week in unix timestamp
+        3600,
+        true,
+        vestableAmount,
+      );
 
       this.toastrService.success("Vested succesfully");
     } catch (error) {
       console.log(error.message);
+
+      this.toastrService.error("Failed!");
     }
+  }
+
+  async releaseVesting() {
+    let scheduleId = await this.getVestingScheduleId();
+    let vestableAmount = await this.computeReleasableAmount();
+
+    try {
+      await this.moonshotV2VestingContract.release(
+        scheduleId,
+        vestableAmount,
+      );
+
+      this.toastrService.success("Released succesfully");
+    } catch (error) {
+      console.log(error.message);
+
+      this.toastrService.error("Failed!");
+    }
+  }
+
+  async isOwner(): Promise<boolean> {
+    let owner: string = await this.moonshotV2VestingContract.owner();
+    console.log("Owner:" + owner);
+
+    return this.account === owner;
   }
 }
