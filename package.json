@@ -40,7 +40,7 @@
     "ngx-device-detector": "^2.1.1",
     "ngx-sharebuttons": "^9.0.0",
     "ngx-toastr": "^14.2.1",
-    "ngx-ui-switch": "^12.0.0",
+    "ngx-ui-switch": "^13.0.2",
     "os-browserify": "^0.3.0",
     "particles.js": "^2.0.0",
     "pixi.js": "^6.0.4",

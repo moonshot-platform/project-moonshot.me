@@ -34,6 +34,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { LocalStorageService } from './services/local.storage.service';
 import { WalletConnectModule } from './components/base/wallet-connect/wallet-connect.module';
 import { VestingComponent } from './components/vesting/vesting.component';
+import { UiSwitchModule } from 'ngx-ui-switch';
 
 @Injectable()
 export class HammerConfig extends HammerGestureConfig {
@@ -73,6 +74,12 @@ export class HammerConfig extends HammerGestureConfig {
       { positionClass: 'toast-bottom-right' }
     ),
     GtagModule.forRoot({ trackingId: 'G-5Q9LF9T9Q6', trackPageviews: true }),
+    UiSwitchModule.forRoot({
+      // color: 'rgb(0, 189, 99)',
+      switchColor: 'black',
+      defaultBgColor: 'white',
+      defaultBoColor: 'white',
+    }),
   ],
   providers: [{ provide: CountdownGlobalConfig, useFactory: countdownConfigFactory },
   {
