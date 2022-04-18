@@ -33,6 +33,7 @@ import { WalletConnectComponent } from './components/base/wallet-connect/wallet-
 import { ToastrModule } from 'ngx-toastr';
 import { LocalStorageService } from './services/local.storage.service';
 import { WalletConnectModule } from './components/base/wallet-connect/wallet-connect.module';
+import { VestingComponent } from './components/vesting/vesting.component';
 
 @Injectable()
 export class HammerConfig extends HammerGestureConfig {
@@ -48,6 +49,7 @@ export class HammerConfig extends HammerGestureConfig {
     MoonticketPromoComponent,
     NightSkyComponent,
     RabbitsMoonticketComponent,
+    VestingComponent,
   ],
   imports: [
     BrowserModule,
