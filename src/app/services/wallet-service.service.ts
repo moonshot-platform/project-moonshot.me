@@ -429,26 +429,24 @@ export class WalletService {
     }
 
   }
-
-  async createVestingSchedule() {
-    let vestableAmount = await this.computeReleasableAmount();
-
+  async createVestingSchedule(beneficiary: string, cliffInSeconds: number, durationInSeconds: number, isRevocable: boolean, moonshotValue: number) {
+    
     try {
       await this.moonshotV2VestingContract.createVestingSchedule(
-        this.account,
+        beneficiary,
         Date.now(),
-        86400,// 1 day in unix timestamp
-        604800,// 1 week in unix timestamp
-        3600,
-        true,
-        vestableAmount,
+        cliffInSeconds,// cliff, 1 day in unix timestamp
+        durationInSeconds,// 1 week in unix timestamp
+        3600, // duration of slice period for vesting
+        isRevocable,
+        moonshotValue,
       );
 
-      this.toastrService.success("Vested succesfully");
+      this.toastrService.success("Created a new vesting schedule");
     } catch (error) {
       console.log(error.message);
 
-      this.toastrService.error("Failed!");
+      this.toastrService.error("Failed to create a new vesting schedule");
     }
   }
 
