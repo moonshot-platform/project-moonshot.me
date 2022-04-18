@@ -410,8 +410,8 @@ export class WalletService {
     return false;
   }
 
-  async hasVested() {
-    return await this.moonshotV2VestingContract.getVestingSchedulesCountByBeneficiary(this.account);
+  async hasVested(): Promise<boolean> {
+    return await this.moonshotV2VestingContract.getVestingSchedulesCountByBeneficiary(this.account) !== 0;
   }
 
   async getVestingScheduleId() {
