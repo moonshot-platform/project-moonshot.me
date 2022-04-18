@@ -7,9 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VestingComponent implements OnInit {
 
+  static readonly routeName: string = 'vesting';
+
+  beneficiary: string = '';
+  amount: number = 0;
+  duration: number = 0;
+  cliff: number = 0;
+  isRevocable: boolean = false;
+
+  search: string = '';
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  changeRevocableStatus(state: boolean) {
+    this.isRevocable = state;
   }
 
 }
