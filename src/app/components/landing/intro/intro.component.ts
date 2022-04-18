@@ -25,6 +25,7 @@ export class IntroComponent implements OnInit, OnDestroy {
 
   isConnected: boolean = false;
   isInProcess: boolean = false;
+  isInReleasingProcess: boolean = false;
   hasClaimed: boolean = false;
 
   moonshotBalance: string = '-';
@@ -95,6 +96,7 @@ export class IntroComponent implements OnInit, OnDestroy {
       this.updateButtonName();
       if (state) {
         this.hasClaimed = await this.walletConnectService.hasClaimed();
+        this.computeReleasableAmount();
       }
     });
 
@@ -195,7 +197,15 @@ export class IntroComponent implements OnInit, OnDestroy {
 
   async computeReleasableAmount() {
     this.releasableAmount = await this.walletConnectService.computeReleasableAmount();
-    console.log("releasbleAmount : " + this.releasableAmount);
   }
 
+  async release() {
+    if (this.isConnected) {
+      this.isInReleasingProcess = true;
+      await this.walletConnectService.releaseVesting();
+      this.isInReleasingProcess = false;
+    } else {
+      this.openWalletConnectionDialog();
+    }
+  }
 }
