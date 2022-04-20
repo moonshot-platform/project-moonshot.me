@@ -41,6 +41,10 @@ section.vesting {
       color: $primary;
       text-align: end;
     }
+
+    .outlined-button {
+      min-width: 100px !important;
+    }
   }
 
   .futuristic-container {
@@ -88,4 +92,18 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
+}
+
+@media only screen and (max-width: $md) {
+  .futuristic-container {
+    .row {
+      flex-direction: column !important;
+      row-gap: 30px;
+
+      .button {
+
+        min-width: 100% !important;
+      }
+    }
+  }
 }

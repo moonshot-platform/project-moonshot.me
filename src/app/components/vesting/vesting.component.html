@@ -5,8 +5,9 @@
         CREATE A NEW VESTING SCHEDULE
       </p>
       <div class="searchbox">
-        <p>Search: </p>
+        <p>Search:</p>
         <input type="text" name="searchbox" id="searchbox" [(ngModel)]="search">
+        <a class="outlined-button" (click)="searchAddress()">Search</a>
       </div>
       <div class="futuristic-container top-only pv30">
         <div class="row">
@@ -34,7 +35,7 @@
               </ui-switch>
             </div>
           </div>
-          <a class="button">NEW SCHEDULE</a>
+          <a class="button" (click)="createNewSchedule()">NEW SCHEDULE</a>
         </div>
       </div>
     </div>
