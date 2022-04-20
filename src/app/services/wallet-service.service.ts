@@ -429,8 +429,14 @@ export class WalletService {
     }
 
   }
-  async createVestingSchedule(beneficiary: string, cliffInSeconds: number, durationInSeconds: number, isRevocable: boolean, moonshotValue: number) {
-    
+  async createVestingSchedule(
+    beneficiary: string,
+    cliffInSeconds: number,
+    durationInSeconds: number,
+    isRevocable: boolean,
+    moonshotValue: number
+  ) {
+
     try {
       await this.moonshotV2VestingContract.createVestingSchedule(
         beneficiary,
@@ -463,7 +469,6 @@ export class WalletService {
       this.toastrService.success("Released succesfully");
     } catch (error) {
       console.log(error.message);
-
       this.toastrService.error("Failed!");
     }
   }
@@ -473,5 +478,19 @@ export class WalletService {
     console.log("Owner:" + owner);
 
     return this.account === owner;
+  }
+
+  async searchLastVestingScheduleForHolder(address: string) {
+    let userVestingData: any;
+    try {
+      userVestingData = await this.moonshotV2VestingContract.getLastVestingScheduleForHolder(address);
+
+      return userVestingData;
+    } catch (error) {
+      console.log(error.message);
+      this.toastrService.error("Could not found user vesting data");
+
+      return undefined;
+    }
   }
 }
