@@ -418,6 +418,10 @@ export class WalletService {
     return await this.moonshotV2VestingContract.computeVestingScheduleIdForAddressAndIndex(this.account, 0);
   }
 
+  async getVestingScheduleIdForHolder(beneficiary: string) {
+    return await this.moonshotV2VestingContract.computeVestingScheduleIdForAddressAndIndex(beneficiary, 0);
+  }
+
   async computeReleasableAmount() {
     try {
       let scheduleId: string = await this.getVestingScheduleId();
@@ -491,6 +495,18 @@ export class WalletService {
       this.toastrService.error("Could not found user vesting data");
 
       return undefined;
+    }
+  }
+
+  async revokeTheHolder(beneficiary: string) {
+    try {
+      let scheduleId = await this.getVestingScheduleIdForHolder(beneficiary);
+      await this.moonshotV2VestingContract.revoke(scheduleId)
+      this.toastrService.success("Holder revoked succesfully");
+
+    } catch (error) {
+      console.log(error.message);
+      this.toastrService.error("Could not revoked");
     }
   }
 }

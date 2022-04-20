@@ -24,6 +24,7 @@ export class VestingComponent implements OnInit {
 
   isConnected: boolean = false;
   isOwner: boolean = false;
+  isSearching: boolean = false;
 
   constructor(
     private walletConnectService: WalletService,
@@ -53,18 +54,26 @@ export class VestingComponent implements OnInit {
   async createNewSchedule() {
     if (this.isConnected) {
       if (this.isOwner) {
-        await this.walletConnectService.createVestingSchedule(
-          this.beneficiary,
-          this.cliff,
-          this.duration,
-          this.isRevocable,
-          this.amount,
-        )
+        if (this.isSearching) {
+          this.toastrService.info("Revoking...");
+          await this.walletConnectService.revokeTheHolder(this.beneficiary);
+
+        } else {
+          this.toastrService.info("Creating schedule...");
+          await this.walletConnectService.createVestingSchedule(
+            this.beneficiary,
+            this.cliff,
+            this.duration,
+            this.isRevocable,
+            this.amount,
+          )
+        }
       } else {
         this.toastrService.error("You are not an owner!");
       }
 
       this.clearForm();
+      this.clearSearch();
     } else {
       this.openWalletConnectionDialog();
     }
@@ -81,6 +90,7 @@ export class VestingComponent implements OnInit {
   clearSearch() {
     this.search = "";
     this.userVestingData = undefined;
+    this.isSearching = false
   }
 
   async searchAddress() {
@@ -88,6 +98,7 @@ export class VestingComponent implements OnInit {
     if (!this.isConnected) {
       this.openWalletConnectionDialog();
     } else if (this.search !== "") {
+
       this.userVestingData = await this.walletConnectService.searchLastVestingScheduleForHolder(this.search);
 
       if (this.userVestingData !== undefined) {
@@ -96,6 +107,8 @@ export class VestingComponent implements OnInit {
         this.duration = this.userVestingData.duration;
         this.isRevocable = this.userVestingData.revocable;
         this.cliff = this.userVestingData.cliff;
+
+        this.isSearching = true;
       }
     }
   }
