@@ -403,7 +403,7 @@ export class WalletService {
       }
     } catch (error) {
       console.log(error.message);
-      this.toastrService.warning("Donation failed!");
+      this.toastrService.warning(error.message);
 
       return false;
     }
@@ -425,11 +425,12 @@ export class WalletService {
   async computeReleasableAmount() {
     try {
       let scheduleId: string = await this.getVestingScheduleId();
-      console.log("scheduleId :" + scheduleId);
+      // console.log("scheduleId :" + scheduleId);
 
       return await this.moonshotV2VestingContract.computeReleasableAmount(scheduleId);
     } catch (error) {
-      console.log("Compute Releasable Amount ERROR :" + error.message);
+      // console.log("Compute Releasable Amount ERROR :" + error.message);
+      await this.toastrService.warning(error.message);
     }
 
   }
@@ -470,10 +471,10 @@ export class WalletService {
         vestableAmount,
       );
 
-      this.toastrService.success("Released succesfully");
+      this.toastrService.success("You received " + vestableAmount + " MSHOT");
     } catch (error) {
       console.log(error.message);
-      this.toastrService.error("Failed!");
+      this.toastrService.error(error.message);
     }
   }
 
@@ -488,11 +489,12 @@ export class WalletService {
     let userVestingData: any;
     try {
       userVestingData = await this.moonshotV2VestingContract.getLastVestingScheduleForHolder(address);
+      console.log("Found the holder vesting schedule data succesfully :" + userVestingData);
 
       return userVestingData;
     } catch (error) {
       console.log(error.message);
-      this.toastrService.error("Could not found user vesting data");
+      this.toastrService.error(error.message);
 
       return undefined;
     }
@@ -502,11 +504,11 @@ export class WalletService {
     try {
       let scheduleId = await this.getVestingScheduleIdForHolder(beneficiary);
       await this.moonshotV2VestingContract.revoke(scheduleId)
-      this.toastrService.success("Holder revoked succesfully");
+      this.toastrService.success("Vesting schedule revoked");
 
     } catch (error) {
       console.log(error.message);
-      this.toastrService.error("Could not revoked");
+      this.toastrService.error(error.message);
     }
   }
 }
