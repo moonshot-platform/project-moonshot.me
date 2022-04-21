@@ -11,6 +11,7 @@ import { NightSkyComponent } from './components/night-sky/night-sky.component';
 import { RabbitsMoonticketComponent } from './components/rabbits-moonticket/rabbits-moonticket.component';
 import { TutorialComponent } from './components/landing/tutorial/tutorial.component';
 import { MoonSwapComponent } from './components/landing/moon-swap/moon-swap.component';
+import { VestingComponent } from './components/vesting/vesting.component';
 
 const routes: Routes = [
   {
@@ -48,6 +49,10 @@ const routes: Routes = [
   {
     path: RabbitsMoonticketComponent.routeName,
     component: RabbitsMoonticketComponent
+  },
+  {
+    path: VestingComponent.routeName,
+    component: VestingComponent
   },
   {
     path: TutorialComponent.anchorName,

@@ -21,10 +21,13 @@ export class IntroComponent implements OnInit, OnDestroy {
   private userData: any;
 
   bnbCountFromInput: number = 1;
+  releasableAmount: number = 0;
 
   isConnected: boolean = false;
   isInProcess: boolean = false;
+  isInReleasingProcess: boolean = false;
   hasClaimed: boolean = false;
+  hasVested: boolean = false;
 
   moonshotBalance: string = '-';
   mshotV2Balance: string = '-';
@@ -39,10 +42,12 @@ export class IntroComponent implements OnInit, OnDestroy {
     this.walletConnectService.init().then(async (data: boolean) => {
       this.isConnected = data;
       if (data) {
-        console.log("Wallet is Connected");
-
+        // console.log("Wallet is Connected");
       }
+
+      this.computeReleasableAmount();
       this.walletConnectService.setWalletState(this.isConnected);
+      this.checkUserVested();
       this.updateButtonName();
     });
 
@@ -93,6 +98,8 @@ export class IntroComponent implements OnInit, OnDestroy {
       this.updateButtonName();
       if (state) {
         this.hasClaimed = await this.walletConnectService.hasClaimed();
+        this.computeReleasableAmount();
+        this.checkUserVested();
       }
     });
 
@@ -115,7 +122,6 @@ export class IntroComponent implements OnInit, OnDestroy {
         this.hasClaimed = true;
       }
     });
-
   }
 
   updateButtonName() {
@@ -192,4 +198,21 @@ export class IntroComponent implements OnInit, OnDestroy {
     }
   }
 
+  async computeReleasableAmount() {
+    this.releasableAmount = await this.walletConnectService.computeReleasableAmount();
+  }
+
+  async release() {
+    if (this.isConnected) {
+      this.isInReleasingProcess = true;
+      await this.walletConnectService.releaseVesting();
+      this.isInReleasingProcess = false;
+    } else {
+      this.openWalletConnectionDialog();
+    }
+  }
+
+  async checkUserVested() {
+    this.hasVested = await this.walletConnectService.hasVested();
+  }
 }

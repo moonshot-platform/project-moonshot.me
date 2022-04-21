@@ -11,6 +11,14 @@ export class ArticleListComponent implements OnInit {
 
   articleList: any[] = [
     {
+      "title": "New shuttle; MOONSHOT token migration to V2!",
+      "teaser": "Dear Moonshooters, It is time for a new chapter.As the release of our NFT marketplace ‘MoonSea’ is approaching, we have also taken a close look at our current tokenomics.",
+      "link": "https://moonshotproject.substack.com/p/new-shuttle-moonshot-token-migration?s=r",
+      "date": "APR 4, 2022",
+      "img": "https://cdn.substack.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F078b413f-1b0b-4f4a-af6a-986059ba68c4_1200x675.jpeg",
+      "from": "SUBSTACK"
+    },
+    {
       "title": "2021 A Year That Brought Us Closer To Our Goal",
       "teaser": 'Dear Moonshooters, First of all, thank you for this epic year. Since the start of this project, the community has been amazing and very supportive.',
       "link": "https://moonshotproject.substack.com/p/2021-a-year-that-brought-us-closer",

@@ -70,13 +70,17 @@ export class TokenomicsService {
     const totalSupply = await ssRouter.methods.totalSupply().call();
 
     const deadBalance = await ssRouter.methods.balanceOf("0x000000000000000000000000000000000000dead").call();
+    const vestedBalance = await ssRouter.methods.balanceOf("0x02b2106e64d63d1dd3d4d6ec26bfa795193c9807").call();
+    const vestedBalanceBN = web3.utils.toBN(vestedBalance);
     const totalSupplyBN = web3.utils.toBN(totalSupply);
     const deadSupplyBN = web3.utils.toBN(deadBalance);
 
-    const circSupply = totalSupplyBN.sub(deadSupplyBN);
+    const circSupply = totalSupplyBN.sub(deadSupplyBN).sub(vestedBalanceBN);
 
     const circ = Math.round(Number(web3.utils.fromWei(circSupply.toString(), 'nanoether')));
     const dead = Math.round(Number(web3.utils.fromWei(deadBalance, 'nanoether')));
+    const claimable = Math.round(Number(web3.utils.fromWei(vestedBalance, 'nanoether')));
+    
     const oneBNB = Math.round(Number(web3.utils.fromWei(uniTotalOutputSell[1], 'nanoether')));
     const price1bnb = Math.round(Number(web3.utils.fromWei(busdPAir[1], 'micro')));
     const priceFor1BNB = (price1bnb / oneBNB).toString();
@@ -95,6 +99,7 @@ export class TokenomicsService {
           'marketcap': this.formatAmount(Math.round(circ / oneBNB * myJson.price)),
           'priceFor1mMoonshot': priceFor1BNB,
           'priceForMoonshot': priceFor1ss,
+          'unclaimedMoonshot' : this.formatAmount(claimable)
         }
 
 

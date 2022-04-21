@@ -1,0 +1,122 @@
+@import "includes";
+
+
+section.vesting {
+  position: relative;
+  padding: 20px;
+  padding-top: 100px;
+  margin-bottom: 100px;
+  z-index: 100;
+
+  .inner {
+    @extend %max-width-center;
+    align-items: flex-start;
+  }
+}
+
+.vesting-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+
+  .title {
+    margin-bottom: 90px;
+    font-size: 24px;
+  }
+
+  .searchbox {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    column-gap: 20px;
+    margin-bottom: 40px;
+    align-items: flex-end;
+
+    input {
+      width: 100%;
+      background-color: transparent;
+      border: 0px;
+      border-bottom: 1px solid $primary;
+      caret-color: $primary;
+      color: $primary;
+      text-align: end;
+    }
+
+    .outlined-button {
+      min-width: 100px !important;
+    }
+  }
+
+  .futuristic-container {
+    .row {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      column-gap: 20px;
+
+      .form-field {
+        width: 100%;
+        row-gap: 30px;
+        display: flex;
+        flex-direction: column;
+
+        .form-row {
+          display: flex;
+          flex-direction: row;
+          column-gap: 20px;
+          align-items: flex-end;
+
+          input {
+            width: 100%;
+            background-color: transparent;
+            border: 0px;
+            border-bottom: 1px solid $primary;
+            caret-color: $primary;
+            color: $primary;
+            text-align: end;
+          }
+        }
+      }
+    }
+
+
+  }
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+@media only screen and (max-width: $md) {
+  .futuristic-container {
+    .row {
+      flex-direction: column !important;
+      row-gap: 30px;
+
+      .buttons-container {
+        width: 100%;
+
+        .button,
+        .outlined-button {
+
+          min-width: 100% !important;
+        }
+      }
+    }
+  }
+
+
+}
