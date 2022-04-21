@@ -24,7 +24,7 @@ export class VestingComponent implements OnInit {
 
   isConnected: boolean = false;
   isOwner: boolean = false;
-  isSearching: boolean = false;
+
 
   constructor(
     private walletConnectService: WalletService,
@@ -54,26 +54,19 @@ export class VestingComponent implements OnInit {
   async createNewSchedule() {
     if (this.isConnected) {
       if (this.isOwner) {
-        if (this.isSearching) {
-          this.toastrService.info("Revoking...");
-          await this.walletConnectService.revokeTheHolder(this.beneficiary);
+        this.toastrService.info("Creating schedule...");
 
-        } else {
-          this.toastrService.info("Creating schedule...");
-          await this.walletConnectService.createVestingSchedule(
-            this.beneficiary,
-            this.cliff,
-            this.duration,
-            this.isRevocable,
-            this.amount,
-          )
-        }
+        await this.walletConnectService.createVestingSchedule(
+          this.beneficiary,
+          this.cliff,
+          this.duration,
+          this.isRevocable,
+          this.amount,
+        );
       } else {
         this.toastrService.error("You are not an owner!");
       }
 
-      this.clearForm();
-      this.clearSearch();
     } else {
       this.openWalletConnectionDialog();
     }
@@ -90,7 +83,6 @@ export class VestingComponent implements OnInit {
   clearSearch() {
     this.search = "";
     this.userVestingData = undefined;
-    this.isSearching = false
   }
 
   async searchAddress() {
@@ -107,8 +99,6 @@ export class VestingComponent implements OnInit {
         this.duration = this.userVestingData.duration;
         this.isRevocable = this.userVestingData.revocable;
         this.cliff = this.userVestingData.cliff;
-
-        this.isSearching = true;
       }
     }
   }
@@ -118,5 +108,19 @@ export class VestingComponent implements OnInit {
       WalletConnectComponent,
       { width: 'auto' }
     );
+  }
+
+  async revokeTheSchedule() {
+    if (this.isConnected && this.isOwner) {
+      this.toastrService.info("Revoking...");
+      await this.walletConnectService.revokeTheHolder(this.beneficiary);
+    } else {
+      this.toastrService.error("You are not an owner or connected!");
+    }
+  }
+
+  reset() {
+    this.clearForm();
+    this.clearSearch();
   }
 }

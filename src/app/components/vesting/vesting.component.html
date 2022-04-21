@@ -35,7 +35,18 @@
               </ui-switch>
             </div>
           </div>
-          <a class="button" (click)="createNewSchedule()"> {{isSearching ? 'REVOKE' :'NEW SCHEDULE'}}</a>
+          <div class="buttons-container">
+            <a class="button" (click)="createNewSchedule()">
+              NEW SCHEDULE
+            </a>
+            <a class="outlined-button" (click)="revokeTheSchedule()">
+              REVOKE
+            </a>
+            <a class="outlined-button" (click)="reset()">
+              CLEAR
+            </a>
+          </div>
+
         </div>
       </div>
     </div>

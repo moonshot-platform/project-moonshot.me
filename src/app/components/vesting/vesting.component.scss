@@ -83,6 +83,12 @@ section.vesting {
   }
 }
 
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -100,10 +106,17 @@ input[type=number] {
       flex-direction: column !important;
       row-gap: 30px;
 
-      .button {
+      .buttons-container {
+        width: 100%;
 
-        min-width: 100% !important;
+        .button,
+        .outlined-button {
+
+          min-width: 100% !important;
+        }
       }
     }
   }
+
+
 }
