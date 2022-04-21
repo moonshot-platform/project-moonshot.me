@@ -11,6 +11,8 @@ import silverTokenAbi from './../../assets/abis/silver.token.abi.json';
 import mshotTokenAbi from './../../assets/abis/mshot.token.abi.json';
 import buyMshotTokenAbi from './../../assets/abis/buy-moonshot-token.abi.json';
 import claimMshotTokenAbi from './../../assets/abis/claim-mshot-token-abi.json';
+import vestingTokenAbi from './../../assets/abis/vesting-token.abi.json';
+
 import Web3 from 'web3';
 import Web3Modal from "web3modal";
 import { setInterval } from 'timers';
@@ -34,6 +36,7 @@ const moonshotV1TokenAddress = environment.moonshotV1Address;
 const buyContractAddress = environment.buyContractAddress;
 const moonshotV2TokenAddress = environment.tokenContractAddress;
 const claimContractAddress = environment.claimContractAddress;
+const vestingContractAddress = environment.vestingContactAddress;
 
 //Create WalletConnect Provider
 const providerOptions = {
@@ -86,6 +89,7 @@ export class WalletService {
   moonshotV2TokenContract: any;
   moonshotV2ClaimContract: any;
   moonshotV2BuyContract: any;
+  moonshotV2VestingContract: any;
 
 
   private isConnected = false;
@@ -208,6 +212,7 @@ export class WalletService {
       this.moonshotV2TokenContract = new ethers.Contract(moonshotV2TokenAddress, mshotTokenAbi, this.signer);
       this.moonshotV2ClaimContract = new ethers.Contract(claimContractAddress, claimMshotTokenAbi, this.signer);
       this.moonshotV2BuyContract = new ethers.Contract(buyContractAddress, buyMshotTokenAbi, this.signer);
+      this.moonshotV2VestingContract = new ethers.Contract(vestingContractAddress, vestingTokenAbi, this.signer);
     } else {
       this.toastrService.error('Please connect your wallet to the Binance Smart Chain');
       console.log("Wrong network");
@@ -332,23 +337,10 @@ export class WalletService {
   async buyMSHOT(bnbValue: number) {
 
     try {
-      // let web3 = new Web3(await web3Modal.connect());
-      // const buyContract = new web3.eth.Contract(
-      //   buyMshotTokenAbi as any,
-      //   buyContractAddress
-      // );
-
       const buyOperation = await this.moonshotV2BuyContract.buyTokenWithBNB({
         from: this.account,
         value: ethers.utils.parseEther(`${bnbValue}`),
       });
-
-      // let tx = await buyOperation.send(
-      //   {
-      //     from: this.account,
-      //     value: ethers.utils.parseEther(`${bnbValue}`),
-      //   }
-      // );
 
       this.toastrService.success('Successfully bought MSHOT v2');
 
@@ -411,17 +403,112 @@ export class WalletService {
       }
     } catch (error) {
       console.log(error.message);
-      this.toastrService.warning("Donation failed!");
+      this.toastrService.warning(error.message);
 
       return false;
+    }
+    return false;
+  }
 
+  async hasVested(): Promise<boolean> {
+    return await this.moonshotV2VestingContract.getVestingSchedulesCountByBeneficiary(this.account) !== 0;
+  }
+
+  async getVestingScheduleId() {
+    return await this.moonshotV2VestingContract.computeVestingScheduleIdForAddressAndIndex(this.account, 0);
+  }
+
+  async getVestingScheduleIdForHolder(beneficiary: string) {
+    return await this.moonshotV2VestingContract.computeVestingScheduleIdForAddressAndIndex(beneficiary, 0);
+  }
+
+  async computeReleasableAmount() {
+    try {
+      let scheduleId: string = await this.getVestingScheduleId();
+      // console.log("scheduleId :" + scheduleId);
+
+      return await this.moonshotV2VestingContract.computeReleasableAmount(scheduleId);
+    } catch (error) {
+      // console.log("Compute Releasable Amount ERROR :" + error.message);
+      await this.toastrService.warning(error.message);
     }
 
+  }
+  async createVestingSchedule(
+    beneficiary: string,
+    cliffInSeconds: number,
+    durationInSeconds: number,
+    isRevocable: boolean,
+    moonshotValue: number
+  ) {
 
+    try {
+      await this.moonshotV2VestingContract.createVestingSchedule(
+        beneficiary,
+        Date.now(),
+        cliffInSeconds,// cliff, 1 day in unix timestamp
+        durationInSeconds,// 1 week in unix timestamp
+        3600, // duration of slice period for vesting
+        isRevocable,
+        moonshotValue,
+      );
 
+      this.toastrService.success("Created a new vesting schedule");
+    } catch (error) {
+      console.log(error.message);
 
+      this.toastrService.error("Failed to create a new vesting schedule");
+    }
+  }
 
+  async releaseVesting() {
+    let scheduleId = await this.getVestingScheduleId();
+    let vestableAmount = await this.computeReleasableAmount();
 
-    return false;
+    try {
+      await this.moonshotV2VestingContract.release(
+        scheduleId,
+        vestableAmount,
+      );
+
+      this.toastrService.success("You received " + vestableAmount + " MSHOT");
+    } catch (error) {
+      console.log(error.message);
+      this.toastrService.error(error.message);
+    }
+  }
+
+  async isOwner(): Promise<boolean> {
+    let owner: string = await this.moonshotV2VestingContract.owner();
+    console.log("Owner:" + owner);
+
+    return this.account === owner;
+  }
+
+  async searchLastVestingScheduleForHolder(address: string) {
+    let userVestingData: any;
+    try {
+      userVestingData = await this.moonshotV2VestingContract.getLastVestingScheduleForHolder(address);
+      console.log("Found the holder vesting schedule data succesfully :" + userVestingData);
+
+      return userVestingData;
+    } catch (error) {
+      console.log(error.message);
+      this.toastrService.error(error.message);
+
+      return undefined;
+    }
+  }
+
+  async revokeTheHolder(beneficiary: string) {
+    try {
+      let scheduleId = await this.getVestingScheduleIdForHolder(beneficiary);
+      await this.moonshotV2VestingContract.revoke(scheduleId)
+      this.toastrService.success("Vesting schedule revoked");
+
+    } catch (error) {
+      console.log(error.message);
+      this.toastrService.error(error.message);
+    }
   }
 }

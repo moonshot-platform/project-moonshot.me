@@ -36,6 +36,23 @@ section.intro {
   }
 }
 
+.vesting {
+  display: flex;
+  flex-direction: column;
+
+  .releasable-amount {
+    font-size: 16px !important;
+    margin-bottom: 20px;
+  }
+
+  .button {
+    img {
+      margin: -10px !important;
+    }
+  }
+
+}
+
 .buy-mshot {
   display: flex;
   flex-direction: column;
@@ -113,56 +130,6 @@ section.intro {
 
   .bottom>div:first-child>p {
     line-height: 30px;
-  }
-}
-
-@media only screen and (max-width: $md) {
-  section.intro {
-    align-items: center;
-    padding-top: 200px;
-
-    .inner {
-      flex-direction: column-reverse;
-      margin-bottom: 0;
-
-      .stats {
-        margin-right: 0;
-        margin-top: 100px;
-        max-width: initial;
-
-        >.timer {
-          p:first-child {
-            margin-bottom: 20px;
-          }
-        }
-
-        >.price {
-          display: none;
-        }
-      }
-
-      .info {
-        >.top>p {
-          font-size: 27px;
-        }
-
-        .outlined-button {
-          max-width: 100% !important;
-        }
-
-        .bottom {
-          flex-direction: column;
-
-          .futuristic-container {
-            border-bottom: 0;
-          }
-
-          .round-mini-button {
-            display: none;
-          }
-        }
-      }
-    }
   }
 }
 
@@ -386,6 +353,60 @@ input[type=number] {
   transform: translate(-50%, 50%) rotate(45deg) scaleY(-1);
   background-color: black;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+}
+
+@media only screen and (max-width: $md) {
+  section.intro {
+    align-items: center;
+    padding-top: 200px;
+
+    .inner {
+      flex-direction: column-reverse;
+      margin-bottom: 0;
+
+      .stats {
+        margin-right: 0;
+        margin-top: 100px;
+        max-width: initial;
+
+        >.timer {
+          p:first-child {
+            margin-bottom: 20px;
+          }
+        }
+
+        >.price {
+          display: none;
+        }
+      }
+
+      .info {
+        >.top>p {
+          font-size: 27px;
+        }
+
+        .outlined-button {
+          max-width: 100% !important;
+        }
+
+        .bottom {
+          flex-direction: column;
+
+          .futuristic-container {
+            border-bottom: 0;
+          }
+
+          .round-mini-button {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  .vesting>.button {
+    min-width: 100% !important;
+  }
 }
 
 @media only screen and (max-width: $md) {

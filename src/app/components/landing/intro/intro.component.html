@@ -50,6 +50,13 @@
           </div>
         </div>
       </div>
+      <div *ngIf="hasVested" class="vesting futuristic-container">
+        <p>TOKEN VESTING</p>
+        <p class="releasable-amount">Releasable amount: {{releasableAmount}}</p>
+        <a class="button" (click)="isInReleasingProcess? null :  release()">{{isInReleasingProcess ? '' : 'Release'}}
+          <img *ngIf="isInReleasingProcess" src="assets/media/videos/Loading_yellowBG.gif" class="loader-img">
+        </a>
+      </div>
     </div>
     <div class="info flex3">
       <div class="line-container flex">

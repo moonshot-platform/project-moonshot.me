@@ -1,0 +1,54 @@
+<section class="vesting">
+  <div class="inner flex-space-between align-start">
+    <div class="vesting-container">
+      <p class="title">
+        CREATE A NEW VESTING SCHEDULE
+      </p>
+      <div class="searchbox">
+        <p>Search:</p>
+        <input type="text" name="searchbox" id="searchbox" [(ngModel)]="search">
+        <a class="outlined-button" (click)="searchAddress()">Search</a>
+      </div>
+      <div class="futuristic-container top-only pv30">
+        <div class="row">
+          <div class="form-field">
+            <div class="form-row">
+              <p>Beneficiary: </p>
+              <input type="text" name="beneficiary" id="beneficiary" [(ngModel)]="beneficiary">
+            </div>
+            <div class="form-row">
+              <p>Amount: </p>
+              <input type="number" name="amount" id="amount" [(ngModel)]="amount">
+            </div>
+            <div class="form-row">
+              <p>Duration: </p>
+              <input type="number" name="duration" id="duration" [(ngModel)]="duration">
+            </div>
+            <div class="form-row">
+              <p>Cliff: </p>
+              <input type="number" name="cliff" id="cliff" [(ngModel)]="cliff">
+            </div>
+            <div class="form-row">
+              <p>Is Revocable: </p>
+              <ui-switch defaultBgColor="white" [checked]="isRevocable" (change)="changeRevocableStatus($event)"
+                class="mr10">
+              </ui-switch>
+            </div>
+          </div>
+          <div class="buttons-container">
+            <a class="button" (click)="createNewSchedule()">
+              NEW SCHEDULE
+            </a>
+            <a class="outlined-button" (click)="revokeTheSchedule()">
+              REVOKE
+            </a>
+            <a class="outlined-button" (click)="reset()">
+              CLEAR
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
