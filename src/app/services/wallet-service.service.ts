@@ -430,10 +430,11 @@ export class WalletService {
       return await this.moonshotV2VestingContract.computeReleasableAmount(scheduleId);
     } catch (error) {
       // console.log("Compute Releasable Amount ERROR :" + error.message);
-      await this.toastrService.warning(error.message);
+      this.toastrService.warning(error.message, "Compute");
     }
 
   }
+
   async createVestingSchedule(
     beneficiary: string,
     cliffInSeconds: number,
@@ -464,7 +465,10 @@ export class WalletService {
   async releaseVesting() {
     let scheduleId = await this.getVestingScheduleId();
     let vestableAmount = await this.computeReleasableAmount();
-
+    if (vestableAmount == 0 || vestableAmount == undefined) {
+      this.toastrService.info("Tokens will be releasable soon. The slice period is 1 hour");
+      return
+    }
     try {
       await this.moonshotV2VestingContract.release(
         scheduleId,
@@ -480,8 +484,7 @@ export class WalletService {
 
   async isOwner(): Promise<boolean> {
     let owner: string = await this.moonshotV2VestingContract.owner();
-    console.log("Owner:" + owner);
-
+    // console.log("Owner:" + owner);
     return this.account === owner;
   }
 
