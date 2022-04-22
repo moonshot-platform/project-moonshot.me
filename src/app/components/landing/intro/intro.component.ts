@@ -204,9 +204,11 @@ export class IntroComponent implements OnInit, OnDestroy {
 
   async release() {
     if (this.isConnected) {
+
       this.isInReleasingProcess = true;
       await this.walletConnectService.releaseVesting();
       this.isInReleasingProcess = false;
+      await this.computeReleasableAmount();
     } else {
       this.openWalletConnectionDialog();
     }
