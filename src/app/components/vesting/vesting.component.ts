@@ -17,7 +17,7 @@ export class VestingComponent implements OnInit {
   amount: number = 0;
   duration: number = 0;
   cliff: number = 0;
-  isRevocable: boolean = false;
+  isRevocable: boolean = true;
 
   search: string = '';
   userVestingData: any
