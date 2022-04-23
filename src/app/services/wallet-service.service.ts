@@ -422,7 +422,7 @@ export class WalletService {
     return await this.moonshotV2VestingContract.computeVestingScheduleIdForAddressAndIndex(beneficiary, 0);
   }
 
-  async computeReleasableAmount() {
+  async computeReleasableAmount(): Promise<number> {
     try {
       let scheduleId: string = await this.getVestingScheduleId();
       // console.log("scheduleId :" + scheduleId);
@@ -431,6 +431,7 @@ export class WalletService {
     } catch (error) {
       // console.log("Compute Releasable Amount ERROR :" + error.message);
       this.toastrService.warning(error.message, "Compute");
+      return 0;
     }
 
   }
@@ -513,5 +514,17 @@ export class WalletService {
       console.log(error.message);
       this.toastrService.error(error.message);
     }
+  }
+
+  async checkBnbBalance(): Promise<boolean> {
+    return await this.getBnbBalance() > 0.0031;
+  }
+
+  async getBnbBalance() {
+    const hexBalance = await this.provider.getBalance(this.account);
+    const balance = parseInt(hexBalance._hex) / Math.pow(10, 18); // 18 is decimals of token
+
+    // console.log(balance);
+    return balance;
   }
 }
