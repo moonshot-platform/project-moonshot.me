@@ -6,6 +6,7 @@ import Web3 from 'web3';
 import { WalletConnectComponent } from '../../base/wallet-connect/wallet-connect.component';
 import { CLAIM_CASES } from 'src/app/services/wallet-service.service';
 import { id } from 'ethers/lib/utils';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-moon-swap',
   templateUrl: './moon-swap.component.html',
@@ -24,10 +25,12 @@ export class MoonSwapComponent implements OnInit {
   userData: any;
   isButtonActive: boolean = true;
   isInProcess: boolean = false;
+  hasEnoughBnb: boolean = false
 
   constructor(
     public dialog: MatDialog,
-    private walletConnectService: WalletService
+    private walletConnectService: WalletService,
+    private toastrService: ToastrService
   ) {
     this.walletConnectService.init().then((data: boolean) => {
       this.isConnected = data;
@@ -73,20 +76,22 @@ export class MoonSwapComponent implements OnInit {
 
   async claimMSHOT() {
 
-    if (!this.isConnected) {
-      this.openWalletConnectDialog();
-    }
-    else {
-
+    if (this.isConnected) {
+      await this.checkBNBBalance();
       this.isInProcess = true;
 
-      this.buttonName = await this.walletConnectService.claimMSHOT();
-
-      if (this.buttonName == "Connect Wallet") { //FIXME no hardcoded identifiers
-        this.openWalletConnectDialog();
+      if (this.hasEnoughBnb) {
+        this.buttonName = await this.walletConnectService.claimMSHOT();
+        this.hasEnoughBnb = false;
+      } else {
+        this.toastrService.error("You do not have enough bnb to pay the gas fee!")
       }
 
       this.isInProcess = false;
+    }
+    else {
+
+      this.openWalletConnectDialog();
     }
 
 
@@ -116,4 +121,6 @@ export class MoonSwapComponent implements OnInit {
   }
 
   addMshotToMetaMaskWallet = () => this.walletConnectService.addTokenMshotToMetaMaskWallet();
+
+  checkBNBBalance = async () => this.hasEnoughBnb = await this.walletConnectService.checkBnbBalance();
 }
