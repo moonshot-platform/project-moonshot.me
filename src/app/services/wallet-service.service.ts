@@ -427,7 +427,10 @@ export class WalletService {
       let scheduleId: string = await this.getVestingScheduleId();
       // console.log("scheduleId :" + scheduleId);
 
-      return await this.moonshotV2VestingContract.computeReleasableAmount(scheduleId);
+      let releasableAmount = await this.moonshotV2VestingContract.computeReleasableAmount(scheduleId);
+      // console.log("releasable amount:" + releasableAmount);
+      return releasableAmount;
+
     } catch (error) {
       // console.log("Compute Releasable Amount ERROR :" + error.message);
       this.toastrService.warning(error.message, "Compute");
@@ -477,7 +480,7 @@ export class WalletService {
         vestableAmount,
       );
 
-      this.toastrService.success("You received " + vestableAmount + " MSHOT");
+      this.toastrService.success("You received " + this.shortTheNumber(vestableAmount) + " MSHOT");
     } catch (error) {
       console.log(error.message);
       this.toastrService.error(error.message);
@@ -527,5 +530,24 @@ export class WalletService {
 
     // console.log(balance);
     return balance;
+  }
+
+  formatNumber(n, d, l) {
+    return (n / d).toFixed(1) + l;
+  }
+
+  shortTheNumber(value) {
+    const n = value / 1000000000;
+
+    if (n >= 1e3 && n < 1e6)
+      return this.formatNumber(n, 1e3, "K");
+    if (n >= 1e6 && n <= 1e9)
+      return this.formatNumber(n, 1e6, "M");
+    if (n >= 1e9 && n < 1e12)
+      return this.formatNumber(n, 1e9, "B");
+    if (n >= 1e12)
+      return this.formatNumber(n, 1e12, "T");
+
+    return value;
   }
 }
