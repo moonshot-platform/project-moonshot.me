@@ -257,7 +257,7 @@ export class IntroComponent implements OnInit, OnDestroy {
     if (this.bnbBalance >= 1) {
       this.bnbCountFromInput = 1;
     } else {
-      this.bnbCountFromInput = this.bnbBalance - this.estimatedGasFee;
+      this.bnbCountFromInput = this.bnbBalance > this.estimatedGasFee ? this.bnbBalance - this.estimatedGasFee : this.bnbBalance;
     }
   }
 
@@ -279,4 +279,6 @@ export class IntroComponent implements OnInit, OnDestroy {
     }
     return newValue;
   }
+
+
 }
