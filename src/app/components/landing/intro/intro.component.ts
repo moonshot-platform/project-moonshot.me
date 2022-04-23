@@ -215,7 +215,9 @@ export class IntroComponent implements OnInit, OnDestroy {
     this.releasableAmount = await this.walletConnectService.computeReleasableAmount();
     // 1T = 1 Trillion, 1B = 1 Billion, 1M = 1 Million , values smaller can be displayed as is
     // console.log(this.abbreviateNumber(parseInt(this.releasableAmount.toString())));
-    this.releasableAmount = this.abbreviateNumber(parseInt(this.releasableAmount.toString()));
+    this.releasableAmount = this.walletConnectService.shortTheNumber(this.releasableAmount);
+    // console.log(this.walletConnectService.shortTheNumber(this.releasableAmount));
+
   }
 
   async release() {
@@ -249,7 +251,6 @@ export class IntroComponent implements OnInit, OnDestroy {
     if (value + this.estimatedGasFee > this.bnbBalance) {
       this.bnbCountFromInput = this.bnbBalance - this.estimatedGasFee - 0.0001;
     }
-
   }
 
   async getBnbBalance() {
@@ -260,25 +261,4 @@ export class IntroComponent implements OnInit, OnDestroy {
       this.bnbCountFromInput = this.bnbBalance > this.estimatedGasFee ? this.bnbBalance - this.estimatedGasFee : this.bnbBalance;
     }
   }
-
-  abbreviateNumber(value: any) {
-    let newValue = value;
-    if (value >= 1000000) {
-      var suffixes = ["", "K", "M", "B", "T"];
-      var suffixNum = Math.floor(("" + value).length / 3);
-      var shortValue;
-      for (var precision = 2; precision >= 1; precision--) {
-        shortValue = parseFloat((suffixNum != 0 ? (value / Math.pow(1000, suffixNum)) : value).toPrecision(precision));
-        var dotLessShortValue = (shortValue + '').replace(/[^a-zA-Z 0-9]+/g, '');
-        if (dotLessShortValue.length <= 2) { break; }
-      }
-      if (shortValue % 1 != 0) shortValue = shortValue.toFixed(1);
-      newValue = shortValue + suffixes[suffixNum];
-    } else {
-      newValue = newValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    }
-    return newValue;
-  }
-
-
 }
