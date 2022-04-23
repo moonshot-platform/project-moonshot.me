@@ -438,6 +438,7 @@ export class WalletService {
 
   async createVestingSchedule(
     beneficiary: string,
+    startTime: number,
     cliffInSeconds: number,
     durationInSeconds: number,
     isRevocable: boolean,
@@ -447,7 +448,7 @@ export class WalletService {
     try {
       await this.moonshotV2VestingContract.createVestingSchedule(
         beneficiary,
-        Date.now(),
+        startTime,
         cliffInSeconds,// cliff, 1 day in unix timestamp
         durationInSeconds,// 1 week in unix timestamp
         3600, // duration of slice period for vesting
