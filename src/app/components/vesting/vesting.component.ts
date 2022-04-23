@@ -14,6 +14,7 @@ export class VestingComponent implements OnInit {
   static readonly routeName: string = 'vesting';
 
   beneficiary: string = '';
+  startTime: number = 0;
   amount: number = 0;
   duration: number = 0;
   cliff: number = 0;
@@ -58,6 +59,7 @@ export class VestingComponent implements OnInit {
 
         await this.walletConnectService.createVestingSchedule(
           this.beneficiary,
+          this.startTime,
           this.cliff,
           this.duration,
           this.isRevocable,
@@ -74,6 +76,7 @@ export class VestingComponent implements OnInit {
 
   clearForm() {
     this.beneficiary = "";
+    this.startTime = 0;
     this.amount = 0;
     this.cliff = 0;
     this.duration = 0;
@@ -92,9 +95,11 @@ export class VestingComponent implements OnInit {
     } else if (this.search !== "") {
 
       this.userVestingData = await this.walletConnectService.searchLastVestingScheduleForHolder(this.search);
+      console.log(this.userVestingData);
 
       if (this.userVestingData !== undefined) {
         this.beneficiary = this.userVestingData.beneficiary;
+        this.startTime = this.userVestingData.start;
         this.amount = this.userVestingData.amountTotal;
         this.duration = this.userVestingData.duration;
         this.isRevocable = this.userVestingData.revocable;
