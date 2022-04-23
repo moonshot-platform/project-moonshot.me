@@ -244,12 +244,11 @@ export class IntroComponent implements OnInit, OnDestroy {
 
   async onChangeBuyMSHOTInput(value: any) {
     let bnbAmount = this.bnbCountFromInput <= 0 ? 0.001 : this.bnbCountFromInput;
-    console.log(bnbAmount);
+    // console.log(bnbAmount);
 
     if (value + this.estimatedGasFee > this.bnbBalance) {
-      this.bnbCountFromInput = this.bnbBalance - this.estimatedGasFee;
+      this.bnbCountFromInput = this.bnbBalance - this.estimatedGasFee - 0.0001;
     }
-    console.log(typeof value);
 
   }
 
