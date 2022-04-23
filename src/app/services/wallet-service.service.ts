@@ -427,7 +427,10 @@ export class WalletService {
       let scheduleId: string = await this.getVestingScheduleId();
       // console.log("scheduleId :" + scheduleId);
 
-      return await this.moonshotV2VestingContract.computeReleasableAmount(scheduleId);
+      let releasableAmount = await this.moonshotV2VestingContract.computeReleasableAmount(scheduleId);
+      // console.log("releasable amoun:" + releasableAmount);
+      return releasableAmount;
+
     } catch (error) {
       // console.log("Compute Releasable Amount ERROR :" + error.message);
       this.toastrService.warning(error.message, "Compute");
