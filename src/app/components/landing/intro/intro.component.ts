@@ -1,6 +1,7 @@
 import { OnDestroy } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
 import { TokenomicsService } from 'src/app/services/tokenomics.service';
 import { WalletService } from 'src/app/services/wallet-service.service';
 import { environment } from 'src/environments/environment';
@@ -21,28 +22,33 @@ export class IntroComponent implements OnInit, OnDestroy {
   private userData: any;
 
   bnbCountFromInput: number = 1;
-  releasableAmount: number = 0;
+  releasableAmount: any = 0;
 
   isConnected: boolean = false;
   isInProcess: boolean = false;
   isInReleasingProcess: boolean = false;
   hasClaimed: boolean = false;
   hasVested: boolean = false;
+  hasEnoughBnb: boolean = false;
 
   moonshotBalance: string = '-';
   mshotV2Balance: string = '-';
+  bnbBalance: number = 0;
+  estimatedGasFee = 0.0031;
 
   buttonName = '';
 
   constructor(
     tokenomicsService: TokenomicsService,
     private walletConnectService: WalletService,
+    private toastrService: ToastrService,
     private dialog: MatDialog
   ) {
     this.walletConnectService.init().then(async (data: boolean) => {
       this.isConnected = data;
       if (data) {
         // console.log("Wallet is Connected");
+        this.getBnbBalance();
       }
 
       this.computeReleasableAmount();
@@ -100,6 +106,7 @@ export class IntroComponent implements OnInit, OnDestroy {
         this.hasClaimed = await this.walletConnectService.hasClaimed();
         this.computeReleasableAmount();
         this.checkUserVested();
+        this.getBnbBalance();
       }
     });
 
@@ -188,9 +195,15 @@ export class IntroComponent implements OnInit, OnDestroy {
     if (this.isConnected) {
       this.isInProcess = true;
 
-      await this.walletConnectService.buyMSHOT(
-        Number(this.bnbCountFromInput) <= 0 ? 0.001 : Number(this.bnbCountFromInput)
-      );
+      let bnbAmount = (Number(this.bnbCountFromInput) <= 0 ? 0.001 : Number(this.bnbCountFromInput));
+
+      let currentBnbBalance = await this.walletConnectService.getBnbBalance();
+
+      if (currentBnbBalance > bnbAmount + this.estimatedGasFee) {
+        await this.walletConnectService.buyMSHOT(bnbAmount);
+      } else {
+        this.toastrService.error("You do not have enough BNB to buy that much Moonshot");
+      }
 
       this.isInProcess = false;
     } else {
@@ -200,13 +213,22 @@ export class IntroComponent implements OnInit, OnDestroy {
 
   async computeReleasableAmount() {
     this.releasableAmount = await this.walletConnectService.computeReleasableAmount();
+    // 1T = 1 Trillion, 1B = 1 Billion, 1M = 1 Million , values smaller can be displayed as is
+    // console.log(this.abbreviateNumber(parseInt(this.releasableAmount.toString())));
+    this.releasableAmount = this.abbreviateNumber(parseInt(this.releasableAmount.toString()));
   }
 
   async release() {
     if (this.isConnected) {
+      await this.checkBNBBalance();
 
       this.isInReleasingProcess = true;
-      await this.walletConnectService.releaseVesting();
+      if (this.hasEnoughBnb) {
+        await this.walletConnectService.releaseVesting();
+        this.hasEnoughBnb = false
+      } else {
+        this.toastrService.error("You do not have enough bnb to pay the gas fee!")
+      }
       this.isInReleasingProcess = false;
       await this.computeReleasableAmount();
     } else {
@@ -216,5 +238,46 @@ export class IntroComponent implements OnInit, OnDestroy {
 
   async checkUserVested() {
     this.hasVested = await this.walletConnectService.hasVested();
+  }
+
+  checkBNBBalance = async () => this.hasEnoughBnb = await this.walletConnectService.checkBnbBalance();
+
+  async onChangeBuyMSHOTInput(value: any) {
+    let bnbAmount = this.bnbCountFromInput <= 0 ? 0.001 : this.bnbCountFromInput;
+    console.log(bnbAmount);
+
+    if (value + this.estimatedGasFee > this.bnbBalance) {
+      this.bnbCountFromInput = this.bnbBalance - this.estimatedGasFee;
+    }
+    console.log(typeof value);
+
+  }
+
+  async getBnbBalance() {
+    this.bnbBalance = await this.walletConnectService.getBnbBalance();
+    if (this.bnbBalance >= 1) {
+      this.bnbCountFromInput = 1;
+    } else {
+      this.bnbCountFromInput = this.bnbBalance - this.estimatedGasFee;
+    }
+  }
+
+  abbreviateNumber(value: any) {
+    let newValue = value;
+    if (value >= 1000000) {
+      var suffixes = ["", "K", "M", "B", "T"];
+      var suffixNum = Math.floor(("" + value).length / 3);
+      var shortValue;
+      for (var precision = 2; precision >= 1; precision--) {
+        shortValue = parseFloat((suffixNum != 0 ? (value / Math.pow(1000, suffixNum)) : value).toPrecision(precision));
+        var dotLessShortValue = (shortValue + '').replace(/[^a-zA-Z 0-9]+/g, '');
+        if (dotLessShortValue.length <= 2) { break; }
+      }
+      if (shortValue % 1 != 0) shortValue = shortValue.toFixed(1);
+      newValue = shortValue + suffixes[suffixNum];
+    } else {
+      newValue = newValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+    return newValue;
   }
 }
