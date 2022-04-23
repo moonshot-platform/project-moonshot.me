@@ -95,7 +95,7 @@ export class VestingComponent implements OnInit {
     } else if (this.search !== "") {
 
       this.userVestingData = await this.walletConnectService.searchLastVestingScheduleForHolder(this.search);
-      console.log(this.userVestingData);
+      // console.log(this.userVestingData);
 
       if (this.userVestingData !== undefined) {
         this.beneficiary = this.userVestingData.beneficiary;
