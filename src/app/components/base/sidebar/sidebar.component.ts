@@ -4,6 +4,7 @@ import { MoonbaseService } from 'src/app/services/moonbase.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { WalletConnectComponent } from '../wallet-connect/wallet-connect.component';
+import { ReleaseService } from 'src/app/services/release.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -14,10 +15,12 @@ export class SidebarComponent implements OnInit {
 
   active = false;
   moonbaseActive = true;
+  releaseBarActive = false;
 
   constructor(
     private tokenomicsService: TokenomicsService,
     private moonbaseService: MoonbaseService,
+    private releaseService: ReleaseService,
     public dialog: MatDialog,
     private router: Router,
   ) {
@@ -34,21 +37,36 @@ export class SidebarComponent implements OnInit {
     this.moonbaseService.whenToggled().subscribe((state: boolean) => {
       this.toggleMoonbaseView(state);
     });
+
+    this.releaseService.whenToggled().subscribe((state: boolean) => {
+      this.toggleReleaseView(state);
+    });
   }
 
   toggleTokenomicsView(active: boolean = null) {
     this.active = active || !this.active;
 
-    if (this.moonbaseActive && this.active) {
-      this.toggleMoonbaseView(false);
+    if (this.active && (this.moonbaseActive || this.releaseBarActive)) {
+      this.moonbaseActive = false;
+      this.releaseBarActive = false;
     }
   }
 
   toggleMoonbaseView(moonbaseActive: boolean = null) {
     this.moonbaseActive = moonbaseActive || !this.moonbaseActive;
 
-    if (this.moonbaseActive && this.active) {
-      this.toggleTokenomicsView(false);
+    if (this.moonbaseActive && (this.active || this.releaseBarActive)) {
+      this.active = false;
+      this.releaseBarActive = false;
+    }
+  }
+
+  toggleReleaseView(releaseActive: boolean = null) {
+    this.releaseBarActive = releaseActive || !this.releaseBarActive;
+
+    if (this.releaseBarActive && (this.active || this.moonbaseActive)) {
+      this.active = false;
+      this.moonbaseActive = false
     }
   }
 
