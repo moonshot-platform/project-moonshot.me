@@ -49,11 +49,11 @@ export class IntroComponent implements OnInit, OnDestroy {
       if (data) {
         // console.log("Wallet is Connected");
         this.getBnbBalance();
+        this.computeReleasableAmount();
+        this.checkUserVested();
       }
 
-      this.computeReleasableAmount();
       this.walletConnectService.setWalletState(this.isConnected);
-      this.checkUserVested();
       this.updateButtonName();
     });
 

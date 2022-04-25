@@ -428,8 +428,6 @@ export class WalletService {
   }
 
   async computeReleasableAmount(): Promise<number> {
-    if (!this.isConnected)
-      return 0;
     try {
       let scheduleId: string = await this.getVestingScheduleId();
       // console.log("scheduleId :" + scheduleId);
