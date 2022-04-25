@@ -86,7 +86,12 @@ export class SidebarComponent implements OnInit {
         // Clicked outside the box
         this.moonbaseActive = false;
       }
+      if (!document.getElementById('release-bar').contains(event.target)) {
+        // Clicked outside the box
+        this.releaseBarActive = false;
+      }
     }
+
   }
 
   connectWallet() {
