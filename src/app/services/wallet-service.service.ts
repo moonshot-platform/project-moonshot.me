@@ -136,6 +136,8 @@ export class WalletService {
           } else {
             await this.connectToWallet();
           }
+
+          location.reload();
         });
 
         // Subscribe to chain changed
@@ -178,7 +180,10 @@ export class WalletService {
       this.localStorageService.setWallet(2);
 
       // Subscribe to accounts change
-      provider.on(this.ACCOUNTS_CHANGED, (accounts: string[]) => this.connectToWalletConnect());
+      provider.on(this.ACCOUNTS_CHANGED, async (accounts: string[]) => {
+        await this.connectToWalletConnect();
+        location.reload();
+      });
 
       // Subscribe to session disconnect
       provider.on(this.DISCONNECT, (code: number, reason: string) => this.setWalletDisconnected());
