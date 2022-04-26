@@ -39,7 +39,6 @@ export class VestingContractModel {
   }
 }
 
-
 export const VESTING_CONTRACTS = {
   MSHOT: new VestingContractModel(
     environment.vestingContactAddress,
@@ -450,7 +449,7 @@ export class WalletService {
   async getVestingScheduleId(contract: VestingContractModel) {
     let vestingContract = new ethers.Contract(contract.contractAddress, contract.abi, this.signer);
     let scheduleId = await vestingContract.computeVestingScheduleIdForAddressAndIndex(this.account, 0);
-    console.log("MSHOT Schedule ID: " + scheduleId);
+    // console.log("MSHOT Schedule ID: " + scheduleId);
 
     return scheduleId;
   }

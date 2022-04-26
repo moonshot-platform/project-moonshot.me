@@ -37,8 +37,17 @@
         <!-- <p>TOKEN VESTING</p> -->
 
         <p *ngIf="!hasVested" style="text-align: center;">You are not a vested<br>user for this token!</p>
-        <p *ngIf="hasVested" class="releasable-amount flex">Releasable: <span
-            style="margin-left: auto">{{releasableAmount}}
+        <p *ngIf="hasVested" class="releasable-amount flex">Start:
+          <span style="margin-left: auto">{{startTime}}</span>
+        </p>
+        <p *ngIf="hasVested" class="releasable-amount flex">End:
+          <span style="margin-left: auto">{{endTime}}</span>
+        </p>
+        <p *ngIf="hasVested" class="releasable-amount flex">Total:
+          <span style="margin-left: auto">{{amount}}</span>
+        </p>
+        <p *ngIf="hasVested" class="releasable-amount flex">Releasable:
+          <span style="margin-left: auto">{{releasableAmount}}
             {{selectedItem.symbol}}</span>
         </p>
         <a *ngIf="hasVested" class="outlined-button"

@@ -65,11 +65,12 @@ section.release-bar {
 .dropdown_c {
   position: relative;
   margin: 20px auto;
+  width: 100%;
 }
 
 .selected {
   width: 100%;
-  max-width: 230px;
+  max-width: 370px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -95,8 +96,7 @@ section.release-bar {
 
 .selected span {
   display: flex;
-  width: 100vw;
-
+  width: 100%;
 }
 
 .selected span {
@@ -116,7 +116,7 @@ section.release-bar {
   top: -3px;
   display: none;
   list-style: none;
-  max-width: 230px;
+  max-width: 370px;
   width: 100%;
   background: white;
   border-top: 0;
@@ -229,4 +229,13 @@ li {
   .li {
     min-height: auto;
   }
+
+  .drop-content ul {
+    max-width: 330px;
+  }
+
+  .selected {
+    max-width: 330px;
+  }
+
 }

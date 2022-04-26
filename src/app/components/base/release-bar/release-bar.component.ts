@@ -1,6 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
+import { parse } from 'path';
 import { ReleaseService } from 'src/app/services/release.service';
 import { WalletService, VESTING_CONTRACTS, VestingContractModel } from 'src/app/services/wallet-service.service';
 import { WalletConnectComponent } from '../wallet-connect/wallet-connect.component';
@@ -11,12 +12,9 @@ import { WalletConnectComponent } from '../wallet-connect/wallet-connect.compone
   styleUrls: ['./release-bar.component.scss']
 })
 export class ReleaseBarComponent implements OnInit {
-
-
   items: any[] = [];
 
   isDropdownActive: boolean = false;
-
   selectedItem: VestingContractModel;
 
   private userData: any;
@@ -36,6 +34,12 @@ export class ReleaseBarComponent implements OnInit {
   bnbBalance: number = 0;
   estimatedGasFee = 0.0031;
 
+  //Vesting details
+  startTime: string = '';
+  endTime: string = ''
+  amount: number = 0;
+
+
   constructor(
     private releaseService: ReleaseService,
     private walletConnectService: WalletService,
@@ -48,6 +52,7 @@ export class ReleaseBarComponent implements OnInit {
     }
 
     this.selectedItem = this.items[0];
+
   }
 
   ngOnInit(): void {
@@ -60,6 +65,7 @@ export class ReleaseBarComponent implements OnInit {
         await this.computeReleasableAmount();
         await this.checkUserVested();
         await this.getBnbBalance();
+        await this.getVestingDetails();;
       }
     });
 
@@ -89,6 +95,7 @@ export class ReleaseBarComponent implements OnInit {
     this.toggleDropdown();
     await this.checkUserVested();
     await this.computeReleasableAmount()
+    await this.getVestingDetails()
     // console.log(await this.checkUserVested());
   }
 
@@ -155,6 +162,22 @@ export class ReleaseBarComponent implements OnInit {
       this.bnbCountFromInput = 1;
     } else {
       this.bnbCountFromInput = this.bnbBalance > this.estimatedGasFee ? this.bnbBalance - this.estimatedGasFee : this.bnbBalance;
+    }
+  }
+
+  async getVestingDetails() {
+    let userVestingData = await this.walletConnectService.searchLastVestingScheduleForHolder(
+      this.walletConnectService.account, this.selectedItem,
+    );
+    // console.log(this.userVestingData);
+
+    if (userVestingData !== undefined) {
+      let startDate = new Date(userVestingData.start.toNumber() * 1000);
+      let endDate = new Date((userVestingData.start.toNumber() + userVestingData.duration.toNumber()) * 1000)
+
+      this.startTime = startDate.toLocaleString('en-us', { month: 'short', year: 'numeric', day: 'numeric' });
+      this.amount = this.walletConnectService.shortTheNumber(userVestingData.amountTotal);
+      this.endTime = endDate.toLocaleString('en-us', { month: 'short', year: 'numeric', day: 'numeric' });
     }
   }
 }
