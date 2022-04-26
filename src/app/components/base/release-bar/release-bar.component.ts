@@ -25,7 +25,6 @@ export class ReleaseBarComponent implements OnInit {
   isConnected: boolean = false;
   isInProcess: boolean = false;
   isInReleasingProcess: boolean = false;
-  hasClaimed: boolean = false;
   hasVested: boolean = false;
   hasEnoughBnb: boolean = false;
 
@@ -61,7 +60,6 @@ export class ReleaseBarComponent implements OnInit {
       this.isConnected = state;
 
       if (state) {
-        this.hasClaimed = await this.walletConnectService.hasClaimed();
         await this.computeReleasableAmount();
         await this.checkUserVested();
         await this.getBnbBalance();
@@ -116,6 +114,9 @@ export class ReleaseBarComponent implements OnInit {
   }
 
   async computeReleasableAmount() {
+    if (!this.hasVested)
+      return
+
     this.releasableAmount = await this.walletConnectService.computeReleasableAmount(this.selectedItem);
     // 1T = 1 Trillion, 1B = 1 Billion, 1M = 1 Million , values smaller can be displayed as is
     this.releasableAmount = this.walletConnectService.shortTheNumber(this.releasableAmount);
@@ -166,6 +167,9 @@ export class ReleaseBarComponent implements OnInit {
   }
 
   async getVestingDetails() {
+    if (!this.hasVested)
+      return
+
     let userVestingData = await this.walletConnectService.searchLastVestingScheduleForHolder(
       this.walletConnectService.account, this.selectedItem,
     );
