@@ -7,7 +7,10 @@
     <div class="content">
       <div id="token-dropdown" class="dropdown_c dropdown_click">
         <div class="selected" (click)="toggleDropdown()">
-          <span>{{selectedItem.symbol}}</span>
+          <span>
+            <img style="height: 20px; margin-right: 10px;" src="{{selectedItem.icon}}" alt="token-icon">
+            {{selectedItem.symbol}}
+          </span>
           <svg [ngClass]="{'dropup': isDropdownActive}" xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 12 7" version="1.1" x="0px" y="0px">
             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -21,7 +24,10 @@
         <div class="drop-content">
           <ul [ngClass]="{'visible': isDropdownActive}">
             <li (click)="selectItem(item)" *ngFor="let item of items">
-              <span>{{item.symbol}}</span>
+              <span>
+                <img style="height: 20px; margin-right: 10px;" src="{{item.icon}}" alt="token-icon">
+                {{item.symbol}}
+              </span>
             </li>
           </ul>
         </div>

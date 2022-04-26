@@ -25,22 +25,34 @@ export enum CLAIM_CASES {
   REJECTED = 'Rejected',
 }
 
-class VestingContractModel {
+export class VestingContractModel {
   contractAddress: string;
   abi: any;
   symbol: string;
+  icon: string;
 
-  constructor(address: string, abi: any, symbol: string) {
+  constructor(address: string, abi: any, symbol: string, icon: string) {
     this.contractAddress = address;
     this.abi = abi;
     this.symbol = symbol;
+    this.icon = icon;
   }
 }
 
 
 export const VESTING_CONTRACTS = {
-  MSHOT: new VestingContractModel(environment.vestingContactAddress, vestingTokenAbi, 'MSHOT'),
-  RABBIT: new VestingContractModel(environment.rabbitContractAddress, rabbitVestingTokenAbi, 'RA8BIT'),
+  MSHOT: new VestingContractModel(
+    environment.vestingContactAddress,
+    vestingTokenAbi,
+    'MSHOT',
+    "https://moonboxes.io/favicon.ico"
+  ),
+  RABBIT: new VestingContractModel(
+    environment.rabbitContractAddress,
+    rabbitVestingTokenAbi,
+    'RA8BIT',
+    "assets/media/icons/ra8bits-logo.png"
+  ),
 }
 
 const providerMainNetURL = environment.providerMainNetURL;

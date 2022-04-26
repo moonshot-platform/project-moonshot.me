@@ -2,8 +2,7 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { ReleaseService } from 'src/app/services/release.service';
-import { WalletService, VESTING_CONTRACTS } from 'src/app/services/wallet-service.service';
-import { environment } from 'src/environments/environment';
+import { WalletService, VESTING_CONTRACTS, VestingContractModel } from 'src/app/services/wallet-service.service';
 import { WalletConnectComponent } from '../wallet-connect/wallet-connect.component';
 
 @Component({
@@ -18,7 +17,7 @@ export class ReleaseBarComponent implements OnInit {
 
   isDropdownActive: boolean = false;
 
-  selectedItem;
+  selectedItem: VestingContractModel;
 
   private userData: any;
 
@@ -75,8 +74,6 @@ export class ReleaseBarComponent implements OnInit {
 
       this.walletConnectService.setWalletState(this.isConnected);
     });
-
-
   }
 
   toggleDropdown() {
@@ -87,10 +84,11 @@ export class ReleaseBarComponent implements OnInit {
     this.releaseService.onToggle(false);
   }
 
-  async selectItem(item: any) {
+  async selectItem(item: VestingContractModel) {
     this.selectedItem = item;
     this.toggleDropdown();
     await this.checkUserVested();
+    await this.computeReleasableAmount()
     // console.log(await this.checkUserVested());
   }
 
@@ -114,7 +112,7 @@ export class ReleaseBarComponent implements OnInit {
     this.releasableAmount = await this.walletConnectService.computeReleasableAmount(this.selectedItem);
     // 1T = 1 Trillion, 1B = 1 Billion, 1M = 1 Million , values smaller can be displayed as is
     this.releasableAmount = this.walletConnectService.shortTheNumber(this.releasableAmount);
-    console.log(this.walletConnectService.shortTheNumber(this.releasableAmount));
+    // console.log(this.walletConnectService.shortTheNumber(this.releasableAmount));
   }
 
   async release() {
