@@ -502,17 +502,21 @@ export class WalletService {
   async releaseVesting(contract: VestingContractModel) {
     let scheduleId = await this.getVestingScheduleId(contract);
     let vestableAmount = await this.computeReleasableAmount(contract);
+
+
+    let vestingContract = new ethers.Contract(contract.contractAddress, contract.abi, this.signer);
+
     if (vestableAmount == 0 || vestableAmount == undefined) {
       this.toastrService.info("Tokens will be releasable soon. The slice period is 1 hour");
       return
     }
     try {
-      await this.moonshotV2VestingContract.release(
+      await vestingContract.release(
         scheduleId,
         vestableAmount,
       );
 
-      this.toastrService.success("You received " + this.shortTheNumber(vestableAmount) + " MSHOT");
+      this.toastrService.success("You received " + this.shortTheNumber(vestableAmount) + " " + contract.symbol);
     } catch (error) {
       console.log(error.message);
       this.toastrService.error(error.message);
