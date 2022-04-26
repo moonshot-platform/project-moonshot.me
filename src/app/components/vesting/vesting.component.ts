@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
-import { WalletService } from 'src/app/services/wallet-service.service';
+import { VESTING_CONTRACTS, WalletService } from 'src/app/services/wallet-service.service';
 import { WalletConnectComponent } from '../base/wallet-connect/wallet-connect.component';
 
 @Component({
@@ -64,6 +64,7 @@ export class VestingComponent implements OnInit {
           this.duration,
           this.isRevocable,
           this.amount,
+          VESTING_CONTRACTS.MSHOT
         );
       } else {
         this.toastrService.error("You are not an owner!");
@@ -94,7 +95,9 @@ export class VestingComponent implements OnInit {
       this.openWalletConnectionDialog();
     } else if (this.search !== "") {
 
-      this.userVestingData = await this.walletConnectService.searchLastVestingScheduleForHolder(this.search);
+      this.userVestingData = await this.walletConnectService.searchLastVestingScheduleForHolder(
+        this.search, VESTING_CONTRACTS.MSHOT
+      );
       // console.log(this.userVestingData);
 
       if (this.userVestingData !== undefined) {
@@ -118,7 +121,7 @@ export class VestingComponent implements OnInit {
   async revokeTheSchedule() {
     if (this.isConnected && this.isOwner) {
       this.toastrService.info("Revoking...");
-      await this.walletConnectService.revokeTheHolder(this.beneficiary);
+      await this.walletConnectService.revokeTheHolder(this.beneficiary, VESTING_CONTRACTS.MSHOT);
     } else {
       this.toastrService.error("You are not an owner or connected!");
     }

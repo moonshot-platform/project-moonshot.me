@@ -49,8 +49,8 @@ export class IntroComponent implements OnInit, OnDestroy {
       if (data) {
         // console.log("Wallet is Connected");
         this.getBnbBalance();
-        this.computeReleasableAmount();
-        this.checkUserVested();
+        // this.computeReleasableAmount();
+        // this.checkUserVested();
       }
 
       this.walletConnectService.setWalletState(this.isConnected);
@@ -104,8 +104,8 @@ export class IntroComponent implements OnInit, OnDestroy {
       this.updateButtonName();
       if (state) {
         this.hasClaimed = await this.walletConnectService.hasClaimed();
-        this.computeReleasableAmount();
-        this.checkUserVested();
+        // this.computeReleasableAmount();
+        // this.checkUserVested();
         this.getBnbBalance();
       }
     });
@@ -211,36 +211,36 @@ export class IntroComponent implements OnInit, OnDestroy {
     }
   }
 
-  async computeReleasableAmount() {
-    this.releasableAmount = await this.walletConnectService.computeReleasableAmount();
-    // 1T = 1 Trillion, 1B = 1 Billion, 1M = 1 Million , values smaller can be displayed as is
-    // console.log(this.abbreviateNumber(parseInt(this.releasableAmount.toString())));
-    this.releasableAmount = this.walletConnectService.shortTheNumber(this.releasableAmount);
-    // console.log(this.walletConnectService.shortTheNumber(this.releasableAmount));
+  // async computeReleasableAmount() {
+  //   this.releasableAmount = await this.walletConnectService.computeReleasableAmount();
+  //   // 1T = 1 Trillion, 1B = 1 Billion, 1M = 1 Million , values smaller can be displayed as is
+  //   // console.log(this.abbreviateNumber(parseInt(this.releasableAmount.toString())));
+  //   this.releasableAmount = this.walletConnectService.shortTheNumber(this.releasableAmount);
+  //   // console.log(this.walletConnectService.shortTheNumber(this.releasableAmount));
 
-  }
+  // }
 
-  async release() {
-    if (this.isConnected) {
-      await this.checkBNBBalance();
+  // async release() {
+  //   if (this.isConnected) {
+  //     await this.checkBNBBalance();
 
-      this.isInReleasingProcess = true;
-      if (this.hasEnoughBnb) {
-        await this.walletConnectService.releaseVesting();
-        this.hasEnoughBnb = false
-      } else {
-        this.toastrService.error("You do not have enough bnb to pay the gas fee!")
-      }
-      this.isInReleasingProcess = false;
-      await this.computeReleasableAmount();
-    } else {
-      this.openWalletConnectionDialog();
-    }
-  }
+  //     this.isInReleasingProcess = true;
+  //     if (this.hasEnoughBnb) {
+  //       await this.walletConnectService.releaseVesting();
+  //       this.hasEnoughBnb = false
+  //     } else {
+  //       this.toastrService.error("You do not have enough bnb to pay the gas fee!")
+  //     }
+  //     this.isInReleasingProcess = false;
+  //     await this.computeReleasableAmount();
+  //   } else {
+  //     this.openWalletConnectionDialog();
+  //   }
+  // }
 
-  async checkUserVested() {
-    this.hasVested = await this.walletConnectService.hasVested();
-  }
+  // async checkUserVested() {
+  //   this.hasVested = await this.walletConnectService.hasVested();
+  // }
 
   checkBNBBalance = async () => this.hasEnoughBnb = await this.walletConnectService.checkBnbBalance();
 

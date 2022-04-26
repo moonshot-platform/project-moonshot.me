@@ -9,6 +9,9 @@
     <li>
       <p (click)="toggleTokenomicsView()">Tokenomics</p>
     </li>
+    <li *ngIf="hasVested && isConnected">
+      <p (click)="toggleReleaseView()">Vesting</p>
+    </li>
   </ul>
   <a class="chart-icon" href="https://dex.guru/token/0x5298AD82dD7C83eEaA31DDa9DEB4307664C60534-bsc" target="_blank">
     <img src="assets/media/icons/chart.svg" alt="chart" />
@@ -21,4 +24,8 @@
 
 <section id="moonbase-bar" class="moonbase-bar">
   <app-moonbase-bar *ngIf="moonbaseActive"></app-moonbase-bar>
+</section>
+
+<section id="release-bar" class="release-bar">
+  <app-release-bar *ngIf="releaseBarActive && hasVested && isConnected"></app-release-bar>
 </section>
