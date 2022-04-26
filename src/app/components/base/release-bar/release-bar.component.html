@@ -7,7 +7,7 @@
     <div class="content">
       <div id="token-dropdown" class="dropdown_c dropdown_click">
         <div class="selected" (click)="toggleDropdown()">
-          <span>{{selectedItem.tokenSymbol}}</span>
+          <span>{{selectedItem.symbol}}</span>
           <svg [ngClass]="{'dropup': isDropdownActive}" xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 12 7" version="1.1" x="0px" y="0px">
             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -21,7 +21,7 @@
         <div class="drop-content">
           <ul [ngClass]="{'visible': isDropdownActive}">
             <li (click)="selectItem(item)" *ngFor="let item of items">
-              <span>{{item.tokenSymbol}}</span>
+              <span>{{item.symbol}}</span>
             </li>
           </ul>
         </div>
@@ -29,10 +29,13 @@
 
       <div class="release-container">
         <!-- <p>TOKEN VESTING</p> -->
-        <p class="releasable-amount flex">Releasable: <span style="margin-left: auto">{{releasableAmount}}
-            {{selectedItem.tokenSymbol}}</span>
+
+        <p *ngIf="!hasVested" style="text-align: center;">You are not a vested<br>user for this token!</p>
+        <p *ngIf="hasVested" class="releasable-amount flex">Releasable: <span
+            style="margin-left: auto">{{releasableAmount}}
+            {{selectedItem.symbol}}</span>
         </p>
-        <a class="outlined-button"
+        <a *ngIf="hasVested" class="outlined-button"
           (click)="isInReleasingProcess? null :  release()">{{isInReleasingProcess ? '' : 'Release'}}
           <img *ngIf="isInReleasingProcess" src="assets/media/videos/Loading_yellowBG.gif" class="loader-img">
         </a>
