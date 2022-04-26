@@ -215,8 +215,18 @@ li {
       max-width: 330px;
       margin-top: auto;
       margin-bottom: auto !important;
+
+      .content {
+        padding-top: 0px;
+
+        .release-container {
+          padding-top: 50px;
+        }
+      }
     }
   }
+
+
 
   .close-button>img {
     display: none;
