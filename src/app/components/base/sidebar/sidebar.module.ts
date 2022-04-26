@@ -7,12 +7,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { TokenomicsComponent } from '../tokenomics/tokenomics.component';
 import { UiSwitchModule } from 'ngx-ui-switch';
 import { MoonbaseBarComponent } from '../moonbase-bar/moonbase-bar.component';
+import { ReleaseBarComponent } from '../release-bar/release-bar.component';
 
 @NgModule({
   declarations: [
     SidebarComponent,
     TokenomicsComponent,
-    MoonbaseBarComponent
+    MoonbaseBarComponent,
+    ReleaseBarComponent
   ],
   imports: [
     CommonModule,
