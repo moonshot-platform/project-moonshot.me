@@ -9,7 +9,7 @@
     <li>
       <p (click)="toggleTokenomicsView()">Tokenomics</p>
     </li>
-    <li>
+    <li *ngIf="hasVested && isConnected">
       <p (click)="toggleReleaseView()">Vesting</p>
     </li>
   </ul>
@@ -27,5 +27,5 @@
 </section>
 
 <section id="release-bar" class="release-bar">
-  <app-release-bar *ngIf="releaseBarActive"></app-release-bar>
+  <app-release-bar *ngIf="releaseBarActive && hasVested && isConnected"></app-release-bar>
 </section>

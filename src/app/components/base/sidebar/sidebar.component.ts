@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { WalletConnectComponent } from '../wallet-connect/wallet-connect.component';
 import { ReleaseService } from 'src/app/services/release.service';
+import { VESTING_CONTRACTS, WalletService } from 'src/app/services/wallet-service.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -17,10 +18,14 @@ export class SidebarComponent implements OnInit {
   moonbaseActive = true;
   releaseBarActive = false;
 
+  isConnected: boolean = false;
+  hasVested: boolean = false;
+
   constructor(
     private tokenomicsService: TokenomicsService,
     private moonbaseService: MoonbaseService,
     private releaseService: ReleaseService,
+    private walletConnectService: WalletService,
     public dialog: MatDialog,
     private router: Router,
   ) {
@@ -41,6 +46,16 @@ export class SidebarComponent implements OnInit {
     this.releaseService.whenToggled().subscribe((state: boolean) => {
       this.toggleReleaseView(state);
     });
+
+    this.walletConnectService.onWalletStateChanged().subscribe(async (state: boolean) => {
+      this.isConnected = state;
+      // console.log("CONNECTION STATUS IN SIDEBAR : " + this.isConnected);
+
+      if (state) {
+        await this.checkUserVested();
+      }
+    });
+
   }
 
   toggleTokenomicsView(active: boolean = null) {
@@ -101,5 +116,10 @@ export class SidebarComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
     });
+  }
+
+  async checkUserVested() {
+    this.hasVested = await this.walletConnectService.hasVested(VESTING_CONTRACTS.MSHOT);
+    return this.hasVested;
   }
 }
