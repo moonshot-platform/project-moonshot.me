@@ -32,6 +32,7 @@ section.release-bar {
     margin-bottom: 5px !important;
     max-width: 370px;
     border-radius: 160px;
+    width: 100%;
 
     .content {
       display: flex;
@@ -53,7 +54,7 @@ section.release-bar {
           background: black !important;
 
           img {
-            margin: -10px !important;
+            margin: -20px !important;
           }
         }
       }
@@ -150,15 +151,6 @@ section.release-bar {
   padding-left: 10px;
 }
 
-// .dropdown_c.dropdown_click:before {
-//   content: 'Onclick';
-//   display: flex;
-//   justify-content: center;
-//   margin-bottom: 15px;
-//   font-family: cursive;
-//   font-size: 22px;
-// }
-
 .release-bar::-webkit-scrollbar {
   display: none;
 }
@@ -221,10 +213,12 @@ li {
 
     .inner {
       max-width: 330px;
+      margin-top: auto;
+      margin-bottom: auto !important;
     }
   }
 
-  .close-button {
+  .close-button>img {
     display: none;
   }
 
