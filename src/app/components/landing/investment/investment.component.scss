@@ -7,7 +7,7 @@ section.investment {
   background-color: $primary;
   color: black;
 
-  > .inner {
+  >.inner {
     @extend %max-width-center;
   }
 }
@@ -33,6 +33,7 @@ section.investment {
 .options {
   display: flex;
   margin-top: 100px;
+
   .option {
     flex: 1;
 
@@ -40,24 +41,23 @@ section.investment {
       margin: 0 30px;
     }
 
-    > .box {
+    >.box {
       @include paddingsInside(50px, 0px);
       width: 100%;
       position: relative;
 
       &.moon-box {
-        background: url("/assets/media/images/moon_box_frame.webp") no-repeat
-          center center;
+        background: url("/assets/media/images/moon_box_frame.webp") no-repeat center center;
         background-size: contain;
       }
+
       &.moon-arcade {
-        background: url("/assets/media/images/moon_arcade_frame.webp") no-repeat
-          center center;
+        background: url("/assets/media/images/moon_arcade_frame.webp") no-repeat center center;
         background-size: contain;
       }
+
       &.moon-lottery {
-        background: url("/assets/media/images/moon_lottery_frame.webp") no-repeat
-          center center;
+        background: url("/assets/media/images/moon_lottery_frame.webp") no-repeat center center;
         background-size: contain;
       }
     }
@@ -77,12 +77,18 @@ section.investment {
   position: absolute;
 }
 
+.animated-logo {
+  // width: 234px;
+  padding: 35px 0px;
+  height: 45px;
+}
+
 @media only screen and (max-width: $md) {
   .options {
     margin-top: 50px;
     flex-direction: column;
 
-    > div.option {
+    >div.option {
       margin: 20px 0;
 
       &:nth-child(2) {
