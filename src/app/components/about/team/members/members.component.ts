@@ -54,10 +54,16 @@ export class MembersComponent implements OnInit {
     },
     {
       name: 'Furkan',
-      image: 'assets/media/images/members/furkan.webp',
+      image: 'assets/media/images/members/furkanksl.jpeg',
       title: 'Frontend Developer',
-      about: 'A person who likes to produce something and learn quickly.'
-
+      about: 'A person who likes to produce something and learn quickly.',
+      social: [
+        {
+          link: 'https://github.com/furkanksl',
+          icon: 'assets/media/icons/social/github-yellow-round-icon.svg',
+          alt: 'github-icon'
+        },
+      ]
     },
     {
       name: 'CryptoKam',
@@ -122,13 +128,13 @@ export class MembersComponent implements OnInit {
       title: 'Full stack expert',
       about: 'Passionate and experienced frontend/backend/blockchain developer.'
     },
-    {
-      name: 'Rick',
-      image: 'assets/media/images/members/rick.webp',
-      title: 'Moderator & Discord Guru',
-      about: 'Marketing & hype contributor.<br>Moonshot lover since day 1.'
+    // {
+    //   name: 'Rick',
+    //   image: 'assets/media/images/members/rick.webp',
+    //   title: 'Moderator & Discord Guru',
+    //   about: 'Marketing & hype contributor.<br>Moonshot lover since day 1.'
 
-    },
+    // },
     {
       name: 'Chocoboknight1',
       image: 'assets/media/images/members/chocoboknight1.webp',
