@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
-import { VESTING_CONTRACTS, WalletService } from 'src/app/services/wallet-service.service';
+import { WalletService, VESTING_CONTRACTS, VestingContractModel } from 'src/app/services/wallet-service.service';
 import { WalletConnectComponent } from '../base/wallet-connect/wallet-connect.component';
 
 @Component({
@@ -12,6 +12,11 @@ import { WalletConnectComponent } from '../base/wallet-connect/wallet-connect.co
 export class VestingComponent implements OnInit {
 
   static readonly routeName: string = 'vesting';
+
+  items: any[] = [];
+
+  isDropdownActive: boolean = false;
+  selectedItem: VestingContractModel;
 
   beneficiary: string = '';
   startTime: number = 0;
@@ -32,6 +37,13 @@ export class VestingComponent implements OnInit {
     private dialog: MatDialog,
     private toastrService: ToastrService,
   ) {
+
+    for (const key in VESTING_CONTRACTS) {
+      this.items.push(VESTING_CONTRACTS[key]);
+    }
+
+    this.selectedItem = this.items[0];
+
     this.walletConnectService.init().then(async (data: boolean) => {
       this.isConnected = data;
       if (data) {
@@ -64,7 +76,7 @@ export class VestingComponent implements OnInit {
           this.duration,
           this.isRevocable,
           this.amount,
-          VESTING_CONTRACTS.MSHOT
+          this.selectedItem,
         );
       } else {
         this.toastrService.error("You are not an owner!");
@@ -96,7 +108,7 @@ export class VestingComponent implements OnInit {
     } else if (this.search !== "") {
 
       this.userVestingData = await this.walletConnectService.searchLastVestingScheduleForHolder(
-        this.search, VESTING_CONTRACTS.MSHOT
+        this.search, this.selectedItem,
       );
       // console.log(this.userVestingData);
 
@@ -121,7 +133,7 @@ export class VestingComponent implements OnInit {
   async revokeTheSchedule() {
     if (this.isConnected && this.isOwner) {
       this.toastrService.info("Revoking...");
-      await this.walletConnectService.revokeTheHolder(this.beneficiary, VESTING_CONTRACTS.MSHOT);
+      await this.walletConnectService.revokeTheHolder(this.beneficiary, this.selectedItem);
     } else {
       this.toastrService.error("You are not an owner or connected!");
     }
@@ -130,5 +142,24 @@ export class VestingComponent implements OnInit {
   reset() {
     this.clearForm();
     this.clearSearch();
+  }
+
+  toggleDropdown() {
+    this.isDropdownActive = !this.isDropdownActive;
+  }
+
+  async selectItem(item: VestingContractModel) {
+    this.selectedItem = item;
+    this.toggleDropdown();
+    // console.log(await this.checkUserVested());
+  }
+
+  @HostListener('document:click', ['$event'])
+  onMouseEnter(event: any) {
+    // where the event is originally invoked.   
+    let dropdownByID = document?.getElementById('token-dropdown')?.contains(event.target)
+
+    if (!dropdownByID)
+      this.isDropdownActive = false;
   }
 }
