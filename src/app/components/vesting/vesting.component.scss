@@ -100,6 +100,123 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
+
+.dropdown_c {
+  position: relative;
+  margin: 20px auto;
+  width: 100%;
+}
+
+.selected {
+  width: 100%;
+  max-width: 370px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: $primary;
+  border-radius: 5px;
+  color: #131313;
+
+  svg {
+    width: 20px;
+    margin-right: 10px;
+    flex: 0 0 auto;
+
+    path {
+      fill: black;
+    }
+  }
+}
+
+.dropup {
+  transform: scaleY(-1);
+}
+
+.selected span {
+  display: flex;
+  width: 100%;
+}
+
+.selected span {
+  cursor: pointer;
+  display: flex;
+  padding: 10px 15px;
+  margin: 0;
+}
+
+.drop-content {
+  position: relative;
+}
+
+.drop-content ul {
+  position: absolute;
+  left: 0px;
+  top: -3px;
+  display: none;
+  list-style: none;
+  max-width: 370px;
+  width: 100%;
+  background: white;
+  border-top: 0;
+  border-radius: 0 0 5px 5px;
+  flex-direction: column;
+
+  li {
+    border-bottom: 1px solid black;
+  }
+
+  :last-child {
+    border-bottom: 0px solid black !important;
+  }
+}
+
+.visible {
+  display: flex !important;
+}
+
+
+.drop-content ul li span {
+  display: flex;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #131313;
+}
+
+.drop-content ul li span:hover {
+  background: rgba(0, 0, 0, 0.1);
+  color: $primary;
+  border-left: 5px solid rgba(0, 0, 0, 0.8);
+  padding-left: 10px;
+}
+
+.release-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.close-button {
+  display: flex;
+  width: 100%;
+  max-width: 370px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+  align-items: flex-end;
+
+  .close {
+    height: 36px;
+    width: 36px;
+    cursor: pointer;
+  }
+
+  p {
+    font-size: 24px;
+    color: black;
+    font-family: $primary-font;
+  }
+}
+
 @media only screen and (max-width: $md) {
   .futuristic-container {
     .row {
