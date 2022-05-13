@@ -626,8 +626,6 @@ export class WalletService {
 
     return value;
   }
-
-
 }
 
 
