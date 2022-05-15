@@ -110,6 +110,7 @@ export class SidebarComponent implements OnInit {
     // where the event is originally invoked.   
     let footerMobileMenuTokenomicsItem = document.getElementById('footer-mobile-menu-tokenomics-item');
     let footerMobileMenuVestingItem = document.getElementById('footer-mobile-menu-vesting-item');
+    let footerMobileMenuMiningItem = document.getElementById('footer-mobile-menu-mining-item');
     let isFooterMenuTokenomicsButtonVisible = footerMobileMenuTokenomicsItem != null && footerMobileMenuTokenomicsItem.contains(event.target);
 
     if (
@@ -117,7 +118,8 @@ export class SidebarComponent implements OnInit {
       !document.getElementById('footer-tokenomics-text').contains(event.target) &&
       !document.getElementById('nav-bar-tokenomics-text').contains(event.target) &&
       !isFooterMenuTokenomicsButtonVisible &&
-      !footerMobileMenuVestingItem) {
+      !footerMobileMenuVestingItem &&
+      !footerMobileMenuMiningItem) {
       // Clicked outside the box
       if (!document.getElementById('tokenomics-bar').contains(event.target)) {
         // Clicked outside the box
