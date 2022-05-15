@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MiningBarService } from 'src/app/services/mining-bar.service';
 import { MoonbaseService } from 'src/app/services/moonbase.service';
 import { ReleaseService } from 'src/app/services/release.service';
 import { TokenomicsService } from 'src/app/services/tokenomics.service';
@@ -20,6 +21,7 @@ export class FooterMobileComponent implements OnInit {
     private tokenomicsService: TokenomicsService,
     private moonbaseService: MoonbaseService,
     private releaseService: ReleaseService,
+    private miningBarService: MiningBarService,
     private walletConnectService: WalletService,
     private router: Router) {
 
@@ -65,6 +67,11 @@ export class FooterMobileComponent implements OnInit {
 
   toggleReleaseBar() {
     this.releaseService.onToggle(true);
+    this.isMenuOpen = true;
+  }
+
+  toggleMiningBar() {
+    this.miningBarService.onToggle(true);
     this.isMenuOpen = true;
   }
 
