@@ -35,7 +35,6 @@ import { LocalStorageService } from './services/local.storage.service';
 import { WalletConnectModule } from './components/base/wallet-connect/wallet-connect.module';
 import { VestingComponent } from './components/vesting/vesting.component';
 import { UiSwitchModule } from 'ngx-ui-switch';
-import { MoonseaBarComponent } from './components/base/moonsea-bar/moonsea-bar.component';
 
 @Injectable()
 export class HammerConfig extends HammerGestureConfig {
@@ -52,7 +51,6 @@ export class HammerConfig extends HammerGestureConfig {
     NightSkyComponent,
     RabbitsMoonticketComponent,
     VestingComponent,
-    MoonseaBarComponent,
   ],
   imports: [
     BrowserModule,
