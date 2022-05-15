@@ -7,6 +7,9 @@
       <p (click)="toggleMoonbaseView()">MoonBoxes</p>
     </li>
     <li>
+      <p (click)="toggleMiningView()">Mining</p>
+    </li>
+    <li>
       <p (click)="toggleTokenomicsView()">Tokenomics</p>
     </li>
     <li *ngIf="hasVested && isConnected">
@@ -24,6 +27,10 @@
 
 <section id="moonbase-bar" class="moonbase-bar">
   <app-moonbase-bar *ngIf="moonbaseActive"></app-moonbase-bar>
+</section>
+
+<section id="mining-bar" class="mining-bar">
+  <app-mining-bar *ngIf="miningBarActive"></app-mining-bar>
 </section>
 
 <section id="release-bar" class="release-bar">

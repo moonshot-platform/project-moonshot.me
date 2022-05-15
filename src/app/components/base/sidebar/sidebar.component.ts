@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { WalletConnectComponent } from '../wallet-connect/wallet-connect.component';
 import { ReleaseService } from 'src/app/services/release.service';
 import { VESTING_CONTRACTS, WalletService } from 'src/app/services/wallet-service.service';
+import { MiningBarService } from 'src/app/services/mining-bar.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -17,6 +18,7 @@ export class SidebarComponent implements OnInit {
   active = false;
   moonbaseActive = true;
   releaseBarActive = false;
+  miningBarActive = false;
 
   isConnected: boolean = false;
   hasVested: boolean = false;
@@ -25,6 +27,7 @@ export class SidebarComponent implements OnInit {
     private tokenomicsService: TokenomicsService,
     private moonbaseService: MoonbaseService,
     private releaseService: ReleaseService,
+    private miningBarService: MiningBarService,
     private walletConnectService: WalletService,
     public dialog: MatDialog,
     private router: Router,
@@ -47,6 +50,10 @@ export class SidebarComponent implements OnInit {
       this.toggleReleaseView(state);
     });
 
+    this.miningBarService.whenToggled().subscribe((state: boolean) => {
+      this.toggleMiningView(state);
+    });
+
     this.walletConnectService.onWalletStateChanged().subscribe(async (state: boolean) => {
       this.isConnected = state;
       // console.log("CONNECTION STATUS IN SIDEBAR : " + this.isConnected);
@@ -61,27 +68,40 @@ export class SidebarComponent implements OnInit {
   toggleTokenomicsView(active: boolean = null) {
     this.active = active || !this.active;
 
-    if (this.active && (this.moonbaseActive || this.releaseBarActive)) {
+    if (this.active && (this.moonbaseActive || this.releaseBarActive || this.miningBarActive)) {
       this.moonbaseActive = false;
       this.releaseBarActive = false;
+      this.miningBarActive = false;
     }
   }
 
   toggleMoonbaseView(moonbaseActive: boolean = null) {
     this.moonbaseActive = moonbaseActive || !this.moonbaseActive;
 
-    if (this.moonbaseActive && (this.active || this.releaseBarActive)) {
+    if (this.moonbaseActive && (this.active || this.releaseBarActive || this.miningBarActive)) {
       this.active = false;
       this.releaseBarActive = false;
+      this.miningBarActive = false;
     }
   }
 
   toggleReleaseView(releaseActive: boolean = null) {
     this.releaseBarActive = releaseActive || !this.releaseBarActive;
 
-    if (this.releaseBarActive && (this.active || this.moonbaseActive)) {
+    if (this.releaseBarActive && (this.active || this.moonbaseActive || this.miningBarActive)) {
       this.active = false;
       this.moonbaseActive = false
+      this.miningBarActive = false;
+    }
+  }
+
+  toggleMiningView(releaseActive: boolean = null) {
+    this.miningBarActive = releaseActive || !this.miningBarActive;
+
+    if (this.miningBarActive && (this.active || this.moonbaseActive || this.releaseBarActive)) {
+      this.active = false;
+      this.moonbaseActive = false;
+      this.releaseBarActive = false;
     }
   }
 
@@ -90,6 +110,7 @@ export class SidebarComponent implements OnInit {
     // where the event is originally invoked.   
     let footerMobileMenuTokenomicsItem = document.getElementById('footer-mobile-menu-tokenomics-item');
     let footerMobileMenuVestingItem = document.getElementById('footer-mobile-menu-vesting-item');
+    let footerMobileMenuMiningItem = document.getElementById('footer-mobile-menu-mining-item');
     let isFooterMenuTokenomicsButtonVisible = footerMobileMenuTokenomicsItem != null && footerMobileMenuTokenomicsItem.contains(event.target);
 
     if (
@@ -97,7 +118,8 @@ export class SidebarComponent implements OnInit {
       !document.getElementById('footer-tokenomics-text').contains(event.target) &&
       !document.getElementById('nav-bar-tokenomics-text').contains(event.target) &&
       !isFooterMenuTokenomicsButtonVisible &&
-      !footerMobileMenuVestingItem) {
+      !footerMobileMenuVestingItem &&
+      !footerMobileMenuMiningItem) {
       // Clicked outside the box
       if (!document.getElementById('tokenomics-bar').contains(event.target)) {
         // Clicked outside the box
@@ -110,6 +132,10 @@ export class SidebarComponent implements OnInit {
       if (!document.getElementById('release-bar').contains(event.target)) {
         // Clicked outside the box
         this.releaseBarActive = false;
+      }
+      if (!document.getElementById('mining-bar').contains(event.target)) {
+        // Clicked outside the box
+        this.miningBarActive = false;
       }
     }
 

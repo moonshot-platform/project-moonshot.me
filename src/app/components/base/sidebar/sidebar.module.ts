@@ -8,13 +8,15 @@ import { TokenomicsComponent } from '../tokenomics/tokenomics.component';
 import { UiSwitchModule } from 'ngx-ui-switch';
 import { MoonbaseBarComponent } from '../moonbase-bar/moonbase-bar.component';
 import { ReleaseBarComponent } from '../release-bar/release-bar.component';
+import { MiningBarComponent } from '../mining-bar/mining-bar.component';
 
 @NgModule({
   declarations: [
     SidebarComponent,
     TokenomicsComponent,
     MoonbaseBarComponent,
-    ReleaseBarComponent
+    ReleaseBarComponent,
+    MiningBarComponent,
   ],
   imports: [
     CommonModule,

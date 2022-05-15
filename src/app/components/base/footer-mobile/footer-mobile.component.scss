@@ -43,7 +43,7 @@ section.mobile-footer-menu {
   z-index: 1198;
   margin-right: 0;
   height: 100vh;
-  max-height: 230px;
+  max-height: 300px;
   overflow: auto;
 
   .inner {
@@ -53,7 +53,7 @@ section.mobile-footer-menu {
 }
 
 .decrease-height {
-  max-height: 170px !important;
+  max-height: 240px !important;
 }
 
 .menu-item {

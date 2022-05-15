@@ -2,6 +2,8 @@
   <div class="inner menu-item">
     <a class="p17 mb20" href="https://moonboxes.io/">MoonBoxes</a>
     <div class="divider mb20"></div>
+    <a id="footer-mobile-menu-mining-item" class="p17 mb20" (click)="toggleMiningBar()">Mining</a>
+    <div class="divider mb20"></div>
     <a id="footer-mobile-menu-tokenomics-item" class="p17 mb20" (click)="toggleTokenomics()">Tokenomics</a>
     <div *ngIf="hasVested" class="divider mb20"></div>
     <a *ngIf="hasVested" id="footer-mobile-menu-vesting-item" class="p17 mb20" (click)="toggleReleaseBar()">Vesting</a>
