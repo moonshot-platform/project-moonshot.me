@@ -134,6 +134,7 @@ export class SidebarComponent implements OnInit {
     let footerMobileMenuVestingItem = document.getElementById('footer-mobile-menu-vesting-item');
     let footerMobileMenuMiningItem = document.getElementById('footer-mobile-menu-mining-item');
     let footerMobileMenuMoonseaItem = document.getElementById('footer-mobile-menu-moonsea-item');
+
     let isFooterMenuTokenomicsButtonVisible = footerMobileMenuTokenomicsItem != null && footerMobileMenuTokenomicsItem.contains(event.target);
 
     if (
@@ -144,6 +145,9 @@ export class SidebarComponent implements OnInit {
       !footerMobileMenuVestingItem &&
       !footerMobileMenuMiningItem &&
       !footerMobileMenuMoonseaItem) {
+
+      // console.log("Clicked outside");
+
       // Clicked outside the box
       if (!document.getElementById('tokenomics-bar').contains(event.target)) {
         // Clicked outside the box
@@ -166,7 +170,6 @@ export class SidebarComponent implements OnInit {
         this.moonseaBarActive = false;
       }
     }
-
   }
 
   connectWallet() {
