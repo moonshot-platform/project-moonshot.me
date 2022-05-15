@@ -43,10 +43,15 @@ section.moonsea-bar {
       .moonsea-container {
         display: flex;
         flex-direction: column;
-        padding-top: 100px;
+        padding-top: 50px;
 
         .releasable-amount {
           font-size: 16px !important;
+          margin-bottom: 20px;
+        }
+
+        img {
+          width: 100%;
           margin-bottom: 20px;
         }
 
@@ -165,10 +170,12 @@ li {
     }
   }
 
+  .close-button {
+    max-width: 330px;
 
-
-  .close-button>img {
-    display: none;
+    img {
+      display: none;
+    }
   }
 
   .block p {

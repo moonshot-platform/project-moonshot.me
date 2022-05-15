@@ -165,10 +165,12 @@ li {
     }
   }
 
+  .close-button {
+    max-width: 330px;
 
-
-  .close-button>img {
-    display: none;
+    img {
+      display: none;
+    }
   }
 
   .block p {
