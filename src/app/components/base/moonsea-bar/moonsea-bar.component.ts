@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MoonseaBarService } from 'src/app/services/moonsea-bar-service.service';
 
 @Component({
   selector: 'app-moonsea-bar',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MoonseaBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private moonseaBarService: MoonseaBarService) { }
 
   ngOnInit(): void {
+  }
+
+  toggleMoonSeaView(): void {
+    this.moonseaBarService.onToggle(false);
   }
 
 }
