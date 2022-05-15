@@ -19,6 +19,7 @@ export class SidebarComponent implements OnInit {
   moonbaseActive = true;
   releaseBarActive = false;
   miningBarActive = false;
+  moonseaBarActive = false;
 
   isConnected: boolean = false;
   hasVested: boolean = false;
@@ -68,29 +69,43 @@ export class SidebarComponent implements OnInit {
   toggleTokenomicsView(active: boolean = null) {
     this.active = active || !this.active;
 
-    if (this.active && (this.moonbaseActive || this.releaseBarActive || this.miningBarActive)) {
+    if (this.active && (this.moonbaseActive || this.releaseBarActive || this.miningBarActive || this.moonseaBarActive)) {
       this.moonbaseActive = false;
       this.releaseBarActive = false;
       this.miningBarActive = false;
+      this.moonseaBarActive = false;
     }
   }
 
   toggleMoonbaseView(moonbaseActive: boolean = null) {
     this.moonbaseActive = moonbaseActive || !this.moonbaseActive;
 
-    if (this.moonbaseActive && (this.active || this.releaseBarActive || this.miningBarActive)) {
+    if (this.moonbaseActive && (this.active || this.releaseBarActive || this.miningBarActive || this.moonseaBarActive)) {
       this.active = false;
       this.releaseBarActive = false;
       this.miningBarActive = false;
+      this.moonseaBarActive = false;
     }
   }
 
   toggleReleaseView(releaseActive: boolean = null) {
     this.releaseBarActive = releaseActive || !this.releaseBarActive;
 
-    if (this.releaseBarActive && (this.active || this.moonbaseActive || this.miningBarActive)) {
+    if (this.releaseBarActive && (this.active || this.moonbaseActive || this.miningBarActive || this.moonseaBarActive)) {
       this.active = false;
       this.moonbaseActive = false
+      this.miningBarActive = false;
+      this.moonseaBarActive = false;
+    }
+  }
+
+  toggleMoonseaView(releaseActive: boolean = null) {
+    this.moonseaBarActive = releaseActive || !this.moonseaBarActive;
+
+    if (this.moonseaBarActive && (this.active || this.moonbaseActive || this.releaseBarActive || this.miningBarActive)) {
+      this.active = false;
+      this.moonbaseActive = false;
+      this.releaseBarActive = false;
       this.miningBarActive = false;
     }
   }
@@ -98,10 +113,11 @@ export class SidebarComponent implements OnInit {
   toggleMiningView(releaseActive: boolean = null) {
     this.miningBarActive = releaseActive || !this.miningBarActive;
 
-    if (this.miningBarActive && (this.active || this.moonbaseActive || this.releaseBarActive)) {
+    if (this.miningBarActive && (this.active || this.moonbaseActive || this.releaseBarActive || this.moonseaBarActive)) {
       this.active = false;
       this.moonbaseActive = false;
       this.releaseBarActive = false;
+      this.moonseaBarActive = false;
     }
   }
 
@@ -136,6 +152,10 @@ export class SidebarComponent implements OnInit {
       if (!document.getElementById('mining-bar').contains(event.target)) {
         // Clicked outside the box
         this.miningBarActive = false;
+      }
+      if (!document.getElementById('moonsea-bar').contains(event.target)) {
+        // Clicked outside the box
+        this.moonseaBarActive = false;
       }
     }
 
