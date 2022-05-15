@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MiningBarService } from 'src/app/services/mining-bar.service';
 
 @Component({
   selector: 'app-mining-bar',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MiningBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private miningBarService: MiningBarService) { }
 
   ngOnInit(): void {
   }
 
+  toggleMiningView(): void {
+    this.miningBarService.onToggle(false);
+  }
 }
