@@ -7,6 +7,7 @@ import { WalletConnectComponent } from '../wallet-connect/wallet-connect.compone
 import { ReleaseService } from 'src/app/services/release.service';
 import { VESTING_CONTRACTS, WalletService } from 'src/app/services/wallet-service.service';
 import { MiningBarService } from 'src/app/services/mining-bar.service';
+import { MoonseaBarService } from 'src/app/services/moonsea-bar-service.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -29,6 +30,7 @@ export class SidebarComponent implements OnInit {
     private moonbaseService: MoonbaseService,
     private releaseService: ReleaseService,
     private miningBarService: MiningBarService,
+    private moonseaBarService: MoonseaBarService,
     private walletConnectService: WalletService,
     public dialog: MatDialog,
     private router: Router,
@@ -53,6 +55,10 @@ export class SidebarComponent implements OnInit {
 
     this.miningBarService.whenToggled().subscribe((state: boolean) => {
       this.toggleMiningView(state);
+    });
+
+    this.moonseaBarService.whenToggled().subscribe((state: boolean) => {
+      this.toggleMoonseaView(state);
     });
 
     this.walletConnectService.onWalletStateChanged().subscribe(async (state: boolean) => {
@@ -127,6 +133,7 @@ export class SidebarComponent implements OnInit {
     let footerMobileMenuTokenomicsItem = document.getElementById('footer-mobile-menu-tokenomics-item');
     let footerMobileMenuVestingItem = document.getElementById('footer-mobile-menu-vesting-item');
     let footerMobileMenuMiningItem = document.getElementById('footer-mobile-menu-mining-item');
+    let footerMobileMenuMoonseaItem = document.getElementById('footer-mobile-menu-moonsea-item');
     let isFooterMenuTokenomicsButtonVisible = footerMobileMenuTokenomicsItem != null && footerMobileMenuTokenomicsItem.contains(event.target);
 
     if (
@@ -135,7 +142,8 @@ export class SidebarComponent implements OnInit {
       !document.getElementById('nav-bar-tokenomics-text').contains(event.target) &&
       !isFooterMenuTokenomicsButtonVisible &&
       !footerMobileMenuVestingItem &&
-      !footerMobileMenuMiningItem) {
+      !footerMobileMenuMiningItem &&
+      !footerMobileMenuMoonseaItem) {
       // Clicked outside the box
       if (!document.getElementById('tokenomics-bar').contains(event.target)) {
         // Clicked outside the box
