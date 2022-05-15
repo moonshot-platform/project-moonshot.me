@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MiningBarService } from 'src/app/services/mining-bar.service';
 import { MoonbaseService } from 'src/app/services/moonbase.service';
+import { MoonseaBarService } from 'src/app/services/moonsea-bar-service.service';
 import { ReleaseService } from 'src/app/services/release.service';
 import { TokenomicsService } from 'src/app/services/tokenomics.service';
 import { VESTING_CONTRACTS, WalletService } from 'src/app/services/wallet-service.service';
@@ -22,6 +23,7 @@ export class FooterMobileComponent implements OnInit {
     private moonbaseService: MoonbaseService,
     private releaseService: ReleaseService,
     private miningBarService: MiningBarService,
+    private moonseaBarService: MoonseaBarService,
     private walletConnectService: WalletService,
     private router: Router) {
 
@@ -51,7 +53,6 @@ export class FooterMobileComponent implements OnInit {
       this.toggleMoonbaseBar();
     }
     this.isMenuOpen = false;
-
   }
 
   toggleTokenomics() {
@@ -72,6 +73,11 @@ export class FooterMobileComponent implements OnInit {
 
   toggleMiningBar() {
     this.miningBarService.onToggle(true);
+    this.isMenuOpen = true;
+  }
+
+  toggleMoonseaBar() {
+    this.moonseaBarService.onToggle(true);
     this.isMenuOpen = true;
   }
 
