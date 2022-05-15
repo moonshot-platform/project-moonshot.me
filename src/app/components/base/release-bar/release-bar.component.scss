@@ -53,6 +53,11 @@ section.release-bar {
         .outlined-button {
           background: black !important;
 
+          &:hover {
+            background-color: white !important;
+            color: black !important;
+          }
+
           img {
             margin: -20px !important;
           }
