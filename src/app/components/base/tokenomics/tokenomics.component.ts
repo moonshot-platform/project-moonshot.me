@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenomicsService } from 'src/app/services/tokenomics.service';
+import { WalletService } from 'src/app/services/wallet-service.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-tokenomics',
@@ -11,7 +13,10 @@ export class TokenomicsComponent implements OnInit {
   public isOldPancakeRouter = true;
 
   data: any;
-  
+  address: string = '';
+  isConnected: boolean = false;
+  userData: any;
+
   public list: any = [
     [
       {
@@ -59,11 +64,33 @@ export class TokenomicsComponent implements OnInit {
     ]
   ]
 
-  constructor( private tokenomicsService: TokenomicsService ) {
+  constructor(
+    private tokenomicsService: TokenomicsService,
+    private walletService: WalletService,
+  ) {
+    this.walletService.init().then((data: boolean) => {
+      this.isConnected = data;
+    });
   }
 
   ngOnInit(): void {
     this.getTokenomicsData();
+
+    this.walletService.getData().subscribe((data: any) => {
+      this.userData = data;
+      if (data !== undefined && data.address != undefined) {
+        if (this.userData.networkId.chainId == environment.chainId) {
+          this.isConnected = true;
+          this.address = data.address;
+        } else {
+          this.address = '';
+        }
+      }
+    });
+
+    this.walletService.onWalletStateChanged().subscribe((state: boolean) => {
+      this.isConnected = state
+    });
   }
 
   getTokenomicsData(): void {
@@ -81,19 +108,21 @@ export class TokenomicsComponent implements OnInit {
   }
 
   replaceData(): void {
+    if (this.data == null)
+      return
+
     this.list[0][1]['val'] = this.data['circulatingSupply'];
     this.list[0][2]['val'] = this.data['burnedAmount'];
     this.list[0][3]['val'] = this.data['unclaimedMoonshot'];
     this.list[1][0]['val'] = this.data['priceFor1BNB'];
     this.list[1][0]['val'] = this.data['priceFor1BNB'];
-    this.list[1][1]['val'] = '$' + this.data['marketcap'].substring(0,13);
-    this.list[1][2]['val'] = '$' + this.data['priceFor1mMoonshot'].substring(0,13);
-    this.list[1][3]['val'] = '$' + this.data['priceForMoonshot'].substring(0,13);
+    this.list[1][1]['val'] = '$' + this.data['marketcap'].substring(0, 13);
+    this.list[1][2]['val'] = '$' + this.data['priceFor1mMoonshot'].substring(0, 13);
+    this.list[1][3]['val'] = '$' + this.data['priceForMoonshot'].substring(0, 13);
     this.isOldPancakeRouter = this.tokenomicsService.oldPancakeAddress;
   }
 
   toggleTokenomics(): void {
     this.tokenomicsService.onToggle(false);
   }
-
 }
