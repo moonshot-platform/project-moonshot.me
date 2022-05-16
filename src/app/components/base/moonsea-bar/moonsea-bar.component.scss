@@ -33,6 +33,9 @@ section.moonsea-bar {
     max-width: 370px;
     border-radius: 160px;
     width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 
     .content {
       display: flex;
@@ -72,34 +75,6 @@ section.moonsea-bar {
   }
 }
 
-.dropdown_c {
-  position: relative;
-  margin: 20px auto;
-  width: 100%;
-}
-
-.selected {
-  width: 100%;
-  max-width: 370px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
-  color: #131313;
-
-  svg {
-    width: 20px;
-    margin-right: 10px;
-    flex: 0 0 auto;
-
-    path {
-      fill: black;
-    }
-  }
-}
-
 .moonsea-bar::-webkit-scrollbar {
   display: none;
 }
@@ -124,6 +99,7 @@ section.moonsea-bar {
     font-size: 24px;
     color: black;
     font-family: $primary-font;
+    font-weight: 600;
   }
 }
 
@@ -150,9 +126,9 @@ li {
 
 .wallet-address {
   display: flex;
-  position: absolute;
-  bottom: 3em;
+  margin-top: auto;
   justify-content: center;
+  padding: 20px 0px;
   color: black;
 
   &:hover {
