@@ -48,9 +48,10 @@ section.moonsea-bar {
         flex-direction: column;
         padding-top: 36px;
 
-        .releasable-amount {
-          font-size: 16px !important;
+        .content-text {
+          font-size: 26px !important;
           margin-bottom: 20px;
+          font-weight: 600;
         }
 
         img {
