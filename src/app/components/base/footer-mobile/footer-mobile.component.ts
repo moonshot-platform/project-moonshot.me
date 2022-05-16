@@ -6,6 +6,7 @@ import { MoonseaBarService } from 'src/app/services/moonsea-bar-service.service'
 import { ReleaseService } from 'src/app/services/release.service';
 import { TokenomicsService } from 'src/app/services/tokenomics.service';
 import { VESTING_CONTRACTS, WalletService } from 'src/app/services/wallet-service.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-footer-mobile',
@@ -17,6 +18,10 @@ export class FooterMobileComponent implements OnInit {
   isMoonbasebarOpenAtLaunch = true;
   hasVested: boolean = false;
 
+  address: string = '';
+  isConnected: boolean = false;
+  userData: any;
+  shortenedWalletAddress: string = ''
 
   constructor(
     private tokenomicsService: TokenomicsService,
@@ -26,13 +31,30 @@ export class FooterMobileComponent implements OnInit {
     private moonseaBarService: MoonseaBarService,
     private walletConnectService: WalletService,
     private router: Router) {
-
     if (this.router.url !== '/') {
       this.isMoonbasebarOpenAtLaunch = false;
     }
+
+    this.walletConnectService.init().then((data: boolean) => {
+      this.isConnected = data;
+    });
   }
 
   ngOnInit(): void {
+    this.walletConnectService.getData().subscribe((data: any) => {
+      this.userData = data;
+      if (data !== undefined && data.address != undefined) {
+        if (this.userData.networkId.chainId == environment.chainId) {
+          this.isConnected = true;
+          this.address = data.address;
+          this.shortenedWalletAddress = this.shortWalletAddress();
+        } else {
+          this.address = '';
+          this.shortenedWalletAddress = '';
+        }
+      }
+    });
+
     this.walletConnectService.onWalletStateChanged().subscribe(async (state: boolean) => {
       // this.isConnected = state;
       // console.log("CONNECTION STATUS IN MOBILE FOOTER MENU: " + this.isConnected);
@@ -84,5 +106,9 @@ export class FooterMobileComponent implements OnInit {
   async checkUserVested() {
     this.hasVested = await this.walletConnectService.hasVested(VESTING_CONTRACTS.MSHOT);
     return this.hasVested;
+  }
+
+  shortWalletAddress(): string {
+    return this.address.slice(0, (this.address.length / 2) - 8) + '...' + this.address.slice(-((this.address.length / 2) - 9))
   }
 }
