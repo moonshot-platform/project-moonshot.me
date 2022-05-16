@@ -43,12 +43,13 @@ section.mobile-footer-menu {
   z-index: 1198;
   margin-right: 0;
   height: 100vh;
-  max-height: 370px;
+  max-height: 400px;
   overflow: auto;
 
   .inner {
     @extend %max-width-center;
     border-radius: 160px;
+    margin: auto;
   }
 }
 
@@ -90,6 +91,50 @@ section.mobile-footer-menu {
 .close-menu {
   margin-bottom: -3px !important;
   margin-left: -7px !important;
+}
+
+.wallet-address {
+  display: flex;
+  position: absolute;
+  bottom: 1em;
+  justify-content: center;
+  color: black;
+
+  &:hover {
+    span {
+      color: white !important;
+      border-bottom: 2px solid white;
+    }
+
+    svg>g>path {
+      fill: white;
+    }
+  }
+
+  svg {
+
+    width: 1.2em;
+    margin-right: 0.8em;
+  }
+
+  svg>g>path {
+    fill: black;
+  }
+
+  span {
+    color: black;
+    border-bottom: 2px solid black;
+    cursor: pointer;
+  }
+}
+
+span,
+.short-wallet-address {
+  //color: black;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  font-family: 'Montserrat' !important;
+  letter-spacing: 0 !important;
 }
 
 @media only screen and (max-width: $md) {
