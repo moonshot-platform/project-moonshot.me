@@ -32,6 +32,9 @@ section.moonbase-bar {
     margin-bottom: 5px !important;
     max-width: 370px;
     border-radius: 160px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 
     .content {
       .moonboxes {
@@ -169,6 +172,13 @@ section.moonbase-bar {
   justify-content: flex-end;
   margin-top: 20px;
 
+  p {
+    font-size: 24px;
+    color: black;
+    font-family: $primary-font;
+    font-weight: 600;
+  }
+
   .close {
     height: 36px;
     width: 36px;
@@ -200,9 +210,9 @@ li {
 
 .wallet-address {
   display: flex;
-  position: absolute;
-  bottom: 3em;
+  margin-top: auto;
   justify-content: center;
+  padding: 20px 0px;
   color: black;
 
   &:hover {
