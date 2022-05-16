@@ -1,7 +1,7 @@
 @import "includes";
 
 section.tokenomics {
-  padding: 22px 60px 0px;
+  padding: 0px 42px;
   box-sizing: border-box;
   background: $primary;
   position: fixed;
@@ -72,10 +72,10 @@ section.tokenomics {
 }
 
 .close {
-  display: block;
-  position: absolute;
-  right: 15px;
-  top: 15px;
+  display: flex;
+  // position: absolute;
+  // right: 15px;
+  // top: 15px;
   cursor: pointer;
 }
 
@@ -181,6 +181,30 @@ span,
   font-size: 16px !important;
   font-family: 'Montserrat' !important;
   letter-spacing: 0 !important;
+}
+
+.close-button {
+  display: flex;
+  width: 100%;
+  // max-width: 370px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+  align-items: flex-end;
+
+  .close {
+    height: 36px;
+    width: 36px;
+    cursor: pointer;
+  }
+
+  p {
+    font-size: 24px;
+    color: black;
+    font-family: $primary-font;
+    font-weight: 700;
+  }
 }
 
 @media only screen and (max-width: $md) {

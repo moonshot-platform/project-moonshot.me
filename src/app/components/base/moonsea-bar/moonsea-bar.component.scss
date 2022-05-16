@@ -99,7 +99,7 @@ section.moonsea-bar {
     font-size: 24px;
     color: black;
     font-family: $primary-font;
-    font-weight: 600;
+    font-weight: 700;
   }
 }
 
@@ -166,6 +166,88 @@ span,
   font-size: 16px !important;
   font-family: 'Montserrat' !important;
   letter-spacing: 0 !important;
+}
+
+.buttons-section {
+  margin-top: 36px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  column-gap: 20px;
+
+  .more-button {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    max-width: 200px;
+    width: 100%;
+    border: 1px solid black;
+    height: 40px;
+    border-radius: 25px;
+    color: black;
+    font-family: $primary-font;
+    font-weight: bold;
+    background-color: transparent;
+    font-size: 16px;
+    line-height: 1.69;
+    text-decoration: none;
+    text-transform: capitalize;
+    text-align: center;
+    cursor: default;
+
+    &.fit {
+      width: fit-content;
+    }
+
+    &.inverse {
+      border: 1px solid white;
+      color: black;
+    }
+
+    &:hover:not(&.disabled) {
+      color: white;
+      border-color: white;
+      cursor: pointer;
+    }
+  }
+
+  .moonsea-button {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    max-width: 200px;
+    width: 100%;
+    border: 1px solid black;
+    height: 40px;
+    border-radius: 25px;
+    color: $primary;
+    font-family: $primary-font;
+    font-weight: $bold;
+    background-color: black;
+    font-size: 16px;
+    line-height: 1.69;
+    text-decoration: none;
+    text-transform: capitalize;
+    text-align: center;
+    cursor: default;
+
+    &.fit {
+      width: fit-content;
+    }
+
+    &.inverse {
+      border: 1px solid white;
+      color: white;
+    }
+
+    &:hover:not(&.disabled) {
+      color: black;
+      background-color: white;
+      border-color: white;
+      cursor: pointer;
+    }
+  }
 }
 
 @media only screen and (max-width: $md) {
