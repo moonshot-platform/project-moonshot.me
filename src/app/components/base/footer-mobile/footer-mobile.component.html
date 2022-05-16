@@ -1,14 +1,15 @@
-<section class="mobile-only mobile-footer-menu" *ngIf="isMenuOpen" [ngClass]="{'decrease-height': !hasVested}">
+<section class="mobile-only mobile-footer-menu" *ngIf="isMenuOpen">
   <div class="inner menu-item">
-    <a class="p17 mb20" href="https://moonboxes.io/">MoonBoxes</a>
-    <div class="divider mb20"></div>
-    <a id="footer-mobile-menu-moonsea-item" class="p17 mb20" (click)="toggleMoonseaBar()">MoonSea</a>
-    <div class="divider mb20"></div>
-    <a id="footer-mobile-menu-mining-item" class="p17 mb20" (click)="toggleMiningBar()">Mining</a>
-    <div class="divider mb20"></div>
-    <a id="footer-mobile-menu-tokenomics-item" class="p17 mb20" (click)="toggleTokenomics()">Tokenomics</a>
-    <div *ngIf="hasVested" class="divider mb20"></div>
-    <a *ngIf="isConnected && hasVested" id="footer-mobile-menu-vesting-item" class="p17 mb20"
+    <a class="p17 mb25" href="https://moonboxes.io/">MoonBoxes</a>
+    <div class="divider mb25"></div>
+    <a id="footer-mobile-menu-moonsea-item" class="p17 mb25" (click)="toggleMoonseaBar()">MoonSea</a>
+    <div class="divider mb25"></div>
+    <a id="footer-mobile-menu-mining-item" class="p17 mb25" (click)="toggleMiningBar()">Mining</a>
+    <div class="divider mb25"></div>
+    <a id="footer-mobile-menu-tokenomics-item" class="p17" [ngClass]="{'mb25': isConnected && hasVested}"
+      (click)="toggleTokenomics()">Tokenomics</a>
+    <div *ngIf="hasVested" class="divider mb25"></div>
+    <a *ngIf="isConnected && hasVested" id="footer-mobile-menu-vesting-item" class="p17 mb25"
       (click)="toggleReleaseBar()">Vesting</a>
 
     <div *ngIf="isConnected" class="wallet-address">

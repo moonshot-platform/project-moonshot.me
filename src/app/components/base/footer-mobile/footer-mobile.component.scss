@@ -31,7 +31,7 @@ section.mobile-footer {
 }
 
 section.mobile-footer-menu {
-  padding: 20px;
+  padding: 0px 20px;
   border-bottom: 1px solid black;
   box-sizing: border-box;
   background: $primary;
@@ -42,19 +42,19 @@ section.mobile-footer-menu {
   max-width: 100%;
   z-index: 1198;
   margin-right: 0;
-  height: 100vh;
-  max-height: 400px;
+  // height: 100vh;
+  // max-height: 400px;
   overflow: auto;
 
   .inner {
     @extend %max-width-center;
     border-radius: 160px;
-    margin: auto;
+    margin: 25px auto;
   }
 }
 
 .decrease-height {
-  max-height: 310px !important;
+  // max-height: 310px !important;
 }
 
 .menu-item {
@@ -95,8 +95,6 @@ section.mobile-footer-menu {
 
 .wallet-address {
   display: flex;
-  position: absolute;
-  bottom: 1em;
   justify-content: center;
   color: black;
 
@@ -135,6 +133,10 @@ span,
   font-size: 16px !important;
   font-family: 'Montserrat' !important;
   letter-spacing: 0 !important;
+}
+
+.mb25 {
+  margin-bottom: 25px;
 }
 
 @media only screen and (max-width: $md) {
