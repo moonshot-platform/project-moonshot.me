@@ -7,6 +7,7 @@ import { WalletConnectComponent } from '../wallet-connect/wallet-connect.compone
 import { ReleaseService } from 'src/app/services/release.service';
 import { VESTING_CONTRACTS, WalletService } from 'src/app/services/wallet-service.service';
 import { MiningBarService } from 'src/app/services/mining-bar.service';
+import { MoonseaBarService } from 'src/app/services/moonsea-bar-service.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -19,6 +20,7 @@ export class SidebarComponent implements OnInit {
   moonbaseActive = true;
   releaseBarActive = false;
   miningBarActive = false;
+  moonseaBarActive = false;
 
   isConnected: boolean = false;
   hasVested: boolean = false;
@@ -28,6 +30,7 @@ export class SidebarComponent implements OnInit {
     private moonbaseService: MoonbaseService,
     private releaseService: ReleaseService,
     private miningBarService: MiningBarService,
+    private moonseaBarService: MoonseaBarService,
     private walletConnectService: WalletService,
     public dialog: MatDialog,
     private router: Router,
@@ -54,6 +57,10 @@ export class SidebarComponent implements OnInit {
       this.toggleMiningView(state);
     });
 
+    this.moonseaBarService.whenToggled().subscribe((state: boolean) => {
+      this.toggleMoonseaView(state);
+    });
+
     this.walletConnectService.onWalletStateChanged().subscribe(async (state: boolean) => {
       this.isConnected = state;
       // console.log("CONNECTION STATUS IN SIDEBAR : " + this.isConnected);
@@ -68,29 +75,43 @@ export class SidebarComponent implements OnInit {
   toggleTokenomicsView(active: boolean = null) {
     this.active = active || !this.active;
 
-    if (this.active && (this.moonbaseActive || this.releaseBarActive || this.miningBarActive)) {
+    if (this.active && (this.moonbaseActive || this.releaseBarActive || this.miningBarActive || this.moonseaBarActive)) {
       this.moonbaseActive = false;
       this.releaseBarActive = false;
       this.miningBarActive = false;
+      this.moonseaBarActive = false;
     }
   }
 
   toggleMoonbaseView(moonbaseActive: boolean = null) {
     this.moonbaseActive = moonbaseActive || !this.moonbaseActive;
 
-    if (this.moonbaseActive && (this.active || this.releaseBarActive || this.miningBarActive)) {
+    if (this.moonbaseActive && (this.active || this.releaseBarActive || this.miningBarActive || this.moonseaBarActive)) {
       this.active = false;
       this.releaseBarActive = false;
       this.miningBarActive = false;
+      this.moonseaBarActive = false;
     }
   }
 
   toggleReleaseView(releaseActive: boolean = null) {
     this.releaseBarActive = releaseActive || !this.releaseBarActive;
 
-    if (this.releaseBarActive && (this.active || this.moonbaseActive || this.miningBarActive)) {
+    if (this.releaseBarActive && (this.active || this.moonbaseActive || this.miningBarActive || this.moonseaBarActive)) {
       this.active = false;
       this.moonbaseActive = false
+      this.miningBarActive = false;
+      this.moonseaBarActive = false;
+    }
+  }
+
+  toggleMoonseaView(releaseActive: boolean = null) {
+    this.moonseaBarActive = releaseActive || !this.moonseaBarActive;
+
+    if (this.moonseaBarActive && (this.active || this.moonbaseActive || this.releaseBarActive || this.miningBarActive)) {
+      this.active = false;
+      this.moonbaseActive = false;
+      this.releaseBarActive = false;
       this.miningBarActive = false;
     }
   }
@@ -98,10 +119,11 @@ export class SidebarComponent implements OnInit {
   toggleMiningView(releaseActive: boolean = null) {
     this.miningBarActive = releaseActive || !this.miningBarActive;
 
-    if (this.miningBarActive && (this.active || this.moonbaseActive || this.releaseBarActive)) {
+    if (this.miningBarActive && (this.active || this.moonbaseActive || this.releaseBarActive || this.moonseaBarActive)) {
       this.active = false;
       this.moonbaseActive = false;
       this.releaseBarActive = false;
+      this.moonseaBarActive = false;
     }
   }
 
@@ -111,6 +133,8 @@ export class SidebarComponent implements OnInit {
     let footerMobileMenuTokenomicsItem = document.getElementById('footer-mobile-menu-tokenomics-item');
     let footerMobileMenuVestingItem = document.getElementById('footer-mobile-menu-vesting-item');
     let footerMobileMenuMiningItem = document.getElementById('footer-mobile-menu-mining-item');
+    let footerMobileMenuMoonseaItem = document.getElementById('footer-mobile-menu-moonsea-item');
+
     let isFooterMenuTokenomicsButtonVisible = footerMobileMenuTokenomicsItem != null && footerMobileMenuTokenomicsItem.contains(event.target);
 
     if (
@@ -119,7 +143,11 @@ export class SidebarComponent implements OnInit {
       !document.getElementById('nav-bar-tokenomics-text').contains(event.target) &&
       !isFooterMenuTokenomicsButtonVisible &&
       !footerMobileMenuVestingItem &&
-      !footerMobileMenuMiningItem) {
+      !footerMobileMenuMiningItem &&
+      !footerMobileMenuMoonseaItem) {
+
+      // console.log("Clicked outside");
+
       // Clicked outside the box
       if (!document.getElementById('tokenomics-bar').contains(event.target)) {
         // Clicked outside the box
@@ -137,8 +165,11 @@ export class SidebarComponent implements OnInit {
         // Clicked outside the box
         this.miningBarActive = false;
       }
+      if (!document.getElementById('moonsea-bar').contains(event.target)) {
+        // Clicked outside the box
+        this.moonseaBarActive = false;
+      }
     }
-
   }
 
   connectWallet() {

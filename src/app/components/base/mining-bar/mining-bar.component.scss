@@ -53,6 +53,11 @@ section.mining-bar {
         .outlined-button {
           background: black !important;
 
+          &:hover {
+            background-color: white !important;
+            color: black !important;
+          }
+
           img {
             margin: -20px !important;
           }
@@ -165,10 +170,12 @@ li {
     }
   }
 
+  .close-button {
+    max-width: 330px;
 
-
-  .close-button>img {
-    display: none;
+    img {
+      display: none;
+    }
   }
 
   .block p {

@@ -7,6 +7,9 @@
       <p (click)="toggleMoonbaseView()">MoonBoxes</p>
     </li>
     <li>
+      <p (click)="toggleMoonseaView()">MoonSea</p>
+    </li>
+    <li>
       <p (click)="toggleMiningView()">Mining</p>
     </li>
     <li>
@@ -35,4 +38,8 @@
 
 <section id="release-bar" class="release-bar">
   <app-release-bar *ngIf="releaseBarActive && hasVested && isConnected"></app-release-bar>
+</section>
+
+<section id="moonsea-bar" class="moonsea-bar">
+  <app-moonsea-bar *ngIf="moonseaBarActive"></app-moonsea-bar>
 </section>
