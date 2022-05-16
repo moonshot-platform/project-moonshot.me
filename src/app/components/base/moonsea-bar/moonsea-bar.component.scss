@@ -1,6 +1,6 @@
 @import "includes";
 
-section.release-bar {
+section.moonsea-bar {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -38,15 +38,20 @@ section.release-bar {
       display: flex;
       width: 100%;
       flex-direction: column;
-      padding-top: 100px;
+      //   padding-top: 100px;
 
-      .release-container {
+      .moonsea-container {
         display: flex;
         flex-direction: column;
-        padding-top: 100px;
+        padding-top: 36px;
 
         .releasable-amount {
           font-size: 16px !important;
+          margin-bottom: 20px;
+        }
+
+        img {
+          width: 100%;
           margin-bottom: 20px;
         }
 
@@ -95,68 +100,7 @@ section.release-bar {
   }
 }
 
-.dropup {
-  transform: scaleY(-1);
-}
-
-.selected span {
-  display: flex;
-  width: 100%;
-}
-
-.selected span {
-  cursor: pointer;
-  display: flex;
-  padding: 10px 15px;
-  margin: 0;
-}
-
-.drop-content {
-  position: relative;
-}
-
-.drop-content ul {
-  position: absolute;
-  left: 0px;
-  top: -3px;
-  display: none;
-  list-style: none;
-  max-width: 370px;
-  width: 100%;
-  background: white;
-  border-top: 0;
-  border-radius: 0 0 5px 5px;
-  flex-direction: column;
-
-  li {
-    border-bottom: 1px solid black;
-  }
-
-  :last-child {
-    border-bottom: 0px solid black !important;
-  }
-}
-
-.visible {
-  display: flex !important;
-}
-
-
-.drop-content ul li span {
-  display: flex;
-  padding: 10px 15px;
-  text-decoration: none;
-  color: #131313;
-}
-
-.drop-content ul li span:hover {
-  background: rgba(0, 0, 0, 0.1);
-  color: $primary;
-  border-left: 5px solid rgba(0, 0, 0, 0.8);
-  padding-left: 10px;
-}
-
-.release-bar::-webkit-scrollbar {
+.moonsea-bar::-webkit-scrollbar {
   display: none;
 }
 
@@ -205,7 +149,7 @@ li {
 }
 
 @media only screen and (max-width: $md) {
-  section.release-bar {
+  section.moonsea-bar {
     display: flex;
     margin-right: 0px;
     padding: 0px 6px;
@@ -224,7 +168,7 @@ li {
       .content {
         padding-top: 0px;
 
-        .release-container {
+        .moonsea-container {
           padding-top: 50px;
         }
       }
@@ -246,13 +190,4 @@ li {
   .li {
     min-height: auto;
   }
-
-  .drop-content ul {
-    max-width: 330px;
-  }
-
-  .selected {
-    max-width: 330px;
-  }
-
 }
