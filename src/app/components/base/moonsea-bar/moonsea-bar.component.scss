@@ -33,6 +33,9 @@ section.moonsea-bar {
     max-width: 370px;
     border-radius: 160px;
     width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 
     .content {
       display: flex;
@@ -45,9 +48,10 @@ section.moonsea-bar {
         flex-direction: column;
         padding-top: 36px;
 
-        .releasable-amount {
-          font-size: 16px !important;
+        .content-text {
+          font-size: 26px !important;
           margin-bottom: 20px;
+          font-weight: 600;
         }
 
         img {
@@ -68,34 +72,6 @@ section.moonsea-bar {
           }
         }
       }
-    }
-  }
-}
-
-.dropdown_c {
-  position: relative;
-  margin: 20px auto;
-  width: 100%;
-}
-
-.selected {
-  width: 100%;
-  max-width: 370px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
-  color: #131313;
-
-  svg {
-    width: 20px;
-    margin-right: 10px;
-    flex: 0 0 auto;
-
-    path {
-      fill: black;
     }
   }
 }
@@ -124,6 +100,7 @@ section.moonsea-bar {
     font-size: 24px;
     color: black;
     font-family: $primary-font;
+    font-weight: 700;
   }
 }
 
@@ -145,6 +122,132 @@ li {
 
   &:last-child {
     margin-bottom: 0;
+  }
+}
+
+.wallet-address {
+  display: flex;
+  margin-top: auto;
+  justify-content: center;
+  padding: 20px 0px;
+  color: black;
+
+  &:hover {
+    span {
+      color: white !important;
+      border-bottom: 2px solid white;
+    }
+
+    svg>g>path {
+      fill: white;
+    }
+  }
+
+  svg {
+
+    width: 1.2em;
+    margin-right: 0.8em;
+  }
+
+  svg>g>path {
+    fill: black;
+  }
+
+  span {
+    color: black;
+    border-bottom: 2px solid black;
+    cursor: pointer;
+  }
+}
+
+span,
+.short-wallet-address {
+  //color: black;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  font-family: 'Montserrat' !important;
+  letter-spacing: 0 !important;
+}
+
+.buttons-section {
+  margin-top: 36px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  column-gap: 20px;
+
+  .more-button {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    max-width: 200px;
+    width: 100%;
+    border: 1px solid black;
+    height: 40px;
+    border-radius: 25px;
+    color: black;
+    font-family: $primary-font;
+    font-weight: bold;
+    background-color: transparent;
+    font-size: 16px;
+    line-height: 1.69;
+    text-decoration: none;
+    text-transform: capitalize;
+    text-align: center;
+    cursor: default;
+
+    &.fit {
+      width: fit-content;
+    }
+
+    &.inverse {
+      border: 1px solid white;
+      color: black;
+    }
+
+    &:hover:not(&.disabled) {
+      color: white;
+      border-color: white;
+      cursor: pointer;
+    }
+  }
+
+  .moonsea-button {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    max-width: 200px;
+    width: 100%;
+    border: 1px solid black;
+    height: 40px;
+    border-radius: 25px;
+    color: $primary;
+    font-family: $primary-font;
+    font-weight: $bold;
+    background-color: black;
+    font-size: 16px;
+    line-height: 1.69;
+    text-decoration: none;
+    text-transform: capitalize;
+    text-align: center;
+    cursor: default;
+
+    &.fit {
+      width: fit-content;
+    }
+
+    &.inverse {
+      border: 1px solid white;
+      color: white;
+    }
+
+    &:hover:not(&.disabled) {
+      color: black;
+      background-color: white;
+      border-color: white;
+      cursor: pointer;
+    }
   }
 }
 
@@ -189,5 +292,9 @@ li {
 
   .li {
     min-height: auto;
+  }
+
+  .wallet-address {
+    display: none;
   }
 }

@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { parse } from 'path';
 import { ReleaseService } from 'src/app/services/release.service';
 import { WalletService, VESTING_CONTRACTS, VestingContractModel } from 'src/app/services/wallet-service.service';
+import { environment } from 'src/environments/environment';
 import { WalletConnectComponent } from '../wallet-connect/wallet-connect.component';
 
 @Component({
@@ -38,6 +39,9 @@ export class ReleaseBarComponent implements OnInit {
   endTime: string = ''
   amount: number = 0;
 
+  address: string = '';
+  shortenedWalletAddress: string = ''
+
 
   constructor(
     private releaseService: ReleaseService,
@@ -55,6 +59,20 @@ export class ReleaseBarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    this.walletConnectService.getData().subscribe((data: any) => {
+      this.userData = data;
+      if (data !== undefined && data.address != undefined) {
+        if (this.userData.networkId.chainId == environment.chainId) {
+          this.isConnected = true;
+          this.address = data.address;
+          this.shortenedWalletAddress = this.shortWalletAddress();
+        } else {
+          this.address = '';
+          this.shortenedWalletAddress = '';
+        }
+      }
+    });
 
     this.walletConnectService.onWalletStateChanged().subscribe(async (state: boolean) => {
       this.isConnected = state;
@@ -183,6 +201,10 @@ export class ReleaseBarComponent implements OnInit {
       this.amount = this.walletConnectService.shortTheNumber(userVestingData.amountTotal);
       this.endTime = endDate.toLocaleString('en-us', { month: 'short', year: 'numeric', day: 'numeric' });
     }
+  }
+
+  shortWalletAddress(): string {
+    return this.address.slice(0, this.address.length / 2) + '...' + this.address.slice(-((this.address.length / 2) - 9))
   }
 }
 
