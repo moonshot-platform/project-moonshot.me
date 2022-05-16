@@ -143,6 +143,50 @@ li {
   }
 }
 
+.wallet-address {
+  display: flex;
+  position: absolute;
+  bottom: 3em;
+  justify-content: center;
+  color: black;
+
+  &:hover {
+    span {
+      color: white !important;
+      border-bottom: 2px solid white;
+    }
+
+    svg>g>path {
+      fill: white;
+    }
+  }
+
+  svg {
+
+    width: 1.2em;
+    margin-right: 0.8em;
+  }
+
+  svg>g>path {
+    fill: black;
+  }
+
+  span {
+    color: black;
+    border-bottom: 2px solid black;
+    cursor: pointer;
+  }
+}
+
+span,
+.short-wallet-address {
+  //color: black;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  font-family: 'Montserrat' !important;
+  letter-spacing: 0 !important;
+}
+
 @media only screen and (max-width: $md) {
   section.mining-bar {
     display: flex;
@@ -184,5 +228,9 @@ li {
 
   .li {
     min-height: auto;
+  }
+
+  .wallet-address {
+    display: none;
   }
 }
