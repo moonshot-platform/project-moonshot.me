@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MiningBarService } from 'src/app/services/mining-bar.service';
+import { SidebarService } from 'src/app/services/sidebar.service';
 import { WalletService } from 'src/app/services/wallet-service.service';
 import { environment } from 'src/environments/environment';
 
@@ -15,7 +15,7 @@ export class MiningBarComponent implements OnInit {
   shortenedWalletAddress: string = ''
 
   constructor(
-    private miningBarService: MiningBarService,
+    private sidebarService: SidebarService,
     private walletService: WalletService,
   ) {
     this.walletService.init().then((data: boolean) => {
@@ -29,7 +29,7 @@ export class MiningBarComponent implements OnInit {
         if (this.userData.networkId.chainId == environment.chainId) {
           this.isConnected = true;
           this.address = data.address;
-          this.shortenedWalletAddress = this.shortWalletAddress();
+          this.shortenedWalletAddress = this.sidebarService.shortWalletAddress(this.address);
         } else {
           this.address = '';
           this.shortenedWalletAddress = '';
@@ -42,11 +42,7 @@ export class MiningBarComponent implements OnInit {
     });
   }
 
-  shortWalletAddress(): string {
-    return this.address.slice(0, this.address.length / 2) + '...' + this.address.slice(-((this.address.length / 2) - 9))
-  }
-
   toggleMiningView(): void {
-    this.miningBarService.onToggle(false);
+    this.sidebarService.onMiningBarToggle(false);
   }
 }

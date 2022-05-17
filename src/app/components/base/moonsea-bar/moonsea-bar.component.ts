@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MoonseaBarService } from 'src/app/services/moonsea-bar-service.service';
+import { SidebarService } from 'src/app/services/sidebar.service';
 import { WalletService } from 'src/app/services/wallet-service.service';
 import { environment } from 'src/environments/environment';
 
@@ -16,7 +16,7 @@ export class MoonseaBarComponent implements OnInit {
   shortenedWalletAddress: string = ''
 
   constructor(
-    private moonseaBarService: MoonseaBarService,
+    private sidebarService: SidebarService,
     private walletService: WalletService,
   ) {
     this.walletService.init().then((data: boolean) => {
@@ -31,7 +31,7 @@ export class MoonseaBarComponent implements OnInit {
         if (this.userData.networkId.chainId == environment.chainId) {
           this.isConnected = true;
           this.address = data.address;
-          this.shortenedWalletAddress = this.shortWalletAddress();
+          this.shortenedWalletAddress = this.sidebarService.shortWalletAddress(this.address);
         } else {
           this.address = '';
           this.shortenedWalletAddress = '';
@@ -44,11 +44,7 @@ export class MoonseaBarComponent implements OnInit {
     });
   }
 
-  shortWalletAddress(): string {
-    return this.address.slice(0, this.address.length / 2) + '...' + this.address.slice(-((this.address.length / 2) - 9))
-  }
-
   toggleMoonSeaView(): void {
-    this.moonseaBarService.onToggle(false);
+    this.sidebarService.onMoonseaBarToggle(false);
   }
 }
