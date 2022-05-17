@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MoonbaseService } from 'src/app/services/moonbase.service';
+import { SidebarService } from 'src/app/services/sidebar.service';
 import { WalletService } from 'src/app/services/wallet-service.service';
 import { environment } from 'src/environments/environment';
 
@@ -15,7 +15,7 @@ export class MoonbaseBarComponent implements OnInit {
   shortenedWalletAddress: string = ''
 
   constructor(
-    private moonbaseService: MoonbaseService,
+    private sidebarService: SidebarService,
     private walletService: WalletService,
   ) {
     this.walletService.init().then((data: boolean) => {
@@ -30,7 +30,7 @@ export class MoonbaseBarComponent implements OnInit {
         if (this.userData.networkId.chainId == environment.chainId) {
           this.isConnected = true;
           this.address = data.address;
-          this.shortenedWalletAddress = this.shortWalletAddress();
+          this.shortenedWalletAddress = this.sidebarService.shortWalletAddress(this.address);
         } else {
           this.address = '';
           this.shortenedWalletAddress = '';
@@ -44,11 +44,7 @@ export class MoonbaseBarComponent implements OnInit {
 
   }
 
-  shortWalletAddress(): string {
-    return this.address.slice(0, this.address.length / 2) + '...' + this.address.slice(-((this.address.length / 2) - 9))
-  }
-
   toggleMoonbase(): void {
-    this.moonbaseService.onToggle(false);
+    this.sidebarService.onMoonboxesBarToggle(false);
   }
 }
