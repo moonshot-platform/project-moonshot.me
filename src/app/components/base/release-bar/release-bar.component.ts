@@ -1,8 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
-import { parse } from 'path';
-import { ReleaseService } from 'src/app/services/release.service';
+import { SidebarService } from 'src/app/services/sidebar.service';
 import { WalletService, VESTING_CONTRACTS, VestingContractModel } from 'src/app/services/wallet-service.service';
 import { environment } from 'src/environments/environment';
 import { WalletConnectComponent } from '../wallet-connect/wallet-connect.component';
@@ -44,7 +43,7 @@ export class ReleaseBarComponent implements OnInit {
 
 
   constructor(
-    private releaseService: ReleaseService,
+    private sidebarService: SidebarService,
     private walletConnectService: WalletService,
     private toastrService: ToastrService,
     private dialog: MatDialog
@@ -66,7 +65,7 @@ export class ReleaseBarComponent implements OnInit {
         if (this.userData.networkId.chainId == environment.chainId) {
           this.isConnected = true;
           this.address = data.address;
-          this.shortenedWalletAddress = this.shortWalletAddress();
+          this.shortenedWalletAddress = this.sidebarService.shortWalletAddress(this.address);
         } else {
           this.address = '';
           this.shortenedWalletAddress = '';
@@ -103,7 +102,7 @@ export class ReleaseBarComponent implements OnInit {
   }
 
   toggleReleaseView(): void {
-    this.releaseService.onToggle(false);
+    this.sidebarService.onReleaseBarToggle(false);
   }
 
   async selectItem(item: VestingContractModel) {
@@ -201,10 +200,6 @@ export class ReleaseBarComponent implements OnInit {
       this.amount = this.walletConnectService.shortTheNumber(userVestingData.amountTotal);
       this.endTime = endDate.toLocaleString('en-us', { month: 'short', year: 'numeric', day: 'numeric' });
     }
-  }
-
-  shortWalletAddress(): string {
-    return this.address.slice(0, this.address.length / 2) + '...' + this.address.slice(-((this.address.length / 2) - 9))
   }
 }
 

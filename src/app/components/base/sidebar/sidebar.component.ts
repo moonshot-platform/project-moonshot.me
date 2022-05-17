@@ -1,13 +1,10 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { TokenomicsService } from 'src/app/services/tokenomics.service';
-import { MoonbaseService } from 'src/app/services/moonbase.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { WalletConnectComponent } from '../wallet-connect/wallet-connect.component';
-import { ReleaseService } from 'src/app/services/release.service';
 import { VESTING_CONTRACTS, WalletService } from 'src/app/services/wallet-service.service';
-import { MiningBarService } from 'src/app/services/mining-bar.service';
-import { MoonseaBarService } from 'src/app/services/moonsea-bar-service.service';
+import { SidebarService } from 'src/app/services/sidebar.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -27,10 +24,7 @@ export class SidebarComponent implements OnInit {
 
   constructor(
     private tokenomicsService: TokenomicsService,
-    private moonbaseService: MoonbaseService,
-    private releaseService: ReleaseService,
-    private miningBarService: MiningBarService,
-    private moonseaBarService: MoonseaBarService,
+    private sidebarService: SidebarService,
     private walletConnectService: WalletService,
     public dialog: MatDialog,
     private router: Router,
@@ -45,19 +39,19 @@ export class SidebarComponent implements OnInit {
       this.toggleTokenomicsView(state);
     });
 
-    this.moonbaseService.whenToggled().subscribe((state: boolean) => {
+    this.sidebarService.whenMoonboxesBarToggled().subscribe((state: boolean) => {
       this.toggleMoonbaseView(state);
     });
 
-    this.releaseService.whenToggled().subscribe((state: boolean) => {
+    this.sidebarService.whenReleaseBarToggled().subscribe((state: boolean) => {
       this.toggleReleaseView(state);
     });
 
-    this.miningBarService.whenToggled().subscribe((state: boolean) => {
+    this.sidebarService.whenMiningBarToggled().subscribe((state: boolean) => {
       this.toggleMiningView(state);
     });
 
-    this.moonseaBarService.whenToggled().subscribe((state: boolean) => {
+    this.sidebarService.whenMoonseaBarToggled().subscribe((state: boolean) => {
       this.toggleMoonseaView(state);
     });
 
