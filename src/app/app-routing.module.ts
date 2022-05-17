@@ -12,6 +12,7 @@ import { RabbitsMoonticketComponent } from './components/rabbits-moonticket/rabb
 import { TutorialComponent } from './components/landing/tutorial/tutorial.component';
 import { MoonSwapComponent } from './components/landing/moon-swap/moon-swap.component';
 import { VestingComponent } from './components/vesting/vesting.component';
+import { FaucetComponent } from './components/faucet/faucet.component';
 
 const routes: Routes = [
   {
@@ -53,6 +54,10 @@ const routes: Routes = [
   {
     path: VestingComponent.routeName,
     component: VestingComponent
+  },
+  {
+    path: FaucetComponent.routeName,
+    component: FaucetComponent
   },
   {
     path: TutorialComponent.anchorName,
