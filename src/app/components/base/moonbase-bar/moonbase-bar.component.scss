@@ -58,14 +58,11 @@ section.moonbase-bar {
         margin-top: 37px;
         padding-right: 40px;
         font-family: $primary-font;
-        font-size: 30px;
-        font-weight: bold;
-        font-stretch: normal;
-        font-style: normal;
+        font-size: 26px;
+        font-weight: 700;
         line-height: 1.2;
-        letter-spacing: normal;
         text-align: left;
-        color: #000;
+        color: black;
         word-wrap: break-word;
       }
 
@@ -175,7 +172,7 @@ section.moonbase-bar {
   align-items: flex-end;
 
   p {
-    font-size: 24px;
+    font-size: 26px;
     color: black;
     font-family: $primary-font;
     font-weight: 700;
