@@ -133,8 +133,8 @@ export class SidebarComponent implements OnInit {
 
     if (
       !document.getElementById('sidebar').contains(event.target) &&
-      !document.getElementById('footer-tokenomics-text').contains(event.target) &&
-      !document.getElementById('nav-bar-tokenomics-text').contains(event.target) &&
+      !document.getElementById('footer-tokenomics-text')?.contains(event.target) &&
+      !document.getElementById('nav-bar-tokenomics-text')?.contains(event.target) &&
       !isFooterMenuTokenomicsButtonVisible &&
       !footerMobileMenuVestingItem &&
       !footerMobileMenuMiningItem &&
