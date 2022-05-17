@@ -36,9 +36,10 @@ section.investment {
 
   .option {
     flex: 1;
+    margin-right: 30px;
 
-    &:nth-child(2) {
-      margin: 0 30px;
+    &:last-child {
+      margin-right: 0px;
     }
 
     >.box {
