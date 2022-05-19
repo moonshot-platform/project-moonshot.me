@@ -8,5 +8,6 @@ export const environment = {
   tokenContractAddress: "0x5298AD82dD7C83eEaA31DDa9DEB4307664C60534",
   claimContractAddress: "0x02B2106E64d63D1dd3d4d6EC26bFA795193c9807",
   vestingContactAddress: "0x95c3400594B95E7ac61D39BE6f6c4719a851485B",
-  rabbitContractAddress: "0x496971A1ee92E793956BfD1bA01cf6b06B56CAaA"
+  rabbitContractAddress: "0x496971A1ee92E793956BfD1bA01cf6b06B56CAaA",
+  moonshotFaucetContractAddress: "0x23737b74C1026a8F3A038Af0F9752b7cbd75A76C"
 };

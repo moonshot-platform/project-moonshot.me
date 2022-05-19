@@ -45,6 +45,6 @@ export class SidebarService {
   }
 
   shortWalletAddress(address: string): string {
-    return address.slice(0, address.length / 2) + '...' + address.slice(-((address.length / 2) - 10))
+    return address.slice(0, 20) + '...' + address.slice(-11)
   }
 }
