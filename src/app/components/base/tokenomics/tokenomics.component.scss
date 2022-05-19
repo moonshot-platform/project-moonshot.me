@@ -28,7 +28,7 @@ section.tokenomics {
   .inner {
     @extend %max-width-center;
     border-radius: 160px;
-    height: 100%;
+    height: calc(100% - 63px);
     display: flex;
     flex-direction: column;
   }

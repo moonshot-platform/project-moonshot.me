@@ -13,6 +13,7 @@ import buyMshotTokenAbi from './../../assets/abis/buy-moonshot-token.abi.json';
 import claimMshotTokenAbi from './../../assets/abis/claim-mshot-token-abi.json';
 import vestingTokenAbi from './../../assets/abis/vesting-token.abi.json';
 import rabbitVestingTokenAbi from './../../assets/abis/rabbit-vesting-token.abi.json';
+import moonshotFaucetAbi from './../../assets/abis/moonshot-faucet.abi.json';
 
 import Web3Modal from "web3modal";
 
@@ -65,6 +66,7 @@ const moonshotV2TokenAddress = environment.tokenContractAddress;
 const claimContractAddress = environment.claimContractAddress;
 const vestingContractAddress = environment.vestingContactAddress;
 const rabbitContractAddress = environment.rabbitContractAddress;
+const moonshotFaucetAddress = environment.moonshotFaucetContractAddress;
 
 //Create WalletConnect Provider
 const providerOptions = {
@@ -113,6 +115,7 @@ export class WalletService {
   moonshotV2BuyContract: any;
   moonshotV2VestingContract: any;
   rabbitVestingContract: any;
+  moonshotFaucetContract: any;
 
 
   private isConnected = false;
@@ -241,6 +244,7 @@ export class WalletService {
       this.moonshotV2BuyContract = new ethers.Contract(buyContractAddress, buyMshotTokenAbi, this.signer);
       this.moonshotV2VestingContract = new ethers.Contract(vestingContractAddress, vestingTokenAbi, this.signer);
       this.rabbitVestingContract = new ethers.Contract(rabbitContractAddress, rabbitVestingTokenAbi, this.signer);
+      this.moonshotFaucetContract = new ethers.Contract(moonshotFaucetAddress, moonshotFaucetAbi, this.signer);
     } else {
       this.toastrService.error('Please connect your wallet to the Binance Smart Chain');
       console.log("Wrong network");
@@ -625,6 +629,52 @@ export class WalletService {
       return this.formatNumber(n, 1e12, "T");
 
     return value;
+  }
+
+  async canWithdrawOnFaucet(): Promise<boolean> {
+    let isWithdrawAvailable = false;
+
+    try {
+      isWithdrawAvailable = await this.moonshotFaucetContract.canWithdraw(this.account);
+    } catch (error) {
+      this.toastrService.error(`Withdraw checking has failed!\n ${error.message}`, "FAUCET")
+    }
+
+    return isWithdrawAvailable;
+  }
+
+  async getRemainingCoolDownForFaucet(): Promise<number> {
+    let coolDownTimeInSec = 0;
+
+    try {
+      coolDownTimeInSec = await this.moonshotFaucetContract.getRemainingCooldown(this.account);
+    } catch (error) {
+      this.toastrService.error(`Cooldown checking has failed!\n ${error.message}`, "FAUCET")
+    }
+
+    return coolDownTimeInSec;
+  }
+
+  async getFreeMoonshot(): Promise<any> {
+    let tx;
+
+    try {
+      tx = await this.moonshotFaucetContract.getFreeMoonshot();
+
+      this.toastrService.success(`Funding request accepted for ${this.account}`, "FAUCET")
+    } catch (error) {
+      console.log(error);
+
+      this.toastrService.error(`${error.message}`, "FAUCET")
+    }
+
+    return tx;
+  }
+
+  async getFaucetAmount(): Promise<string> {
+    let amount: string = await this.moonshotFaucetContract.tokenAmount();
+
+    return this.shortTheNumber(amount);
   }
 }
 
