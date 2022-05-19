@@ -1,4 +1,28 @@
 <section class="faucet">
-  <app-navigation></app-navigation>
+  <div class="inner flex-space-between align-start">
+    <div class="moon-bg"></div>
+    <app-navigation></app-navigation>
+    <div class="faucet-container">
+      <p class="title">MOONSHOT<br>FAUCET</p>
+      <p class="explanation">
+        Your current balance is {{currentBalance}}. You can get {{tokenAmount}} Free Moonshot.<br><br>
+        <span *ngIf="!canUserWithdraw && isConnected">
+          You will be able to get Free Moonshot after {{cooldown}} seconds.
+        </span>
+      </p>
 
+
+      <div class="address-box">
+        <p *ngIf="isConnected">Wallet address:
+          {{ connectedAddress }}</p>
+        <span [ngClass]="{'pt60': !isConnected}"></span>
+        <a class="button" (click)="isConnected ?  (canUserWithdraw ? getFaucet() : null): connectWallet()"
+          [ngClass]="{'disable': !canUserWithdraw && isConnected}">
+          {{isInProcess ? '' : (isConnected ? 'Give me MSHOT!' : 'Connect Wallet')}}
+          <img *ngIf="isInProcess" src="assets/media/videos/Loading_yellowBG.gif" class="loader-img"></a>
+      </div>
+    </div>
+  </div>
+
+  <app-sidebar></app-sidebar>
 </section>

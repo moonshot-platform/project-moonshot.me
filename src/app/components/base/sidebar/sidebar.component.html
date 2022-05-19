@@ -17,6 +17,9 @@
       <p (click)="toggleMiningView()">Mining</p>
     </li>
     <li>
+      <p [routerLink]="['/faucet']" routerLinkActive="router-link-active">Faucet</p>
+    </li>
+    <li>
       <p (click)="toggleTokenomicsView()">Tokenomics</p>
     </li>
     <li *ngIf="hasVested && isConnected">
