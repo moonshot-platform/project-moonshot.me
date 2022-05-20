@@ -35,8 +35,8 @@ import { LocalStorageService } from './services/local.storage.service';
 import { WalletConnectModule } from './components/base/wallet-connect/wallet-connect.module';
 import { VestingComponent } from './components/vesting/vesting.component';
 import { UiSwitchModule } from 'ngx-ui-switch';
-import { FaucetComponent } from './components/faucet/faucet.component';
 import { FaucetModule } from './components/faucet/faucet.module';
+import { GamesModule } from './components/games/games.module';
 
 @Injectable()
 export class HammerConfig extends HammerGestureConfig {
@@ -73,6 +73,7 @@ export class HammerConfig extends HammerGestureConfig {
     MatDialogModule,
     WalletConnectModule,
     FaucetModule,
+    GamesModule,
     ToastrModule.forRoot(
       { positionClass: 'toast-bottom-right' }
     ),
