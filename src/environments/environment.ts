@@ -13,7 +13,8 @@ export const environment = {
   claimContractAddress: "0x02B2106E64d63D1dd3d4d6EC26bFA795193c9807",
   vestingContactAddress: "0x95c3400594B95E7ac61D39BE6f6c4719a851485B",
   rabbitContractAddress: "0x496971A1ee92E793956BfD1bA01cf6b06B56CAaA",
-  moonshotFaucetContractAddress: "0x23737b74C1026a8F3A038Af0F9752b7cbd75A76C"
+  moonshotFaucetContractAddress: "0x23737b74C1026a8F3A038Af0F9752b7cbd75A76C",
+  moonstormContractAddress: "0x3Ce98D931D4aed529ECd1F62c5860425CCF587C4"
 };
 
 /*
