@@ -112,6 +112,8 @@ input[type=number] {
   left: 0;
   width: 100%;
   z-index: 0;
+  max-height: 180px;
+  height: 100%;
 }
 
 .vulture-detail {
@@ -134,5 +136,11 @@ input[type=number] {
 
   .explanation {
     text-align: left;
+  }
+
+  .bottom-banner {
+
+    max-height: min-content;
+    height: min-content;
   }
 }
