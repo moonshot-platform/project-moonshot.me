@@ -1,0 +1,146 @@
+@import "includes";
+
+
+section.vulture {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  padding: 20px 60px 0px;
+  padding-top: 100px;
+  margin-bottom: 100px;
+  z-index: 2;
+
+  .inner {
+    @extend %max-width-center;
+    align-items: flex-start;
+    padding-top: 100px;
+
+    .moon-bg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: -1;
+    }
+
+    .moon-bg {
+      background: url("/assets/media/images/moon-shadow.webp") top right no-repeat;
+      background-size: 59%;
+      mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    }
+  }
+}
+
+.vulture-container {
+  width: 100%;
+  max-width: 700px;
+  margin: auto;
+  position: relative;
+  z-index: 2;
+
+  .title {
+    font-weight: 700;
+    font-size: 24px;
+    font-family: $primary-font;
+    color: white;
+    text-align: center;
+  }
+
+  .explanation {
+    margin-top: 20px;
+  }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.address-box {
+  display: flex;
+  width: 100%;
+  column-gap: 20px;
+  margin-bottom: 40px;
+  padding-top: 50px;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+
+  p {
+    text-overflow: ellipsis;
+    // white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    display: block;
+    text-align: left;
+    margin-right: auto;
+
+    span {
+      color: orange;
+    }
+  }
+}
+
+.pt60 {
+  padding-top: 60px;
+}
+
+.disable {
+  background-color: gray !important;
+  cursor: not-allowed;
+}
+
+.loader-img {
+  width: 35px;
+  margin: -10px;
+}
+
+.bottom-banner {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  z-index: 0;
+  max-height: 180px;
+  height: 100%;
+}
+
+.vulture-detail {
+  font-size: 14px;
+
+  a {
+    cursor: pointer;
+    color: white;
+  }
+}
+
+@media only screen and (max-width: $md) {
+  section.vulture {
+    padding: 20px;
+
+    .inner {
+      padding-top: 150px;
+    }
+  }
+
+  .explanation {
+    text-align: left;
+  }
+
+  .bottom-banner {
+
+    max-height: min-content;
+    height: min-content;
+  }
+}

@@ -13,6 +13,8 @@ import { TutorialComponent } from './components/landing/tutorial/tutorial.compon
 import { MoonSwapComponent } from './components/landing/moon-swap/moon-swap.component';
 import { VestingComponent } from './components/vesting/vesting.component';
 import { FaucetComponent } from './components/faucet/faucet.component';
+import { MoonStormComponent } from './components/games/moon-storm/moon-storm.component';
+import { VultureWhitelistComponent } from './components/vulture-whitelist/vulture-whitelist.component';
 
 const routes: Routes = [
   {
@@ -58,6 +60,14 @@ const routes: Routes = [
   {
     path: FaucetComponent.routeName,
     component: FaucetComponent
+  },
+  {
+    path: MoonStormComponent.routeName,
+    component: MoonStormComponent
+  },
+  {
+    path: VultureWhitelistComponent.routeName,
+    component: VultureWhitelistComponent
   },
   {
     path: TutorialComponent.anchorName,

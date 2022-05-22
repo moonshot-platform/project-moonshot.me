@@ -14,6 +14,8 @@ import claimMshotTokenAbi from './../../assets/abis/claim-mshot-token-abi.json';
 import vestingTokenAbi from './../../assets/abis/vesting-token.abi.json';
 import rabbitVestingTokenAbi from './../../assets/abis/rabbit-vesting-token.abi.json';
 import moonshotFaucetAbi from './../../assets/abis/moonshot-faucet.abi.json';
+import moonstormAbi from './../../assets/abis/moonstorm.abi.json';
+import vultureAbi from './../../assets/abis/vulture-whitelist-abi.json';
 
 import Web3Modal from "web3modal";
 
@@ -67,6 +69,8 @@ const claimContractAddress = environment.claimContractAddress;
 const vestingContractAddress = environment.vestingContactAddress;
 const rabbitContractAddress = environment.rabbitContractAddress;
 const moonshotFaucetAddress = environment.moonshotFaucetContractAddress;
+const moonstormContractAddress = environment.moonstormContractAddress;
+const vultureContractAddress = environment.vultureContractAddress;
 
 //Create WalletConnect Provider
 const providerOptions = {
@@ -116,6 +120,8 @@ export class WalletService {
   moonshotV2VestingContract: any;
   rabbitVestingContract: any;
   moonshotFaucetContract: any;
+  moonstormContract: any;
+  vultureContract: any;
 
 
   private isConnected = false;
@@ -245,6 +251,9 @@ export class WalletService {
       this.moonshotV2VestingContract = new ethers.Contract(vestingContractAddress, vestingTokenAbi, this.signer);
       this.rabbitVestingContract = new ethers.Contract(rabbitContractAddress, rabbitVestingTokenAbi, this.signer);
       this.moonshotFaucetContract = new ethers.Contract(moonshotFaucetAddress, moonshotFaucetAbi, this.signer);
+      this.moonstormContract = new ethers.Contract(moonstormContractAddress, moonstormAbi, this.signer);
+      this.vultureContract = new ethers.Contract(vultureContractAddress, vultureAbi, this.signer);
+
     } else {
       this.toastrService.error('Please connect your wallet to the Binance Smart Chain');
       console.log("Wrong network");
@@ -675,6 +684,46 @@ export class WalletService {
     let amount: string = await this.moonshotFaucetContract.tokenAmount();
 
     return this.shortTheNumber(amount);
+  }
+
+  async registerToVulture(): Promise<any> {
+    let tx, isListed;
+
+    isListed = await this.isRegisteredToVulture();
+    console.log("Is Listed : " + isListed);
+
+    if (isListed)
+      return null;
+
+    try {
+      tx = await this.vultureContract.register();
+
+      this.toastrService.success(`Registering is successful for ${this.account}`, "VULTURE")
+    } catch (error) {
+      console.log(error);
+
+      this.toastrService.error(`${error.message}`, "VULTURE")
+    }
+
+    return tx;
+  }
+
+  async isRegisteredToVulture(): Promise<boolean> {
+    let isListed;
+
+    try {
+      isListed = await this.vultureContract.isListed();
+
+      if (isListed)
+        this.toastrService.success(`You are already whitelisted with ${this.account}`, "VULTURE")
+
+    } catch (error) {
+      console.log(error);
+
+      this.toastrService.error(`${error.message}`, "VULTURE")
+    }
+
+    return isListed;
   }
 }
 

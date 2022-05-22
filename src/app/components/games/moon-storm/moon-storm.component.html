@@ -1,0 +1,110 @@
+<section class="moonstorm">
+  <div class="inner">
+    <div *ngIf="!hasGameStarted" class="start-screen">
+      <p class="title">MOON<br>STORM</p>
+      <div class="fuel">
+        <p>You are willing to spend 1,000,000,000 MSHOT</p>
+        <div class="buy-fuel">
+          <a class="button" (click)="enterGame()">ENTER GAME</a>
+          <div id="token-dropdown" class="dropdown_c dropdown_click">
+            <div class="selected" (click)="toggleFuelDropdown()">
+              <span>
+                <img style="height: 20px; margin-right: 10px;" src="{{selectedFuelMethod.icon}}" alt="token-icon">
+                {{selectedFuelMethod.name}}
+              </span>
+              <svg [ngClass]="{'dropup': isFuelDropdownActive}" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 12 7" version="1.1" x="0px" y="0px">
+                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <path
+                    d="M2.793125,9.207375 C2.402125,8.816375 2.402125,8.184375 2.793125,7.793375 L7.086125,3.500375 L2.793125,-0.792625 C2.402125,-1.183625 2.402125,-1.815625 2.793125,-2.206625 C3.184125,-2.597625 3.816125,-2.597625 4.207125,-2.206625 L9.207125,2.793375 C9.598125,3.184375 9.598125,3.816375 9.207125,4.207375 L4.207125,9.207375 C4.012125,9.402375 3.756125,9.500375 3.500125,9.500375 C3.244125,9.500375 2.988125,9.402375 2.793125,9.207375 Z"
+                    fill="#d5a642"
+                    transform="translate(6.000125, 3.500250) rotate(-270.000000) translate(-6.000125, -3.500250) ">
+                  </path>
+                </g>
+              </svg>
+            </div>
+            <div class="drop-content">
+              <ul [ngClass]="{'visible': isFuelDropdownActive}">
+                <li (click)="selectFuelItem(item)" *ngFor="let item of fuelMethods">
+                  <span>
+                    <img style="height: 20px; margin-right: 10px;" src="{{item.icon}}" alt="token-icon">
+                    {{item.name}}
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium iusto ratione quis culpa voluptates
+          rerum totam </p>
+      </div>
+    </div>
+
+
+    <div *ngIf="hasGameStarted" class="game-screen">
+      <div class="title-header">
+
+        <p class="title">MOONSTORM</p>
+        <div class="game-action-details">
+          <p>Active players: <span> {{activePlayers}}</span> </p>
+          <p>Total locked: <span>{{totalLocked}} MSHOT</span> </p>
+        </div>
+      </div>
+      <div class="game-details-and-fuel-container">
+        <div class="game-details">
+          <p>In-game balance: <span>{{inGameBalance}} MSHOT</span></p>
+          <p>Shield power: <span class="shield-power">{{shieldPower}}</span></p>
+          <p>Reflections gained: <span>{{reflectionsGained}} MSHOT</span></p>
+          <p>Damage paid: <span>{{damagePaid}} MSHOT</span></p>
+          <p>Damage absorbed: <span>{{damageAbsorbed}} MSHOT</span></p>
+        </div>
+        <div class="fuel">
+          <input class="amount" type="number" placeholder="Amount">
+          <div class="buy-fuel">
+            <a class="button">BUY FUEL</a>
+            <div id="token-dropdown" class="dropdown_c dropdown_click">
+              <div class="selected" (click)="toggleFuelDropdown()">
+                <span>
+                  <img style="height: 20px; margin-right: 10px;" src="{{selectedFuelMethod.icon}}" alt="token-icon">
+                  {{selectedFuelMethod.name}}
+                </span>
+                <svg [ngClass]="{'dropup': isFuelDropdownActive}" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 12 7" version="1.1" x="0px" y="0px">
+                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <path
+                      d="M2.793125,9.207375 C2.402125,8.816375 2.402125,8.184375 2.793125,7.793375 L7.086125,3.500375 L2.793125,-0.792625 C2.402125,-1.183625 2.402125,-1.815625 2.793125,-2.206625 C3.184125,-2.597625 3.816125,-2.597625 4.207125,-2.206625 L9.207125,2.793375 C9.598125,3.184375 9.598125,3.816375 9.207125,4.207375 L4.207125,9.207375 C4.012125,9.402375 3.756125,9.500375 3.500125,9.500375 C3.244125,9.500375 2.988125,9.402375 2.793125,9.207375 Z"
+                      fill="#d5a642"
+                      transform="translate(6.000125, 3.500250) rotate(-270.000000) translate(-6.000125, -3.500250) ">
+                    </path>
+                  </g>
+                </svg>
+              </div>
+              <div class="drop-content">
+                <ul [ngClass]="{'visible': isFuelDropdownActive}">
+                  <li (click)="selectFuelItem(item)" *ngFor="let item of fuelMethods">
+                    <span>
+                      <img style="height: 20px; margin-right: 10px;" src="{{item.icon}}" alt="token-icon">
+                      {{item.name}}
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="game-body">
+        <div class="picture"></div>
+
+      </div>
+
+      <div class="controllers-container">
+        <a class="outlined-button" (click)="leaveGame()">Leave Game</a>
+      </div>
+
+    </div>
+
+
+  </div>
+</section>
