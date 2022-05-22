@@ -14,6 +14,7 @@ import claimMshotTokenAbi from './../../assets/abis/claim-mshot-token-abi.json';
 import vestingTokenAbi from './../../assets/abis/vesting-token.abi.json';
 import rabbitVestingTokenAbi from './../../assets/abis/rabbit-vesting-token.abi.json';
 import moonshotFaucetAbi from './../../assets/abis/moonshot-faucet.abi.json';
+import moonstormAbi from './../../assets/abis/moonstorm.abi.json';
 
 import Web3Modal from "web3modal";
 
@@ -67,6 +68,7 @@ const claimContractAddress = environment.claimContractAddress;
 const vestingContractAddress = environment.vestingContactAddress;
 const rabbitContractAddress = environment.rabbitContractAddress;
 const moonshotFaucetAddress = environment.moonshotFaucetContractAddress;
+const moonstormContractAddress = environment.moonstormContractAddress;
 
 //Create WalletConnect Provider
 const providerOptions = {
@@ -116,6 +118,7 @@ export class WalletService {
   moonshotV2VestingContract: any;
   rabbitVestingContract: any;
   moonshotFaucetContract: any;
+  moonstormContract: any;
 
 
   private isConnected = false;
@@ -245,6 +248,7 @@ export class WalletService {
       this.moonshotV2VestingContract = new ethers.Contract(vestingContractAddress, vestingTokenAbi, this.signer);
       this.rabbitVestingContract = new ethers.Contract(rabbitContractAddress, rabbitVestingTokenAbi, this.signer);
       this.moonshotFaucetContract = new ethers.Contract(moonshotFaucetAddress, moonshotFaucetAbi, this.signer);
+      this.moonstormContract = new ethers.Contract(moonstormContractAddress, moonstormAbi, this.signer);
     } else {
       this.toastrService.error('Please connect your wallet to the Binance Smart Chain');
       console.log("Wrong network");
