@@ -10,5 +10,6 @@ export const environment = {
   vestingContactAddress: "0x95c3400594B95E7ac61D39BE6f6c4719a851485B",
   rabbitContractAddress: "0x496971A1ee92E793956BfD1bA01cf6b06B56CAaA",
   moonshotFaucetContractAddress: "0x23737b74C1026a8F3A038Af0F9752b7cbd75A76C",
-  moonstormContractAddress: "0x3Ce98D931D4aed529ECd1F62c5860425CCF587C4"
+  moonstormContractAddress: "0x3Ce98D931D4aed529ECd1F62c5860425CCF587C4",
+  vultureContractAddress: "0x2368e230a90b5c8cb5774EC6650133cf726dAdc3"
 };
