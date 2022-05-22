@@ -37,6 +37,8 @@ import { VestingComponent } from './components/vesting/vesting.component';
 import { UiSwitchModule } from 'ngx-ui-switch';
 import { FaucetModule } from './components/faucet/faucet.module';
 import { GamesModule } from './components/games/games.module';
+import { VultureWhitelistComponent } from './components/vulture-whitelist/vulture-whitelist.component';
+import { VultureWhitelistModule } from './components/vulture-whitelist/vulture-whitelist.module';
 
 @Injectable()
 export class HammerConfig extends HammerGestureConfig {
@@ -74,6 +76,7 @@ export class HammerConfig extends HammerGestureConfig {
     WalletConnectModule,
     FaucetModule,
     GamesModule,
+    VultureWhitelistModule,
     ToastrModule.forRoot(
       { positionClass: 'toast-bottom-right' }
     ),
