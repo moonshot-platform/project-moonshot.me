@@ -21,6 +21,7 @@ export class FaucetComponent implements OnInit {
   currentBalance: number = 0;
 
   tokenAmount = '';
+  donationAddress = '0x23737b74c1026a8f3a038af0f9752b7cbd75a76c';
 
   constructor(
     private walletService: WalletService,

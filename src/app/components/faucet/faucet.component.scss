@@ -38,7 +38,6 @@ section.faucet {
   }
 }
 
-
 .container {
   display: flex;
   flex-direction: row;
@@ -98,6 +97,14 @@ section.faucet {
 .loader-img {
   width: 35px;
   margin: -10px;
+}
+
+.donate {
+  cursor: pointer;
+
+  &:hover {
+    color: white;
+  }
 }
 
 @media only screen and (max-width: $md) {

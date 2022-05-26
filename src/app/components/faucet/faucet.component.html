@@ -15,10 +15,12 @@
             <p class="pb10">You can get {{tokenAmount}} free Moonshot every 48hr!</p>
             <p *ngIf="!canUserWithdraw && isConnected" class="pb10">
               You will be able to get Free Moonshot after {{cooldown}} seconds.</p>
-            <p *ngIf="!isConnected">Please connect your wallet.</p>
-            <p *ngIf="isConnected">Wallet address:
+            <p *ngIf="!isConnected" class="pb10">Please connect your wallet.</p>
+            <p *ngIf="isConnected" class="pb10">Wallet address:
               {{ connectedAddress.slice(0,10) + '...' + connectedAddress.slice(-4) }}
             </p>
+            <p class="pb10">If you want to donate to our Faucet, you can send BNB or MSHOT tokens to <span
+                class="donate" [cdkCopyToClipboard]=donationAddress>{{donationAddress}}</span></p>
           </div>
           <a class="button" (click)="isConnected ? getFaucet() : connectWallet()"
             [ngClass]="{'disable': !canUserWithdraw && isConnected}">
