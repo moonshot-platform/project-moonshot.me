@@ -21,6 +21,7 @@ export class FaucetComponent implements OnInit {
   currentBalance: number = 0;
 
   tokenAmount = '';
+  donationAddress = '0x23737b74c1026a8f3a038af0f9752b7cbd75a76c';
 
   constructor(
     private walletService: WalletService,
@@ -65,6 +66,7 @@ export class FaucetComponent implements OnInit {
 
   async getFaucet() {
     this.isInProcess = true;
+    this.canUserWithdraw = await this.walletService.canWithdrawOnFaucet();
 
     if (this.isConnected) {
 
@@ -72,7 +74,7 @@ export class FaucetComponent implements OnInit {
         console.log(await this.walletService.getFreeMoonshot());
       } else {
         this.startToCountdownTime();
-        this.toastrService.info("You already got Free Moonshot!", "FAUCET")
+        this.toastrService.info("You already got free Moonshot!", "FAUCET")
       }
 
       this.canUserWithdraw = await this.walletService.canWithdrawOnFaucet();
