@@ -101,6 +101,7 @@ section.faucet {
 
 .donate {
   cursor: pointer;
+  word-break: break-all;
 
   &:hover {
     color: white;
