@@ -16,6 +16,7 @@ section.faucet {
     padding-top: 100px;
     padding-right: 20px;
     padding-left: 20px;
+    height: 90vh;
 
     .moon-bg {
       position: absolute;
@@ -89,63 +90,10 @@ section.faucet {
   }
 }
 
-
-// .faucet-container {
-//   width: 100%;
-//   max-width: 700px;
-//   margin: auto;
-
-//   .title {
-//     font-weight: 700;
-//     font-size: 24px;
-//     font-family: $primary-font;
-//   }
-
-//   .explanation {
-//     margin-top: 20px;
-//   }
-// }
-
-// input::-webkit-outer-spin-button,
-// input::-webkit-inner-spin-button {
-//   -webkit-appearance: none;
-//   margin: 0;
-// }
-
-// /* Firefox */
-// input[type=number] {
-//   -moz-appearance: textfield;
-// }
-
-// .address-box {
-//   display: flex;
-//   width: 100%;
-//   column-gap: 20px;
-//   margin-bottom: 40px;
-//   padding-top: 50px;
-//   flex-direction: column;
-//   align-items: center;
-//   row-gap: 20px;
-
-//   p {
-//     text-overflow: ellipsis;
-//     white-space: nowrap;
-//     overflow: hidden;
-//     width: 100%;
-//     display: block;
-//     text-align: left;
-//     margin-right: auto;
-//   }
-// }
-
-// .pt60 {
-//   padding-top: 60px;
-// }
-
-// .disable {
-//   background-color: gray !important;
-//   cursor: not-allowed;
-// }
+.disable {
+  background-color: gray !important;
+  cursor: not-allowed;
+}
 
 .loader-img {
   width: 35px;
