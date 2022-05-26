@@ -65,6 +65,7 @@ export class FaucetComponent implements OnInit {
 
   async getFaucet() {
     this.isInProcess = true;
+    this.canUserWithdraw = await this.walletService.canWithdrawOnFaucet();
 
     if (this.isConnected) {
 
@@ -72,7 +73,7 @@ export class FaucetComponent implements OnInit {
         console.log(await this.walletService.getFreeMoonshot());
       } else {
         this.startToCountdownTime();
-        this.toastrService.info("You already got Free Moonshot!", "FAUCET")
+        this.toastrService.info("You already got free Moonshot!", "FAUCET")
       }
 
       this.canUserWithdraw = await this.walletService.canWithdrawOnFaucet();

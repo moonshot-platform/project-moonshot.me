@@ -1,25 +1,30 @@
-<section class="faucet">
+<section class="faucet flex-center">
   <div class="inner flex-space-between align-start">
     <div class="moon-bg"></div>
     <app-navigation></app-navigation>
-    <div class="faucet-container">
-      <p class="title">MOONSHOT<br>FAUCET</p>
-      <p class="explanation">
-        Your current balance is {{currentBalance}}. You can get {{tokenAmount}} Free Moonshot.<br><br>
-        <span *ngIf="!canUserWithdraw && isConnected">
-          You will be able to get Free Moonshot after {{cooldown}} seconds.
-        </span>
-      </p>
+    <div class="container">
+      <div class="faucet-title flex1 futuristic-container">
+        <p>MOONSHOT FACUET</p>
+        <img src="assets/media/images/about/liquidity_icon.svg" alt="">
+      </div>
 
-
-      <div class="address-box">
-        <p *ngIf="isConnected">Wallet address:
-          {{ connectedAddress }}</p>
-        <span [ngClass]="{'pt60': !isConnected}"></span>
-        <a class="button" (click)="isConnected ?  (canUserWithdraw ? getFaucet() : null): connectWallet()"
-          [ngClass]="{'disable': !canUserWithdraw && isConnected}">
-          {{isInProcess ? '' : (isConnected ? 'Give me MSHOT!' : 'Connect Wallet')}}
-          <img *ngIf="isInProcess" src="assets/media/videos/Loading_yellowBG.gif" class="loader-img"></a>
+      <div class="faucet-container flex3 futuristic-container">
+        <p class="p-white-span-primary p34 orbitron container-title"><span>Moonshot &nbsp;</span>Faucet</p>
+        <div class="get-mshot">
+          <div class="flex col">
+            <p class="pb10">You can get {{tokenAmount}} free Moonshot every 48hr!</p>
+            <p *ngIf="!canUserWithdraw && isConnected" class="pb10">
+              You will be able to get Free Moonshot after {{cooldown}} seconds.</p>
+            <p *ngIf="!isConnected">Please connect your wallet.</p>
+            <p *ngIf="isConnected">Wallet address:
+              {{ connectedAddress.slice(0,10) + '...' + connectedAddress.slice(-4) }}
+            </p>
+          </div>
+          <a class="button" (click)="isConnected ? getFaucet() : connectWallet()"
+            [ngClass]="{'disable': !canUserWithdraw && isConnected}">
+            {{isInProcess ? '' : (isConnected ? 'Give me MSHOT!' : 'Connect Wallet')}}
+            <img *ngIf="isInProcess" src="assets/media/videos/Loading_yellowBG.gif" class="loader-img"></a>
+        </div>
       </div>
     </div>
   </div>
