@@ -112,7 +112,7 @@ input[type=number] {
   left: 0;
   width: 100%;
   z-index: 0;
-  max-height: 180px;
+  max-height: 270px;
   height: 100%;
 }
 
@@ -139,8 +139,7 @@ input[type=number] {
   }
 
   .bottom-banner {
-
-    max-height: min-content;
-    height: min-content;
+    max-height: none;
+    height: auto;
   }
 }
