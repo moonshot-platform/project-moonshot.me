@@ -4,8 +4,10 @@
     <app-navigation></app-navigation>
     <div class="container">
       <div class="faucet-title flex1 futuristic-container">
-        <p>MOONSHOT FACUET</p>
+        <p class="header">MOONSHOT FAUCET</p>
         <img src="assets/media/images/about/liquidity_icon.svg" alt="">
+        <p class="pb10 donation">If you want to donate to our Faucet, you can send BNB or MSHOT tokens to: <br><br><span
+            class="donate" [cdkCopyToClipboard]=donationAddress>{{donationAddress}}</span></p>
       </div>
 
       <div class="faucet-container flex3 futuristic-container">
@@ -16,11 +18,19 @@
             <p *ngIf="!canUserWithdraw && isConnected" class="pb10">
               You will be able to get Free Moonshot after {{cooldown}} seconds.</p>
             <p *ngIf="!isConnected" class="pb10">Please connect your wallet.</p>
-            <p *ngIf="isConnected" class="pb10">Wallet address:
-              {{ connectedAddress.slice(0,10) + '...' + connectedAddress.slice(-4) }}
-            </p>
-            <p class="pb10">If you want to donate to our Faucet, you can send BNB or MSHOT tokens to <span
-                class="donate" [cdkCopyToClipboard]=donationAddress>{{donationAddress}}</span></p>
+            <div *ngIf="isConnected" class="wallet-address centered-row mb20">
+              <p class="desc-title">Wallet address:</p>
+              <div class="address">
+                <div class="truncate-middle" [attr.data-truncate]='connectedAddress.slice(-4)'>
+                  <p>{{connectedAddress.slice(0,-4)}}</p>
+                </div>
+              </div>
+            </div>
+
+            <div *ngIf="isConnected" class="mshot-v2 centered-row">
+              <p class="desc-title-light">MSHOT Balance: </p>
+              <p class="value">{{mshotV2Balance}}</p>
+            </div>
           </div>
           <a class="button" (click)="isConnected ? getFaucet() : connectWallet()"
             [ngClass]="{'disable': !canUserWithdraw && isConnected}">
@@ -32,4 +42,6 @@
   </div>
 
   <app-sidebar></app-sidebar>
+
+  <app-footer-mobile></app-footer-mobile>
 </section>

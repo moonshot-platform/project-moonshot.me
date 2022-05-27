@@ -16,7 +16,7 @@ section.faucet {
     padding-top: 100px;
     padding-right: 20px;
     padding-left: 20px;
-    height: 90vh;
+    height: 6s0vh;
 
     .moon-bg {
       position: absolute;
@@ -58,6 +58,11 @@ section.faucet {
     margin: 0 auto;
     max-height: 180px;
     height: 100%;
+  }
+
+  .donation {
+    border-top: 1px solid $primary;
+    padding-top: 1.25rem;
   }
 }
 
@@ -108,12 +113,83 @@ section.faucet {
   }
 }
 
+.wallet-address {
+
+  .address {
+    // display: flex;
+    display: inline-block;
+    margin-left: 10px;
+    font-weight: 500;
+    font-size: 16px;
+    color: white;
+    border-bottom: 1px $primary solid;
+    flex: 1;
+    text-align: end;
+    margin-top: auto;
+    max-width: 100%;
+
+  }
+}
+
+.desc-title {
+  font-weight: 600;
+  font-size: 16px;
+  color: $primary;
+  // flex: 1;
+  display: ruby;
+}
+
+.centered-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.truncate-middle {
+  position: relative;
+  width: 18vw;
+  max-width: 340px;
+  justify-self: flex-end;
+  display: inline-flex;
+  padding-right: 40px;
+}
+
+.truncate-middle>p {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.truncate-middle:after {
+  content: attr(data-truncate);
+  position: absolute;
+  left: calc(100% - 40px);
+  top: 0;
+  white-space: nowrap;
+}
+
+.value {
+  margin-left: 10px;
+  font-weight: 500;
+  font-size: 16px;
+  color: $primary;
+  border-bottom: 1px $primary solid;
+  flex: 1;
+  text-align: end;
+}
+
 @media only screen and (max-width: $md) {
   section.faucet {
     padding: 20px;
 
     .inner {
       padding-top: 150px;
+      padding-right: 0px;
+      padding-left: 0px;
+      height: 100%;
+
     }
   }
 
@@ -122,27 +198,30 @@ section.faucet {
   }
 
   .container {
-    flex-direction: column;
+    flex-direction: column-reverse;
 
     .faucet-title {
       max-width: 100%;
+      border-top: 0px !important;
 
-      img {
-        margin-right: auto;
-        margin-left: 0;
-        max-height: 100px;
+
+      img,
+      p.header {
+        display: none;
       }
     }
   }
 
   .faucet-container {
+    border-top: 3px solid $primary !important;
     max-width: 100%;
     border-bottom: 0px !important;
 
     p.container-title {
       max-width: 100%;
       border-top: 0px;
-      font-size: 27px;
+      display: flex;
+      flex-direction: column;
     }
 
     .get-mshot {
@@ -155,5 +234,37 @@ section.faucet {
         width: 100%;
       }
     }
+  }
+
+  .truncate-middle {
+    width: 100%;
+    max-width: 94%;
+    text-align: end;
+    display: block;
+  }
+}
+
+
+@media only screen and (max-width: 826px) {
+  .truncate-middle {
+    width: 100% !important;
+    max-width: calc(100% - 50px) !important;
+    text-align: end;
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 673px) {
+  .truncate-middle {
+    width: 100% !important;
+    max-width: 200px !important;
+    margin-left: auto;
+  }
+}
+
+@media only screen and (max-width: 458px) {
+  .truncate-middle {
+    max-width: 100px !important;
+    margin-left: auto;
   }
 }

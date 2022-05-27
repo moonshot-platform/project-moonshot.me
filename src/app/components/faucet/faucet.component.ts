@@ -18,10 +18,10 @@ export class FaucetComponent implements OnInit {
   canUserWithdraw: boolean = false;
   cooldown: number = 0;
   isInProcess: boolean = false;
-  currentBalance: number = 0;
 
-  tokenAmount = '';
-  donationAddress = '0x23737b74c1026a8f3a038af0f9752b7cbd75a76c';
+  tokenAmount: string = '';
+  donationAddress: string = '0x23737b74c1026a8f3a038af0f9752b7cbd75a76c';
+  mshotV2Balance: string = '-';
 
   constructor(
     private walletService: WalletService,
@@ -35,7 +35,7 @@ export class FaucetComponent implements OnInit {
         this.tokenAmount = await this.walletService.getFaucetAmount();
         this.canUserWithdraw = await this.walletService.canWithdrawOnFaucet();
 
-        this.currentBalance = this.walletService.shortTheNumber(await this.walletService.getUserMSHOTBalance(this.connectedAddress) as number)
+        await this.getMoonshotBalance();
 
         if (!this.canUserWithdraw) {
           this.cooldown = await this.walletService.getRemainingCoolDownForFaucet();
@@ -51,6 +51,7 @@ export class FaucetComponent implements OnInit {
       this.isConnected = state;
       if (state) {
         this.connectedAddress = this.walletService.account;
+        await this.getMoonshotBalance();
       } else {
         this.connectedAddress = '';
       }
@@ -89,5 +90,15 @@ export class FaucetComponent implements OnInit {
     setInterval(() => {
       this.cooldown -= 1;
     }, 1000);//run this thang every 1 seconds
+  }
+
+  async getMoonshotBalance() {
+    const [balance] = await Promise.all(
+      [
+        Number(await this.walletService.getUserMSHOTBalance(this.connectedAddress))
+      ]
+    )
+
+    this.mshotV2Balance = this.walletService.convertBalance(balance);
   }
 }
