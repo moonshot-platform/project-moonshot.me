@@ -26,11 +26,26 @@ section.vulture {
       z-index: -1;
     }
 
+    .banner-bg {
+      position: fixed;
+      width: 100%;
+      height: 20%;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+    }
+
     .moon-bg {
       background: url("/assets/media/images/moon-shadow.webp") top right no-repeat;
       background-size: 59%;
       mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
       -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    }
+
+    .banner-bg {
+      background: url("/assets/media/images/vulture/banner4.webp") bottom repeat-x;
+      background-size: contain;
     }
   }
 }
@@ -113,7 +128,7 @@ input[type=number] {
   width: 100%;
   z-index: 0;
   max-height: 270px;
-  height: 100%;
+  height: auto;
 }
 
 .vulture-detail {
