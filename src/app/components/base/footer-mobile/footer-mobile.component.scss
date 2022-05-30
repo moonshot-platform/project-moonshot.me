@@ -80,6 +80,7 @@ section.mobile-footer-menu {
     height: 3px;
     width: 100%;
     border-bottom: 3px solid black;
+    max-width: 445px;
   }
 }
 
@@ -98,6 +99,28 @@ section.mobile-footer-menu {
   justify-content: center;
   color: black;
 
+  .address {
+    // display: flex;
+    display: inline-block;
+    margin-left: 10px;
+    font-weight: 500;
+    font-size: 16px;
+    color: black;
+    border-bottom: 1px black solid;
+    // flex: 1;
+    text-align: end;
+    margin-top: auto;
+    max-width: 100%;
+    cursor: pointer;
+
+
+    :hover {
+      color: white;
+    }
+
+
+  }
+
   &:hover {
     span {
       color: white !important;
@@ -112,7 +135,7 @@ section.mobile-footer-menu {
   svg {
 
     width: 1.2em;
-    margin-right: 0.8em;
+    // margin-right: 0.8em;
   }
 
   svg>g>path {
@@ -126,18 +149,43 @@ section.mobile-footer-menu {
   }
 }
 
-span,
-.short-wallet-address {
-  //color: black;
-  font-weight: 600 !important;
-  font-size: 16px !important;
-  font-family: 'Montserrat' !important;
-  letter-spacing: 0 !important;
-}
+
 
 .mb25 {
   margin-bottom: 25px;
 }
+
+.centered-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.truncate-middle {
+  position: relative;
+  width: fit-content;
+  max-width: calc(80vw - 30px);
+  justify-self: flex-end;
+  display: inline-flex;
+  padding-right: 40px;
+}
+
+.truncate-middle>p {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.truncate-middle:after {
+  content: attr(data-truncate);
+  position: absolute;
+  left: calc(100% - 40px);
+  top: 0;
+  white-space: nowrap;
+}
+
 
 @media only screen and (max-width: $md) {
   section.mobile-footer {
