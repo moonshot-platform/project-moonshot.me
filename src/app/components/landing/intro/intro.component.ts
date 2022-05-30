@@ -38,6 +38,24 @@ export class IntroComponent implements OnInit, OnDestroy {
 
   buttonName = '';
 
+  adIndex = 1;
+  advertisements: any = [
+    {
+      desc: "An Initial NFT Offering platform.",
+      img: "assets/media/images/intro/MoonBoxes_side_advertisement.webp",
+      bottomImg: "assets/media/images/intro/MoonBoxes_LOGO_text.svg",
+      url: "https://moonboxes.io",
+      urlName: "www.moonboxes.io"
+    },
+    {
+      desc: "Multi-chain & Decentralized NFT marketplace.",
+      img: "assets/media/images/intro/MoonSea_side_advertisement.webp",
+      bottomImg: "assets/media/images/intro/MoonSea_LOGO_text.svg",
+      url: "https://www.moonsea.io",
+      urlName: "www.moonsea.io"
+    }
+  ]
+
   constructor(
     tokenomicsService: TokenomicsService,
     private walletConnectService: WalletService,
@@ -65,6 +83,8 @@ export class IntroComponent implements OnInit, OnDestroy {
     tokenomicsService.whenShared().subscribe((data) => {
       this.priceForOneMillion = '$' + data['priceFor1mMoonshot'].substring(0, 13);
     });
+
+    this.startToAnimate();
   }
 
   ngOnDestroy(): void {
@@ -211,37 +231,6 @@ export class IntroComponent implements OnInit, OnDestroy {
     }
   }
 
-  // async computeReleasableAmount() {
-  //   this.releasableAmount = await this.walletConnectService.computeReleasableAmount();
-  //   // 1T = 1 Trillion, 1B = 1 Billion, 1M = 1 Million , values smaller can be displayed as is
-  //   // console.log(this.abbreviateNumber(parseInt(this.releasableAmount.toString())));
-  //   this.releasableAmount = this.walletConnectService.shortTheNumber(this.releasableAmount);
-  //   // console.log(this.walletConnectService.shortTheNumber(this.releasableAmount));
-
-  // }
-
-  // async release() {
-  //   if (this.isConnected) {
-  //     await this.checkBNBBalance();
-
-  //     this.isInReleasingProcess = true;
-  //     if (this.hasEnoughBnb) {
-  //       await this.walletConnectService.releaseVesting();
-  //       this.hasEnoughBnb = false
-  //     } else {
-  //       this.toastrService.error("You do not have enough bnb to pay the gas fee!")
-  //     }
-  //     this.isInReleasingProcess = false;
-  //     await this.computeReleasableAmount();
-  //   } else {
-  //     this.openWalletConnectionDialog();
-  //   }
-  // }
-
-  // async checkUserVested() {
-  //   this.hasVested = await this.walletConnectService.hasVested();
-  // }
-
   checkBNBBalance = async () => this.hasEnoughBnb = await this.walletConnectService.checkBnbBalance();
 
   async onChangeBuyMSHOTInput(value: any) {
@@ -261,4 +250,18 @@ export class IntroComponent implements OnInit, OnDestroy {
       this.bnbCountFromInput = this.bnbBalance > this.estimatedGasFee ? this.bnbBalance - this.estimatedGasFee : this.bnbBalance;
     }
   }
+
+  startToAnimate() {
+
+    setInterval(() => {
+
+      document.getElementById('flipper').classList.remove("animation");
+      document.getElementById('flipper').offsetWidth
+      document.getElementById('flipper').classList.add("animation");
+
+      setTimeout(() => { this.adIndex++; }, 200);
+
+    }, 5000);
+  }
+
 }
