@@ -26,14 +26,18 @@ export class MoonSwapComponent implements OnInit {
   isButtonActive: boolean = true;
   isInProcess: boolean = false;
   hasEnoughBnb: boolean = false
+  hasClaimed: boolean = false;
 
   constructor(
     public dialog: MatDialog,
     private walletConnectService: WalletService,
     private toastrService: ToastrService
   ) {
-    this.walletConnectService.init().then((data: boolean) => {
+    this.walletConnectService.init().then(async (data: boolean) => {
       this.isConnected = data;
+      if (data) {
+        this.hasClaimed = await this.walletConnectService.hasClaimed();
+      }
       this.controlButtonName();
     });
   }
@@ -56,8 +60,12 @@ export class MoonSwapComponent implements OnInit {
       this.controlButtonName();
     });
 
-    this.walletConnectService.onWalletStateChanged().subscribe((state: boolean) => {
+    this.walletConnectService.onWalletStateChanged().subscribe(async (state: boolean) => {
       this.isConnected = state
+
+      if (state) {
+        this.hasClaimed = await this.walletConnectService.hasClaimed();
+      }
       this.controlButtonName();
     });
 
