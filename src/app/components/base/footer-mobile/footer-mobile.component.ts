@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { SidebarService } from 'src/app/services/sidebar.service';
 import { TokenomicsService } from 'src/app/services/tokenomics.service';
 import { VESTING_CONTRACTS, WalletService } from 'src/app/services/wallet-service.service';
@@ -24,6 +25,7 @@ export class FooterMobileComponent implements OnInit {
     private tokenomicsService: TokenomicsService,
     private sidebarService: SidebarService,
     private walletConnectService: WalletService,
+    private toastrService: ToastrService,
     private router: Router) {
     if (this.router.url !== '/') {
       this.isMoonbasebarOpenAtLaunch = false;
@@ -101,4 +103,6 @@ export class FooterMobileComponent implements OnInit {
     this.hasVested = await this.walletConnectService.hasVested(VESTING_CONTRACTS.MSHOT);
     return this.hasVested;
   }
+
+  copiedToClipboard = () => this.toastrService.success("Address copied!");
 }

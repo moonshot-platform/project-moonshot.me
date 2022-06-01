@@ -16,7 +16,7 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { NavigationModule } from '../base/navigation/navigation.module';
 import { SidebarModule } from '../base/sidebar/sidebar.module';
 
-
+import { SwiperModule } from 'swiper/angular';
 import { CarouselModule } from 'ng-carousel-cdk';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
@@ -68,6 +68,7 @@ import { MoonSwapComponent } from './moon-swap/moon-swap.component';
     CarouselModule,
     ClipboardModule,
     FooterMobileModule,
+    SwiperModule
   ]
 })
 export class LandingModule { }
