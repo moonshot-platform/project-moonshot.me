@@ -49,6 +49,7 @@
     "smoothscroll-polyfill": "^0.4.4",
     "stream-browserify": "^3.0.0",
     "stream-http": "^3.2.0",
+    "swiper": "^8.2.1",
     "tslib": "^2.0.0",
     "tsparticles": "^1.26.3",
     "ungrid": "^1.0.1",
