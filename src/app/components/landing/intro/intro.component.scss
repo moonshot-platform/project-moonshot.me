@@ -362,6 +362,11 @@ input[type=number] {
 .flipper-container {
   position: relative;
   overflow: hidden;
+
+  p.title {
+    font-size: 16px !important;
+    font-weight: 500 !important;
+  }
 }
 
 .flipper {
@@ -380,6 +385,13 @@ input[type=number] {
   .name-img {
     width: 100%;
     margin-bottom: 20px;
+    max-width: 270px;
+    height: 100%;
+    max-height: 173px;
+  }
+
+  .name-img {
+    // height: 32px;
   }
 
   .desc {
@@ -414,57 +426,6 @@ input[type=number] {
   }
 
 }
-
-.animation {
-  animation: ease-in;
-  animation-name: example;
-  animation-duration: 0.5s;
-  animation-iteration-count: 1;
-  -webkit-animation-name: example;
-  -webkit-animation-duration: 0.5s;
-  -webkit-animation-iteration-count: 1;
-}
-
-@keyframes example {
-
-  0% {
-    left: 0%
-  }
-
-  25% {
-    left: 50%
-  }
-
-  50% {
-    left: 100%
-  }
-
-  50.2% {
-    left: -100%
-  }
-
-  100% {
-    left: 0%
-  }
-
-  // from {
-  //   transform: rotateY(0deg);
-  // }
-
-  // to {
-  //   transform: rotateY(360deg);
-  // }
-}
-
-// @-webkit-keyframes example {
-//   from {
-//     -webkit-transform: rotateY(0deg);
-//   }
-
-//   to {
-//     -webkit-transform: rotateY(180deg);
-//   }
-// }
 
 @media only screen and (max-width: $md) {
   section.intro {
@@ -535,6 +496,8 @@ input[type=number] {
     }
   }
 }
+
+
 
 @media only screen and (max-width: $md) {
 

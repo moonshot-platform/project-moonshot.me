@@ -5,8 +5,13 @@ import { ToastrService } from 'ngx-toastr';
 import { TokenomicsService } from 'src/app/services/tokenomics.service';
 import { WalletService } from 'src/app/services/wallet-service.service';
 import { environment } from 'src/environments/environment';
+import SwiperCore, { EffectCoverflow, EffectFade, Swiper, Autoplay } from 'swiper';
+import { SwiperOptions } from 'swiper/types/swiper-options';
 import { WalletConnectComponent } from '../../base/wallet-connect/wallet-connect.component';
-
+import 'swiper/scss';
+import 'swiper/scss/autoplay';
+SwiperCore.use([EffectCoverflow]);
+SwiperCore.use([Autoplay]);
 @Component({
   selector: 'app-intro',
   templateUrl: './intro.component.html',
@@ -56,6 +61,34 @@ export class IntroComponent implements OnInit, OnDestroy {
     }
   ]
 
+
+  config: SwiperOptions = {
+    slidesPerView: 1,
+    effect: 'fade',
+    allowTouchMove: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+      stopOnLastSlide: false,
+      pauseOnMouseEnter: false,
+      reverseDirection: true,
+    },
+    speed: 2500,
+    freeMode: {
+      enabled: false,
+      sticky: true,
+    },
+    spaceBetween: 50,
+    grabCursor: false,
+    loop: true,
+    coverflowEffect: {
+      depth: 500,
+      slideShadows: false,
+      rotate: -40,
+      stretch: 100,
+    },
+  };
+
   constructor(
     tokenomicsService: TokenomicsService,
     private walletConnectService: WalletService,
@@ -83,8 +116,6 @@ export class IntroComponent implements OnInit, OnDestroy {
     tokenomicsService.whenShared().subscribe((data) => {
       this.priceForOneMillion = '$' + data['priceFor1mMoonshot'].substring(0, 13);
     });
-
-    this.startToAnimate();
   }
 
   ngOnDestroy(): void {
@@ -249,19 +280,6 @@ export class IntroComponent implements OnInit, OnDestroy {
     } else {
       this.bnbCountFromInput = this.bnbBalance > this.estimatedGasFee ? this.bnbBalance - this.estimatedGasFee : this.bnbBalance;
     }
-  }
-
-  startToAnimate() {
-
-    setInterval(() => {
-
-      document.getElementById('flipper').classList.remove("animation");
-      document.getElementById('flipper').offsetWidth
-      document.getElementById('flipper').classList.add("animation");
-
-      setTimeout(() => { this.adIndex++; }, 200);
-
-    }, 5000);
   }
 
 }

@@ -2,16 +2,24 @@
   <div class="inner flex-space-between align-start">
     <div class="stats flex1">
       <div class="flipper-container futuristic-container">
-        <p>MOONSHOT ECOSYSTEM</p>
-        <a id="flipper" class="flipper" href="{{advertisements[(adIndex-1)%2].url}}" target="_blank">
-          <img class="big-img" src="{{advertisements[(adIndex-1)%2].img}}" alt="">
-          <img class="name-img" src="{{advertisements[(adIndex-1)%2].bottomImg}}" alt="">
-          <p class="desc">{{advertisements[(adIndex-1)%2].desc}}</p>
-          <a class="link">
-            <img src="assets/media/icons/intro/World_icon.svg" alt="">
-            <a>{{advertisements[(adIndex-1)%2].urlName}}</a>
-          </a>
-        </a>
+        <p class="title">MOONSHOT ECOSYSTEM</p>
+        <swiper *ngIf="advertisements.length !== 0" [config]="config">
+          <ng-container *ngFor="let item of advertisements; index as i">
+            <ng-template swiperSlide>
+              <a id="flipper" class="flipper animation" href="{{item.url}}" target="_blank">
+                <img class="big-img" src="{{item.img}}" alt="">
+                <img class="name-img" src="{{item.bottomImg}}" alt="">
+                <p class="desc">{{item.desc}}</p>
+                <a class="link">
+                  <img src="assets/media/icons/intro/World_icon.svg" alt="">
+                  <a>{{item.urlName}}</a>
+                </a>
+              </a>
+            </ng-template>
+          </ng-container>
+        </swiper>
+
+
 
       </div>
       <div class="buy-mshot futuristic-container">
