@@ -350,13 +350,81 @@ input[type=number] {
 
 .tooltip .bottom i::after {
   content: "";
-  position: absolute;
+  position: relative;
   width: 20px;
   height: 15px;
   left: 50%;
   transform: translate(-50%, 50%) rotate(45deg) scaleY(-1);
   background-color: black;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+}
+
+.flipper-container {
+  position: relative;
+  overflow: hidden;
+
+  p.title {
+    font-size: 16px !important;
+    font-weight: 500 !important;
+  }
+}
+
+.flipper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+
+  // background-color: red;
+
+  .big-img,
+  .name-img {
+    width: 100%;
+    margin-bottom: 20px;
+    max-width: 270px;
+    height: 100%;
+    max-height: 173px;
+  }
+
+  .name-img {
+    // height: 32px;
+  }
+
+  .desc {
+    font-size: 16px !important;
+    font-weight: 500 !important;
+  }
+
+  .link {
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+    align-items: center;
+    margin-top: 20px;
+
+    img {
+      height: 20px;
+    }
+
+    a {
+      color: $primary;
+    }
+
+    &:hover {
+      img {
+        filter: brightness(0) invert(1);
+      }
+
+      a {
+        color: white;
+      }
+    }
+  }
+
 }
 
 @media only screen and (max-width: $md) {
@@ -411,7 +479,25 @@ input[type=number] {
   .vesting>.button {
     min-width: 100% !important;
   }
+
+
+  .flipper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    .big-img,
+    .name-img {
+      display: flex;
+      max-width: 270px;
+      margin: 0 auto;
+      margin-bottom: 20px;
+    }
+  }
 }
+
+
 
 @media only screen and (max-width: $md) {
 
