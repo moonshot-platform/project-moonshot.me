@@ -1,15 +1,60 @@
 <section class="vulture">
   <div class="inner flex-space-between align-start">
     <div class="moon-bg"></div>
-    <div class="banner-bg"></div>
+    <!-- <div class="banner-bg"></div> -->
     <app-navigation></app-navigation>
 
-    <div class="vulture-container">
-      <p class="title">VULTURE WHITELIST</p>
+    <div class="container">
+      <div class="vulture-title flex1 futuristic-container">
+        <p class="header">THE VULTURE DINGHY CLUB</p>
+        <img src="assets/media/images/vulture/VultureLos.webp" alt="">
+        <p class="pb10 donation">Register for the private sale
+          of the Junta #100 Vultures.</p>
+      </div>
 
-      <p class="explanation">
-        Register for the private sale of the Junta #100 Vultures.<br><br>
-      </p>
+      <div class="vulture-container flex3 futuristic-container">
+        <p class="p-white-span-primary p34 orbitron container-title">Vulture&nbsp;<span>Whitelist</span></p>
+        <div class="get-mshot">
+          <div class="flex col">
+
+            <div class="details-box">
+              <p>
+                By whitelisting you will gain early access to the <span>La Junta #100</span> Launch and you have a
+                chance to
+                grab a Junta
+                Vulture at a special discount.
+                <br><br>
+                The Vulture NFTs offer revenue sharing with the upcoming Vulture Dinghy Club collection and it offers
+                staking
+                rewards in $VLTRS. Go get and peck one!
+                <br><br>
+                Read more on
+                <a href="https://thevulture.club" target="_blank">https://thevulture.club</a>
+
+              </p>
+
+              <div class="buttons">
+                <a href="https://thevulture.club" target="__blank" class="outlined-button ">Read more</a>
+                <a class="button" (click)="isConnected ?   registerToWhiteList() :  connectWallet()">
+                  {{isInProcess ? '' : (isConnected ? 'Whitelist Me!' : 'Connect Wallet')}}
+                  <img *ngIf="isInProcess" src="assets/media/videos/Loading_yellowBG.gif" class="loader-img"></a>
+              </div>
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- <div class="vulture-container">
 
       <div class="address-box">
         <p>
@@ -32,7 +77,7 @@
       <p class="vulture-detail">
         Line-up: Patron [#1], Capitan [#3], Transporter [#18], Dealer [#3x25] and Addict [#3]
       </p>
-    </div>
+    </div> -->
 
     <!-- <img class="bottom-banner" src="assets/media/images/vulture/banner4.webp" alt=""> -->
   </div>
