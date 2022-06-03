@@ -153,9 +153,9 @@ export class RoadmapComponent implements OnInit {
         },
         {
             title: 'Q1 2022',
-            span: ' - ongoing',
+            span: ' - done',
             description: 'Moonshot V2 migration',
-            icon: Icon.ONGOING
+            icon: Icon.ACCOMPLISHED
         },
         {
             title: 'Q2 2022',
