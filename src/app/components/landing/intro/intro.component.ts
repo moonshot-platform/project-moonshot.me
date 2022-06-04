@@ -46,11 +46,11 @@ export class IntroComponent implements OnInit, OnDestroy {
   adIndex = 1;
   advertisements: any = [
     {
-      desc: "An Initial NFT Offering platform.",
+      desc: "An Initial NFT Offering platform on #BSC #MATIC #MOVR",
       img: "assets/media/images/intro/MoonBoxes_side_advertisement.webp",
       bottomImg: "assets/media/images/intro/MoonBoxes_LOGO_text.svg",
       url: "https://moonboxes.io",
-      urlName: "www.moonboxes.io"
+      urlName: "moonboxes.io"
     },
     {
       desc: "Multi-chain & Decentralized NFT marketplace.",
