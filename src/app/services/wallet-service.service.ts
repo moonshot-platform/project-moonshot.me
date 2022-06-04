@@ -686,14 +686,25 @@ export class WalletService {
     return this.shortTheNumber(amount);
   }
 
-  async registerToVulture(): Promise<any> {
+  async registerToVulture() {
+
+    let currentTime = Date.now();
+
+    if (currentTime < 1654628400) {
+      this.toastrService.info("Whitelist is closed!", "VULTURE")
+      return
+    }
+
     let tx, isListed;
 
     isListed = await this.isRegisteredToVulture();
     console.log("Is Listed : " + isListed);
 
     if (isListed)
-      return null;
+      return;
+
+
+    await this.checkNetworkOnBSCMainnet();
 
     try {
       tx = await this.vultureContract.register();
@@ -704,8 +715,6 @@ export class WalletService {
 
       this.toastrService.error(`${error.message}`, "VULTURE")
     }
-
-    return tx;
   }
 
   async isRegisteredToVulture(): Promise<boolean> {
@@ -724,6 +733,16 @@ export class WalletService {
     }
 
     return isListed;
+  }
+
+  async checkNetworkOnBSCMainnet() {
+    let currentNetwork = await this.provider.getNetwork();
+    if (currentNetwork.chainId != providerChainID) {
+      this.setWalletState(false);
+      this.toastrService.error('Please connect to Binance Smart Chain first!');
+    } else {
+      return
+    }
   }
 }
 
