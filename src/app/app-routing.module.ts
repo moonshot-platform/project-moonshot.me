@@ -65,10 +65,10 @@ const routes: Routes = [
     path: MoonStormComponent.routeName,
     component: MoonStormComponent
   },
-  {
-    path: VultureWhitelistComponent.routeName,
-    component: VultureWhitelistComponent
-  },
+  // {
+  //   path: VultureWhitelistComponent.routeName,
+  //   component: VultureWhitelistComponent
+  // },
   {
     path: TutorialComponent.anchorName,
     component: LandingComponent,
