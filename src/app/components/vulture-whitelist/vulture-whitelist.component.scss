@@ -77,7 +77,8 @@ section.vulture {
   flex-direction: column;
   row-gap: 20px;
   width: 100%;
-  max-width: 270px;
+  //! Do not forget to update here when commented section in html need to be available
+  // max-width: 270px;
   margin-right: 20px;
   height: fit-content;
 
@@ -236,16 +237,17 @@ input[type=number] {
   .container {
     flex-direction: column-reverse;
 
-    .vulture-title {
-      max-width: 100%;
-      border-top: 0px !important;
+    //! Do not forget to update here when commented section in html need to be available
+    // .vulture-title {
+    //   max-width: 100%;
+    //   border-top: 0px !important;
 
 
 
-      p.header {
-        display: none;
-      }
-    }
+    //   p.header {
+    //     display: none;
+    //   }
+    // }
   }
 
   .vulture-container {
