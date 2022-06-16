@@ -1,13 +1,29 @@
 <section id="sidebar" class="sidebar">
   <div class="block flex-center wallet-icon" (click)="connectWallet()">
-    <img src="assets/media/icons/wallet.svg" alt="wallet">
+    <video class="moonboxes" loop muted autoplay playsinline oncanplay="this.play()"
+      onloadedmetadata="this.muted = true" poster="assets/media/videos/animated-wallet-icon.gif">
+      <source src="assets/media/videos/animated-wallet-icon.webm" type="video/webm">
+    </video>
+    <!-- <img src="assets/media/icons/wallet.svg" alt="wallet"> -->
   </div>
   <ul>
     <li>
       <p (click)="toggleMoonbaseView()">MoonBoxes</p>
     </li>
     <li>
+      <p (click)="toggleMoonseaView()">MoonSea</p>
+    </li>
+    <li>
+      <p (click)="toggleMiningView()">Mining</p>
+    </li>
+    <li>
+      <p [routerLink]="['/faucet']" routerLinkActive="router-link-active">Faucet</p>
+    </li>
+    <li>
       <p (click)="toggleTokenomicsView()">Tokenomics</p>
+    </li>
+    <li *ngIf="hasVested && isConnected">
+      <p (click)="toggleReleaseView()">Vesting</p>
     </li>
   </ul>
   <a class="chart-icon" href="https://dex.guru/token/0x5298AD82dD7C83eEaA31DDa9DEB4307664C60534-bsc" target="_blank">
@@ -21,4 +37,16 @@
 
 <section id="moonbase-bar" class="moonbase-bar">
   <app-moonbase-bar *ngIf="moonbaseActive"></app-moonbase-bar>
+</section>
+
+<section id="mining-bar" class="mining-bar">
+  <app-mining-bar *ngIf="miningBarActive"></app-mining-bar>
+</section>
+
+<section id="release-bar" class="release-bar">
+  <app-release-bar *ngIf="releaseBarActive && hasVested && isConnected"></app-release-bar>
+</section>
+
+<section id="moonsea-bar" class="moonsea-bar">
+  <app-moonsea-bar *ngIf="moonseaBarActive"></app-moonsea-bar>
 </section>

@@ -1,237 +1,322 @@
 @import "includes";
+
 section.moonbase-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  background: $primary;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  max-width: 455px;
+  z-index: 1199;
+  margin-right: 64px;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+  border-right: 1px solid black;
+  -ms-overflow-style: none;
+  /* for Internet Explorer, Edge */
+  scrollbar-width: none;
+  /* for Firefox */
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  /* Internet Explorer 10+ */
+  scrollbar-width: none;
+
+  /* Firefox */
+  .inner {
+    margin-bottom: 5px !important;
+    max-width: 370px;
+    border-radius: 160px;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    box-sizing: border-box;
-    background: $primary;
-    position: fixed;
-    right: 0;
-    top: 0;
-    width: 100%;
-    max-width: 455px;
-    z-index: 1199;
-    margin-right: 64px;
-    height: 100vh;
-    max-height: 100vh;
-    overflow: hidden;
-    border-right: 1px solid black;
-    -ms-overflow-style: none;
-    /* for Internet Explorer, Edge */
-    scrollbar-width: none;
-    /* for Firefox */
-    overflow-y: scroll;
-    -ms-overflow-style: none;
-    /* Internet Explorer 10+ */
-    scrollbar-width: none;
-    /* Firefox */
-    .inner {
-        margin-bottom: 5px !important;
-        max-width: 370px;
-        border-radius: 160px;
-        .content {
-            .moonboxes {
-                margin-top: 36px;
-                width: 370px;
-                height: 370px;
-                clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 15% 100%, 0 85%);
-                background: black;
-                z-index: 12001;
-                img {
-                    object-fit: cover;
-                    max-width: 370px;
-                    max-height: 370px;
-                    width: 100%;
-                    height: 100%;
-                }
-            }
-            p {
-                margin-top: 37px;
-                padding-right: 40px;
-                font-family: $primary-font;
-                font-size: 30px;
-                font-weight: bold;
-                font-stretch: normal;
-                font-style: normal;
-                line-height: 1.2;
-                letter-spacing: normal;
-                text-align: left;
-                color: #000;
-                word-wrap: break-word;
-            }
-            .moonbase-note-text {
-                font-size: 16px;
-                font-weight: 500;
-                text-align: left;
-            }
-            .buttons-section {
-                margin-top: 36px;
-                display: flex;
-                flex-direction: row;
-                width: 100%;
-                justify-content: space-between;
-                .more-button {
-                    align-items: center;
-                    display: flex;
-                    justify-content: center;
-                    max-width: 150px;
-                    width: 100%;
-                    border: 1px solid black;
-                    height: 40px;
-                    border-radius: 25px;
-                    color: black;
-                    font-family: $primary-font;
-                    font-weight: bold;
-                    background-color: transparent;
-                    font-size: 16px;
-                    line-height: 1.69;
-                    text-decoration: none;
-                    text-transform: capitalize;
-                    text-align: center;
-                    cursor: default;
-                    &.fit {
-                        width: fit-content;
-                    }
-                    &.inverse {
-                        border: 1px solid white;
-                        color: black;
-                    }
-                    &:hover:not(&.disabled) {
-                        color: white;
-                        border-color: white;
-                        cursor: pointer;
-                    }
-                }
-                .buy-button {
-                    align-items: center;
-                    display: flex;
-                    justify-content: center;
-                    max-width: 150px;
-                    width: 100%;
-                    border: 1px solid black;
-                    height: 40px;
-                    border-radius: 25px;
-                    color: $primary;
-                    font-family: $primary-font;
-                    font-weight: $bold;
-                    background-color: black;
-                    font-size: 16px;
-                    line-height: 1.69;
-                    text-decoration: none;
-                    text-transform: capitalize;
-                    text-align: center;
-                    cursor: default;
-                    &.fit {
-                        width: fit-content;
-                    }
-                    &.inverse {
-                        border: 1px solid white;
-                        color: white;
-                    }
-                    &:hover:not(&.disabled) {
-                        color: black;
-                        background-color: white;
-                        border-color: white;
-                        cursor: pointer;
-                    }
-                }
-            }
+
+    .content {
+      .moonboxes {
+        margin-top: 36px;
+        width: 370px;
+        height: 370px;
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 15% 100%, 0 85%);
+        background: black;
+        z-index: 12001;
+
+        img {
+          object-fit: cover;
+          max-width: 370px;
+          max-height: 370px;
+          width: 100%;
+          height: 100%;
         }
+      }
+
+      p {
+        margin-top: 37px;
+        padding-right: 40px;
+        font-family: $primary-font;
+        font-size: 26px;
+        font-weight: 700;
+        line-height: 1.2;
+        text-align: left;
+        color: black;
+        word-wrap: break-word;
+      }
+
+      .moonbase-note-text {
+        font-size: 16px;
+        font-weight: 500;
+        text-align: left;
+      }
+
+      .buttons-section {
+        margin-top: 36px;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+        column-gap: 20px;
+
+        .more-button {
+          align-items: center;
+          display: flex;
+          justify-content: center;
+          max-width: 200px;
+          width: 100%;
+          border: 1px solid black;
+          height: 40px;
+          border-radius: 25px;
+          color: black;
+          font-family: $primary-font;
+          font-weight: bold;
+          background-color: transparent;
+          font-size: 16px;
+          line-height: 1.69;
+          text-decoration: none;
+          text-transform: capitalize;
+          text-align: center;
+          cursor: default;
+
+          &.fit {
+            width: fit-content;
+          }
+
+          &.inverse {
+            border: 1px solid white;
+            color: black;
+          }
+
+          &:hover:not(&.disabled) {
+            color: white;
+            border-color: white;
+            cursor: pointer;
+          }
+        }
+
+        .buy-button {
+          align-items: center;
+          display: flex;
+          justify-content: center;
+          max-width: 200px;
+          width: 100%;
+          border: 1px solid black;
+          height: 40px;
+          border-radius: 25px;
+          color: $primary;
+          font-family: $primary-font;
+          font-weight: $bold;
+          background-color: black;
+          font-size: 16px;
+          line-height: 1.69;
+          text-decoration: none;
+          text-transform: capitalize;
+          text-align: center;
+          cursor: default;
+
+          &.fit {
+            width: fit-content;
+          }
+
+          &.inverse {
+            border: 1px solid white;
+            color: white;
+          }
+
+          &:hover:not(&.disabled) {
+            color: black;
+            background-color: white;
+            border-color: white;
+            cursor: pointer;
+          }
+        }
+      }
     }
+  }
 }
 
 .moonbase-bar::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .close-button {
-    display: flex;
-    width: 100%;
-    max-width: 370px;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    margin-top: 20px;
-    .close {
-        height: 36px;
-        width: 36px;
-        cursor: pointer;
-    }
+  display: flex;
+  width: 100%;
+  max-width: 370px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+  align-items: flex-end;
+
+  p {
+    font-size: 26px;
+    color: black;
+    font-family: $primary-font;
+    font-weight: 700;
+  }
+
+  .close {
+    height: 36px;
+    width: 36px;
+    cursor: pointer;
+  }
 }
 
 p {
-    color: black;
+  color: black;
 }
 
 .my-3 {
-    margin: 1rem 0;
+  margin: 1rem 0;
 }
 
 .invisible-md {
-    min-height: 15px;
+  min-height: 15px;
 }
 
 li {
-    border-bottom: 1px solid black;
-    margin-bottom: 1rem;
-    min-height: 101px;
-    &:last-child {
-        margin-bottom: 0;
+  border-bottom: 1px solid black;
+  margin-bottom: 1rem;
+  min-height: 101px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.wallet-address {
+  display: flex;
+  margin-top: auto;
+  justify-content: center;
+  padding: 20px 0px;
+  color: black;
+
+  &:hover {
+    span {
+      color: white !important;
+      border-bottom: 2px solid white;
     }
+
+    svg>g>path {
+      fill: white;
+    }
+  }
+
+  svg {
+
+    width: 1.2em;
+    margin-right: 0.8em;
+  }
+
+  svg>g>path {
+    fill: black;
+  }
+
+  span {
+    color: black;
+    border-bottom: 2px solid black;
+    cursor: pointer;
+  }
+}
+
+span,
+.short-wallet-address {
+  //color: black;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  font-family: 'Montserrat' !important;
+  letter-spacing: 0 !important;
 }
 
 @media only screen and (max-width: $md) {
-    section.moonbase-bar {
-        display: flex;
-        margin-right: 0px;
-        padding: 0px 6px;
-        left: 0px;
-        right: 0px;
-        bottom: 40px;
-        width: 100%;
-        max-width: 100vw;
-        border-bottom: 41px solid black;
-        .inner {
-            max-width: 330px;
-            .content {
-                .moonboxes {
-                    margin-top: 16px;
-                    max-width: 330px;
-                    width: 100%;
-                    height: 100%;
-                }
-                .buttons-section {
-                    max-width: 320px;
-                    margin-top: 25px;
-                    padding-left: 5px;
-                    .more-button {
-                        max-width: 150px;
-                    }
-                    .buy-button {
-                        max-width: 150px;
-                    }
-                }
-                p {
-                    font-size: 24px;
-                    margin-top: 42px;
-                    margin-left: 10px;
-                    margin-right: 10px;
-                    padding-right: 0px;
-                }
-                .moonbase-note-text {
-                    font-size: 16px;
-                }
-            }
+  section.moonbase-bar {
+    display: flex;
+    margin-right: 0px;
+    padding: 0px 6px;
+    left: 0px;
+    right: 0px;
+    bottom: 40px;
+    width: 100%;
+    max-width: 100vw;
+    border-bottom: 41px solid black;
+
+    .inner {
+      max-width: 330px;
+      display: block;
+
+      .content {
+        .moonboxes {
+          margin-top: 16px;
+          max-width: 330px;
+          width: 100%;
+          height: 100%;
         }
+
+        .buttons-section {
+          max-width: 320px;
+          margin-top: 25px;
+          padding-left: 5px;
+
+          .more-button {
+            max-width: 150px;
+          }
+
+          .buy-button {
+            max-width: 150px;
+          }
+        }
+
+        p {
+          font-size: 24px;
+          margin-top: 42px;
+          margin-left: 10px;
+          margin-right: 10px;
+          padding-right: 0px;
+        }
+
+        .moonbase-note-text {
+          font-size: 16px;
+        }
+      }
     }
-    .close-button {
-        display: none;
-    }
-    .block p {
-        font-size: 16px;
-    }
-    .li {
-        min-height: auto;
-    }
+  }
+
+  .close-button {
+    display: none;
+  }
+
+  .block p {
+    font-size: 16px;
+  }
+
+  .li {
+    min-height: auto;
+  }
+
+  .wallet-address {
+    display: none;
+  }
 }

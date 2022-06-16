@@ -12,11 +12,12 @@ import mshotTokenAbi from './../../assets/abis/mshot.token.abi.json';
 import buyMshotTokenAbi from './../../assets/abis/buy-moonshot-token.abi.json';
 import claimMshotTokenAbi from './../../assets/abis/claim-mshot-token-abi.json';
 import vestingTokenAbi from './../../assets/abis/vesting-token.abi.json';
+import rabbitVestingTokenAbi from './../../assets/abis/rabbit-vesting-token.abi.json';
+import moonshotFaucetAbi from './../../assets/abis/moonshot-faucet.abi.json';
+import moonstormAbi from './../../assets/abis/moonstorm.abi.json';
+import vultureAbi from './../../assets/abis/vulture-whitelist-abi.json';
 
-import Web3 from 'web3';
 import Web3Modal from "web3modal";
-import { setInterval } from 'timers';
-
 
 export enum CLAIM_CASES {
   CONNECT_WALLET = 'Connect Wallet',
@@ -25,6 +26,35 @@ export enum CLAIM_CASES {
   CLAIMED = 'MSHOT Claimed',
   FAILED = 'Failed',
   REJECTED = 'Rejected',
+}
+
+export class VestingContractModel {
+  contractAddress: string;
+  abi: any;
+  symbol: string;
+  icon: string;
+
+  constructor(address: string, abi: any, symbol: string, icon: string) {
+    this.contractAddress = address;
+    this.abi = abi;
+    this.symbol = symbol;
+    this.icon = icon;
+  }
+}
+
+export const VESTING_CONTRACTS = {
+  MSHOT: new VestingContractModel(
+    environment.vestingContactAddress,
+    vestingTokenAbi,
+    'MSHOT',
+    "https://moonboxes.io/favicon.ico"
+  ),
+  RABBIT: new VestingContractModel(
+    environment.rabbitContractAddress,
+    rabbitVestingTokenAbi,
+    'RA8BIT',
+    "assets/media/icons/ra8bits-logo.png"
+  ),
 }
 
 const providerMainNetURL = environment.providerMainNetURL;
@@ -37,6 +67,10 @@ const buyContractAddress = environment.buyContractAddress;
 const moonshotV2TokenAddress = environment.tokenContractAddress;
 const claimContractAddress = environment.claimContractAddress;
 const vestingContractAddress = environment.vestingContactAddress;
+const rabbitContractAddress = environment.rabbitContractAddress;
+const moonshotFaucetAddress = environment.moonshotFaucetContractAddress;
+const moonstormContractAddress = environment.moonstormContractAddress;
+const vultureContractAddress = environment.vultureContractAddress;
 
 //Create WalletConnect Provider
 const providerOptions = {
@@ -52,12 +86,6 @@ const providerOptions = {
   }
 };
 
-const web3Modal = new Web3Modal({
-  theme: "dark",
-  cacheProvider: false, // optional
-  providerOptions, // required
-  disableInjectedProvider: false
-});
 
 const provider = new WalletConnectProvider(<any>{
   package: WalletConnectProvider,
@@ -90,6 +118,10 @@ export class WalletService {
   moonshotV2ClaimContract: any;
   moonshotV2BuyContract: any;
   moonshotV2VestingContract: any;
+  rabbitVestingContract: any;
+  moonshotFaucetContract: any;
+  moonstormContract: any;
+  vultureContract: any;
 
 
   private isConnected = false;
@@ -207,7 +239,6 @@ export class WalletService {
   }
 
   async getAccountAddress() {
-
     this.signer = this.provider?.getSigner();
     const address = await this.signer?.getAddress(); // gets current selected address
     const network = await this.provider.getNetwork();
@@ -218,6 +249,11 @@ export class WalletService {
       this.moonshotV2ClaimContract = new ethers.Contract(claimContractAddress, claimMshotTokenAbi, this.signer);
       this.moonshotV2BuyContract = new ethers.Contract(buyContractAddress, buyMshotTokenAbi, this.signer);
       this.moonshotV2VestingContract = new ethers.Contract(vestingContractAddress, vestingTokenAbi, this.signer);
+      this.rabbitVestingContract = new ethers.Contract(rabbitContractAddress, rabbitVestingTokenAbi, this.signer);
+      this.moonshotFaucetContract = new ethers.Contract(moonshotFaucetAddress, moonshotFaucetAbi, this.signer);
+      this.moonstormContract = new ethers.Contract(moonstormContractAddress, moonstormAbi, this.signer);
+      this.vultureContract = new ethers.Contract(vultureContractAddress, vultureAbi, this.signer);
+
     } else {
       this.toastrService.error('Please connect your wallet to the Binance Smart Chain');
       console.log("Wrong network");
@@ -241,7 +277,7 @@ export class WalletService {
     //this.toastrService.info('Address changed to ' + address);
   }
 
-  setWalletDisconnected() {
+  async setWalletDisconnected() {
     this.isConnected = false;
     this.setWalletState(this.isConnected);
     this.localStorageService.removeWallet();
@@ -415,24 +451,38 @@ export class WalletService {
     return false;
   }
 
-  async hasVested(): Promise<boolean> {
-    return await this.moonshotV2VestingContract.getVestingSchedulesCountByBeneficiary(this.account) !== 0;
+  async hasVested(contract: VestingContractModel): Promise<boolean> {
+    let vestingContract = new ethers.Contract(contract.contractAddress, contract.abi, this.signer);
+    let vestingCounts = await vestingContract.getVestingSchedulesCountByBeneficiary(this.account);
+
+    // console.log("MSHOT vesting counts: " + vestingCounts);
+    return parseInt(vestingCounts) !== 0;
   }
 
-  async getVestingScheduleId() {
-    return await this.moonshotV2VestingContract.computeVestingScheduleIdForAddressAndIndex(this.account, 0);
+  async getVestingScheduleId(contract: VestingContractModel) {
+    let vestingContract = new ethers.Contract(contract.contractAddress, contract.abi, this.signer);
+    let scheduleId = await vestingContract.computeVestingScheduleIdForAddressAndIndex(this.account, 0);
+    // console.log("MSHOT Schedule ID: " + scheduleId);
+
+    return scheduleId;
   }
 
-  async getVestingScheduleIdForHolder(beneficiary: string) {
-    return await this.moonshotV2VestingContract.computeVestingScheduleIdForAddressAndIndex(beneficiary, 0);
+
+  async getVestingScheduleIdForHolder(beneficiary: string, contract: VestingContractModel) {
+    let vestingContract = new ethers.Contract(contract.contractAddress, contract.abi, this.signer);
+    return await vestingContract.computeVestingScheduleIdForAddressAndIndex(beneficiary, 0);
   }
 
-  async computeReleasableAmount(): Promise<number> {
+  async computeReleasableAmount(contract: VestingContractModel): Promise<number> {
+    // console.log("WHICH ITEM :" + contract.symbol);
+    if (this.account === "")
+      return 0;
+
     try {
-      let scheduleId: string = await this.getVestingScheduleId();
+      let scheduleId: string = await this.getVestingScheduleId(contract);
       // console.log("scheduleId :" + scheduleId);
-
-      let releasableAmount = await this.moonshotV2VestingContract.computeReleasableAmount(scheduleId);
+      let vestingContract = new ethers.Contract(contract.contractAddress, contract.abi, this.signer);
+      let releasableAmount = await vestingContract.computeReleasableAmount(scheduleId);
       // console.log("releasable amount:" + releasableAmount);
       return releasableAmount;
 
@@ -441,7 +491,6 @@ export class WalletService {
       this.toastrService.warning(error.message, "Compute");
       return 0;
     }
-
   }
 
   async createVestingSchedule(
@@ -450,11 +499,13 @@ export class WalletService {
     cliffInSeconds: number,
     durationInSeconds: number,
     isRevocable: boolean,
-    moonshotValue: number
+    moonshotValue: number,
+    contract: VestingContractModel
   ) {
-
     try {
-      await this.moonshotV2VestingContract.createVestingSchedule(
+      let vestingContract = new ethers.Contract(contract.contractAddress, contract.abi, this.signer);
+
+      await vestingContract.createVestingSchedule(
         beneficiary,
         startTime,
         cliffInSeconds,// cliff, 1 day in unix timestamp
@@ -472,20 +523,24 @@ export class WalletService {
     }
   }
 
-  async releaseVesting() {
-    let scheduleId = await this.getVestingScheduleId();
-    let vestableAmount = await this.computeReleasableAmount();
+  async releaseVesting(contract: VestingContractModel) {
+    let scheduleId = await this.getVestingScheduleId(contract);
+    let vestableAmount = await this.computeReleasableAmount(contract);
+
+
+    let vestingContract = new ethers.Contract(contract.contractAddress, contract.abi, this.signer);
+
     if (vestableAmount == 0 || vestableAmount == undefined) {
       this.toastrService.info("Tokens will be releasable soon. The slice period is 1 hour");
       return
     }
     try {
-      await this.moonshotV2VestingContract.release(
+      await vestingContract.release(
         scheduleId,
         vestableAmount,
       );
 
-      this.toastrService.success("You received " + this.shortTheNumber(vestableAmount) + " MSHOT");
+      this.toastrService.success("You received " + this.shortTheNumber(vestableAmount) + " " + contract.symbol);
     } catch (error) {
       console.log(error.message);
       this.toastrService.error(error.message);
@@ -498,10 +553,13 @@ export class WalletService {
     return this.account === owner;
   }
 
-  async searchLastVestingScheduleForHolder(address: string) {
+  async searchLastVestingScheduleForHolder(address: string, contract: VestingContractModel) {
     let userVestingData: any;
+
     try {
-      userVestingData = await this.moonshotV2VestingContract.getLastVestingScheduleForHolder(address);
+      let vestingContract = new ethers.Contract(contract.contractAddress, contract.abi, this.signer);
+
+      userVestingData = await vestingContract.getLastVestingScheduleForHolder(address);
       console.log("Found the holder vesting schedule data succesfully :" + userVestingData);
 
       return userVestingData;
@@ -513,10 +571,13 @@ export class WalletService {
     }
   }
 
-  async revokeTheHolder(beneficiary: string) {
+  async revokeTheHolder(beneficiary: string, contract: VestingContractModel) {
     try {
-      let scheduleId = await this.getVestingScheduleIdForHolder(beneficiary);
-      await this.moonshotV2VestingContract.revoke(scheduleId)
+      let scheduleId = await this.getVestingScheduleIdForHolder(beneficiary, contract);
+
+      let vestingContract = new ethers.Contract(contract.contractAddress, contract.abi, this.signer);
+
+      await vestingContract.revoke(scheduleId)
       this.toastrService.success("Vesting schedule revoked");
 
     } catch (error) {
@@ -537,6 +598,29 @@ export class WalletService {
     return balance;
   }
 
+  // This is the idea: We find for each vesting contract, the scheduleId
+  async findSchedulesForUser(contract: VestingContractModel, userAddress: string) {
+    if (this.account === '') //return null If user not connected 
+      return null;
+
+    let vestingContract = new ethers.Contract(contract.contractAddress, contract.abi, this.signer);
+    // All the vestings
+    const N = vestingContract.getVestingSchedulesCount();
+    for (let i = 0; i < N; i++) {
+      // For each vesting schedule Id
+      let scheduleId = vestingContract.getvestingAtIndex(i); // bytes32 scheduleId
+
+      let westingSchedule = vestingContract.getVestingSchedule(scheduleId);
+      // And see if it belongs to user Address
+      if (westingSchedule?.beneficiary === userAddress) {
+        return scheduleId;
+      }
+    }
+
+    return null;
+
+  }
+
   formatNumber(n, d, l) {
     return (n / d).toFixed(1) + l;
   }
@@ -555,4 +639,111 @@ export class WalletService {
 
     return value;
   }
+
+  async canWithdrawOnFaucet(): Promise<boolean> {
+    let isWithdrawAvailable = false;
+
+    try {
+      isWithdrawAvailable = await this.moonshotFaucetContract.canWithdraw(this.account);
+    } catch (error) {
+      this.toastrService.error(`Withdraw checking has failed!\n ${error.message}`, "FAUCET")
+    }
+
+    return isWithdrawAvailable;
+  }
+
+  async getRemainingCoolDownForFaucet(): Promise<number> {
+    let coolDownTimeInSec = 0;
+
+    try {
+      coolDownTimeInSec = await this.moonshotFaucetContract.getRemainingCooldown(this.account);
+    } catch (error) {
+      this.toastrService.error(`Cooldown checking has failed!\n ${error.message}`, "FAUCET")
+    }
+
+    return coolDownTimeInSec;
+  }
+
+  async getFreeMoonshot(): Promise<any> {
+    let tx;
+
+    try {
+      tx = await this.moonshotFaucetContract.getFreeMoonshot();
+
+      this.toastrService.success(`Funding request accepted for ${this.account}`, "FAUCET")
+    } catch (error) {
+      console.log(error);
+
+      this.toastrService.error(`${error.message}`, "FAUCET")
+    }
+
+    return tx;
+  }
+
+  async getFaucetAmount(): Promise<string> {
+    let amount: string = await this.moonshotFaucetContract.tokenAmount();
+
+    return this.shortTheNumber(amount);
+  }
+
+  async registerToVulture() {
+
+    let currentTime = Date.now();
+
+    if (currentTime < 1654628400) {
+      this.toastrService.info("Whitelist is closed!", "VULTURE")
+      return
+    }
+
+    let tx, isListed;
+
+    isListed = await this.isRegisteredToVulture();
+    console.log("Is Listed : " + isListed);
+
+    if (isListed)
+      return;
+
+
+    await this.checkNetworkOnBSCMainnet();
+
+    try {
+      tx = await this.vultureContract.register();
+
+      this.toastrService.success(`Registering is successful for ${this.account}`, "VULTURE")
+    } catch (error) {
+      console.log(error);
+
+      this.toastrService.error(`${error.message}`, "VULTURE")
+    }
+  }
+
+  async isRegisteredToVulture(): Promise<boolean> {
+    let isListed;
+
+    try {
+      isListed = await this.vultureContract.isListed();
+
+      if (isListed)
+        this.toastrService.success(`You are already whitelisted with ${this.account}`, "VULTURE")
+
+    } catch (error) {
+      console.log(error);
+
+      this.toastrService.error(`${error.message}`, "VULTURE")
+    }
+
+    return isListed;
+  }
+
+  async checkNetworkOnBSCMainnet() {
+    let currentNetwork = await this.provider.getNetwork();
+    if (currentNetwork.chainId != providerChainID) {
+      this.setWalletState(false);
+      this.toastrService.error('Please connect to Binance Smart Chain first!');
+    } else {
+      return
+    }
+  }
 }
+
+

@@ -53,7 +53,7 @@
 
             <div class="buttons-container flex1">
 
-              <a class="button claim-button" [class.disable]="'MSHOT Claimed' == buttonName"
+              <a *ngIf="!hasClaimed" class="button claim-button" [class.disable]="'MSHOT Claimed' == buttonName"
                 [ngClass]="{'loading': isInProcess}"
                 (click)="!isInProcess ? claimMSHOT() : null">{{isInProcess ? '' :buttonName}}
                 <img *ngIf="isInProcess" src="assets/media/videos/Loading_yellowBG.gif" class="loader-img">

@@ -1,170 +1,275 @@
 @import "includes";
+
 section.tokenomics {
-    padding: 22px 60px 0px;
-    box-sizing: border-box;
-    background: $primary;
-    position: fixed;
-    right: 0;
-    top: 0;
-    width: 100%;
-    max-width: 700px;
-    z-index: 12000;
-    margin-right: 64px;
-    height: 100vh;
-    max-height: 100vh;
-    overflow: auto;
-    border-right: 1px solid black;
-    -ms-overflow-style: none;
-    /* for Internet Explorer, Edge */
-    scrollbar-width: none;
-    /* for Firefox */
-    overflow-y: scroll;
-    -ms-overflow-style: none;
-    /* Internet Explorer 10+ */
-    scrollbar-width: none;
-    /* Firefox */
-    .inner {
-        @extend %max-width-center;
-        border-radius: 160px;
-    }
+  padding: 0px 42px;
+  box-sizing: border-box;
+  background: $primary;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  max-width: 700px;
+  z-index: 12000;
+  margin-right: 64px;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: auto;
+  border-right: 1px solid black;
+  -ms-overflow-style: none;
+  /* for Internet Explorer, Edge */
+  scrollbar-width: none;
+  /* for Firefox */
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  /* Internet Explorer 10+ */
+  scrollbar-width: none;
+
+  /* Firefox */
+  .inner {
+    @extend %max-width-center;
+    border-radius: 160px;
+    height: calc(100% - 63px);
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .tokenomics::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .pancake-switch-container {
-    >p:first-child {
-        margin-right: 80px;
-    }
-    >div {
-        max-width: 150px;
-        width: 100%;
-    }
+  >p:first-child {
+    margin-right: 80px;
+  }
+
+  >div {
+    max-width: 150px;
+    width: 100%;
+  }
 }
 
 ::ng-deep .switch.switch-medium {
-    min-width: 60px;
+  min-width: 60px;
 }
 
 ::ng-deep .switch.checked {
-    background-color: transparent !important;
+  background-color: transparent !important;
 }
 
 ::ng-deep .switch.switch-medium small {
-    width: 26px;
-    height: 26px;
-    right: calc(100% - 28px);
-    top: 2px;
+  width: 26px;
+  height: 26px;
+  right: calc(100% - 28px);
+  top: 2px;
 }
 
 ::ng-deep .switch.checked small {
-    width: 26px;
-    height: 26px;
-    right: 2px;
-    top: 2px;
+  width: 26px;
+  height: 26px;
+  right: 2px;
+  top: 2px;
 }
 
 .close {
-    display: block;
-    position: absolute;
-    right: 15px;
-    top: 15px;
-    cursor: pointer;
+  display: flex;
+  // position: absolute;
+  // right: 15px;
+  // top: 15px;
+  cursor: pointer;
 }
 
 p {
-    color: black;
+  color: black;
 }
 
 .my-3 {
-    margin: 1rem 0;
+  margin: 1rem 0;
 }
 
 .deeper {
-    padding: 60px 0px 5px 0px;
-    align-items: flex-start;
-    li p {
-        margin-bottom: 1rem;
+  padding: 60px 0px 5px 0px;
+  align-items: flex-start;
+
+  li p {
+    margin-bottom: 1rem;
+  }
+
+  .right div {
+    padding-left: 20px;
+  }
+
+  .left div {
+    padding-right: 20px;
+  }
+
+  .left,
+  .right {
+    flex: 1;
+  }
+
+  .left {
+
+    ul>li:last-child {
+      border-bottom: 0;
     }
-    .right div {
-        padding-left: 20px;
+  }
+
+  .right {
+    border-left: 2px solid #7e6328;
+
+    ul>li:last-child {
+      border-bottom: 0;
     }
-    .left div {
-        padding-right: 20px;
-    }
-    .left,
-    .right {
-        flex: 1;
-    }
-    .right {
-        border-left: 2px solid #7e6328;
-        ul>li:last-child {
-            border-bottom: 0;
-        }
-    }
+  }
 }
 
 .invisible-md {
-    min-height: 15px;
+  min-height: 15px;
 }
 
 li {
-    border-bottom: 1px solid black;
-    margin-bottom: 1rem;
-    min-height: 101px;
-    &:last-child {
-        margin-bottom: 0;
+  border-bottom: 1px solid black;
+  margin-bottom: 1rem;
+  min-height: 101px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.wallet-address {
+  display: flex;
+  margin-top: auto;
+  margin-right: auto;
+  justify-content: center;
+  padding: 20px 0px;
+  color: black;
+
+  &:hover {
+    span {
+      color: white !important;
+      border-bottom: 2px solid white;
     }
+
+    svg>g>path {
+      fill: white;
+    }
+  }
+
+  svg {
+
+    width: 1.2em;
+    margin-right: 0.8em;
+  }
+
+  svg>g>path {
+    fill: black;
+  }
+
+  span {
+    color: black;
+    border-bottom: 2px solid black;
+    cursor: pointer;
+  }
+}
+
+span,
+.short-wallet-address {
+  //color: black;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  font-family: 'Montserrat' !important;
+  letter-spacing: 0 !important;
+}
+
+.close-button {
+  display: flex;
+  width: 100%;
+  // max-width: 370px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+  align-items: flex-end;
+
+  .close {
+    height: 36px;
+    width: 36px;
+    cursor: pointer;
+  }
+
+  p {
+    font-size: 26px;
+    color: black;
+    font-family: $primary-font;
+    font-weight: 700;
+  }
 }
 
 @media only screen and (max-width: $md) {
-    section.tokenomics {
-        width: 100%;
-        margin-right: 0;
-        padding: 30px 20px 0px;
-    }
-    .pancake-switch-container {
-        >p:first-child {
-            margin-right: 20px;
-        }
-        >div {
-            max-width: 120px;
-        }
-    }
-    .block p {
-        font-size: 16px;
-    }
-    .li {
-        min-height: auto;
-    }
-    .deeper {
-        flex-direction: column;
-        padding-bottom: 0;
-        .left {
-            li {
-                >div {
-                    padding-right: 0;
-                }
-                &:last-child {
-                    border-bottom: 1px solid black;
-                    margin-bottom: 1rem;
-                }
-            }
-        }
-        .right {
-            border-left: 0;
-            li:last-child {
-                border-bottom: 0;
-            }
+  section.tokenomics {
+    width: 100%;
+    margin-right: 0;
+    padding: 30px 20px 0px;
+  }
 
-            div {
-                padding-left: 0;
-            }
-        }
-        .left,
-        .right {
-            width: 100%;
-        }
+  .pancake-switch-container {
+    >p:first-child {
+      margin-right: 20px;
     }
+
+    >div {
+      max-width: 120px;
+    }
+  }
+
+  .block p {
+    font-size: 16px;
+  }
+
+  .li {
+    min-height: auto;
+  }
+
+  .deeper {
+    flex-direction: column;
+    padding-bottom: 0;
+
+    .left {
+      li {
+        border-bottom: 1px solid black;
+
+        >div {
+          padding-right: 0;
+        }
+
+        &:last-child {
+          border-bottom: 1px solid black !important;
+          margin-bottom: 1rem;
+        }
+      }
+    }
+
+    .right {
+      border-left: 0;
+
+      li:last-child {
+        border-bottom: 0;
+      }
+
+      div {
+        padding-left: 0;
+      }
+    }
+
+    .left,
+    .right {
+      width: 100%;
+    }
+  }
+
+  .wallet-address {
+    display: none;
+  }
 }

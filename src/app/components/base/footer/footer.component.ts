@@ -101,7 +101,7 @@ export class FooterComponent implements OnInit {
       ],
       viewBox: "0 0 34 52",
       link: 'https://solidity.finance/audits/MOONSHOT/'
-    },
+    }
   ]
 
   constructor(private _router: Router, private tokenomicsService: TokenomicsService) { }

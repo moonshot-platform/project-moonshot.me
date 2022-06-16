@@ -1,0 +1,331 @@
+@import "includes";
+
+section.moonstorm {
+  z-index: 2;
+  position: relative;
+  overflow: hidden;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+
+  >.inner {
+    @extend %max-width-center;
+    align-items: flex-start;
+    padding: 100px 20px 20px 20px;
+    position: relative;
+    box-sizing: border-box;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    overflow: hidden;
+  }
+}
+
+.start-screen {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .title {
+    font-size: 100px;
+    font-family: $secondary-font;
+    font-weight: 900;
+    color: $primary;
+    text-align: center;
+    border: none;
+  }
+
+  .fuel {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    align-self: center;
+
+
+    .buy-fuel {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      align-items: center;
+      column-gap: 20px;
+    }
+  }
+}
+
+.game-screen {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  row-gap: 20px;
+
+  .title-header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    border-bottom: 2px solid $primary;
+    padding-bottom: 20px;
+
+    .title {
+      font-size: 30px;
+      width: 100%;
+      font-family: $secondary-font;
+      font-weight: 700;
+    }
+
+    .game-action-details {
+      width: 100%;
+      max-width: 420px;
+      font-size: 16px;
+
+      p>span {
+        color: white;
+      }
+    }
+  }
+
+  .game-details-and-fuel-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+
+    .game-details {
+      display: flex;
+      flex-direction: column;
+
+      p {
+        span {
+          color: white;
+        }
+
+        .shield-power {
+          color: white;
+        }
+      }
+    }
+
+    .fuel {
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+      align-items: initial;
+
+      input {
+        background-color: transparent;
+        border-width: 0px;
+        border-bottom: 2px solid $primary;
+        font-size: 24px;
+        color: $primary;
+      }
+
+      .buy-fuel {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        column-gap: 20px;
+
+        align-items: center;
+      }
+    }
+  }
+
+  .controllers-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    column-gap: 20px;
+    width: 100%;
+  }
+
+  .moonstorm::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.dropdown_c {
+  position: relative;
+  margin: 20px auto;
+  width: 100%;
+}
+
+.selected {
+  width: 100vw;
+  max-width: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff33;
+  border-radius: 5px;
+  color: $primary;
+
+  svg {
+    width: 20px;
+    margin-right: 10px;
+    flex: 0 0 auto;
+
+    path {
+      fill: $primary;
+    }
+  }
+}
+
+.dropup {
+  transform: scaleY(-1);
+}
+
+.selected span {
+  display: flex;
+  width: 100%;
+}
+
+.selected span {
+  cursor: pointer;
+  display: flex;
+  padding: 10px 15px;
+  margin: 0;
+}
+
+.drop-content {
+  position: relative;
+}
+
+.drop-content ul {
+  position: absolute;
+  left: 0px;
+  top: -3px;
+  display: none;
+  list-style: none;
+  max-width: 370px;
+  width: 100%;
+  background: white;
+  border-top: 0;
+  border-radius: 0 0 5px 5px;
+  flex-direction: column;
+
+  li {
+    border-bottom: 1px solid black;
+  }
+
+  :last-child {
+    border-bottom: 0px solid black !important;
+  }
+}
+
+.visible {
+  display: flex !important;
+}
+
+
+.drop-content ul li span {
+  display: flex;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #131313;
+}
+
+.drop-content ul li span:hover {
+  background: rgba(0, 0, 0, 0.1);
+  color: $primary;
+  border-left: 5px solid rgba(0, 0, 0, 0.8);
+  padding-left: 10px;
+}
+
+
+@media only screen and (max-width: $md) {
+  .game-screen {
+    .title-header {
+      flex-direction: column;
+      row-gap: 20px;
+    }
+
+    .game-details-and-fuel-container {
+      flex-direction: column;
+      row-gap: 20px;
+
+      .game-details {
+        margin: auto;
+
+        p {
+          text-align: left;
+        }
+      }
+
+      .fuel {
+        align-items: center;
+
+        input {
+          max-width: 420px;
+        }
+
+        .buy-fuel {
+          .button {
+            min-width: 150px !important;
+          }
+        }
+      }
+    }
+
+    .controllers-container {
+      justify-content: center;
+    }
+  }
+
+  .selected {
+    max-width: 155px;
+  }
+
+  .start-screen {
+    .title {
+      font-size: 60px;
+    }
+  }
+}
+
+@media only screen and (max-width: $sm) {
+  .start-screen {
+    .fuel {
+      .buy-fuel {
+        flex-direction: column-reverse;
+        margin-bottom: 20px;
+
+        .button {
+          min-width: 160px !important;
+
+        }
+
+        .dropdown_c {
+          width: auto;
+        }
+      }
+    }
+  }
+
+  .selected {
+    max-width: 160px;
+  }
+
+  //   .game-screen {
+  //     .game-details-and-fuel-container {
+  //       .fuel {
+  //         input {
+  //           max-width: 100%;
+  //         }
+  //       }
+  //     }
+  //   }
+}

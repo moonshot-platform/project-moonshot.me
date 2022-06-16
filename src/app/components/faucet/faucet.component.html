@@ -1,0 +1,47 @@
+<section class="faucet flex-center">
+  <div class="inner flex-space-between align-start">
+    <div class="moon-bg"></div>
+    <app-navigation></app-navigation>
+    <div class="container">
+      <div class="faucet-title flex1 futuristic-container">
+        <p class="header">MOONSHOT FAUCET</p>
+        <img src="assets/media/images/about/liquidity_icon.svg" alt="">
+        <p class="pb10 donation">If you want to donate to our Faucet, you can send BNB or MSHOT tokens to: <br><br><span
+            class="donate" [cdkCopyToClipboard]=donationAddress>{{donationAddress}}</span></p>
+      </div>
+
+      <div class="faucet-container flex3 futuristic-container">
+        <p class="p-white-span-primary p34 orbitron container-title"><span>Moonshot &nbsp;</span>Faucet</p>
+        <div class="get-mshot">
+          <div class="flex col">
+            <p class="pb20">You can get {{tokenAmount}} free Moonshot every 48hr!</p>
+            <p *ngIf="!canUserWithdraw && isConnected" class="pb10">
+              You will be able to get Free Moonshot after {{cooldown}} seconds.</p>
+            <p *ngIf="!isConnected" class="pb10">Please connect your wallet.</p>
+            <div *ngIf="isConnected" class="wallet-address centered-row mb20">
+              <p class="desc-title">Wallet address:</p>
+              <div class="address">
+                <div class="truncate-middle" [attr.data-truncate]='connectedAddress.slice(-4)'>
+                  <p>{{connectedAddress.slice(0,-4)}}</p>
+                </div>
+              </div>
+            </div>
+
+            <div *ngIf="isConnected" class="mshot-v2 centered-row">
+              <p class="desc-title-light">MSHOT Balance: </p>
+              <p class="value">{{mshotV2Balance}}</p>
+            </div>
+          </div>
+          <a class="button" (click)="isConnected ? getFaucet() : connectWallet()"
+            [ngClass]="{'disable': !canUserWithdraw && isConnected}">
+            {{isInProcess ? '' : (isConnected ? 'Give me MSHOT!' : 'Connect Wallet')}}
+            <img *ngIf="isInProcess" src="assets/media/videos/Loading_yellowBG.gif" class="loader-img"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-sidebar></app-sidebar>
+
+  <app-footer-mobile></app-footer-mobile>
+</section>

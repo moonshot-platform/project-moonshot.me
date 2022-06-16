@@ -1,0 +1,270 @@
+@import "includes";
+
+
+section.faucet {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  padding: 20px 60px 0px 0px;
+  padding-top: 100px;
+  margin-bottom: 100px;
+  z-index: 2;
+
+  .inner {
+    @extend %max-width-center;
+    align-items: flex-start;
+    padding-top: 100px;
+    padding-right: 20px;
+    padding-left: 20px;
+    height: 6s0vh;
+
+    .moon-bg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: -1;
+    }
+
+    .moon-bg {
+      background: url("/assets/media/images/moon-shadow.webp") top right no-repeat;
+      background-size: 59%;
+      mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    }
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.faucet-title {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  width: 100%;
+  max-width: 270px;
+  margin-right: 20px;
+
+  img {
+    display: flex;
+    margin: 0 auto;
+    max-height: 180px;
+    height: 100%;
+  }
+
+  .donation {
+    border-top: 1px solid $primary;
+    padding-top: 1.25rem;
+  }
+}
+
+.faucet-container {
+  width: 100%;
+  max-width: 770px;
+  border-top: 0px !important;
+  margin-left: auto;
+  padding-top: 0 !important;
+  height: fit-content;
+
+  p.container-title {
+    padding: 1.25rem 0;
+    border-top: 3px solid $primary;
+    width: 100%;
+    max-width: 570px;
+    width: 100%;
+    display: flex;
+  }
+
+  .get-mshot {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 1.25rem;
+    width: 100%;
+    align-items: flex-start;
+    border-top: 1px solid $primary;
+  }
+}
+
+.disable {
+  background-color: gray !important;
+  cursor: not-allowed;
+}
+
+.loader-img {
+  width: 35px;
+  margin: -10px;
+}
+
+.donate {
+  cursor: pointer;
+  word-break: break-all;
+
+  &:hover {
+    color: white;
+  }
+}
+
+.wallet-address {
+
+  .address {
+    // display: flex;
+    display: inline-block;
+    margin-left: 10px;
+    font-weight: 500;
+    font-size: 16px;
+    color: white;
+    border-bottom: 1px $primary solid;
+    flex: 1;
+    text-align: end;
+    margin-top: auto;
+    max-width: 100%;
+
+  }
+}
+
+.desc-title {
+  font-weight: 600;
+  font-size: 16px;
+  color: $primary;
+  // flex: 1;
+  display: ruby;
+}
+
+.centered-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.truncate-middle {
+  position: relative;
+  width: 18vw;
+  max-width: 340px;
+  justify-self: flex-end;
+  display: inline-flex;
+  padding-right: 40px;
+}
+
+.truncate-middle>p {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.truncate-middle:after {
+  content: attr(data-truncate);
+  position: absolute;
+  left: calc(100% - 40px);
+  top: 0;
+  white-space: nowrap;
+}
+
+.value {
+  margin-left: 10px;
+  font-weight: 500;
+  font-size: 16px;
+  color: $primary;
+  border-bottom: 1px $primary solid;
+  flex: 1;
+  text-align: end;
+}
+
+@media only screen and (max-width: $md) {
+  section.faucet {
+    padding: 20px;
+
+    .inner {
+      padding-top: 150px;
+      padding-right: 0px;
+      padding-left: 0px;
+      height: 100%;
+
+    }
+  }
+
+  .explanation {
+    text-align: left;
+  }
+
+  .container {
+    flex-direction: column-reverse;
+
+    .faucet-title {
+      max-width: 100%;
+      border-top: 0px !important;
+
+
+      img,
+      p.header {
+        display: none;
+      }
+    }
+  }
+
+  .faucet-container {
+    border-top: 3px solid $primary !important;
+    max-width: 100%;
+    border-bottom: 0px !important;
+
+    p.container-title {
+      max-width: 100%;
+      border-top: 0px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .get-mshot {
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+
+      .button {
+        max-width: 100%;
+        width: 100%;
+      }
+    }
+  }
+
+  .truncate-middle {
+    width: 100%;
+    max-width: 94%;
+    text-align: end;
+    display: block;
+  }
+}
+
+
+@media only screen and (max-width: 826px) {
+  .truncate-middle {
+    width: 100% !important;
+    max-width: calc(100% - 50px) !important;
+    text-align: end;
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 673px) {
+  .truncate-middle {
+    width: 100% !important;
+    max-width: 200px !important;
+    margin-left: auto;
+  }
+}
+
+@media only screen and (max-width: 458px) {
+  .truncate-middle {
+    max-width: 100px !important;
+    margin-left: auto;
+  }
+}

@@ -1,0 +1,300 @@
+@import "includes";
+
+section.moonsea-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  background: $primary;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  max-width: 455px;
+  z-index: 1199;
+  margin-right: 64px;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+  border-right: 1px solid black;
+  -ms-overflow-style: none;
+  /* for Internet Explorer, Edge */
+  scrollbar-width: none;
+  /* for Firefox */
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  /* Internet Explorer 10+ */
+  scrollbar-width: none;
+
+  /* Firefox */
+  .inner {
+    margin-bottom: 5px !important;
+    max-width: 370px;
+    border-radius: 160px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .content {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      //   padding-top: 100px;
+
+      .moonsea-container {
+        display: flex;
+        flex-direction: column;
+        padding-top: 36px;
+
+        .content-text {
+          font-size: 26px !important;
+          margin-bottom: 20px;
+          font-weight: 700;
+        }
+
+        img {
+          width: 100%;
+          margin-bottom: 20px;
+        }
+
+        .outlined-button {
+          background: black !important;
+
+          &:hover {
+            background-color: white !important;
+            color: black !important;
+          }
+
+          img {
+            margin: -20px !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+.moonsea-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.close-button {
+  display: flex;
+  width: 100%;
+  max-width: 370px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+  align-items: flex-end;
+
+  .close {
+    height: 36px;
+    width: 36px;
+    cursor: pointer;
+  }
+
+  p {
+    font-size: 26px;
+    color: black;
+    font-family: $primary-font;
+    font-weight: 700;
+  }
+}
+
+p {
+  color: black;
+}
+
+.my-3 {
+  margin: 1rem 0;
+}
+
+.invisible-md {
+  min-height: 15px;
+}
+
+li {
+  //   margin-bottom: 1rem;
+  min-height: 41px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.wallet-address {
+  display: flex;
+  margin-top: auto;
+  justify-content: center;
+  padding: 20px 0px;
+  color: black;
+
+  &:hover {
+    span {
+      color: white !important;
+      border-bottom: 2px solid white;
+    }
+
+    svg>g>path {
+      fill: white;
+    }
+  }
+
+  svg {
+
+    width: 1.2em;
+    margin-right: 0.8em;
+  }
+
+  svg>g>path {
+    fill: black;
+  }
+
+  span {
+    color: black;
+    border-bottom: 2px solid black;
+    cursor: pointer;
+  }
+}
+
+span,
+.short-wallet-address {
+  //color: black;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  font-family: 'Montserrat' !important;
+  letter-spacing: 0 !important;
+}
+
+.buttons-section {
+  margin-top: 36px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  column-gap: 20px;
+
+  .more-button {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    max-width: 200px;
+    width: 100%;
+    border: 1px solid black;
+    height: 40px;
+    border-radius: 25px;
+    color: black;
+    font-family: $primary-font;
+    font-weight: bold;
+    background-color: transparent;
+    font-size: 16px;
+    line-height: 1.69;
+    text-decoration: none;
+    text-transform: capitalize;
+    text-align: center;
+    cursor: default;
+
+    &.fit {
+      width: fit-content;
+    }
+
+    &.inverse {
+      border: 1px solid white;
+      color: black;
+    }
+
+    &:hover:not(&.disabled) {
+      color: white;
+      border-color: white;
+      cursor: pointer;
+    }
+  }
+
+  .moonsea-button {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    max-width: 200px;
+    width: 100%;
+    border: 1px solid black;
+    height: 40px;
+    border-radius: 25px;
+    color: $primary;
+    font-family: $primary-font;
+    font-weight: $bold;
+    background-color: black;
+    font-size: 16px;
+    line-height: 1.69;
+    text-decoration: none;
+    text-transform: capitalize;
+    text-align: center;
+    cursor: default;
+
+    &.fit {
+      width: fit-content;
+    }
+
+    &.inverse {
+      border: 1px solid white;
+      color: white;
+    }
+
+    &:hover:not(&.disabled) {
+      color: black;
+      background-color: white;
+      border-color: white;
+      cursor: pointer;
+    }
+  }
+}
+
+@media only screen and (max-width: $md) {
+  section.moonsea-bar {
+    display: flex;
+    margin-right: 0px;
+    padding: 0px 6px;
+    left: 0px;
+    right: 0px;
+    bottom: 40px;
+    width: 100%;
+    max-width: 100vw;
+    border-bottom: 41px solid black;
+
+    .inner {
+      max-width: 330px;
+      margin-top: auto;
+      margin-bottom: auto !important;
+
+      .content {
+        padding-top: 0px;
+
+        .moonsea-container {
+          padding-top: 50px;
+        }
+      }
+    }
+  }
+
+  .close-button {
+    max-width: 330px;
+
+    img {
+      display: none;
+    }
+  }
+
+  .block p {
+    font-size: 16px;
+  }
+
+  .li {
+    min-height: auto;
+  }
+
+  .wallet-address {
+    display: none;
+  }
+}

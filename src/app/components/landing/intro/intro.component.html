@@ -1,7 +1,71 @@
 <section class="intro flex-center">
   <div class="inner flex-space-between align-start">
     <div class="stats flex1">
-      <div class="timer futuristic-container">
+      <div class="flipper-container futuristic-container">
+        <p class="title">MOONSHOT ECOSYSTEM</p>
+        <swiper *ngIf="advertisements.length !== 0" [config]="config">
+          <ng-container *ngFor="let item of advertisements; index as i">
+            <ng-template swiperSlide>
+              <a id="flipper" class="flipper animation" href="{{item.url}}" target="_blank">
+                <img class="big-img" src="{{item.img}}" alt="">
+                <img class="name-img" src="{{item.bottomImg}}" alt="">
+                <p class="desc">{{item.desc}}</p>
+                <a class="link">
+                  <img src="assets/media/icons/intro/World_icon.svg" alt="">
+                  <a>{{item.urlName}}</a>
+                </a>
+              </a>
+            </ng-template>
+          </ng-container>
+        </swiper>
+
+
+
+      </div>
+      <div class="buy-mshot futuristic-container">
+        <p>MARKET BUY AT PANCAKESWAP</p>
+        <div class="row">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2500.01 2500">
+            <defs>
+              <style>
+                .cls-1 {
+                  fill: #f3ba2f;
+                }
+
+              </style>
+            </defs>
+            <title>bi</title>
+            <g id="Layer_2" data-name="Layer 2">
+              <g id="Layer_1-2" data-name="Layer 1">
+                <path class="cls-1"
+                  d="M764.48,1050.52,1250,565l485.75,485.73,282.5-282.5L1250,0,482,768l282.49,282.5M0,1250,282.51,967.45,565,1249.94,282.49,1532.45Zm764.48,199.51L1250,1935l485.74-485.72,282.65,282.35-.14.15L1250,2500,482,1732l-.4-.4,282.91-282.12M1935,1250.12l282.51-282.51L2500,1250.1,2217.5,1532.61Z" />
+                <path class="cls-1"
+                  d="M1536.52,1249.85h.12L1250,963.19,1038.13,1175h0l-24.34,24.35-50.2,50.21-.4.39.4.41L1250,1536.81l286.66-286.66.14-.16-.26-.14" />
+              </g>
+            </g>
+          </svg>
+
+          <p>BNB:</p>
+
+          <input type="number" name="buy" id="buy" [(ngModel)]="bnbCountFromInput"
+            (ngModelChange)="onChangeBuyMSHOTInput($event)">
+        </div>
+
+        <div class="tooltip">
+          <a [ngClass]="{'loading': isInProcess}" (click)="!isInProcess ? buyMSHOTWithBNB() : null" class="button">
+            {{isInProcess ? '' :'Buy MSHOT'}}
+            <img *ngIf="isInProcess" src="assets/media/videos/Loading_yellowBG.gif" class="loader-img">
+          </a>
+          <div class="bottom">
+            <div class="row">
+              <p>MSHOT Market Price at PancakeSwap</p>
+            </div>
+            <i></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="timer futuristic-container">
         <p>MISSION ELAPSED TIME</p>
         <p class="countdown">--:--:--:--</p>
       </div>
@@ -50,15 +114,15 @@
             <i></i>
           </div>
         </div>
-      </div>
-      <div *ngIf="hasVested" class="vesting futuristic-container">
+      </div> -->
+      <!-- <div *ngIf="hasVested" class="vesting futuristic-container">
         <p>TOKEN VESTING</p>
         <p class="releasable-amount flex">Releasable: <span style="margin-left: auto">{{releasableAmount}} MSHOT</span>
         </p>
         <a class="button" (click)="isInReleasingProcess? null :  release()">{{isInReleasingProcess ? '' : 'Release'}}
           <img *ngIf="isInReleasingProcess" src="assets/media/videos/Loading_yellowBG.gif" class="loader-img">
         </a>
-      </div>
+      </div> -->
     </div>
     <div class="info flex3">
       <div class="line-container flex">
