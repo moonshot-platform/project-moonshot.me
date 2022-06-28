@@ -12,6 +12,13 @@ section.sidebar {
   flex-direction: column;
   bottom: 0;
   right: 0px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+section.sidebar::-webkit-scrollbar {
+  display: none;
+  /* Safari and Chrome */
 }
 
 .chart-icon {
