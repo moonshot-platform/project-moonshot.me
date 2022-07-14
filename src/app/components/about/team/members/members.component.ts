@@ -90,6 +90,24 @@ export class MembersComponent implements OnInit {
       title: 'Solidity Developer',
       about: 'Experienced backend engineer turned solidity developer. Enthusiast of blockchain and smart contract.'
 
+    },
+    {
+      name: 'Sawata Akhade',
+      image: 'assets/media/images/members/sawata.webp',
+      title: 'Team Manager',
+      about: 'Supervises and coordinates with the development team to create bold, functional user experiences.'  
+    },
+    {
+      name: 'Shubham Survase',
+      image: 'assets/media/images/members/shubham.webp',
+      title: 'Software Developer',
+      about: 'Experienced backend developer proficient in several programming languages with in-depth knowledge of API design and DB architecture.'
+    },
+    {
+      name: 'Prajkta Navlakhe',
+      image: 'assets/media/images/members/prajkta.webp',
+      title: 'Software Developer',
+      about: 'Responsible for the server side code and APIs of our web applications'
     }
   ];
 
