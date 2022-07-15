@@ -92,6 +92,18 @@ export class MembersComponent implements OnInit {
 
     },
     {
+      name: 'Borris Stain @borrisDapp',
+      image: 'assets/media/images/members/borris.webp',
+      title: 'Lead Developer',
+      about: 'Blockchain developer (MoonSea / MoonBoxes). Passionate about Blockchain Technology and Crypto'
+    },
+    {
+      name: 'Rony Tesla',
+      image: 'assets/media/images/members/rony/webp',
+      title: 'Senior Blockchain Developer',
+      about: 'Software Engineer & Genius in Blockchain Development'
+    },
+    {
       name: 'Sawata Akhade',
       image: 'assets/media/images/members/sawata.webp',
       title: 'Team Manager',
