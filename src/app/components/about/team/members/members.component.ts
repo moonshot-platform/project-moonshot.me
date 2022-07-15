@@ -72,19 +72,6 @@ export class MembersComponent implements OnInit {
       about: 'Marketing advisor.<br>Creative ideas support.<br>Shill trooper.<br>'
     },
     {
-      name: 'CryptoHunter',
-      image: 'assets/media/images/members/cryptohunter.webp',
-      title: 'Moderator/Marketeer', //'CryptoHunter, [Moderator/Marketeer]',
-      about: 'Digital Marketing SMO (Youtube, Instagram).',
-      social: [
-        {
-          link: 'https://twitter.com/cryptomshot/',
-          icon: 'assets/media/icons/social/twitter-yellow-round-icon.svg',
-          alt: 'twitter-icon'
-        }
-      ]
-    },
-    {
       name: 'Sonic',
       image: 'assets/media/images/members/sonic.webp',
       title: 'Solidity Developer',
