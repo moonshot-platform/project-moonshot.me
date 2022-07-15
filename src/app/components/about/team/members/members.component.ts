@@ -92,7 +92,7 @@ export class MembersComponent implements OnInit {
     {
       name: 'Rony Tesla',
       image: 'assets/media/images/members/rony.webp',
-      title: 'Senior Blockchain Developer',
+      title: 'Blockchain Developer',
       about: 'Software Engineer & Genius in Blockchain Development'
     },
     {
@@ -105,7 +105,7 @@ export class MembersComponent implements OnInit {
       name: 'Shubham Survase',
       image: 'assets/media/images/members/shubham.webp',
       title: 'Software Developer',
-      about: 'Experienced backend developer proficient in several programming languages with in-depth knowledge of API design and DB architecture.'
+      about: 'Experienced backend developer proficient in several programming languages.'
     },
     {
       name: 'Prajkta Navlakhe',
