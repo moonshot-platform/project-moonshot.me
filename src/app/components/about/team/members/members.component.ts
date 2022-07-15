@@ -125,12 +125,7 @@ export class MembersComponent implements OnInit {
       image: 'assets/media/images/members/prajkta.webp',
       title: 'Software Developer',
       about: 'Responsible for the server side code and APIs of our web applications'
-    }
-  ];
-
-
-  otherMembers: any = [
-
+    },
     {
       name: 'CryptoSeas',
       image: 'assets/media/images/members/cryptoseas.webp',
@@ -158,19 +153,6 @@ export class MembersComponent implements OnInit {
       ]
     },
     {
-      name: 'Clover',
-      image: 'assets/media/images/members/clover.webp',
-      title: 'Full stack expert',
-      about: 'Passionate and experienced frontend/backend/blockchain developer.'
-    },
-    // {
-    //   name: 'Rick',
-    //   image: 'assets/media/images/members/rick.webp',
-    //   title: 'Moderator & Discord Guru',
-    //   about: 'Marketing & hype contributor.<br>Moonshot lover since day 1.'
-
-    // },
-    {
       name: 'Chocoboknight1',
       image: 'assets/media/images/members/chocoboknight1.webp',
       title: 'Community Manager',
@@ -189,13 +171,13 @@ export class MembersComponent implements OnInit {
           alt: 'twitter-icon'
         }
       ]
-    },
-    {
-      name: 'Ironlionzion',
-      image: 'assets/media/images/members/ironlionzion.webp',
-      title: 'Moderator/Contributor',
-      about: 'Professional shiller.<br>Marketing ideas contributor.<br>'
-    }
+    }   
+  ];
+
+
+  otherMembers: any = [
+
+   
   ];
 
   constructor() { }
