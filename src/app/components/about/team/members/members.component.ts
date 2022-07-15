@@ -92,14 +92,19 @@ export class MembersComponent implements OnInit {
 
     },
     {
-      name: 'Borris Stain @borrisDapp',
+      name: 'Borris Stain',
       image: 'assets/media/images/members/borris.webp',
       title: 'Lead Developer',
-      about: 'Blockchain developer (MoonSea / MoonBoxes). Passionate about Blockchain Technology and Crypto'
+      about: 'Blockchain developer (MoonSea / MoonBoxes). Passionate about Blockchain Technology and Crypto',
+      social: [{        
+        link: 'https://t.me/borrisDapp',
+        icon: 'assets/media/icons/social/telegram-yellow-round-icon.svg',
+        alt: 'telegram-icon'
+      },]
     },
     {
       name: 'Rony Tesla',
-      image: 'assets/media/images/members/rony/webp',
+      image: 'assets/media/images/members/rony.webp',
       title: 'Senior Blockchain Developer',
       about: 'Software Engineer & Genius in Blockchain Development'
     },
