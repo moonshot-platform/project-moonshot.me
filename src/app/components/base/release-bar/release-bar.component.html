@@ -32,6 +32,31 @@
           </ul>
         </div>
       </div>
+      <div id="token-dropdown" class="dropdown_c dropdown_click">
+        <div class="selected" (click)="toggleScheduleNumbersDropdown()">
+          <span>
+            Vesting Number: {{selectedVestingId+1}}
+          </span>
+          <svg [ngClass]="{'dropup': isVestingNumberDropdownActive}" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 12 7" version="1.1" x="0px" y="0px">
+            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <path
+                d="M2.793125,9.207375 C2.402125,8.816375 2.402125,8.184375 2.793125,7.793375 L7.086125,3.500375 L2.793125,-0.792625 C2.402125,-1.183625 2.402125,-1.815625 2.793125,-2.206625 C3.184125,-2.597625 3.816125,-2.597625 4.207125,-2.206625 L9.207125,2.793375 C9.598125,3.184375 9.598125,3.816375 9.207125,4.207375 L4.207125,9.207375 C4.012125,9.402375 3.756125,9.500375 3.500125,9.500375 C3.244125,9.500375 2.988125,9.402375 2.793125,9.207375 Z"
+                fill="#d5a642"
+                transform="translate(6.000125, 3.500250) rotate(-270.000000) translate(-6.000125, -3.500250) "></path>
+            </g>
+          </svg>
+        </div>
+        <div class="drop-content">
+          <ul [ngClass]="{'visible': isVestingNumberDropdownActive}">
+            <li (click)="selectVestingIdItem(i)" *ngFor="let item of vestingIds; let i = index">
+              <span>
+                {{i+1}}
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
 
       <div class="release-container">
         <!-- <p>TOKEN VESTING</p> -->

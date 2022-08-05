@@ -18,7 +18,6 @@ import moonstormAbi from './../../assets/abis/moonstorm.abi.json';
 import vultureAbi from './../../assets/abis/vulture-whitelist-abi.json';
 
 import Web3Modal from "web3modal";
-import { count } from 'console';
 
 export enum CLAIM_CASES {
   CONNECT_WALLET = 'Connect Wallet',

@@ -13,9 +13,13 @@ import { WalletConnectComponent } from '../wallet-connect/wallet-connect.compone
 })
 export class ReleaseBarComponent implements OnInit {
   items: any[] = [];
+  vestingIds: any[] = [];
 
   isDropdownActive: boolean = false;
   selectedItem: VestingContractModel;
+
+  isVestingNumberDropdownActive: boolean= false;
+  selectedVestingId : number = 0;
 
   private userData: any;
 
@@ -80,7 +84,8 @@ export class ReleaseBarComponent implements OnInit {
         await this.computeReleasableAmount();
         await this.checkUserVested();
         await this.getBnbBalance();
-        await this.getVestingDetails();;
+        await this.getVestingDetails();
+        this.vestingIds = await this.walletConnectService.getAllVestingScheduleIds(this.selectedItem);
       }
     });
 
@@ -98,7 +103,14 @@ export class ReleaseBarComponent implements OnInit {
   }
 
   toggleDropdown() {
+    this.isVestingNumberDropdownActive = false;
     this.isDropdownActive = !this.isDropdownActive;
+  }
+
+
+  toggleScheduleNumbersDropdown() {
+    this.isDropdownActive =false;
+    this.isVestingNumberDropdownActive = !this.isVestingNumberDropdownActive;
   }
 
   toggleReleaseView(): void {
@@ -112,6 +124,11 @@ export class ReleaseBarComponent implements OnInit {
     await this.computeReleasableAmount()
     await this.getVestingDetails()
     // console.log(await this.checkUserVested());
+  }
+
+  async selectVestingIdItem(id:number){
+    this.selectedVestingId= id;
+    this.toggleScheduleNumbersDropdown();
   }
 
   @HostListener('document:click', ['$event'])
@@ -138,6 +155,7 @@ export class ReleaseBarComponent implements OnInit {
     // 1T = 1 Trillion, 1B = 1 Billion, 1M = 1 Million , values smaller can be displayed as is
     this.releasableAmount = this.walletConnectService.shortTheNumber(this.releasableAmount);
     // console.log(this.walletConnectService.shortTheNumber(this.releasableAmount));
+    
   }
 
   async release() {
