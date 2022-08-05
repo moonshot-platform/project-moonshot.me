@@ -18,6 +18,7 @@ import moonstormAbi from './../../assets/abis/moonstorm.abi.json';
 import vultureAbi from './../../assets/abis/vulture-whitelist-abi.json';
 
 import Web3Modal from "web3modal";
+import { count } from 'console';
 
 export enum CLAIM_CASES {
   CONNECT_WALLET = 'Connect Wallet',
@@ -467,6 +468,32 @@ export class WalletService {
     return scheduleId;
   }
 
+  async getVestingScheduleIdByIndex(contract: VestingContractModel, index:number) {
+    let vestingContract = new ethers.Contract(contract.contractAddress, contract.abi, this.signer);
+    let scheduleId = await vestingContract.computeVestingScheduleIdForAddressAndIndex(this.account, index);
+
+    return scheduleId;
+  }
+
+  async getVestingSchedulesCount(contract:VestingContractModel){
+    let vestingContract = new ethers.Contract(contract.contractAddress, contract.abi, this.signer);
+    let count = await vestingContract.getVestingSchedulesCountByBeneficiary(this.account);
+
+    return parseInt(count);
+  }
+
+  async getAllVestingScheduleIds(contract:VestingContractModel){
+    let vestingIds=[];
+    const vestingCount = await this.getVestingSchedulesCount(contract);
+
+    for (let i = 0; i < vestingCount; i++) {
+      let id = await this.getVestingScheduleIdByIndex(contract,i);
+      vestingIds.push(id);
+    }
+
+    // console.log(vestingIds);
+    return vestingIds;
+  }
 
   async getVestingScheduleIdForHolder(beneficiary: string, contract: VestingContractModel) {
     let vestingContract = new ethers.Contract(contract.contractAddress, contract.abi, this.signer);
