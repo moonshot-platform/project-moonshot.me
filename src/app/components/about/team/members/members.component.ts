@@ -10,10 +10,10 @@ export class MembersComponent implements OnInit {
 
   members: any = [
     {
-      name: 'c0ntrol zer0',
+      name: 'zer0',
       image: 'assets/media/images/members/c0ntrolzer0.webp',
       title: 'Main Developer',
-      about: 'Software Engineer and guardian of the keys.'
+      about: 'Main dev and guardian of the keys.'
     },
     {
       name: 'luisqsm',
