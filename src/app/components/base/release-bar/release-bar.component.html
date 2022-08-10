@@ -33,12 +33,9 @@
         </div>
       </div>
       <div id="token-dropdown" class="dropdown_c dropdown_click">
-        <div class="selected" (click)="toggleScheduleNumbersDropdown()">
-          <span *ngIf="vestingIds.length !== 0">
+        <div *ngIf="vestingIds.length !== 0" class="selected" (click)="toggleScheduleNumbersDropdown()">
+          <span>
             Vesting Number: {{selectedVestingId+1}}
-          </span>
-          <span *ngIf="vestingIds.length === 0">
-            You do not have vesting!
           </span>
           <svg [ngClass]="{'dropup': isVestingNumberDropdownActive}" xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 12 7" version="1.1" x="0px" y="0px">
@@ -64,7 +61,7 @@
       <div class="release-container">
         <!-- <p>TOKEN VESTING</p> -->
 
-        <p *ngIf="!hasVested" style="text-align: center;">You are not a vested<br>user for this token!</p>
+        <p *ngIf="!hasVested" style="text-align: center;">You don't have a vesting<br>schedule with {{selectedItem.symbol}}</p>
         <p *ngIf="hasVested" class="releasable-amount flex">Start:
           <span style="margin-left: auto">{{startTime}}</span>
         </p>
