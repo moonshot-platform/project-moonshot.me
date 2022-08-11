@@ -38,7 +38,7 @@ export class AboutComponent {
       { property: 'og:image', itemprop: 'image', content: 'https://i.ibb.co/g9JHhdK/moonshot-logo.png' },
 
     ]);
-    this.setTitle('About Moonshot'); // i do not know it is necessary.
+    this.setTitle('About Moonshot');
   }
   public setTitle(newTitle: string) {
     this.title.setTitle(newTitle);
