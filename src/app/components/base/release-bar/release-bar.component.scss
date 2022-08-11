@@ -144,7 +144,6 @@ section.release-bar {
   display: flex !important;
 }
 
-
 .drop-content ul li span {
   display: flex;
   padding: 10px 15px;
@@ -221,18 +220,17 @@ li {
       border-bottom: 2px solid white;
     }
 
-    svg>g>path {
+    svg > g > path {
       fill: white;
     }
   }
 
   svg {
-
     width: 1.2em;
     margin-right: 0.8em;
   }
 
-  svg>g>path {
+  svg > g > path {
     fill: black;
   }
 
@@ -248,8 +246,40 @@ span,
   //color: black;
   font-weight: 600 !important;
   font-size: 16px !important;
-  font-family: 'Montserrat' !important;
+  font-family: "Montserrat" !important;
   letter-spacing: 0 !important;
+}
+
+.disabled {
+  color: black !important;
+  cursor: not-allowed;
+  background-color: gray !important;
+
+  &:hover {
+    background-color: gray !important;
+  }
+}
+
+.disabled-button {
+  @include paddingsInside(15px, 20px);
+  display: block;
+  border: 1px solid $primary;
+  height: fit-content;
+  min-width: 200px;
+  border-radius: 25px;
+  color: white;
+  font-family: $font-family-base;
+  font-weight: $bold;
+  background-color: gray;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: capitalize;
+  text-align: center;
+  cursor: not-allowed;
+
+  &.fit {
+    width: fit-content;
+  }
 }
 
 @media only screen and (max-width: $md) {

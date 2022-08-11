@@ -75,8 +75,8 @@
           <span style="margin-left: auto">{{releasableAmount}}
             {{selectedItem.symbol}}</span>
         </p>
-        <a *ngIf="hasVested" class="outlined-button"
-          (click)="isInReleasingProcess? null :  release()">{{isInReleasingProcess ? '' : 'Release'}}
+        <a *ngIf="hasVested" ngC [ngClass]="{'outlined-button': releasableAmount !== 0, 'disabled-button':releasableAmount === 0 }"
+          (click)="releasableAmount !== 0 ? (isInReleasingProcess? null :  release()) : null">{{isInReleasingProcess ? '' : 'Release'}}
           <img *ngIf="isInReleasingProcess" src="assets/media/videos/Loading_yellowBG.gif" class="loader-img">
         </a>
       </div>
