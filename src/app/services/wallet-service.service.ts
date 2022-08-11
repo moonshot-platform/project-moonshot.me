@@ -467,19 +467,45 @@ export class WalletService {
     return scheduleId;
   }
 
+  async getVestingScheduleIdByIndex(contract: VestingContractModel, index:number) {
+    let vestingContract = new ethers.Contract(contract.contractAddress, contract.abi, this.signer);
+    let scheduleId = await vestingContract.computeVestingScheduleIdForAddressAndIndex(this.account, index);
+
+    return scheduleId;
+  }
+
+  async getVestingSchedulesCount(contract:VestingContractModel){
+    let vestingContract = new ethers.Contract(contract.contractAddress, contract.abi, this.signer);
+    let count = await vestingContract.getVestingSchedulesCountByBeneficiary(this.account);
+
+    return parseInt(count);
+  }
+
+  async getAllVestingScheduleIds(contract:VestingContractModel){
+    let vestingIds=[];
+    const vestingCount = await this.getVestingSchedulesCount(contract);
+
+    for (let i = 0; i < vestingCount; i++) {
+      let id = await this.getVestingScheduleIdByIndex(contract,i);
+      vestingIds.push(id);
+    }
+
+    // console.log(vestingIds);
+    return vestingIds;
+  }
 
   async getVestingScheduleIdForHolder(beneficiary: string, contract: VestingContractModel) {
     let vestingContract = new ethers.Contract(contract.contractAddress, contract.abi, this.signer);
     return await vestingContract.computeVestingScheduleIdForAddressAndIndex(beneficiary, 0);
   }
 
-  async computeReleasableAmount(contract: VestingContractModel): Promise<number> {
-    // console.log("WHICH ITEM :" + contract.symbol);
-    if (this.account === "")
+  async computeReleasableAmount(contract: VestingContractModel,scheduleId:string ): Promise<number> {
+    // console.log("SCHEDULE ID in Computing :" + scheduleId);
+    if (this.account === "" || scheduleId === "" || scheduleId === undefined)
       return 0;
 
     try {
-      let scheduleId: string = await this.getVestingScheduleId(contract);
+      // let scheduleId: string = await this.getVestingScheduleId(contract);
       // console.log("scheduleId :" + scheduleId);
       let vestingContract = new ethers.Contract(contract.contractAddress, contract.abi, this.signer);
       let releasableAmount = await vestingContract.computeReleasableAmount(scheduleId);
@@ -523,9 +549,9 @@ export class WalletService {
     }
   }
 
-  async releaseVesting(contract: VestingContractModel) {
-    let scheduleId = await this.getVestingScheduleId(contract);
-    let vestableAmount = await this.computeReleasableAmount(contract);
+  async releaseVesting(contract: VestingContractModel,scheduleId:string) {
+    // let scheduleId = await this.getVestingScheduleId(contract);
+    let vestableAmount = await this.computeReleasableAmount(contract,scheduleId);
 
 
     let vestingContract = new ethers.Contract(contract.contractAddress, contract.abi, this.signer);
@@ -563,6 +589,31 @@ export class WalletService {
       console.log("Found the holder vesting schedule data succesfully :" + userVestingData);
 
       return userVestingData;
+    } catch (error) {
+      console.log(error.message);
+      this.toastrService.error(error.message);
+
+      return undefined;
+    }
+  }
+
+  async getVestingSchedulesDataForHolder(contract: VestingContractModel) {
+    
+    let listOfUserVestingData:any[] = [];
+
+    try {
+      let vestingContract = new ethers.Contract(contract.contractAddress, contract.abi, this.signer);
+
+      const vestingIds = await this.getAllVestingScheduleIds(contract);
+
+      for (let i = 0; i < vestingIds.length; i++) {
+        const userVestingData: any = await vestingContract.getVestingSchedule(vestingIds[i]);
+        listOfUserVestingData.push(userVestingData);
+      }
+
+      console.log("Found the holder vesting schedules data succesfully :" + listOfUserVestingData);
+
+      return listOfUserVestingData;
     } catch (error) {
       console.log(error.message);
       this.toastrService.error(error.message);

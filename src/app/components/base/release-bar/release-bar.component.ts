@@ -13,14 +13,19 @@ import { WalletConnectComponent } from '../wallet-connect/wallet-connect.compone
 })
 export class ReleaseBarComponent implements OnInit {
   items: any[] = [];
+  vestingIds: any[] = [];
 
   isDropdownActive: boolean = false;
   selectedItem: VestingContractModel;
 
+  isVestingNumberDropdownActive: boolean= false;
+  selectedVestingId : number = 0;
+
   private userData: any;
+  private listOfUserVestingData: any[];
 
   bnbCountFromInput: number = 1;
-  releasableAmount: any = 0;
+  public releasableAmount: number = 0;
 
   isConnected: boolean = false;
   isInProcess: boolean = false;
@@ -34,8 +39,8 @@ export class ReleaseBarComponent implements OnInit {
   estimatedGasFee = 0.0031;
 
   //Vesting details
-  startTime: string = '';
-  endTime: string = ''
+  startTime: string = '-';
+  endTime: string = '-'
   amount: number = 0;
 
   address: string = '';
@@ -80,7 +85,8 @@ export class ReleaseBarComponent implements OnInit {
         await this.computeReleasableAmount();
         await this.checkUserVested();
         await this.getBnbBalance();
-        await this.getVestingDetails();;
+        await this.getVestingDetails();
+        this.vestingIds = await this.walletConnectService.getAllVestingScheduleIds(this.selectedItem);
       }
     });
 
@@ -98,7 +104,14 @@ export class ReleaseBarComponent implements OnInit {
   }
 
   toggleDropdown() {
+    this.isVestingNumberDropdownActive = false;
     this.isDropdownActive = !this.isDropdownActive;
+  }
+
+
+  toggleScheduleNumbersDropdown() {
+    this.isDropdownActive =false;
+    this.isVestingNumberDropdownActive = !this.isVestingNumberDropdownActive;
   }
 
   toggleReleaseView(): void {
@@ -111,7 +124,16 @@ export class ReleaseBarComponent implements OnInit {
     await this.checkUserVested();
     await this.computeReleasableAmount()
     await this.getVestingDetails()
-    // console.log(await this.checkUserVested());
+    this.vestingIds = await this.walletConnectService.getAllVestingScheduleIds(this.selectedItem);
+    // console.log( this.vestingIds);
+  }
+
+  async selectVestingIdItem(id:number){
+    this.selectedVestingId= id;
+    this.toggleScheduleNumbersDropdown();
+    await this.checkUserVested();
+    await this.computeReleasableAmount();
+    await this.getVestingDetails()
   }
 
   @HostListener('document:click', ['$event'])
@@ -132,27 +154,37 @@ export class ReleaseBarComponent implements OnInit {
 
   async computeReleasableAmount() {
     if (!this.hasVested)
-      return
+      return 0;
 
-    this.releasableAmount = await this.walletConnectService.computeReleasableAmount(this.selectedItem);
+    this.releasableAmount = (await this.walletConnectService.computeReleasableAmount(this.selectedItem,this.vestingIds[this.selectedVestingId]));    
     // 1T = 1 Trillion, 1B = 1 Billion, 1M = 1 Million , values smaller can be displayed as is
-    this.releasableAmount = this.walletConnectService.shortTheNumber(this.releasableAmount);
-    // console.log(this.walletConnectService.shortTheNumber(this.releasableAmount));
+    this.releasableAmount = this.walletConnectService.shortTheNumber(Number(this.releasableAmount));
+    console.log(this.releasableAmount);
+    return this.releasableAmount;
   }
 
   async release() {
     if (this.isConnected) {
       await this.checkBNBBalance();
 
+      if(this.releasableAmount === 0)
+        return;
+
       this.isInReleasingProcess = true;
       if (this.hasEnoughBnb) {
-        await this.walletConnectService.releaseVesting(this.selectedItem);
+        await this.walletConnectService.releaseVesting(this.selectedItem,this.vestingIds[this.selectedVestingId]);
         this.hasEnoughBnb = false
+
+        setTimeout(()=>{
+          this.computeReleasableAmount();
+        }, 3000);
+      // console.log("RELEASABLE");
+      // console.log(this.releasableAmount);
+      
       } else {
         this.toastrService.error("You do not have enough bnb to pay the gas fee!")
       }
       this.isInReleasingProcess = false;
-      await this.computeReleasableAmount();
     } else {
       this.openWalletConnectionDialog();
     }
@@ -187,15 +219,21 @@ export class ReleaseBarComponent implements OnInit {
     if (!this.hasVested)
       return
 
-    let userVestingData = await this.walletConnectService.searchLastVestingScheduleForHolder(
-      this.walletConnectService.account, this.selectedItem,
-    );
+    // let userVestingData = await this.walletConnectService.searchLastVestingScheduleForHolder(
+    //   this.walletConnectService.account, this.selectedItem,
+    // );
+
+    this.listOfUserVestingData = await this.walletConnectService.getVestingSchedulesDataForHolder(this.selectedItem)
+
     // console.log(this.userVestingData);
+
+    let userVestingData = this.listOfUserVestingData[this.selectedVestingId];
 
     if (userVestingData !== undefined) {
       let startDate = new Date(userVestingData.start.toNumber() * 1000);
       let endDate = new Date((userVestingData.start.toNumber() + userVestingData.duration.toNumber()) * 1000)
-
+      // console.log(userVestingData);
+      
       this.startTime = startDate.toLocaleString('en-us', { month: 'short', year: 'numeric', day: 'numeric' });
       this.amount = this.walletConnectService.shortTheNumber(userVestingData.amountTotal);
       this.endTime = endDate.toLocaleString('en-us', { month: 'short', year: 'numeric', day: 'numeric' });
