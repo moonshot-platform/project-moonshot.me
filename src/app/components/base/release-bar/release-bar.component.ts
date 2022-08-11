@@ -25,7 +25,7 @@ export class ReleaseBarComponent implements OnInit {
   private listOfUserVestingData: any[];
 
   bnbCountFromInput: number = 1;
-  releasableAmount: any = 0;
+  public releasableAmount: number = 0;
 
   isConnected: boolean = false;
   isInProcess: boolean = false;
@@ -131,8 +131,9 @@ export class ReleaseBarComponent implements OnInit {
   async selectVestingIdItem(id:number){
     this.selectedVestingId= id;
     this.toggleScheduleNumbersDropdown();
-    await this.getVestingDetails()
+    await this.checkUserVested();
     await this.computeReleasableAmount();
+    await this.getVestingDetails()
   }
 
   @HostListener('document:click', ['$event'])
@@ -153,18 +154,21 @@ export class ReleaseBarComponent implements OnInit {
 
   async computeReleasableAmount() {
     if (!this.hasVested)
-      return
+      return 0;
 
-    this.releasableAmount = await this.walletConnectService.computeReleasableAmount(this.selectedItem,this.vestingIds[this.selectedVestingId]);    
+    this.releasableAmount = (await this.walletConnectService.computeReleasableAmount(this.selectedItem,this.vestingIds[this.selectedVestingId]));    
     // 1T = 1 Trillion, 1B = 1 Billion, 1M = 1 Million , values smaller can be displayed as is
-    this.releasableAmount = this.walletConnectService.shortTheNumber(this.releasableAmount);
-    // console.log(this.walletConnectService.shortTheNumber(this.releasableAmount));
+    this.releasableAmount = this.walletConnectService.shortTheNumber(Number(this.releasableAmount));
+    console.log(this.releasableAmount);
     return this.releasableAmount;
   }
 
   async release() {
     if (this.isConnected) {
       await this.checkBNBBalance();
+
+      if(this.releasableAmount === 0)
+        return;
 
       this.isInReleasingProcess = true;
       if (this.hasEnoughBnb) {
