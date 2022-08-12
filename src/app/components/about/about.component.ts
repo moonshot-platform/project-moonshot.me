@@ -27,14 +27,14 @@ export class AboutComponent {
       //{name: 'keywords', content: 'Moonshot, About Moonshot, Vision and Mission, Moonshot Mechanics, Security, What\'s Next'},
 
       { name: 'twitter:card', content: 'summary' },
-      { name: 'twitter:description', content: 'Moonshot is a deflationary, frictionless yield and liquidity generation protocol.' },
+      { name: 'twitter:description', content: 'Moonshot is a NFT Gaming project in the DeFi space.' },
       { name: 'twitter:title', content: 'MoonTV' },
       { name: 'twitter:image', content: 'https://i.ibb.co/g9JHhdK/moonshot-logo.png' },
       { name: 'twitter:site', content: '@RS25Moonshot' },
 
       { property: 'og:title', content: 'Project Moonshot' },
       { property: 'og:site_name', content: 'Moonshot' },
-      { property: 'og:description', content: 'Moonshot is a deflationary, frictionless yield and liquidity generation protocol.' },
+      { property: 'og:description', content: 'Moonshot is a NFT Gaming project in the DeFi space.' },
       { property: 'og:image', itemprop: 'image', content: 'https://i.ibb.co/g9JHhdK/moonshot-logo.png' },
 
     ]);

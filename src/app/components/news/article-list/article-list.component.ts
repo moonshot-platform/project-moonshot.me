@@ -121,7 +121,7 @@ export class ArticleListComponent implements OnInit {
     },
     {
       "title": "Development and progress updates from the Moonshot BSC token project",
-      "teaser": "Welcome to Moonshot Mission Updates by me, Moonshot BSC Token Project. Deflationary, frictionless yield and liquidity generation protocol! #MSHOT imminent",
+      "teaser": "Welcome to Moonshot Mission Updates by me, Moonshot BSC Token Project.",
       "link": "https://moonshotproject.substack.com/p/coming-soon",
       "date": "JUL 9, 2021",
       "img": "https://cdn.substack.com/image/youtube/w_728,c_limit/BlbJQa0wUhM",
