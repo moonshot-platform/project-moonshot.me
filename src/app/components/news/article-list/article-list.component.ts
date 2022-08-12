@@ -27,7 +27,7 @@ export class ArticleListComponent implements OnInit {
       "from": "SUBSTACK"
     },
     {
-      "title": "MoonSea a Decentralized NFT Marketplace With Revenue Sharing Among Top MOONSHOT Holders",
+      "title": "MoonSea a Decentralized NFT Marketplace",
       "teaser": 'Just like the crypto you are familiar with, the value of an NFT can also be determined by offering them on the open market. On a so-called NFT marketplace, collectors can place bids or purchase NFT',
       "link": "https://moonshotproject.substack.com/p/moonsea-a-decentralized-nft-marketplace",
       "date": "OCT 26, 2021",
@@ -40,30 +40,6 @@ export class ArticleListComponent implements OnInit {
       "link": "https://moonshotproject.substack.com/p/moonboxesio-is-live",
       "date": "SEP 30, 2021",
       "img": "https://cdn.substack.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F4cf34793-5fc9-4e05-921a-7c9e0f839c08_1200x675.jpeg",
-      "from": "SUBSTACK"
-    },
-    {
-      "title": "Moonshot Integrates With Cryptocurrency Checkout Enabling Twitch, WordPress, Shopify and More for Payments and Donations",
-      "teaser": 'Moonshot is integrating with Cryptocurrency Checkout service. Everyone can accept payments and donations in Moonshot tokens on websites and social media for free! This integration brings more utili',
-      "link": "https://moonshotproject.substack.com/p/moonshot-integrates-with-cryptocurrency",
-      "date": "SEP 28, 2021",
-      "img": "https://cdn.substack.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F75fdc738-0530-4453-8b95-bfee32c5e4a7_1200x675.png",
-      "from": "SUBSTACK"
-    },
-    {
-      "title": "Join the Moonboxes NFT Influencer Team",
-      "teaser": 'Come join the team!\nMoonboxes.io will be the center of NFTs launched on the Binance Smart Chain. The MoonBox platform will be a one-stop-DApp for NFT enthusiasts on which they can explore upcoming',
-      "link": "https://moonshotproject.substack.com/p/join-the-moonshot-nft-influencer",
-      "date": "SEP 22, 2021",
-      "img": "https://cdn.substack.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fdabaad86-eb50-4e5c-932b-c40240143b75_1200x675.jpeg",
-      "from": "SUBSTACK"
-    },
-    {
-      "title": "Moonshot Beta Launch",
-      "teaser": 'Welcome to the MoonBase Beta testing period this week. Before we launch the official product we want you, our valued community, to test drive buying and opening MoonBoxes that will reveal the NFTs',
-      "link": "https://moonshotproject.substack.com/p/moonshot-beta-launch",
-      "date": "SEP 21, 2021",
-      "img": "https://cdn.substack.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F3c3f5c9c-2ef2-4648-b28e-d7fee50f0306_1200x675.jpeg",
       "from": "SUBSTACK"
     },
     {
@@ -117,38 +93,6 @@ export class ArticleListComponent implements OnInit {
       "link": "https://moonshotproject.substack.com/p/moonshot-introduces-an-nft-launchpad",
       "date": "AUG 24, 2021",
       "img": "https://cdn.substack.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F7b806f1b-95b8-4c9a-9c6e-d94ddd3b89da_1200x675.jpeg",
-      "from": "SUBSTACK"
-    },
-    {
-      "title": "Guide for Providing Liquidity (farming) Moonshot on Shibance",
-      "teaser": "We’ve put together this little guide to help everyone who wants to farm Moonshot on the Shibance platform since we are now partnered with them.Our community manager Chocoboknight1 took a day to sit",
-      "link": "https://moonshotproject.substack.com/p/guide-for-farming-moonshot-woof",
-      "date": "AUG 4, 2021",
-      "img": "https://cdn.substack.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F0e89cb5c-f96a-4712-adc7-366c3085bbef_1200x627.png",
-      "from": "SUBSTACK"
-    },
-    {
-      "title": "Masteroids Arcade Style Game by Moonshot",
-      "teaser": "Still in development: In this take on the classic “Asteroids” arcade game, you must shoot apart oncoming enemies and obstacles while avoiding collisions as the game gets faster and more difficult.",
-      "link": "https://moonshotproject.substack.com/p/masteroids-arcade-style-game-by-moonshot",
-      "date": "JUL 30, 2021",
-      "img": "https://cdn.substack.com/image/youtube/w_728,c_limit/BlbJQa0wUhM",
-      "from": "SUBSTACK"
-    },
-    {
-      "title": "Moonshot Collaboration with Shibance",
-      "teaser": "Did you know we have a collaboration with Shibance?\nEarn yourself some $WOOF 🚀\nStart farming🧑‍🌾now on Shibance.com\nLP pair: MOONSHOT - WOOF",
-      "link": "https://moonshotproject.substack.com/p/moonshot-collaboration-with-shibance",
-      "date": "JUL 29, 2021",
-      "img": "https://cdn.substack.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Faf7e22d4-642f-44e9-9192-7a5618740ef1_1200x627.png",
-      "from": "SUBSTACK"
-    },
-    {
-      "title": "Moonshot Update and AMA Recap",
-      "teaser": "Hello Moonshooters, some recent updates worth noting while we are on the journey to the moon.Starting this week, we will consolidate all our telegram groups into the main Moonshot channel.",
-      "link": "https://moonshotproject.substack.com/p/moonshot-update-and-ama-recap",
-      "date": "JUL 28, 2021",
-      "img": "https://cdn.substack.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fca7dd203-cbe0-4b04-b38b-799c05807bb9_680x355.png",
       "from": "SUBSTACK"
     },
     {

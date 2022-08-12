@@ -18,7 +18,7 @@ export class AboutComponent implements OnInit {
       fillColor: "#D5A642",
       focusColor: "#FFFFFF",
       hovered: false,
-      text: "4% of tx goes to holders"
+      text: "Utility"
     },
     {
       viewBox: '0 0 105 105',
@@ -31,7 +31,7 @@ export class AboutComponent implements OnInit {
       fillColor: "#D5A642",
       focusColor: "#FFFFFF",
       hovered: false,
-      text: "Deflationary protocol"
+      text: "Holder perks"
     },
     {
       viewBox: '0 0 105 105',
@@ -42,7 +42,7 @@ export class AboutComponent implements OnInit {
       fillColor: "#D5A642",
       focusColor: "#FFFFFF",
       hovered: false,
-      text: "Auto-adding liquidity for lower price volatility"
+      text: "Each TX adds to the liquidity pool"
     },
     {
       viewBox: '0 0 99 69',
