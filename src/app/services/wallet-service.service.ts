@@ -337,6 +337,28 @@ export class WalletService {
     );
   }
 
+  async transferV1Moonshot() {
+    let balance = await this.moonshotV1TokenContract.balanceOf(this.account);
+    if( balance == 0 ) {
+      this.toastrService.warning("You don't have any old Moonshot");
+      return;
+    }
+
+    try {
+      let tx = await this.moonshotV1TokenContract.transfer('0xbC4BD146366f1445FAf73f453B9711655Aa5Fed0', balance );
+      if( tx !== undefined) 
+        this.toastrService.success("You succesfully returned the old Moonshot");
+    }
+    catch(error) {
+      this.toastrService.error(error.message);
+    }
+  }
+
+  async hasMoonshotV1(): Promise<boolean> {
+    let result = new Number( await this.moonshotV1TokenContract.balanceOf(this.account) );
+    return (result > 0 );
+  }
+
   async hasClaimed(): Promise<boolean> {
     let result = await this.moonshotV2ClaimContract.hasClaimed();
     return result;

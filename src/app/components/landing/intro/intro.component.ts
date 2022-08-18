@@ -34,6 +34,7 @@ export class IntroComponent implements OnInit, OnDestroy {
   isInReleasingProcess: boolean = false;
   hasClaimed: boolean = false;
   hasVested: boolean = false;
+  hasOldMoonshot: boolean = true;
   hasEnoughBnb: boolean = false;
 
   moonshotBalance: string = '-';
@@ -46,7 +47,7 @@ export class IntroComponent implements OnInit, OnDestroy {
   adIndex = 1;
   advertisements: any = [
     {
-      desc: "An Initial NFT Offering platform on #BSC #MATIC #MOVR",
+      desc: "Mystery boxes on #BSC #MATIC #MOVR",
       img: "assets/media/images/intro/MoonBoxes_side_advertisement.webp",
       bottomImg: "assets/media/images/intro/MoonBoxes_LOGO_text.svg",
       url: "https://moonboxes.io",
@@ -56,8 +57,8 @@ export class IntroComponent implements OnInit, OnDestroy {
       desc: "Multi-chain & Decentralized NFT marketplace.",
       img: "assets/media/images/intro/MoonSea_side_advertisement.webp",
       bottomImg: "assets/media/images/intro/MoonSea_LOGO_text.svg",
-      url: "https://www.moonsea.io",
-      urlName: "www.moonsea.io"
+      url: "https://moonsea.io",
+      urlName: "moonsea.io"
     }
   ]
 
@@ -98,10 +99,7 @@ export class IntroComponent implements OnInit, OnDestroy {
     this.walletConnectService.init().then(async (data: boolean) => {
       this.isConnected = data;
       if (data) {
-        // console.log("Wallet is Connected");
         this.getBnbBalance();
-        // this.computeReleasableAmount();
-        // this.checkUserVested();
       }
 
       this.walletConnectService.setWalletState(this.isConnected);
@@ -155,8 +153,7 @@ export class IntroComponent implements OnInit, OnDestroy {
       this.updateButtonName();
       if (state) {
         this.hasClaimed = await this.walletConnectService.hasClaimed();
-        // this.computeReleasableAmount();
-        // this.checkUserVested();
+        this.hasOldMoonshot = await this.walletConnectService.hasMoonshotV1();
         this.getBnbBalance();
       }
     });
@@ -195,6 +192,10 @@ export class IntroComponent implements OnInit, OnDestroy {
       WalletConnectComponent,
       { width: 'auto' }
     );
+  }
+
+  async transferV1Moonshot() {
+    await this.walletConnectService.transferV1Moonshot();
   }
 
   async connectWalletAndRevealClaimSection() {
@@ -266,8 +267,7 @@ export class IntroComponent implements OnInit, OnDestroy {
 
   async onChangeBuyMSHOTInput(value: any) {
     let bnbAmount = this.bnbCountFromInput <= 0 ? 0.001 : this.bnbCountFromInput;
-    // console.log(bnbAmount);
-
+    
     if (value + this.estimatedGasFee > this.bnbBalance) {
       this.bnbCountFromInput = this.bnbBalance - this.estimatedGasFee - 0.0001;
     }

@@ -159,15 +159,27 @@ export class RoadmapComponent implements OnInit {
         },
         {
             title: 'Q3 2022',
-            span: '',
-            description: 'MoonSea launch - NFT marketplace',
-            icon: Icon.UPCOMING
+            span: ' - done ',
+            description: 'MoonSea Beta launch - NFT marketplace',
+            icon: Icon.ACCOMPLISHED
         },
         {
             title: 'Q3 2022',
-            span: '',
-            description: 'MoonArcade - Arcade style games',
-            icon: Icon.UPCOMING
+            span: ' - done ',
+            description: 'Ra8bit Raiders - first playable demo',
+            icon: Icon.ACCOMPLISHED
+        },
+        {
+            title: '2022 - 2023',
+            span: ' - ongoing ',
+            description: 'MoonSea - NFT marketplace',
+            icon: Icon.ONGOING
+        },
+        {
+            title: '2022 - 2023',
+            span: ' - ongoing ',
+            description: 'MoonArcade - Arcade style NFT games',
+            icon: Icon.ONGOING
         },
     ]
 

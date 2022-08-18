@@ -73,7 +73,7 @@ export class ArticleListComponent implements OnInit {
     },
     {
       "title": "Moonboxes Tiered INO Structure",
-      "teaser": "MoonBase by Moonshot is the first decentralized INO (Initial NFT Offering) platform on Binance Smart Chain. MoonBase will empower NFT collectors and allow NFT creators to use a loot box mechanism",
+      "teaser": "MoonBoxes - a MysteryBox program",
       "link": "https://moonshotproject.substack.com/p/moonshot-tiered-ino-structure",
       "date": "AUG 27, 2021",
       "img": "https://cdn.substack.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fe866b91d-7cc3-4427-b514-d34a0d0d76e5_1200x675.jpeg",
@@ -88,7 +88,7 @@ export class ArticleListComponent implements OnInit {
       "from": "INFLUENCIVE"
     },
     {
-      "title": "Moonshot Introduces an NFT Launchpad for Initial NFT Offerings",
+      "title": "Moonshot Introduces an NFT MysterBox program",
       "teaser": "In summary, a platform that raises funds for NFT projects/artists by allowing you to buy NFTs before they're publicly released. By doing this, The Moonshot Project is the first to introduce INO's",
       "link": "https://moonshotproject.substack.com/p/moonshot-introduces-an-nft-launchpad",
       "date": "AUG 24, 2021",

@@ -28,7 +28,7 @@ export class MembersComponent implements OnInit {
         }
       ]
     },
-    {
+ /*   {
       name: 'Smack',
       image: 'assets/media/images/members/smack.webp',
       title: 'Positivity Guru',
@@ -45,7 +45,7 @@ export class MembersComponent implements OnInit {
           alt: 'telegram-icon'
         }
       ]
-    },
+    }, */
     {
       name: 'Winnie',
       image: 'assets/media/images/members/winnie.webp',
@@ -65,19 +65,19 @@ export class MembersComponent implements OnInit {
         },
       ]
     },
-    {
+/*    {
       name: 'CryptoKam',
       image: 'assets/media/images/members/cryptokam.webp',
       title: 'Moderator/Contributor',
       about: 'Marketing advisor.<br>Creative ideas support.<br>Shill trooper.<br>'
-    },
+    }, 
     {
       name: 'Sonic',
       image: 'assets/media/images/members/sonic.webp',
       title: 'Solidity Developer',
       about: 'Experienced backend engineer turned solidity developer. Enthusiast of blockchain and smart contract.'
 
-    },
+    }, */
     {
       name: 'Borris Stain',
       image: 'assets/media/images/members/borris.webp',

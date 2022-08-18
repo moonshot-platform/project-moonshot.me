@@ -150,8 +150,14 @@
             You have successfully claimed your
             MSHOT (V2).<br> To
             view your
-            MSHOT, add our <span [cdkCopyToClipboard]=address>token address</span> to your wallet or press
-            <span (click)="addMshotToMetaMaskWallet()">here</span> for your Metamask.
+            MSHOT, add our <span [cdkCopyToClipboard]=address>token address</span> to your wallet or click
+            <span (click)="addMshotToMetaMaskWallet()">here</span> to add the token to your Metamask.
+          </p>
+
+          <p *ngIf="isConnected && hasOldMoonshot" class="claimed-text">
+            &nbsp;<br/>
+            Moonshooters still holding the old Moonshot tokens are requested to return them.
+            This will allow us to (partly) free the locked liquidity on V1 and strengthen the project.
           </p>
 
           <p *ngIf="isConnected && !hasClaimed && moonshotBalance == '0'">
@@ -166,9 +172,15 @@
         </div>
       </div>
       <div class="buttons-section">
-        <a href="https://moonshotproject.substack.com/p/new-shuttle-moonshot-token-migration?s=r" target="__blank"
+        
+        <a *ngIf="!hasClaimed" href="https://moonshotproject.substack.com/p/new-shuttle-moonshot-token-migration?s=r" target="__blank"
           class="outlined-button">Read
           More</a>
+
+        <a *ngIf="isConnected && hasClaimed" class="outlined-button button" (click)="transferV1Moonshot()">
+            Return
+        </a>
+  
         <a class="button" *ngIf="!isConnected" (click)="connectWalletAndRevealClaimSection()">
           Connect Wallet
         </a>
