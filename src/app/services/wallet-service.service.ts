@@ -647,11 +647,11 @@ export class WalletService {
   async revokeTheHolder(beneficiary: string, contract: VestingContractModel) {
     try {
       let scheduleId = await this.getVestingScheduleIdForHolder(beneficiary, contract);
+      console.log("Schedule Id to revoke ", scheduleId);
+      //let vestingContract = new ethers.Contract(contract.contractAddress, contract.abi, this.signer);
 
-      let vestingContract = new ethers.Contract(contract.contractAddress, contract.abi, this.signer);
-
-      await vestingContract.revoke(scheduleId)
-      this.toastrService.success("Vesting schedule revoked");
+      await this.moonshotV2VestingContract.revoke(scheduleId);
+      this.toastrService.success("Vesting "+ scheduleId + " is revoked");
 
     } catch (error) {
       console.log(error.message);

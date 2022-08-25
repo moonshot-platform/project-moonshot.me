@@ -132,7 +132,6 @@ export class VestingComponent implements OnInit {
 
   async revokeTheSchedule() {
     if (this.isConnected && this.isOwner) {
-      this.toastrService.info("Revoking...");
       await this.walletConnectService.revokeTheHolder(this.beneficiary, this.selectedItem);
     } else {
       this.toastrService.error("You are not an owner or connected!");
