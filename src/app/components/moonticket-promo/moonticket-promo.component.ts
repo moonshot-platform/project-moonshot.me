@@ -20,12 +20,12 @@ const MONTHS = {
 }
 
 @Component({
-  selector: 'app-moonticket-promo',
+  selector: 'app-moonticket-shepherdinu',
   templateUrl: './moonticket-promo.component.html',
   styleUrls: ['./moonticket-promo.component.scss']
 })
 export class MoonticketPromoComponent implements OnInit {
-  static readonly routeName: string = 'moonticket-promo';
+  static readonly routeName: string = 'moonticket-shepherdinu';
 
   @ViewChild('ticketCanvas')
   ticketCanvas: ElementRef<HTMLCanvasElement>;
@@ -50,7 +50,7 @@ export class MoonticketPromoComponent implements OnInit {
 
   ngOnInit(): void {
     this.downloadFormGroup = this.formBuilder.group({
-      name: ['MOONSHOOTER', [Validators.required]]
+      name: ['MOONSHADOW', [Validators.required]]
     })
     this.onChanges();
   }
@@ -152,7 +152,7 @@ export class MoonticketPromoComponent implements OnInit {
         link.click();
       }
     };
-    img.src = 'assets/media/images/community/moon-ticket-sharpei.webp';
+    img.src = 'assets/media/images/community/moon-ticket-shepherdinu.webp';
   }
 
   downloadTicket(): void {
