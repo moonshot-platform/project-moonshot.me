@@ -129,10 +129,10 @@ export class MoonticketPromoComponent implements OnInit {
       let hour = this.pad((d.getHours() + 1) % 23, 2);
 
       // left
-      this.drawDate(today, 16, "#000000", 93, 247);
-      this.drawDate(this.formatAMPM(hour), 16, "#000000", 93, 273);
+      this.drawDate(today, 16, "#ffffff", 93, 247);
+      this.drawDate(this.formatAMPM(hour), 16, "#ffffff", 93, 273);
 
-      this.drawDate("ARRIVAL SOON", 16, "#000000", 419, 247);
+      this.drawDate("ARRIVAL SOON", 16, "#ffffff", 419, 247);
       // left end
 
 

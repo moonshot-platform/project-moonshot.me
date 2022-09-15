@@ -37,7 +37,7 @@ export class NewsComponent implements OnInit {
       focusColor: "#37AEE2",
       viewBox:"0 0 70 70",
       hover: false,
-      url: 'https://t.me/MoonShotChat'
+      url: 'https://t.me/MoonshotProject'
     },
     {
       name: 'Discord',
