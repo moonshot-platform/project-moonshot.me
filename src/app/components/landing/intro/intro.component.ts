@@ -47,7 +47,7 @@ export class IntroComponent implements OnInit, OnDestroy {
   adIndex = 1;
   advertisements: any = [
     {
-      desc: "Mystery boxes on #BSC #MATIC #MOVR",
+      desc: "Mystery boxes on #BSC #MATIC #MOVR #ETH #DOGECHAIN",
       img: "assets/media/images/intro/MoonBoxes_side_advertisement.webp",
       bottomImg: "assets/media/images/intro/MoonBoxes_LOGO_text.svg",
       url: "https://moonboxes.io",
