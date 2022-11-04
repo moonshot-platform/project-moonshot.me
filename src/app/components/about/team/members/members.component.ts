@@ -140,13 +140,6 @@ export class MembersComponent implements OnInit {
       ]
     },
     {
-      name: 'Chocoboknight1',
-      image: 'assets/media/images/members/chocoboknight1.webp',
-      title: 'Community Manager',
-      about: 'With 10 years of team leading experience, working to grow the project\'s presence on Reddit and other media platforms.',
-
-    },
-    {
       name: 'Meenu',
       image: 'assets/media/images/members/shef.webp',
       title: 'Moderator/Contributor',
