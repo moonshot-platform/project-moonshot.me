@@ -119,7 +119,12 @@ export class MembersComponent implements OnInit {
       title: 'Marketing Manager',
       about: 'Owner of the best call channel out there! @CaesarsGambles'
     },
-
+    {
+      name: 'Joshua', 
+      image: 'assets/media/images/members/joshua.webp',
+      title: 'Marketing Manager',
+      about: 'Owner of the best call channel out there! @CaesarsGambles'
+    },
     {
       name: 'CryptoSeas',
       image: 'assets/media/images/members/cryptoseas.webp',
