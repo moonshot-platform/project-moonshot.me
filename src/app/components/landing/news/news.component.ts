@@ -48,7 +48,7 @@ export class NewsComponent implements OnInit {
       focusColor: "#7289DA",
       viewBox:"0 0 70 70",
       hover: false,
-      url: 'https://discord.com/invite/QrXVQRKzrh'
+      url: 'https://discord.gg/VPVZmV6eg2'
     },
     {
       name: 'Reddit',

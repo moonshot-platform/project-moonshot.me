@@ -50,7 +50,7 @@ export class FooterComponent implements OnInit {
         ["M41.5,29.4c-2,0-3.6,1.7-3.6,3.9s1.6,3.9,3.6,3.9c2,0,3.6-1.7,3.6-3.9S43.5,29.4,41.5,29.4z M28.6,29.4c-2,0-3.6,1.7-3.6,3.9s1.6,3.9,3.6,3.9c2,0,3.6-1.7,3.6-3.9C32.2,31.1,30.6,29.4,28.6,29.4z", 1]
       ],
       viewBox: "0 0 70 70",
-      link: 'https://discord.com/invite/QrXVQRKzrh',
+      link: 'https://discord.gg/VPVZmV6eg2',
     },
     {
       alt: 'Reddit',
