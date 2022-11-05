@@ -114,12 +114,6 @@ export class MembersComponent implements OnInit {
       about: 'Responsible for the server side code and APIs of our web applications'
     },
     {
-      name: 'Micheal', 
-      image: 'assets/media/images/members/micheal.webp',
-      title: 'Marketing Manager',
-      about: 'Owner of the best call channel out there! @CaesarsGambles'
-    },
-    {
       name: 'Joshua', 
       image: 'assets/media/images/members/joshua.webp',
       title: 'Marketing Manager',
