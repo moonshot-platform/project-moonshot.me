@@ -5,20 +5,11 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class SidebarService {
-  private miningBarToggle = new Subject<any>();
   private moonseaBarToggle = new Subject<any>();
   private releaseBarToggle = new Subject<any>();
   private moonboxesBarToggle = new Subject<any>();
 
   constructor() { }
-
-  onMiningBarToggle(state?: boolean) {
-    this.miningBarToggle.next(state);
-  }
-
-  whenMiningBarToggled(): Observable<any> {
-    return this.miningBarToggle.asObservable();
-  }
 
   onMoonseaBarToggle(state?: boolean) {
     this.moonseaBarToggle.next(state);

@@ -8,7 +8,6 @@ import { TokenomicsComponent } from '../tokenomics/tokenomics.component';
 import { UiSwitchModule } from 'ngx-ui-switch';
 import { MoonbaseBarComponent } from '../moonbase-bar/moonbase-bar.component';
 import { ReleaseBarComponent } from '../release-bar/release-bar.component';
-import { MiningBarComponent } from '../mining-bar/mining-bar.component';
 import { MoonseaBarComponent } from '../moonsea-bar/moonsea-bar.component';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 
@@ -18,7 +17,6 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
     TokenomicsComponent,
     MoonbaseBarComponent,
     ReleaseBarComponent,
-    MiningBarComponent,
     MoonseaBarComponent,
   ],
   imports: [

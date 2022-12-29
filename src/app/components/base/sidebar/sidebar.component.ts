@@ -16,7 +16,6 @@ export class SidebarComponent implements OnInit {
   active = false;
   moonbaseActive = true;
   releaseBarActive = false;
-  miningBarActive = false;
   moonseaBarActive = false;
 
   isConnected: boolean = false;
@@ -47,10 +46,6 @@ export class SidebarComponent implements OnInit {
       this.toggleReleaseView(state);
     });
 
-    this.sidebarService.whenMiningBarToggled().subscribe((state: boolean) => {
-      this.toggleMiningView(state);
-    });
-
     this.sidebarService.whenMoonseaBarToggled().subscribe((state: boolean) => {
       this.toggleMoonseaView(state);
     });
@@ -69,10 +64,9 @@ export class SidebarComponent implements OnInit {
   toggleTokenomicsView(active: boolean = null) {
     this.active = active || !this.active;
 
-    if (this.active && (this.moonbaseActive || this.releaseBarActive || this.miningBarActive || this.moonseaBarActive)) {
+    if (this.active && (this.moonbaseActive || this.releaseBarActive || this.moonseaBarActive)) {
       this.moonbaseActive = false;
       this.releaseBarActive = false;
-      this.miningBarActive = false;
       this.moonseaBarActive = false;
     }
   }
@@ -80,10 +74,9 @@ export class SidebarComponent implements OnInit {
   toggleMoonbaseView(moonbaseActive: boolean = null) {
     this.moonbaseActive = moonbaseActive || !this.moonbaseActive;
 
-    if (this.moonbaseActive && (this.active || this.releaseBarActive || this.miningBarActive || this.moonseaBarActive)) {
+    if (this.moonbaseActive && (this.active || this.releaseBarActive ||  this.moonseaBarActive)) {
       this.active = false;
       this.releaseBarActive = false;
-      this.miningBarActive = false;
       this.moonseaBarActive = false;
     }
   }
@@ -91,10 +84,9 @@ export class SidebarComponent implements OnInit {
   toggleReleaseView(releaseActive: boolean = null) {
     this.releaseBarActive = releaseActive || !this.releaseBarActive;
 
-    if (this.releaseBarActive && (this.active || this.moonbaseActive || this.miningBarActive || this.moonseaBarActive)) {
+    if (this.releaseBarActive && (this.active || this.moonbaseActive ||  this.moonseaBarActive)) {
       this.active = false;
       this.moonbaseActive = false
-      this.miningBarActive = false;
       this.moonseaBarActive = false;
     }
   }
@@ -102,31 +94,19 @@ export class SidebarComponent implements OnInit {
   toggleMoonseaView(releaseActive: boolean = null) {
     this.moonseaBarActive = releaseActive || !this.moonseaBarActive;
 
-    if (this.moonseaBarActive && (this.active || this.moonbaseActive || this.releaseBarActive || this.miningBarActive)) {
+    if (this.moonseaBarActive && (this.active || this.moonbaseActive )) {
       this.active = false;
       this.moonbaseActive = false;
       this.releaseBarActive = false;
-      this.miningBarActive = false;
     }
   }
 
-  toggleMiningView(releaseActive: boolean = null) {
-    this.miningBarActive = releaseActive || !this.miningBarActive;
-
-    if (this.miningBarActive && (this.active || this.moonbaseActive || this.releaseBarActive || this.moonseaBarActive)) {
-      this.active = false;
-      this.moonbaseActive = false;
-      this.releaseBarActive = false;
-      this.moonseaBarActive = false;
-    }
-  }
 
   @HostListener('document:click', ['$event'])
   onMouseEnter(event: any) {
     // where the event is originally invoked.   
     let footerMobileMenuTokenomicsItem = document.getElementById('footer-mobile-menu-tokenomics-item');
     let footerMobileMenuVestingItem = document.getElementById('footer-mobile-menu-vesting-item');
-    let footerMobileMenuMiningItem = document.getElementById('footer-mobile-menu-mining-item');
     let footerMobileMenuMoonseaItem = document.getElementById('footer-mobile-menu-moonsea-item');
 
     let isFooterMenuTokenomicsButtonVisible = footerMobileMenuTokenomicsItem != null && footerMobileMenuTokenomicsItem.contains(event.target);
@@ -137,7 +117,6 @@ export class SidebarComponent implements OnInit {
       !document.getElementById('nav-bar-tokenomics-text')?.contains(event.target) &&
       !isFooterMenuTokenomicsButtonVisible &&
       !footerMobileMenuVestingItem &&
-      !footerMobileMenuMiningItem &&
       !footerMobileMenuMoonseaItem) {
 
       // console.log("Clicked outside");
@@ -155,10 +134,7 @@ export class SidebarComponent implements OnInit {
         // Clicked outside the box
         this.releaseBarActive = false;
       }
-      if (!document.getElementById('mining-bar').contains(event.target)) {
-        // Clicked outside the box
-        this.miningBarActive = false;
-      }
+
       if (!document.getElementById('moonsea-bar').contains(event.target)) {
         // Clicked outside the box
         this.moonseaBarActive = false;

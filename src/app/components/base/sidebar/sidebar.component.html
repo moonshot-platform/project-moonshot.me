@@ -14,9 +14,6 @@
       <p (click)="toggleMoonseaView()">MoonSea</p>
     </li>
     <li>
-      <p (click)="toggleMiningView()">Mining</p>
-    </li>
-    <li>
       <p [routerLink]="['/faucet']" routerLinkActive="router-link-active">Faucet</p>
     </li>
     <li>
@@ -37,10 +34,6 @@
 
 <section id="moonbase-bar" class="moonbase-bar">
   <app-moonbase-bar *ngIf="moonbaseActive"></app-moonbase-bar>
-</section>
-
-<section id="mining-bar" class="mining-bar">
-  <app-mining-bar *ngIf="miningBarActive"></app-mining-bar>
 </section>
 
 <section id="release-bar" class="release-bar">

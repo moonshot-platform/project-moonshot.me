@@ -52,9 +52,6 @@ export class FooterMobileComponent implements OnInit {
     });
 
     this.walletConnectService.onWalletStateChanged().subscribe(async (state: boolean) => {
-      // this.isConnected = state;
-      // console.log("CONNECTION STATUS IN MOBILE FOOTER MENU: " + this.isConnected);
-
       if (state) {
         await this.checkUserVested();
       }
@@ -86,11 +83,6 @@ export class FooterMobileComponent implements OnInit {
 
   toggleReleaseBar() {
     this.sidebarService.onReleaseBarToggle(true);
-    this.isMenuOpen = true;
-  }
-
-  toggleMiningBar() {
-    this.sidebarService.onMiningBarToggle(true);
     this.isMenuOpen = true;
   }
 
