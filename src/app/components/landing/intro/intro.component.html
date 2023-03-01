@@ -186,11 +186,7 @@
             allows for more autonomy over the liquidity pool, now upgraded
             to PancakeSwap V2.<br><br>
           </p>
-          <p *ngIf="!hasClaimed">
-            If you haven't claimed your MSHOT (yet), connect your wallet and
-            click the Claim button to receive your balance in MSHOT.
-          </p>
-
+     
           <p *ngIf="isConnected && hasClaimed" class="claimed-text">
             You have successfully claimed your
             MSHOT (V2).<br> To
@@ -199,16 +195,6 @@
             <span (click)="addMshotToMetaMaskWallet()">here</span> to add the token to your Metamask.
           </p>
 
-          <p *ngIf="isConnected && hasOldMoonshot" class="claimed-text">
-            &nbsp;<br/>
-            Moonshooters still holding the old Moonshot tokens are requested to return them.
-            This will allow us to (partly) free the locked liquidity on V1 and strengthen the project.
-          </p>
-
-          <p *ngIf="isConnected && !hasClaimed && moonshotBalance == '0'">
-            <br>
-            The currently selected address is not eligible for claiming MSHOT v2 tokens.
-          </p>
         </div>
         <div class="flex justify-end" style="flex: 0.6;">
           <div class="round-mini-button" (click)="scrollToElement('', 'moonswap')">
@@ -216,27 +202,10 @@
           </div>
         </div>
       </div>
-
+<!-- 
       <div class="buttons-section">
-        
-        <a *ngIf="!hasClaimed" href="https://moonshotproject.substack.com/p/new-shuttle-moonshot-token-migration?s=r" target="__blank"
-          class="outlined-button">Read
-          More</a>
-
-        <a *ngIf="isConnected && hasClaimed" class="outlined-button button" (click)="transferV1Moonshot()">
-            Return
-        </a>
-  
-        <a class="button" *ngIf="!isConnected" (click)="connectWalletAndRevealClaimSection()">
-          Connect Wallet
-        </a>
-
-        <a class="disabled-button button" *ngIf="isConnected && hasClaimed">
-          MSHOT Claimed
-          <img src="assets/media/icons/intro/Check_green.svg" alt="">
-        </a>
-
-        <!-- <div class="buy-section centered-row">
+      
+        <div class="buy-section centered-row">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2500.01 2500">
             <defs>
               <style>
@@ -273,9 +242,9 @@
               <i></i>
             </div>
           </div>
-        </div> -->
+        </div> 
       </div>
-
+-->
     </div>
   </div>
 </section>

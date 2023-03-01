@@ -204,14 +204,10 @@ export class IntroComponent implements OnInit, OnDestroy {
       this.isInProcess = true;
       this.openWalletConnectionDialog();
       this.isInProcess = false;
-    } else {
-      this.revealMoonSwapSection()
-    }
+    } 
 
     this.walletConnectService.onWalletStateChanged().subscribe((state: boolean) => {
-      if (state) {
-        this.revealMoonSwapSection()
-      }
+      
     });
 
   }

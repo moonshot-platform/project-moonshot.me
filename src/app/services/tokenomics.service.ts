@@ -79,7 +79,7 @@ export class TokenomicsService {
 
     const circ = Math.round(Number(web3.utils.fromWei(circSupply.toString(), 'nanoether')));
     const dead = Math.round(Number(web3.utils.fromWei(deadBalance, 'nanoether')));
-    const claimable = Math.round(Number(web3.utils.fromWei(vestedBalance, 'nanoether')));
+    //const claimable = Math.round(Number(web3.utils.fromWei(vestedBalance, 'nanoether')));
     
     const oneBNB = Math.round(Number(web3.utils.fromWei(uniTotalOutputSell[1], 'nanoether')));
     const price1bnb = Math.round(Number(web3.utils.fromWei(busdPAir[1], 'micro')));
@@ -99,15 +99,13 @@ export class TokenomicsService {
           'marketcap': this.formatAmount(Math.round(circ / oneBNB * myJson.price)),
           'priceFor1mMoonshot': priceFor1BNB,
           'priceForMoonshot': priceFor1ss,
-          'unclaimedMoonshot' : this.formatAmount(claimable)
+         // 'unclaimedMoonshot' : this.formatAmount(claimable)
         }
 
 
         this.onShare(data);
 
       }).catch(function (e) {
-        // console.log("HATAAAA");
-
         console.log(e);
         this.serverError = true;
       }

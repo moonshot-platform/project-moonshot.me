@@ -113,7 +113,7 @@ export class TokenomicsComponent implements OnInit {
 
     this.list[0][1]['val'] = this.data['circulatingSupply'];
     this.list[0][2]['val'] = this.data['burnedAmount'];
-    this.list[0][3]['val'] = this.data['unclaimedMoonshot'];
+    this.list[0][3]['val'] = 0;
     this.list[1][0]['val'] = this.data['priceFor1BNB'];
     this.list[1][0]['val'] = this.data['priceFor1BNB'];
     this.list[1][1]['val'] = '$' + this.data['marketcap'].substring(0, 13);

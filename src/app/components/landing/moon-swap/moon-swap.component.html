@@ -1,30 +1,9 @@
 <section class="moonswap flex-end pb200" *ngIf="isConnected">
   <div class="inner flex-space-between align-start">
-    <div class="stats flex1">
-      <div class="futuristic-container p30d24m">
-        <p class="mb30">TOKEN MIGRATION</p>
-        <span class="p-white-span-primary orbitron">MSHOT <span class="v2">(V2)</span></span>
-      </div>
-      <div class="futuristic-container bottom-only">
-        <p class="p30">You can easily migrate your MOONSHOT to MSHOT (v2).
-          <br><br>
-          Just connect your wallet and
-          claim MSHOT now!</p>
-      </div>
-      <a href="https://moonshotproject.substack.com/p/new-shuttle-moonshot-token-migration?s=r" target="__blank"
-        class="outlined-button only-desktop">Read more</a>
-    </div>
-
+   
     <div class="info flex3">
       <div class="flex">
         <div class="flex2 futuristic-container top-only pv30 moonswap-operation-container">
-          <!-- <p *ngIf="'MSHOT Claimed' == buttonName" class="claimed-text">Congratulations, you have successfully claimed
-            your
-            MSHOT (v2).<br> To
-            view your
-            MSHOT, add our <span [cdkCopyToClipboard]=address>token address</span> to your wallet or press
-            <span (click)="addMshotToMetaMaskWallet()">here</span> for your Metamask.
-          </p> -->
          
           <div class="row">
             <div class="detail-form">
@@ -41,36 +20,11 @@
                 <p class="desc-title">Current balance:</p>
 
               </div>
-              <div class="moonshot-v1 centered-row mb20">
-                <p class="desc-title-light">MOONSHOT</p>
-                <p class="value">{{moonshotBalanceText}}</p>
-              </div>
               <div class="mshot-v2 centered-row">
                 <p class="desc-title-light">MSHOT (v2)</p>
                 <p class="value">{{mshotV2BalanceText}}</p>
               </div>
             </div>
-
-            <div class="buttons-container flex1">
-
-              <a *ngIf="!hasClaimed" class="button claim-button" [class.disable]="'MSHOT Claimed' == buttonName"
-                [ngClass]="{'loading': isInProcess}"
-                (click)="!isInProcess ? claimMSHOT() : null">{{isInProcess ? '' :buttonName}}
-                <img *ngIf="isInProcess" src="assets/media/videos/Loading_yellowBG.gif" class="loader-img">
-                <img class="check" *ngIf="buttonName == 'MSHOT Claimed'" src="assets/media/icons/intro/Check_green.svg"
-                  alt="claimed_check">
-              </a>
-
-              <a class="outlined-button add-mshot-button" (click)="addMshotToMetaMaskWallet()">
-                Add MSHOT
-                <img src="assets/media/icons/moonswap/metamask-fox.svg" alt="Metamask Wallet">
-              </a>
-
-            </div>
-
-            <a href="https://moonshotproject.substack.com/p/new-shuttle-moonshot-token-migration?s=r" target="__blank"
-              class="outlined-button only-mobile">Read more</a>
-          </div>
 
         </div>
       </div>
