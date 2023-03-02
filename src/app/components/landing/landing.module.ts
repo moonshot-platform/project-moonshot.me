@@ -30,7 +30,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { PressComponent } from './press/press.component';
 import { FooterMobileModule } from '../base/footer-mobile/footer-mobile.module';
-import { MoonSwapComponent } from './moon-swap/moon-swap.component';
 
 
 
@@ -47,7 +46,6 @@ import { MoonSwapComponent } from './moon-swap/moon-swap.component';
     InvestmentComponent,
     TutorialComponent,
     PressComponent,
-    MoonSwapComponent,
   ],
   imports: [
     MatIconModule,
