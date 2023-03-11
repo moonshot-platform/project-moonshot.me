@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { WalletService } from 'src/app/services/wallet-service.service';
 import { MatDialogRef } from '@angular/material/dialog';
+import { WalletService } from 'src/app/services/wallet-service.service';
 
 @Component({
   selector: 'app-wallet-connect',

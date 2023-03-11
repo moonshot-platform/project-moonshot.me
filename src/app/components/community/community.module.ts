@@ -10,7 +10,6 @@ import { MoonticketComponent } from './moonticket/moonticket.component';
 import { SidebarModule } from '../base/sidebar/sidebar.module';
 import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from 'src/app/app-routing.module';
-import { RoadmapModule } from '../about/roadmap/roadmap.module';
 import { NavigationModule } from '../base/navigation/navigation.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterMobileModule } from '../base/footer-mobile/footer-mobile.module';
@@ -32,7 +31,6 @@ import { FooterMobileModule } from '../base/footer-mobile/footer-mobile.module';
     CountdownModule,
     AppRoutingModule,
     SidebarModule,
-    RoadmapModule,
     NavigationModule,
     FormsModule,
     ReactiveFormsModule,

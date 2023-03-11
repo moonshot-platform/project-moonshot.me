@@ -4,7 +4,6 @@ import { LandingComponent } from './components/landing/landing.component';
 import { AboutComponent } from './components/about/about.component';
 import { TokenLockComponent } from './components/token-lock/token-lock.component';
 import { CommunityComponent } from './components/community/community.component';
-import { ShooterComponent } from './components/games/shooter/shooter.component';
 import { NewsComponent } from './components/news/news.component';
 import { MoonticketPromoComponent } from './components/moonticket-promo/moonticket-promo.component';
 import { NightSkyComponent } from './components/night-sky/night-sky.component';
@@ -12,8 +11,6 @@ import { RabbitsMoonticketComponent } from './components/rabbits-moonticket/rabb
 import { TutorialComponent } from './components/landing/tutorial/tutorial.component';
 import { VestingComponent } from './components/vesting/vesting.component';
 import { FaucetComponent } from './components/faucet/faucet.component';
-import { MoonStormComponent } from './components/games/moon-storm/moon-storm.component';
-import { VultureWhitelistComponent } from './components/vulture-whitelist/vulture-whitelist.component';
 
 const routes: Routes = [
   {
@@ -37,10 +34,6 @@ const routes: Routes = [
     component: NewsComponent
   },
   {
-    path: ShooterComponent.routeName,
-    component: ShooterComponent
-  },
-  {
     path: MoonticketPromoComponent.routeName,
     component: MoonticketPromoComponent
   },
@@ -59,14 +52,6 @@ const routes: Routes = [
   {
     path: FaucetComponent.routeName,
     component: FaucetComponent
-  },
-  {
-    path: MoonStormComponent.routeName,
-    component: MoonStormComponent
-  },
-  {
-    path: VultureWhitelistComponent.routeName,
-    component: VultureWhitelistComponent
   },
   {
     path: TutorialComponent.anchorName,

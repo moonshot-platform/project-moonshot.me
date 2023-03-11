@@ -20,8 +20,6 @@ export function countdownConfigFactory(): CountdownConfig {
 
 import * as Hammer from 'hammerjs';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
-import { ShooterModule } from './components/games/shooter/shooter.module';
-import { SpaceInvaderComponent } from './components/games/space-invader/space-invader.component';
 import { GtagModule } from 'angular-gtag';
 import { FooterMobileModule } from './components/base/footer-mobile/footer-mobile.module';
 import { NewsModule } from './components/news/news.module';
@@ -36,9 +34,7 @@ import { WalletConnectModule } from './components/base/wallet-connect/wallet-con
 import { VestingComponent } from './components/vesting/vesting.component';
 import { UiSwitchModule } from 'ngx-ui-switch';
 import { FaucetModule } from './components/faucet/faucet.module';
-import { GamesModule } from './components/games/games.module';
-import { VultureWhitelistComponent } from './components/vulture-whitelist/vulture-whitelist.component';
-import { VultureWhitelistModule } from './components/vulture-whitelist/vulture-whitelist.module';
+
 
 @Injectable()
 export class HammerConfig extends HammerGestureConfig {
@@ -50,7 +46,6 @@ export class HammerConfig extends HammerGestureConfig {
 @NgModule({
   declarations: [
     AppComponent,
-    SpaceInvaderComponent,
     MoonticketPromoComponent,
     NightSkyComponent,
     RabbitsMoonticketComponent,
@@ -71,12 +66,9 @@ export class HammerConfig extends HammerGestureConfig {
     FooterModule,
     CountdownModule,
     BrowserAnimationsModule,
-    ShooterModule,
     MatDialogModule,
     WalletConnectModule,
     FaucetModule,
-    GamesModule,
-    VultureWhitelistModule,
     ToastrModule.forRoot(
       { positionClass: 'toast-bottom-right' }
     ),

@@ -68,10 +68,6 @@ export class NavigationComponent implements OnInit {
           'path': 'security'
         },
         {
-          'name': 'Roadmap',
-          'path': 'roadmap'
-        },
-        {
           'name': 'Team',
           'path': 'team'
         }

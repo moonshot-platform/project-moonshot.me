@@ -736,55 +736,6 @@ export class WalletService {
     return this.shortTheNumber(amount);
   }
 
-  async registerToVulture() {
-
-    let currentTime = Date.now();
-
-    if (currentTime < 1654628400) {
-      this.toastrService.info("Whitelist is closed!", "VULTURE")
-      return
-    }
-
-    let tx, isListed;
-
-    isListed = await this.isRegisteredToVulture();
-    console.log("Is Listed : " + isListed);
-
-    if (isListed)
-      return;
-
-
-    await this.checkNetworkOnBSCMainnet();
-
-    try {
-      tx = await this.vultureContract.register();
-
-      this.toastrService.success(`Registering is successful for ${this.account}`, "VULTURE")
-    } catch (error) {
-      console.log(error);
-
-      this.toastrService.error(`${error.message}`, "VULTURE")
-    }
-  }
-
-  async isRegisteredToVulture(): Promise<boolean> {
-    let isListed;
-
-    try {
-      isListed = await this.vultureContract.isListed();
-
-      if (isListed)
-        this.toastrService.success(`You are already whitelisted with ${this.account}`, "VULTURE")
-
-    } catch (error) {
-      console.log(error);
-
-      this.toastrService.error(`${error.message}`, "VULTURE")
-    }
-
-    return isListed;
-  }
-
   async checkNetworkOnBSCMainnet() {
     let currentNetwork = await this.provider.getNetwork();
     if (currentNetwork.chainId != providerChainID) {
