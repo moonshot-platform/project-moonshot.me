@@ -63,6 +63,7 @@ export class IntroComponent implements OnInit, OnDestroy {
     {
       desc: "Hoppa! A 2D-NFT platform game",
       img: "assets/media/images/intro/hoppa.webp",
+      bottomImg: "assets/media/images/intro/Hoppa.svg",
       url: "https://moonarcade.games/hoppa",
       urlName: "moonarcade.games"
     }
