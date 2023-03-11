@@ -1,0 +1,96 @@
+@import "includes";
+
+section.products {
+  @include margins(100px, 0px);
+  @include paddingsInside(100px, 20px);
+
+  background-color: $primary;
+  color: black;
+
+  >.inner {
+    @extend %max-width-center;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+
+  .inner {
+    max-width: 900px;
+    text-align: center;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .sub-title {
+    font-weight: $bold;
+  }
+}
+
+.options {
+  display: flex;
+  margin-top: 100px;
+
+  .option {
+    flex: 1;
+    margin-right: 30px;
+
+    &:last-child {
+      margin-right: 0px;
+    }
+
+    >.box {
+      @include paddingsInside(50px, 0px);
+      width: 100%;
+      position: relative;
+
+      &.moon-box {
+        background: url("/assets/media/images/moon_box_frame.webp") no-repeat center center;
+        background-size: contain;
+      }
+
+      &.moon-arcade {
+        background: url("/assets/media/images/moon_arcade_frame.webp") no-repeat center center;
+        background-size: contain;
+      }
+
+    }
+
+    .icon {
+      max-height: 120px;
+      height: 100%;
+    }
+
+    .outlined-button.disabled {
+      opacity: 0.5;
+    }
+  }
+}
+
+.notice {
+  position: absolute;
+}
+
+.animated-logo {
+  // width: 234px;
+  padding: 35px 0px;
+  height: 45px;
+}
+
+@media only screen and (max-width: $md) {
+  .options {
+    margin-top: 50px;
+    flex-direction: column;
+
+    >div.option {
+      margin: 20px 0;
+
+      &:nth-child(2) {
+        margin: 20px 0;
+      }
+    }
+  }
+}
