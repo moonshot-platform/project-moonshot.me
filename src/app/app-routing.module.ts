@@ -4,7 +4,6 @@ import { LandingComponent } from './components/landing/landing.component';
 import { AboutComponent } from './components/about/about.component';
 import { TokenLockComponent } from './components/token-lock/token-lock.component';
 import { CommunityComponent } from './components/community/community.component';
-import { NewsComponent } from './components/news/news.component';
 import { MoonticketPromoComponent } from './components/moonticket-promo/moonticket-promo.component';
 import { NightSkyComponent } from './components/night-sky/night-sky.component';
 import { RabbitsMoonticketComponent } from './components/rabbits-moonticket/rabbits-moonticket.component';
@@ -28,10 +27,6 @@ const routes: Routes = [
   {
     path: CommunityComponent.routeName,
     component: CommunityComponent
-  },
-  {
-    path: NewsComponent.routeName,
-    component: NewsComponent
   },
   {
     path: MoonticketPromoComponent.routeName,
