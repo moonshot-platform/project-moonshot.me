@@ -4,7 +4,6 @@ import { CommunityComponent } from './community.component';
 import { FooterModule } from '../base/footer/footer.module';
 import { CountdownModule } from 'ngx-countdown';
 import { IntroComponent } from './intro/intro.component';
-import { GalleryComponent } from './gallery/gallery.component';
 import { MoontvComponent } from './moontv/moontv.component';
 import { MoonticketComponent } from './moonticket/moonticket.component';
 import { SidebarModule } from '../base/sidebar/sidebar.module';
@@ -20,7 +19,6 @@ import { FooterMobileModule } from '../base/footer-mobile/footer-mobile.module';
   declarations: [
     CommunityComponent,
     IntroComponent,
-    GalleryComponent,
     MoontvComponent,
     MoonticketComponent
   ],

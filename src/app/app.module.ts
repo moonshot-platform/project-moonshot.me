@@ -22,7 +22,6 @@ import * as Hammer from 'hammerjs';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { GtagModule } from 'angular-gtag';
 import { FooterMobileModule } from './components/base/footer-mobile/footer-mobile.module';
-import { NewsModule } from './components/news/news.module';
 import { MoonticketPromoComponent } from './components/moonticket-promo/moonticket-promo.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NightSkyComponent } from './components/night-sky/night-sky.component';
@@ -58,7 +57,6 @@ export class HammerConfig extends HammerGestureConfig {
     SignModule,
     LandingModule,
     AboutModule,
-    NewsModule,
     TokenLockModule,
     FormsModule,
     ReactiveFormsModule,

@@ -54,12 +54,6 @@ app-header {
   width: calc(100% - 64px);
 }
 
-app-news {
-  background: url("/assets/media/images/illustration_1.webp") no-repeat;
-  background-size: auto;
-  position: relative;
-  display: flex;
-}
 
 @media only screen and (max-width: $md) {
   section.landing {
@@ -73,9 +67,6 @@ app-news {
     }
   }
 
-  app-news {
-    background-size: 45%;
-  }
 }
 
 @media only screen and (max-width: $sm) {
