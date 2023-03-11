@@ -450,29 +450,6 @@ export class WalletService {
     }
   }
 
-  async donate(donationValue: number): Promise<any> {
-    // Creating a transaction param
-    const tx = {
-      from: this.account,
-      to: "0x9d8a5d6B405c2Eb7cee724F4B2F67a902F0f0864",
-      value: ethers.utils.parseEther(`${donationValue}`),
-    };
-
-    try {
-      let transaction = await this.signer.sendTransaction(tx);
-      if (transaction !== undefined) {
-        this.toastrService.success("Liftoff! We have a liftoff!");
-        return true;
-      }
-    } catch (error) {
-      console.log(error.message);
-      this.toastrService.warning(error.message);
-
-      return false;
-    }
-    return false;
-  }
-
   async hasVested(contract: VestingContractModel): Promise<boolean> {
     let vestingContract = new ethers.Contract(contract.contractAddress, contract.abi, this.signer);
     let vestingCounts = await vestingContract.getVestingSchedulesCountByBeneficiary(this.account);

@@ -41,14 +41,6 @@ export class NavigationComponent implements OnInit {
           'path': 'moon-tv'
         },
         {
-          'name': 'Fuel the rocket',
-          'path': 'merchandise'
-        },
-        {
-          'name': 'Merchandise',
-          'path': 'merchandise'
-        },
-        {
           'name': 'MoonTicket',
           'path': 'ticket'
         },

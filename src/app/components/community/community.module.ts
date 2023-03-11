@@ -11,11 +11,8 @@ import { SidebarModule } from '../base/sidebar/sidebar.module';
 import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { RoadmapModule } from '../about/roadmap/roadmap.module';
-import { MerchandiseModule } from './merchandise/merchandise.module';
 import { NavigationModule } from '../base/navigation/navigation.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DonateDialogComponent } from './donate-dialog/donate-dialog.component';
-import { WalletconnectComponent } from './donate-dialog/walletconnect/walletconnect.component';
 import { FooterMobileModule } from '../base/footer-mobile/footer-mobile.module';
 
 
@@ -26,9 +23,7 @@ import { FooterMobileModule } from '../base/footer-mobile/footer-mobile.module';
     IntroComponent,
     GalleryComponent,
     MoontvComponent,
-    MoonticketComponent,
-    DonateDialogComponent,
-    WalletconnectComponent,
+    MoonticketComponent
   ],
   imports: [
     MatIconModule,
@@ -41,7 +36,6 @@ import { FooterMobileModule } from '../base/footer-mobile/footer-mobile.module';
     NavigationModule,
     FormsModule,
     ReactiveFormsModule,
-    MerchandiseModule,
     FooterMobileModule
   ]
 })

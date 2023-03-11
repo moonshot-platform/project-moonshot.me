@@ -9,75 +9,7 @@ export class MembersComponent implements OnInit {
   loadMoreCount: number = 8;
 
   members: any = [
-    {
-      name: 'zer0',
-      image: 'assets/media/images/members/c0ntrolzer0.webp',
-      title: 'Main Developer',
-      about: 'Main dev and guardian of the keys.'
-    },
-    {
-      name: 'luisqsm',
-      image: 'assets/media/images/members/luisqsm.webp',
-      title: 'Design & Brand Manager',
-      about: 'Architect, 3D artist, digital designer & crypto enthusiast.',
-      social: [
-        {
-          link: 'https://twitter.com/luisqsm2',
-          icon: 'assets/media/icons/social/twitter-yellow-round-icon.svg',
-          alt: 'twitter-icon'
-        }
-      ]
-    },
- /*   {
-      name: 'Smack',
-      image: 'assets/media/images/members/smack.webp',
-      title: 'Positivity Guru',
-      about: 'Connecting the people, the dots, to one piece of art.',
-      social: [
-        {
-          link: 'https://twitter.com/smack_tm',
-          icon: 'assets/media/icons/social/twitter-yellow-round-icon.svg',
-          alt: 'twitter-icon'
-        },
-        {
-          link: 'https://t.me/Bornlucky89',
-          icon: 'assets/media/icons/social/telegram-yellow-round-icon.svg',
-          alt: 'telegram-icon'
-        }
-      ]
-    }, */
-    {
-      name: 'Winnie',
-      image: 'assets/media/images/members/winnie.webp',
-      title: 'Moderator/Contributor',
-      about: 'Running MoonSquad merchandise.'
-    },
-    {
-      name: 'Furkan',
-      image: 'assets/media/images/members/furkanksl.jpeg',
-      title: 'Frontend Developer',
-      about: 'A person who likes to produce something and learn quickly.',
-      social: [
-        {
-          link: 'https://github.com/furkanksl',
-          icon: 'assets/media/icons/social/github-yellow-round-icon.svg',
-          alt: 'github-icon'
-        },
-      ]
-    },
-/*    {
-      name: 'CryptoKam',
-      image: 'assets/media/images/members/cryptokam.webp',
-      title: 'Moderator/Contributor',
-      about: 'Marketing advisor.<br>Creative ideas support.<br>Shill trooper.<br>'
-    }, 
-    {
-      name: 'Sonic',
-      image: 'assets/media/images/members/sonic.webp',
-      title: 'Solidity Developer',
-      about: 'Experienced backend engineer turned solidity developer. Enthusiast of blockchain and smart contract.'
 
-    }, */
     {
       name: 'Borris Stain',
       image: 'assets/media/images/members/borris.webp',
@@ -114,19 +46,6 @@ export class MembersComponent implements OnInit {
       about: 'Responsible for the server side code and APIs of our web applications'
     },
     {
-      name: 'CryptoSeas',
-      image: 'assets/media/images/members/cryptoseas.webp',
-      title: 'Moderator/Contributor',
-      about: 'The voice of Moonshot.<br>Legacy Mod since day 1.',
-      social: [
-        {
-          link: 'https://twitter.com/TheVoiceOfCryp1',
-          icon: 'assets/media/icons/social/twitter-yellow-round-icon.svg',
-          alt: 'twitter-icon'
-        }
-      ]
-    },
-    {
       name: 'Moon Squad',
       image: 'assets/media/images/members/moonsquad.webp',
       title: 'Moderator/Marketeer ',
@@ -151,7 +70,25 @@ export class MembersComponent implements OnInit {
           alt: 'twitter-icon'
         }
       ]
-    }   
+    },
+    {
+      name: 'zer0',
+      image: 'assets/media/images/members/zer0.webp',
+      title: 'Developer',
+      about: 'Advisor / Developer'
+    }, 
+    {
+      name: 'Dandy Banger',
+      image: 'assets/media/images/members/dandybanger.webp',
+      title: 'Visioneer',
+      about: 'Concept Designer',
+    },
+    {
+      name: 'Pixel8it', 
+      image: 'assets/media/images/members/pixlel8it.webp',
+      title: 'Art Director',
+      about: 'Creative Designer',
+    }
   ];
 
 

@@ -8,7 +8,6 @@ import { MoonlpComponent } from './moonlp/moonlp.component';
 import { SidebarModule } from '../base/sidebar/sidebar.module';
 import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from 'src/app/app-routing.module';
-import { RoadmapModule } from '../about/roadmap/roadmap.module';
 import { NavigationModule } from '../base/navigation/navigation.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -27,7 +26,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CountdownModule,
     AppRoutingModule,
     SidebarModule,
-    RoadmapModule,
     NavigationModule,
     FormsModule,
     ReactiveFormsModule

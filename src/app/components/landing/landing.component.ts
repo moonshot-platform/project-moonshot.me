@@ -27,7 +27,6 @@ export class LandingComponent implements OnInit {
       { name: 'description', content: 'Moonshot is a NFT Gaming project in the DeFi space.' },
       { name: 'author', content: 'moonshot' },
       { name: 'google-site-verification', content: 'EZHfd9_OTQJTMkUyaylN0gU1RKC88aQnYBKoYiS1Ag4'},
-      //{name: 'keywords', content: 'Moonshot, How To Buy Moonshot,Moonshot\'s Partners, Moonshot Community, MoonTicket, MoonPaper, MoonTV, Tokenomics, Merchandise, MoonGallery, About Moonshot, Fuel the rocket, moonshot, how to buy moonshot, moonshot partners, moonshot community, moonticket, moonpaper'} 
       { name: 'twitter:card', content: 'summary' },
       { name: 'twitter:description', content: 'Moonshot is a NFT Gaming project in the DeFi space.' },
       { name: 'twitter:title', content: 'Moonshot' },
