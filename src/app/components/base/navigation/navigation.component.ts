@@ -56,7 +56,7 @@ export class NavigationComponent implements OnInit {
           'path': 'mechanics'
         },
         {
-          'name': 'Security',
+          'name': 'SAFU?',
           'path': 'security'
         },
         {
