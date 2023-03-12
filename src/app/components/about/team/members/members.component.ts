@@ -82,12 +82,26 @@ export class MembersComponent implements OnInit {
       image: 'assets/media/images/members/dandybanger.webp',
       title: 'Visioneer',
       about: 'Concept Designer',
+      social: [
+        {
+          link: 'https://twitter.com/Ra8bitsNFT',
+          icon: 'assets/media/icons/social/twitter-yellow-round-icon.svg',
+          alt: 'twitter-icon'
+        }
+      ]
     },
     {
       name: 'Pixel8it', 
-      image: 'assets/media/images/members/pixlel8it.webp',
+      image: 'assets/media/images/members/pixel8it.webp',
       title: 'Art Director',
       about: 'Creative Designer',
+      social: [
+        {
+          link: 'https://twitter.com/Ra8bitsNFT',
+          icon: 'assets/media/icons/social/twitter-yellow-round-icon.svg',
+          alt: 'twitter-icon'
+        }
+      ]
     }
   ];
 

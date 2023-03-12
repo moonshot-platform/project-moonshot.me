@@ -5,7 +5,6 @@ import { FooterModule } from '../base/footer/footer.module';
 import { CountdownModule } from 'ngx-countdown';
 import { IntroComponent } from './intro/intro.component';
 import { AboutComponent } from './about/about.component';
-import { VideoComponent } from './video/video.component';
 import { PartnersComponent } from './partners/partners.component';
 import { ExchangesComponent } from './exchanges/exchanges.component';
 import { EconomyComponent } from './economy/economy.component';
@@ -37,7 +36,6 @@ import { FooterMobileModule } from '../base/footer-mobile/footer-mobile.module';
     IntroComponent,
     AboutComponent,
     PartnersComponent,
-    VideoComponent,
     ExchangesComponent,
     EconomyComponent,
     ProductsComponent,

@@ -19,7 +19,7 @@ export class NavigationComponent implements OnInit {
 
   public navItems: any[] = [
     {
-      'name': 'How to buy',
+      'name': 'Info Station',
       'path': '',
       'fragment': 'how-to-buy'
     },
