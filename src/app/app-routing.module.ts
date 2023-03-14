@@ -6,7 +6,6 @@ import { TokenLockComponent } from './components/token-lock/token-lock.component
 import { CommunityComponent } from './components/community/community.component';
 import { MoonticketPromoComponent } from './components/moonticket-promo/moonticket-promo.component';
 import { NightSkyComponent } from './components/night-sky/night-sky.component';
-import { RabbitsMoonticketComponent } from './components/rabbits-moonticket/rabbits-moonticket.component';
 import { TutorialComponent } from './components/landing/tutorial/tutorial.component';
 import { VestingComponent } from './components/vesting/vesting.component';
 import { FaucetComponent } from './components/faucet/faucet.component';
@@ -35,10 +34,6 @@ const routes: Routes = [
   {
     path: NightSkyComponent.routeName,
     component: NightSkyComponent
-  },
-  {
-    path: RabbitsMoonticketComponent.routeName,
-    component: RabbitsMoonticketComponent
   },
   {
     path: VestingComponent.routeName,
