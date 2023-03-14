@@ -25,7 +25,6 @@ import { FooterMobileModule } from './components/base/footer-mobile/footer-mobil
 import { MoonticketPromoComponent } from './components/moonticket-promo/moonticket-promo.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NightSkyComponent } from './components/night-sky/night-sky.component';
-import { RabbitsMoonticketComponent } from './components/rabbits-moonticket/rabbits-moonticket.component';
 import { WalletConnectComponent } from './components/base/wallet-connect/wallet-connect.component';
 import { ToastrModule } from 'ngx-toastr';
 import { LocalStorageService } from './services/local.storage.service';
@@ -47,7 +46,6 @@ export class HammerConfig extends HammerGestureConfig {
     AppComponent,
     MoonticketPromoComponent,
     NightSkyComponent,
-    RabbitsMoonticketComponent,
     VestingComponent,
   ],
   imports: [
