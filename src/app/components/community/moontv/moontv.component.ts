@@ -10,11 +10,11 @@ export class MoontvComponent implements OnInit {
 
   public videoSrcList = [
     {
-      src: this.transform("https://www.youtube.com/watch?v=uRi-6OL-QrI"),
+      src: this.transform("https://www.youtube.com/embed/uRi-6OL-QrI"),
       thumb: ""
     },
     {
-      src: this.transform("https://www.youtube.com/watch?v=DmjcRE0NP0w"),
+      src: this.transform("https://www.youtube.com/embed/DmjcRE0NP0w"),
       thumb: ""
     }
   ];
