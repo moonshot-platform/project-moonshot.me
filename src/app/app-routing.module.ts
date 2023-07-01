@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LandingComponent } from './components/landing/landing.component';
 import { AboutComponent } from './components/about/about.component';
-import { TokenLockComponent } from './components/token-lock/token-lock.component';
 import { CommunityComponent } from './components/community/community.component';
 import { MoonticketPromoComponent } from './components/moonticket-promo/moonticket-promo.component';
 import { NightSkyComponent } from './components/night-sky/night-sky.component';
@@ -18,10 +17,6 @@ const routes: Routes = [
   {
     path: AboutComponent.routeName,
     component: AboutComponent
-  },
-  {
-    path: TokenLockComponent.routeName,
-    component: TokenLockComponent
   },
   {
     path: CommunityComponent.routeName,
