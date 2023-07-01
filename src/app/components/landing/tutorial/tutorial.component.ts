@@ -43,7 +43,7 @@ export class TutorialComponent implements OnInit {
     },
     {
       title: 'Set slippage to 11%',
-      description: 'Click on the gear button and set slippage to 11% (the slippage covers the 10% explained in tokenomics). If that gives you an error, increase the slippage to 12% or more.',
+      description: 'Click on the gear button and set slippage to 1-2%.',
     },
     {
       title: 'Swap BNB for Moonshot',
